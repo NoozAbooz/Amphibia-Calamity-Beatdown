@@ -1,0 +1,161 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
+[ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=3]
+
+[node name="pauseScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dark" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labelMain" type="Label" parent="."]
+margin_right = 1280.0
+margin_bottom = 380.0
+theme = ExtResource( 1 )
+text = "PAUSED"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="basicMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="buttonResume" type="Button" parent="basicMenu"]
+margin_left = 320.0
+margin_top = 300.0
+margin_right = 960.0
+margin_bottom = 350.0
+focus_neighbour_bottom = NodePath("../buttonMap")
+theme = ExtResource( 3 )
+text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonMap" type="Button" parent="basicMenu"]
+margin_left = 320.0
+margin_top = 400.0
+margin_right = 960.0
+margin_bottom = 450.0
+focus_neighbour_top = NodePath("../buttonResume")
+focus_neighbour_bottom = NodePath("../buttonDrop")
+theme = ExtResource( 3 )
+text = "Back to Map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonDrop" type="Button" parent="basicMenu"]
+margin_left = 320.0
+margin_top = 500.0
+margin_right = 960.0
+margin_bottom = 550.0
+focus_neighbour_top = NodePath("../buttonMap")
+theme = ExtResource( 3 )
+text = "Drop Player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dropMenu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1240.0
+margin_bottom = -680.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonBack" type="Button" parent="dropMenu"]
+margin_left = 320.0
+margin_top = 500.0
+margin_right = 960.0
+margin_bottom = 550.0
+theme = ExtResource( 3 )
+text = "Nevermind!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonP1" type="Button" parent="dropMenu"]
+margin_left = 290.0
+margin_top = 300.0
+margin_right = 390.0
+margin_bottom = 400.0
+theme = ExtResource( 3 )
+text = " P1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonP2" type="Button" parent="dropMenu"]
+margin_left = 490.0
+margin_top = 300.0
+margin_right = 590.0
+margin_bottom = 400.0
+theme = ExtResource( 3 )
+text = " P2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonP3" type="Button" parent="dropMenu"]
+margin_left = 690.0
+margin_top = 300.0
+margin_right = 790.0
+margin_bottom = 400.0
+theme = ExtResource( 3 )
+text = " P3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonP4" type="Button" parent="dropMenu"]
+margin_left = 890.0
+margin_top = 300.0
+margin_right = 990.0
+margin_bottom = 400.0
+theme = ExtResource( 3 )
+text = " P4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="verifyMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="optionsMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="basicMenu/buttonResume" to="." method="_on_buttonResume_pressed"]
+[connection signal="pressed" from="basicMenu/buttonMap" to="." method="_on_buttonMap_pressed"]
+[connection signal="pressed" from="basicMenu/buttonDrop" to="." method="_on_buttonDrop_pressed"]
+[connection signal="pressed" from="dropMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
+[connection signal="pressed" from="dropMenu/buttonP1" to="." method="_on_buttonP1_pressed"]
+[connection signal="pressed" from="dropMenu/buttonP2" to="." method="_on_buttonP2_pressed"]
+[connection signal="pressed" from="dropMenu/buttonP3" to="." method="_on_buttonP3_pressed"]
+[connection signal="pressed" from="dropMenu/buttonP4" to="." method="_on_buttonP4_pressed"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://maps/wartwood/wartwood.glb" type="PackedScene" id=1]
+
+[node name="wartwood" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+
+[node name="static_collision" parent="Plane " index="0"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sphere" parent="." index="5"]
+transform = Transform( 0.710166, 0, 0, 0, 0.710166, 0, 0, 0, 0.710166, 0.669253, 6.04219, 11.5191 )

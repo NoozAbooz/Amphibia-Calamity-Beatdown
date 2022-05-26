@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/cam.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 40, 40 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 2, 80, 80 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.313726, 0, 1 )
+
+[node name="camera_pivot" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 0, 0 )
+current = true
+fov = 30.0
+size = 20.0
+far = 200.0
+script = ExtResource( 1 )
+
+[node name="Area" type="Area" parent="Camera"]
+collision_layer = 512
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Camera/Area"]
+shape = SubResource( 4 )
+
+[node name="leftWall" type="KinematicBody" parent="."]
+transform = Transform( 0.906308, 1.49011e-08, 0.422617, 0.109382, 0.965923, -0.234569, -0.408218, 0.258818, 0.875424, -19.0937, 9.38038, -35.0062 )
+collision_layer = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="leftWall"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="leftWall"]
+transform = Transform( 1, 1.49012e-08, -8.9407e-08, 1.49012e-08, 1, 8.9407e-08, 5.96046e-08, -7.45058e-08, 1, 0, 0, 0 )
+visible = false
+cast_shadow = 0
+mesh = SubResource( 2 )
+skeleton = NodePath("../CollisionShape")
+material/0 = SubResource( 3 )
+
+[node name="passThrough" type="Area" parent="leftWall" groups=["oneWayRight"]]
+transform = Transform( 1, -1.42109e-14, 0, -3.55271e-15, 1, 2.84217e-14, 2.98023e-08, -2.84217e-14, 1, 1, 0, 0 )
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2" type="CollisionShape" parent="leftWall/passThrough"]
+transform = Transform( 1, 1.49012e-08, 0, -7.45058e-09, 1, -1.49012e-08, 0, 2.98023e-07, 1, -1.93185, 0.133974, -0.5 )
+shape = SubResource( 1 )
+
+[node name="rightWall" type="KinematicBody" parent="."]
+transform = Transform( 0.906308, -1.49011e-08, -0.422617, -0.109382, 0.965923, -0.234569, 0.408218, 0.258818, 0.875424, 19.0937, 9.48938, -35.4152 )
+collision_layer = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="rightWall"]
+shape = SubResource( 1 )
+
+[node name="passThrough" type="Area" parent="rightWall" groups=["oneWayLeft"]]
+transform = Transform( 1, 1.42109e-14, 0, 3.55271e-15, 1, 1.42109e-14, -2.98023e-08, 0, 1, -1, 0, 3.8147e-06 )
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2" type="CollisionShape" parent="rightWall/passThrough"]
+transform = Transform( 1, -1.49012e-08, 0, -7.45058e-09, 1, -1.49012e-08, 1.49012e-08, 2.98023e-08, 1, 1.93185, 0.133975, -0.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="rightWall"]
+transform = Transform( 1, -7.45058e-09, 2.98023e-08, 0, 1, -1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0 )
+visible = false
+cast_shadow = 0
+mesh = SubResource( 2 )
+skeleton = NodePath("../CollisionShape")
+material/0 = SubResource( 3 )
+
+[node name="spawnFinder" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.965925, -0.258819, 0, 0.258819, 0.965925, 0, -41, -40 )
+
+[node name="pivot" type="Spatial" parent="spawnFinder"]
+transform = Transform( 1, 0, 0, 0, 1, 6.39488e-14, 0, -5.68434e-14, 1, 0, 0, 0 )
+
+[node name="rays" type="Spatial" parent="spawnFinder/pivot"]
+transform = Transform( 1, 0, 0, 0, 1, -4.26326e-14, 0, -8.52651e-14, 1, 0, 0, 0 )
+
+[node name="RayCast" type="RayCast" parent="spawnFinder/pivot/rays"]
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.129855, -0.484626 )
+enabled = true
+cast_to = Vector3( 0, -300, 0 )
+collision_mask = 2
+debug_shape_custom_color = Color( 0.898039, 0, 1, 1 )
+debug_shape_thickness = 4.0
+
+[node name="RayCast2" type="RayCast" parent="spawnFinder/pivot/rays"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.500782, 0, 0 )
+enabled = true
+cast_to = Vector3( 0, -300, 0 )
+collision_mask = 2
+debug_shape_custom_color = Color( 0.898039, 0, 1, 1 )
+debug_shape_thickness = 4.0
+
+[node name="RayCast3" type="RayCast" parent="spawnFinder/pivot/rays"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, -0.126123, 0.470699 )
+enabled = true
+cast_to = Vector3( 0, -300, 0 )
+collision_mask = 2
+debug_shape_custom_color = Color( 0.898039, 0, 1, 1 )
+debug_shape_thickness = 4.0
+
+[node name="RayCast4" type="RayCast" parent="spawnFinder/pivot/rays"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.496546, 0, 0 )
+enabled = true
+cast_to = Vector3( 0, -300, 0 )
+collision_mask = 2
+debug_shape_custom_color = Color( 0.898039, 0, 1, 1 )
+debug_shape_thickness = 4.0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit4.wav-d42ea5a46f0cea7409e8e8a6be7ea9a5.sample"
+
+[deps]
+
+source_file="res://sounds/hit4.wav"
+dest_files=[ "res://.import/hit4.wav-d42ea5a46f0cea7409e8e8a6be7ea9a5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://themes/Early GameBoy.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/menus/tally.gd" type="Script" id=2]
+[ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 4
+extra_spacing_space = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "coinCounter"
+length = 0.75
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("labelMain:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("labelTotal:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.333333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "intro"
+length = 1.5
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("labelMain:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.983333, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("labelTotal:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="tally" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labelMain" type="Label" parent="."]
+margin_right = 1280.0
+margin_bottom = 150.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Level Complete!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labelTotal" type="Label" parent="."]
+margin_top = 593.0
+margin_right = 1280.0
+margin_bottom = 720.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Total Coppers: XXXXX"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+anims/coinCounter = SubResource( 4 )
+anims/intro = SubResource( 2 )
+
+[node name="timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="endTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="endTimer" to="." method="_on_endTimer_timeout"]

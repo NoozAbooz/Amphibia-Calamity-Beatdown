@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ripple.ogg-d122f464824a99ef7e93548c0a109090.oggstr"
+
+[deps]
+
+source_file="res://music/ripple.ogg"
+dest_files=[ "res://.import/ripple.ogg-d122f464824a99ef7e93548c0a109090.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0.453

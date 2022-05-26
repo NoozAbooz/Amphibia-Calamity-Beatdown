@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/pickups/coin.gd" type="Script" id=1]
+[ext_resource path="res://art/pickups/Mysterious Mushroom.png" type="Texture" id=2]
+[ext_resource path="res://art/pickups/jerky.png" type="Texture" id=3]
+
+[sub_resource type="CylinderMesh" id=4]
+top_radius = 0.5
+bottom_radius = 0.5
+height = 0.1
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.5
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CylinderShape" id=3]
+height = 1.0
+
+[node name="mush" type="KinematicBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+collision_layer = 256
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="shadowMaker" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+cast_shadow = 3
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0.932836, 0 )
+flip_h = true
+pixel_size = 0.011
+frames = SubResource( 2 )
+frame = 1
+
+[node name="hurtbox" type="Area" parent="." groups=["healthSmall"]]
+collision_layer = 256
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2" type="CollisionShape" parent="hurtbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 3 )

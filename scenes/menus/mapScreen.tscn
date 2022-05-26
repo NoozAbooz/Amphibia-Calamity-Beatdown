@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
+[ext_resource path="res://art/menus/mapBG.png" type="Texture" id=2]
+[ext_resource path="res://art/menus/lvl_button_focus.png" type="Texture" id=3]
+[ext_resource path="res://art/menus/AnneWalk2.png" type="Texture" id=4]
+[ext_resource path="res://art/menus/AnneWalk1.png" type="Texture" id=5]
+[ext_resource path="res://art/menus/AnneWalk3.png" type="Texture" id=6]
+[ext_resource path="res://art/menus/lvl_button_normal.png" type="Texture" id=7]
+[ext_resource path="res://art/menus/lvl_button_dis.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="mapScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.667, 0.667 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2( 640, 360 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="lvl1" type="TextureButton" parent="."]
+margin_left = 706.0
+margin_top = 414.0
+margin_right = 781.0
+margin_bottom = 464.0
+rect_scale = Vector2( 0.5, 0.5 )
+action_mode = 0
+button_mask = 0
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 8 )
+texture_focused = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lvl0" type="TextureButton" parent="."]
+margin_left = 457.0
+margin_top = 463.0
+margin_right = 532.0
+margin_bottom = 513.0
+rect_scale = Vector2( 0.5, 0.5 )
+action_mode = 0
+button_mask = 0
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 8 )
+texture_focused = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="marker" type="AnimatedSprite" parent="."]
+position = Vector2( 266, 818 )
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+flip_h = true
+
+[connection signal="focus_entered" from="lvl1" to="." method="_on_lvl1_focus_entered"]
+[connection signal="pressed" from="lvl1" to="." method="_on_lvl_pressed"]
+[connection signal="focus_entered" from="lvl0" to="." method="_on_lvl0_focus_entered"]
+[connection signal="pressed" from="lvl0" to="." method="_on_lvl_pressed"]
