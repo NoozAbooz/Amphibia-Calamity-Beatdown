@@ -400,7 +400,7 @@ mesh = SubResource( 37 )
 material/0 = null
 
 [node name="Ground10" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.8789, 1.02194, 31.3441 )
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 76.9181, 8.98975, 31.2826 )
 collision_layer = 2
 collision_mask = 0
 
@@ -408,7 +408,7 @@ collision_mask = 0
 shape = SubResource( 54 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground10"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.426521, 6.13923, 3.89589 )
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.5, 1.5, 4 )
 mesh = SubResource( 55 )
 material/0 = null
 
