@@ -2,7 +2,6 @@
 ECHO Enter commit message:
 SET /p input=""
 GOTO check
-  
 
 :check
 IF "%input%" == "" (
@@ -14,10 +13,13 @@ IF "%input%" == "" (
 )
 
 :commit
+git config core.autocrlf input
 git.exe pull
 git.exe add -A
 git.exe commit -m "%input%"
 git.exe push
+
+ECHO 
 ECHO Successfully Commited
 
 :exit
