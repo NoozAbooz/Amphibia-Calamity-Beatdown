@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://maps/spiderSpawner.gd" type="Script" id=15]
 [ext_resource path="res://maps/level objects/lilypad.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/enemies/bosses/watersnake.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/enemies/wasp.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/goal.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/pickups/coinS.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/pickups/coinG.tscn" type="PackedScene" id=21]
@@ -211,7 +212,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5863, 2.19127, 22.312 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 221.763, 17.2054, 20.1054 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="."]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 308.311, 10.8205, 20.5694 )
@@ -400,7 +401,7 @@ mesh = SubResource( 37 )
 material/0 = null
 
 [node name="Ground10" type="StaticBody" parent="."]
-transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 76.9181, 8.98975, 31.2826 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.8789, 1.02194, 31.3441 )
 collision_layer = 2
 collision_mask = 0
 
@@ -529,7 +530,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -64.615
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -56.318, 1.09358, 2.48515 )
 
 [node name="Enemy2" parent="enemies" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 193.197, 17.9932, 24.5648 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 188.23, 17.9932, 13.1436 )
 speedWalk = 0
 weakAttacker = true
 oddsDrop = 0.0
@@ -583,6 +584,37 @@ weakAttacker = true
 oddsDrop = 1.0
 oddsKhao = 1.0
 hp = 20
+
+[node name="Enemy11" parent="enemies" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 192.48, 17.8735, 23.8313 )
+
+[node name="Enemy12" parent="enemies" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 193.594, 17.8735, 26.742 )
+
+[node name="Enemy13" parent="enemies" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 194.987, 17.8735, 21.2176 )
+
+[node name="Enemy14" parent="enemies" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 196.101, 17.8735, 24.1283 )
+
+[node name="Enemy15" parent="enemies" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 197.316, 17.8735, 21.9187 )
+
+[node name="Enemy16" parent="enemies" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 198.429, 17.8735, 24.8294 )
+
+[node name="Enemy17" parent="enemies" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 199.823, 17.8735, 19.305 )
+
+[node name="Enemy18" parent="enemies" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 200.936, 17.8735, 22.2157 )
+
+[node name="Enemy19" parent="enemies" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 202.681, 17.8735, 14.1245 )
+printVals = true
+
+[node name="Enemy20" parent="enemies" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 198.994, 17.8735, 27.7409 )
 
 [node name="mush" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 92.3059, 11.9459, 13.6862 )
