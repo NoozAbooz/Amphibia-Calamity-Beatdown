@@ -1,10 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/wartwood/wartwood_raw.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/pickups/coinS.tscn" type="PackedScene" id=20]
-[ext_resource path="res://scenes/pickups/coinG.tscn" type="PackedScene" id=21]
-[ext_resource path="res://scenes/pickups/coin.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -27,71 +24,5 @@ environment = SubResource( 3 )
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58572, 2.8737, 28.0755 )
 
-[node name="coin" parent="." instance=ExtResource( 20 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 42.9924, 0.725061, 15.3857 )
-value = 5
-gravOff = true
-
-[node name="coin12" parent="." instance=ExtResource( 20 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 37.3734, 0.725061, 18.6184 )
-value = 5
-gravOff = true
-
-[node name="coin13" parent="." instance=ExtResource( 20 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 42.1084, 0.725061, 21.7707 )
-value = 5
-gravOff = true
-
-[node name="coin14" parent="." instance=ExtResource( 20 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 34.0394, 0.725061, 20.3976 )
-value = 5
-gravOff = true
-
-[node name="coin2" parent="." instance=ExtResource( 21 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 32.8884, 1.21248, 17.7599 )
-value = 20
-gravOff = true
-
-[node name="coin4" parent="." instance=ExtResource( 21 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 37.0384, 0.431962, 21.8775 )
-value = 20
-gravOff = true
-
-[node name="coin5" parent="." instance=ExtResource( 21 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 38.7204, 0.867692, 15.3919 )
-value = 20
-gravOff = true
-
-[node name="coin6" parent="." instance=ExtResource( 21 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.3844, 1.21248, 17.6619 )
-value = 20
-gravOff = true
-
-[node name="coin7" parent="." instance=ExtResource( 21 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 43.8714, 0.393661, 20.0508 )
-value = 20
-gravOff = true
-
-[node name="coin8" parent="." instance=ExtResource( 21 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 46.7154, 0.287102, 16.5895 )
-value = 20
-gravOff = true
-
-[node name="coin3" parent="." instance=ExtResource( 22 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.1534, 0.643791, 19.1286 )
-gravOff = true
-
-[node name="coin9" parent="." instance=ExtResource( 22 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 36.4644, 0.643791, 14.6799 )
-gravOff = true
-
-[node name="coin10" parent="." instance=ExtResource( 22 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41.9894, 0.643791, 17.8898 )
-gravOff = true
-
-[node name="coin11" parent="." instance=ExtResource( 22 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41.8674, 0.643791, 24.1976 )
-gravOff = true
-
 [node name="wartwood" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.75, 0, 1.29904, 0, 1.5, 0, -1.29904, 0, 0.75, 0, -4.2105, 0 )
+transform = Transform( 0.75, 0, 1.29904, 0, 1.5, 0, -1.29904, 0, 0.75, -2.68818, -4.28939, 0.274178 )

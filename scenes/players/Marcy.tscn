@@ -9,6 +9,7 @@
 [ext_resource path="res://art/marcy/land.png" type="Texture" id=7]
 [ext_resource path="res://art/anne/a_h5.png" type="Texture" id=8]
 [ext_resource path="res://art/marcy/kick.png" type="Texture" id=9]
+[ext_resource path="res://art/pickups/coin_icon.png" type="Texture" id=10]
 [ext_resource path="res://art/anne/a_h4.png" type="Texture" id=12]
 [ext_resource path="res://art/anne/a_l1.png" type="Texture" id=13]
 [ext_resource path="res://art/anne/a_h1.png" type="Texture" id=16]
@@ -26,7 +27,6 @@
 [ext_resource path="res://scenes/players/Player.gd" type="Script" id=39]
 [ext_resource path="res://themes/lifeBars.tres" type="Theme" id=40]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=41]
-[ext_resource path="res://art/pickups/coins.png" type="Texture" id=42]
 [ext_resource path="res://scenes/players/lifeCounterFont.tres" type="DynamicFont" id=43]
 [ext_resource path="res://art/menus/hp_bar.png" type="Texture" id=44]
 [ext_resource path="res://art/marcy/slide.png" type="Texture" id=45]
@@ -3153,6 +3153,11 @@ flags = 1
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 40, 50 )
 
+[sub_resource type="AtlasTexture" id=52]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 40, 0, 40, 50 )
+
 [sub_resource type="AtlasTexture" id=44]
 flags = 1
 atlas = ExtResource( 3 )
@@ -3193,20 +3198,10 @@ flags = 1
 atlas = ExtResource( 3 )
 region = Rect2( 280, 0, 40, 50 )
 
-[sub_resource type="AtlasTexture" id=52]
-flags = 1
-atlas = ExtResource( 4 )
-region = Rect2( 40, 0, 40, 50 )
-
 [sub_resource type="AtlasTexture" id=53]
 flags = 1
 atlas = ExtResource( 6 )
 region = Rect2( 40, 0, 40, 50 )
-
-[sub_resource type="AtlasTexture" id=54]
-flags = 1
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 40, 50 )
 
 [sub_resource type="AtlasTexture" id=62]
 flags = 1
@@ -3217,6 +3212,11 @@ region = Rect2( 0, 0, 40, 50 )
 flags = 1
 atlas = ExtResource( 9 )
 region = Rect2( 40, 0, 40, 50 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 1
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 40, 50 )
 
 [sub_resource type="AtlasTexture" id=55]
 flags = 1
@@ -3245,15 +3245,15 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ) ],
-"loop": false,
-"name": "walk",
-"speed": 15.0
-}, {
 "frames": [ SubResource( 52 ) ],
 "loop": false,
 "name": "hurt",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ) ],
+"loop": false,
+"name": "walk",
+"speed": 15.0
 }, {
 "frames": [ SubResource( 52 ) ],
 "loop": false,
@@ -3265,49 +3265,14 @@ animations = [ {
 "name": "attack_air_L1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 45 ) ],
-"loop": false,
-"name": "attack_slide_H",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_air_H1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_air_L3",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 53 ) ],
-"loop": false,
-"name": "fall",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "attack_L1",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_L3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": false,
 "name": "stand",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
 "loop": false,
-"name": "attack_L2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "attack_air_L2",
+"name": "attack_air_H1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
@@ -3315,20 +3280,30 @@ animations = [ {
 "name": "attack_H2",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_air_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ) ],
+"loop": false,
+"name": "attack_slide_H",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "attack_air_L2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 45 ) ],
 "loop": false,
 "name": "attack_slide_L",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 54 ) ],
+"frames": [ SubResource( 53 ) ],
 "loop": false,
-"name": "rise",
+"name": "fall",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_H3",
-"speed": 5.0
 }, {
 "frames": [ SubResource( 62 ), SubResource( 63 ) ],
 "loop": false,
@@ -3340,9 +3315,34 @@ animations = [ {
 "name": "attack_H1",
 "speed": 15.0
 }, {
+"frames": [ SubResource( 54 ) ],
+"loop": false,
+"name": "rise",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_H3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "attack_L1",
+"speed": 15.0
+}, {
 "frames": [ SubResource( 55 ), SubResource( 56 ) ],
 "loop": false,
 "name": "land",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "attack_L2",
 "speed": 5.0
 } ]
 
@@ -3480,13 +3480,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="coin" type="Sprite" parent="playerInfo"]
-position = Vector2( 164, 87 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 42 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 12, 12 )
-
 [node name="lifeBar" type="ProgressBar" parent="playerInfo"]
 margin_left = 136.0
 margin_top = 43.0
@@ -3500,6 +3493,13 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="coin" type="Sprite" parent="playerInfo"]
+light_mask = 0
+position = Vector2( 163, 88 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 12, 12 )
 
 [node name="lifeOutline" type="NinePatchRect" parent="playerInfo"]
 margin_left = 132.0

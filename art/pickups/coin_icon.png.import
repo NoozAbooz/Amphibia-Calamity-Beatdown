@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/coins.png-62d5d55fc1c025f6c9674257ce58e742.stex"
+path="res://.import/coin_icon.png-98fc4120d92d9c8b9d31fe64f17b5233.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/pickups/coins.png"
-dest_files=[ "res://.import/coins.png-62d5d55fc1c025f6c9674257ce58e742.stex" ]
+source_file="res://art/pickups/coin_icon.png"
+dest_files=[ "res://.import/coin_icon.png-98fc4120d92d9c8b9d31fe64f17b5233.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

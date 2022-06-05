@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/pickups/coin.gd" type="Script" id=1]
 [ext_resource path="res://art/pickups/coins.png" type="Texture" id=2]
@@ -11,47 +11,102 @@ height = 0.1
 [sub_resource type="SphereShape" id=1]
 radius = 0.5
 
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 24, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 12, 24, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 24, 24, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 36, 24, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 24, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 60, 24, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 12, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 2 )
+region = Rect2( 24, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 2 )
+region = Rect2( 36, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 12, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 2 )
+region = Rect2( 60, 12, 12, 12 )
+
 [sub_resource type="AtlasTexture" id=5]
-flags = 3
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 12, 12 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 3
 atlas = ExtResource( 2 )
 region = Rect2( 12, 0, 12, 12 )
 
 [sub_resource type="AtlasTexture" id=7]
-flags = 3
 atlas = ExtResource( 2 )
 region = Rect2( 24, 0, 12, 12 )
 
 [sub_resource type="AtlasTexture" id=8]
-flags = 3
 atlas = ExtResource( 2 )
 region = Rect2( 36, 0, 12, 12 )
 
 [sub_resource type="AtlasTexture" id=9]
-flags = 3
 atlas = ExtResource( 2 )
 region = Rect2( 48, 0, 12, 12 )
 
 [sub_resource type="AtlasTexture" id=10]
-flags = 3
 atlas = ExtResource( 2 )
 region = Rect2( 60, 0, 12, 12 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "gold",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "silver",
+"speed": 15.0
+}, {
 "frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
-"name": "default",
+"name": "copper",
 "speed": 15.0
 } ]
 
 [sub_resource type="CylinderShape" id=3]
 radius = 0.75
 height = 0.5
+
+[sub_resource type="SphereShape" id=11]
+radius = 5.0
 
 [node name="coin" type="KinematicBody" groups=["coins"]]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
@@ -74,7 +129,8 @@ transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819,
 flip_h = true
 pixel_size = 0.07
 frames = SubResource( 2 )
-frame = 3
+animation = "silver"
+frame = 4
 playing = true
 
 [node name="hurtbox" type="Area" parent="." groups=["coins"]]
@@ -85,3 +141,13 @@ monitoring = false
 [node name="CollisionShape2" type="CollisionShape" parent="hurtbox"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 shape = SubResource( 3 )
+
+[node name="magnet" type="Area" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape3" type="CollisionShape" parent="magnet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 11 )
+
+[connection signal="area_entered" from="magnet" to="." method="_on_magnet_area_entered"]

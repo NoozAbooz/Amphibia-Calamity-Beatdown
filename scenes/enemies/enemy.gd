@@ -2,8 +2,6 @@ extends KinematicBody
 
 var vfxScene = preload("res://scenes/vfx.tscn")
 var coinScene = preload("res://scenes/pickups/coin.tscn")
-var coinSceneS = preload("res://scenes/pickups/coinS.tscn")
-var coinSceneG = preload("res://scenes/pickups/coinG.tscn")
 var khaoScene = preload("res://scenes/pickups/khao.tscn")
 var mushScene = preload("res://scenes/pickups/mush.tscn")
 
@@ -111,12 +109,12 @@ func despawn():
 		var coinsLeft = rng.rand.randi_range(minCoins, maxCoins)
 		while (coinsLeft > 0):
 			if (coinsLeft >= 20):
-				var coins = coinSceneG.instance()
+				var coins = coinScene.instance()
 				get_parent().add_child(coins)
 				coins.initialize(translation, 20)
 				coinsLeft -= 20
 			elif (coinsLeft >= 5):
-				var coins = coinSceneS.instance()
+				var coins = coinScene.instance()
 				get_parent().add_child(coins)
 				coins.initialize(translation, 5)
 				coinsLeft -= 5
@@ -129,8 +127,9 @@ func despawn():
 #			var coins = coinScene.instance()
 #			get_parent().add_child(coins)
 #			coins.initialize(translation)
+		var food = null
 		if (rng.rand.randf() <= oddsDrop):
-			var food = mushScene.instance()
+			food = mushScene.instance()
 			if (rng.rand.randf() <= oddsKhao):
 				food = khaoScene.instance()
 			get_parent().add_child(food)

@@ -41,7 +41,7 @@
 [ext_resource path="res://art/anne/anne_icon.png" type="Texture" id=39]
 [ext_resource path="res://themes/lifeBars.tres" type="Theme" id=40]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=41]
-[ext_resource path="res://art/pickups/coins.png" type="Texture" id=42]
+[ext_resource path="res://art/pickups/coin_icon.png" type="Texture" id=42]
 [ext_resource path="res://scenes/players/lifeCounterFont.tres" type="DynamicFont" id=43]
 [ext_resource path="res://art/menus/hp_bar.png" type="Texture" id=44]
 
@@ -3137,32 +3137,32 @@ tracks/7/keys = {
 }
 
 [sub_resource type="AtlasTexture" id=43]
-flags = 3
+flags = 19
 atlas = ExtResource( 19 )
 region = Rect2( 0, 0, 38, 49 )
 
 [sub_resource type="AtlasTexture" id=44]
-flags = 3
+flags = 19
 atlas = ExtResource( 19 )
 region = Rect2( 38, 0, 38, 49 )
 
 [sub_resource type="AtlasTexture" id=45]
-flags = 3
+flags = 19
 atlas = ExtResource( 19 )
 region = Rect2( 76, 0, 38, 49 )
 
 [sub_resource type="AtlasTexture" id=46]
-flags = 3
+flags = 19
 atlas = ExtResource( 19 )
 region = Rect2( 114, 0, 38, 49 )
 
 [sub_resource type="AtlasTexture" id=47]
-flags = 3
+flags = 19
 atlas = ExtResource( 19 )
 region = Rect2( 152, 0, 38, 49 )
 
 [sub_resource type="AtlasTexture" id=48]
-flags = 3
+flags = 19
 atlas = ExtResource( 19 )
 region = Rect2( 190, 0, 38, 49 )
 
@@ -3188,29 +3188,89 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 35 ) ],
-"loop": false,
-"name": "hurt_air",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 1 ), ExtResource( 14 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "walk",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 35 ) ],
+"loop": false,
+"name": "hurt_air",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
 "loop": false,
 "name": "attack_air_L1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "attack_L1",
-"speed": 15.0
-}, {
 "frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ) ],
 "loop": false,
 "name": "stand",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_air_H1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_air_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": false,
+"name": "attack_slide_H",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "attack_air_L2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": false,
+"name": "attack_slide_L",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "fall",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "attack_air_H2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "rise",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_H3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "attack_L1",
 "speed": 15.0
 }, {
 "frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
@@ -3221,66 +3281,6 @@ animations = [ {
 "frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
 "loop": false,
 "name": "attack_L2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "rise",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_air_H1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": false,
-"name": "attack_slide_L",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": false,
-"name": "attack_slide_H",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 23 ) ],
-"loop": false,
-"name": "attack_air_H2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": false,
-"name": "fall",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_L3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_H2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_H1",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_air_L3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "attack_air_L2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_H3",
 "speed": 5.0
 } ]
 
@@ -3417,10 +3417,10 @@ __meta__ = {
 }
 
 [node name="coin" type="Sprite" parent="playerInfo"]
-position = Vector2( 164, 87 )
+light_mask = 0
+position = Vector2( 163, 88 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 42 )
-region_enabled = true
 region_rect = Rect2( 0, 0, 12, 12 )
 
 [node name="lifeBar" type="ProgressBar" parent="playerInfo"]
@@ -3510,7 +3510,7 @@ exclude_parent = false
 cast_to = Vector3( 0, -50, 0 )
 collision_mask = 130
 debug_shape_custom_color = Color( 1, 0, 0, 1 )
-debug_shape_thickness = 5
+debug_shape_thickness = 5.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="zeroPoint/hurtbox" to="." method="_on_hurtbox_area_entered"]

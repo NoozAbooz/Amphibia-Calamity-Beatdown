@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scenes/pickups/coin.gd" type="Script" id=1]
-[ext_resource path="res://art/pickups/Mysterious Mushroom.png" type="Texture" id=2]
+[ext_resource path="res://scenes/pickups/health.gd" type="Script" id=1]
 [ext_resource path="res://art/pickups/jerky.png" type="Texture" id=3]
 
 [sub_resource type="CylinderMesh" id=4]
@@ -14,8 +13,8 @@ radius = 0.5
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": false,
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
 "name": "default",
 "speed": 5.0
 } ]
@@ -44,7 +43,6 @@ transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819,
 flip_h = true
 pixel_size = 0.011
 frames = SubResource( 2 )
-frame = 1
 
 [node name="hurtbox" type="Area" parent="." groups=["healthSmall"]]
 collision_layer = 256

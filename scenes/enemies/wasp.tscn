@@ -679,6 +679,14 @@ collision_mask = 16
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 43 )
 
+[node name="tooHighRay" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+enabled = true
+exclude_parent = false
+cast_to = Vector3( 0, -500, 0 )
+collision_mask = 130
+debug_shape_thickness = 3.0
+
 [node name="floatRay" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 enabled = true

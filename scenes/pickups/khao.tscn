@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scenes/pickups/coin.gd" type="Script" id=1]
+[ext_resource path="res://scenes/pickups/health.gd" type="Script" id=1]
 [ext_resource path="res://art/pickups/fullHeal.png" type="Texture" id=2]
 
 [sub_resource type="CylinderMesh" id=4]
@@ -14,7 +14,7 @@ radius = 0.5
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
-"loop": false,
+"loop": true,
 "name": "default",
 "speed": 5.0
 } ]

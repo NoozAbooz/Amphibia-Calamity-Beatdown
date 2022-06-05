@@ -2,8 +2,6 @@ extends KinematicBody
 
 var vfxScene = preload("res://scenes/vfx.tscn")
 var coinScene = preload("res://scenes/pickups/coin.tscn")
-var coinSceneS = preload("res://scenes/pickups/coinS.tscn")
-var coinSceneG = preload("res://scenes/pickups/coinG.tscn")
 var khaoScene = preload("res://scenes/pickups/khao.tscn")
 var mushScene = preload("res://scenes/pickups/mush.tscn")
 
@@ -78,6 +76,7 @@ var nextState = IDLE
 onready var anim = $"AnimationPlayer"
 onready var sprite = $"zeroPoint/AnimatedSprite3D"
 onready var ray = $"floatRay"
+onready var rayLong = $"tooHighRay"
 onready var zeroP = $"zeroPoint"
 
 var animFinished = false
@@ -116,12 +115,12 @@ func despawn():
 		var coinsLeft = rng.rand.randi_range(minCoins, maxCoins)
 		while (coinsLeft > 0):
 			if (coinsLeft >= 20):
-				var coins = coinSceneG.instance()
+				var coins = coinScene.instance()
 				get_parent().add_child(coins)
 				coins.initialize(translation + zeroP.translation, 20)
 				coinsLeft -= 20
 			elif (coinsLeft >= 5):
-				var coins = coinSceneS.instance()
+				var coins = coinScene.instance()
 				get_parent().add_child(coins)
 				coins.initialize(translation + zeroP.translation, 5)
 				coinsLeft -= 5
@@ -374,12 +373,15 @@ func _physics_process(delta):
 			setHitBox(damage, KB_STRONG, Vector3(10, 15, 0))
 	
 	# Y movement
-	if (isInState([IDLE, WALK, FLEE, ATTACKPREP])):
+	if (isInState([IDLE, WALK, FLEE])):
 		if ray.is_colliding():
 			velocity.y = 4
-			#print("up")
+		elif rayLong.is_colliding() and (rayLong.get_collision_point() - translation).y < -6:
+			velocity.y = -6 # lowers wasp if above ground and higher than 6 units above ground
 		else:
 			velocity.y = 0
+	elif (isInState([ATTACKPREP])):
+		velocity.y = 0
 	elif (isInState([ATTACK])):
 		velocity.y = attackDirection.y
 	else:
