@@ -12,25 +12,25 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": false,
-"name": "health",
-"speed": 15.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "nothing",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "hit",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "health",
 "speed": 15.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "coin",
 "speed": 15.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "nothing",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=5]

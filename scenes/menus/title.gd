@@ -26,7 +26,7 @@ func _on_startButton_pressed():
 
 func _on_lockButton_toggled(button_pressed):
 	if (button_pressed):
-		$lockButton/Label.text = "All Unlocks and Upgrades"
+		$lockButton/Label.text = "Disable All Upgrades"
 		pg.healthUpgrades = 3 # 20 per upgrade, max 3
 		pg.livesUpgrades  = 3 # 1 life per upgrade, max 3
 		pg.damageUpgrades = 3 # 20% per upgrade, max 3
@@ -38,7 +38,7 @@ func _on_lockButton_toggled(button_pressed):
 		pg.hasCounter = true
 		
 	else:
-		$lockButton/Label.text = "No Unlocks and Upgrades\n(Starting Coniditions)"
+		$lockButton/Label.text = "Enable All Upgrades"
 		pg.healthUpgrades = 0 # 20 per upgrade, max 3
 		pg.livesUpgrades  = 0 # 1 life per upgrade, max 3
 		pg.damageUpgrades = 0 # 20% per upgrade, max 3
@@ -51,14 +51,13 @@ func _on_lockButton_toggled(button_pressed):
 		
 	print("Unlocks changed!")
 
-
 func _on_hitboxButton_toggled(button_pressed):
 	if (button_pressed):
-		$hitboxButton/Label.text = "Visible Hitboxes"
+		$hitboxButton/Label.text = "Disable Hitboxes"
 		get_tree().set_debug_collisions_hint(true)
 		
 	else:
-		$hitboxButton/Label.text = "Invisible Hitboxes"
+		$hitboxButton/Label.text = "Enable Hitboxes"
 		get_tree().set_debug_collisions_hint(false)
 		
 	print("hitboxes changed!")
