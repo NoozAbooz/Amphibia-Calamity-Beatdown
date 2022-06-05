@@ -1,6 +1,8 @@
 extends Spatial
 
+# tells the object which "ambush" to play
 export var ambushName = "playgroundAmbush1"
+
 var enemyList = null
 var cam = null
 var vfxScene = preload("res://scenes/vfx.tscn")
@@ -49,7 +51,7 @@ func _process(_delta):
 			for enemy in wave:
 				if (timer > enemy.spawnTime):
 					spawn(enemy)
-					enemy.spawnTime = 9999
+					enemy.spawnTime = 999 # prevents repeated spawns of the same enemy
 			if ((pg.kills - startingKills) >= killsNeeded):
 				nextState = WAIT
 				waveNumber += 1

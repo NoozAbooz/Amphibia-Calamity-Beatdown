@@ -8,7 +8,7 @@ var khaoScene = preload("res://scenes/pickups/khao.tscn")
 var mushScene = preload("res://scenes/pickups/mush.tscn")
 
 export var speedWalk = 5
-export var damage = 10
+export var damage = 5
 export var attackSpeed = 30
 
 export var weakAttacker = false

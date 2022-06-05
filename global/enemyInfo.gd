@@ -3,6 +3,7 @@ extends Node
 onready var greenMantisScene = preload("res://scenes/enemies/greenMantis.tscn")
 onready var redMantisScene = preload("res://scenes/enemies/redMantis.tscn")
 onready var spiderScene = preload("res://scenes/enemies/spider.tscn")
+onready var waspScene = preload("res://scenes/enemies/wasp.tscn")
 
 # stores common enemy stats
 class stats:
@@ -33,6 +34,7 @@ class ambEnemy:
 var redMantis
 var greenMantis
 var spider
+var wasp
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,8 +45,8 @@ func _ready():
 	greenMantis.dam   = 10
 	greenMantis.hlth  = 100
 	greenMantis.wgt   = 0
-	greenMantis.maxC  = 5
-	greenMantis.minC  = 2
+	greenMantis.maxC  = 8
+	greenMantis.minC  = 4
 	greenMantis.oddsD = 0.1
 	greenMantis.oddsK = 0.2
 	greenMantis.weakA = false
@@ -55,8 +57,8 @@ func _ready():
 	redMantis.dam = 15
 	redMantis.hlth = 180
 	redMantis.wgt = 2
-	redMantis.maxC = 8
-	redMantis.minC = 5
+	redMantis.maxC = 12
+	redMantis.minC = 8
 	redMantis.oddsD = 0.25
 	redMantis.oddsK = 0.2
 	redMantis.weakA = false
@@ -64,14 +66,26 @@ func _ready():
 	# Spider Enemy Stats
 	spider = stats.new()
 	spider.spd = 12
-	spider.dam = 5
+	spider.dam = 2
 	spider.hlth = 0
 	spider.wgt = 0
-	spider.maxC = 1
+	spider.maxC = 3
 	spider.minC = 1
 	spider.oddsD = 0.05
 	spider.oddsK = 0.2
 	spider.weakA = true
+	
+	# wasp Enemy Stats
+	wasp = stats.new()
+	wasp.spd = 5
+	wasp.dam = 5
+	wasp.hlth = 30
+	wasp.wgt = 0
+	wasp.maxC = 3
+	wasp.minC = 1
+	wasp.oddsD = 0.05
+	wasp.oddsK = 0.2
+	wasp.weakA = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

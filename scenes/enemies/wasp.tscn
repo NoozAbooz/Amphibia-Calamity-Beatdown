@@ -84,7 +84,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id=25]
 resource_name = "attack_prep"
-length = 1.0
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
@@ -554,12 +553,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
-"name": "hurt",
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
