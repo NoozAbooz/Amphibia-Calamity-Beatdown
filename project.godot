@@ -417,6 +417,7 @@ k0_leave={
 3d_physics/layer_8="Bounce Pads"
 3d_physics/layer_9="Pickups"
 3d_physics/layer_10="Camera"
+3d_physics/layer_11="Player Only Ground"
 
 [rendering]
 

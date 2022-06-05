@@ -52,7 +52,7 @@ func initialize(spawnLocation, val = 1):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# makes coins fal and bounce is gravity isn't turned off and is hasn't been pulled in yet
-	if (gravOff == false) and (target == null):
+	if (gravOff == false):
 		velocity.y -= force_grav * delta
 		if (is_on_floor()) and (settled == false):
 			if (rng.rand.randf() <= 0.25):
@@ -69,7 +69,7 @@ func _process(delta):
 			velocity.y = 0
 			velocity.z = 0
 	# moves to player if activated
-	if (target != null):
+	if (target != null) and settled:
 		velocity = 25 * (target.translation - translation).normalized()
 	# moves the coin based on velocity vector
 	velocity = move_and_slide(velocity, Vector3.UP, true)

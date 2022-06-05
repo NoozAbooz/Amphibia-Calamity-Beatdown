@@ -3168,24 +3168,19 @@ region = Rect2( 190, 0, 38, 49 )
 
 [sub_resource type="SpriteFrames" id=42]
 animations = [ {
-"frames": [ ExtResource( 33 ) ],
-"loop": false,
-"name": "block",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 34 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 32 ) ],
 "loop": false,
 "name": "counter",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 33 ) ],
+"loop": false,
+"name": "block",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 36 ) ],
 "loop": false,
 "name": "hurt_floor",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 35 ) ],
-"loop": false,
-"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 1 ), ExtResource( 14 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 7 ) ],
@@ -3196,6 +3191,11 @@ animations = [ {
 "frames": [ ExtResource( 35 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
@@ -3218,24 +3218,14 @@ animations = [ {
 "name": "attack_H2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
 "loop": false,
-"name": "attack_air_L3",
+"name": "attack_H3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 30 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 23 ) ],
 "loop": false,
-"name": "attack_slide_H",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "attack_air_L2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": false,
-"name": "attack_slide_L",
+"name": "attack_air_H2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -3243,45 +3233,55 @@ animations = [ {
 "name": "fall",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
 "loop": false,
-"name": "attack_air_H2",
+"name": "attack_L2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 30 ) ],
 "loop": false,
-"name": "attack_H1",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "rise",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_L3",
+"name": "attack_slide_L",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_H3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "attack_L1",
-"speed": 15.0
 }, {
 "frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
 "loop": false,
 "name": "land",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": false,
+"name": "attack_slide_H",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_air_L3",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
 "loop": false,
-"name": "attack_L2",
+"name": "attack_air_L2",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "rise",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "attack_L1",
+"speed": 15.0
 } ]
 
 [sub_resource type="BoxShape" id=15]
@@ -3301,7 +3301,7 @@ rings = 1
 
 [node name="Player" type="KinematicBody"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
-collision_mask = 6
+collision_mask = 1030
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]

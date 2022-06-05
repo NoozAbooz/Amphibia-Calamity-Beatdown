@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/land.png-88f278dbc6e0bb80ffbf3d5be38435ef.stex"
+path="res://.import/WaspSpawner2_AO.png-644e36f5ebe097bc568ec008da8703f0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/marcy/land.png"
-dest_files=[ "res://.import/land.png-88f278dbc6e0bb80ffbf3d5be38435ef.stex" ]
+source_file="res://art/models/WaspSpawners/Textures/WaspSpawner2_AO.png"
+dest_files=[ "res://.import/WaspSpawner2_AO.png-644e36f5ebe097bc568ec008da8703f0.stex" ]
 
 [params]
 
@@ -20,10 +20,10 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
-flags/mipmaps=true
+flags/filter=true
+flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
