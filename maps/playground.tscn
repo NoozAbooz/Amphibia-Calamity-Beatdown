@@ -869,4 +869,10 @@ gravOff = true
 [node name="spiderNest" parent="." instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6638, 1.2772, 67.7782 )
 
+[node name="spiderNest2" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9577, 1.2772, 74.3869 )
+
+[node name="spiderNest3" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6333, 1.2772, 66.5285 )
+
 [connection signal="animation_finished" from="switch2/bridge/AnimationPlayer" to="switch2/bridge" method="_on_AnimationPlayer_animation_finished"]

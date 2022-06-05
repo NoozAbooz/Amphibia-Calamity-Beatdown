@@ -66,7 +66,7 @@ func _ready():
 	# Spider Enemy Stats
 	spider = stats.new()
 	spider.spd = 12
-	spider.dam = 2
+	spider.dam = 1
 	spider.hlth = 0
 	spider.wgt = 0
 	spider.maxC = 3

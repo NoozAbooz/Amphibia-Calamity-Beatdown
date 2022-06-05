@@ -62,7 +62,7 @@ var enemyPush = Vector3.ZERO
 #var attackWaitCounter = 1500
 #var attackReady = false
 
-enum {IDLE, WALK, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, A_H, BLOCK, BLOCKHIT, KO}
+enum {IDLE, WALK, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, A_H, BLOCK, BLOCKHIT, KO, SPAWN}
 enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP}
 enum {LIGHT, HEAVY, VERYHEAVY}
 
@@ -206,6 +206,14 @@ func initialize(type, loc, vel = Vector3.ZERO, brk = false, infVis = false, infE
 	oddsDrop = type.oddsD
 	oddsKhao = type.oddsK
 	weakAttacker = type.weakA
+	# puts enemy in waiting "SPAWN" state and picks a random facing direction
+	state = SPAWN
+	nextState = SPAWN
+	if velocity.x >= 0:
+		lookRight = true
+	else:
+		lookRight = false
+	# Sets up target and aggro collision if the enemy has infinite vision (like if from spawner)
 	if infVis:
 		get_node("aggro/CollisionShape").get_shape().radius = 100
 		targetFound = true
@@ -219,6 +227,11 @@ func _physics_process(delta):
 	
 	# state changes
 	match state:
+		SPAWN:
+			if is_on_floor():
+				nextState = IDLE
+			else:
+				nextState = SPAWN
 		IDLE:
 			if (targetFound) and (attackCounterReady()):
 				nextState = WALK
@@ -359,7 +372,7 @@ func _physics_process(delta):
 			lookRight = true
 		elif (target.translation.x  < translation.x):
 			lookRight = false
-	elif isInState([HURTLAUNCH, HURTRISING, HURTFALLING]):
+	elif isInState([HURTLAUNCH, HURTRISING, HURTFALLING, SPAWN]):
 		pass
 	else:
 		velocity.x = 0
@@ -372,13 +385,14 @@ func _physics_process(delta):
 		velocity.z = hurtDir.z
 	
 	# enemy pushback
-	enemyPush = Vector3.ZERO
-	for area in $enemyPushback.get_overlapping_areas():
-		enemyPush.x += translation.x - area.get_parent().translation.x
-		enemyPush.z += translation.z - area.get_parent().translation.z
-	enemyPush = 3*enemyPush.normalized()
-	velocity.x += enemyPush.x
-	velocity.z += enemyPush.z
+	if (isInState([SPAWN]) == false):
+		enemyPush = Vector3.ZERO
+		for area in $enemyPushback.get_overlapping_areas():
+			enemyPush.x += translation.x - area.get_parent().translation.x
+			enemyPush.z += translation.z - area.get_parent().translation.z
+		enemyPush = 3*enemyPush.normalized()
+		velocity.x += enemyPush.x
+		velocity.z += enemyPush.z
 	
 	# barrier pushback
 	if onRightWall and (velocity.x > 0):
@@ -405,7 +419,7 @@ func _physics_process(delta):
 	
 	
 	# animations
-	if isInState([IDLE]):
+	if isInState([IDLE, SPAWN]):
 		anim.play("idle")
 	elif isInState([HURT]):
 		anim.play("hurt")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/enemies/spawners/debris.gd" type="Script" id=1]
+[ext_resource path="res://art/models/SpiderSpawners/egg_debris_medium.glb" type="PackedScene" id=2]
+[ext_resource path="res://art/models/SpiderSpawners/egg_debris_large.glb" type="PackedScene" id=3]
+[ext_resource path="res://art/models/SpiderSpawners/web_debris_2.glb" type="PackedScene" id=4]
+[ext_resource path="res://art/models/SpiderSpawners/web_debris_1.glb" type="PackedScene" id=5]
+[ext_resource path="res://art/models/SpiderSpawners/egg_debris_small_2.glb" type="PackedScene" id=6]
+[ext_resource path="res://art/models/SpiderSpawners/egg_debris_small.glb" type="PackedScene" id=7]
+
+[node name="debris" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="model" type="Spatial" parent="."]
+transform = Transform( 0.490934, 0, -0.871197, 0.438045, 0.864398, 0.246846, 0.75306, -0.502809, 0.424362, 0, 0, 0 )
+
+[node name="web_debris_1" parent="model" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+visible = false
+
+[node name="web_debris_2" parent="model" instance=ExtResource( 4 )]
+transform = Transform( 1.09191, -8.9407e-08, -1.67563, -0.488536, 1.91311, -0.318351, 1.60283, 0.583107, 1.04447, 0, 0, 0 )
+visible = false
+
+[node name="egg_debris_large" parent="model" instance=ExtResource( 3 )]
+transform = Transform( 0.26266, -0.0954655, -1.47373, -0.535273, 1.38893, -0.185373, 1.37641, 0.558361, 0.209144, -0.185124, 0.131185, -0.462392 )
+visible = false
+
+[node name="egg_debris_medium" parent="model" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -0.990772, -2.38419e-07, 0.0233696 )
+visible = false
+
+[node name="egg_debris_small" parent="model" instance=ExtResource( 7 )]
+transform = Transform( 2, -7.94729e-08, 3.97364e-08, 7.94729e-08, 2, 0, -3.97364e-08, 1.57898e-15, 2, 0, 0, 0 )
+visible = false
+
+[node name="egg_debris_small_2" parent="model" instance=ExtResource( 6 )]
+transform = Transform( 3, -5.96047e-07, 2.38419e-07, 5.96047e-07, 3, -1.19209e-07, -2.38419e-07, 1.19209e-07, 3, -0.917237, -0.0251442, -0.346929 )
+visible = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
