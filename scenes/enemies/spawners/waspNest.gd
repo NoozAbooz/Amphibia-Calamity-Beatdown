@@ -1,4 +1,4 @@
-extends StaticBody
+extends KinematicBody
 
 var vfxScene = preload("res://scenes/vfx.tscn")
 var coinScene = preload("res://scenes/pickups/coin.tscn")
@@ -14,10 +14,11 @@ var counterSpawn = false # a flag that checks if the nest has been hit. Nests wi
 var invincible = false
 var dead = false
 export var decoration = false
-var hp = 100
+var hp = 60
 export var oddsSpawn = 0.2
-export var maxSpawns = 10
+export var maxSpawns = 8
 var spawnCount = 0
+var velocity = Vector3.ZERO
 
 export var maxCoins = 20
 export var minCoins = 15
@@ -25,18 +26,20 @@ export var oddsDrop = 1.0
 export var oddsKhao = 0.20 
 
 func spawn():
-	var num = rng.rand.randi_range(1, 3)
+	var num = rng.rand.randi_range(1, 2)
 	for i in range(0, num):
-		var nextEnemy = nme.spiderScene.instance()
+		var nextEnemy = nme.waspScene.instance()
 		get_parent().add_child(nextEnemy)
-		nextEnemy.initialize(nme.spider, translation + Vector3((-1 + i), 3, rng.rand.randf_range(-1, 1)), Vector3(rng.rand.randf_range(-10, 10), 25, rng.rand.randf_range(-10, 10)), true, true, true)
+		nextEnemy.initialize(nme.wasp, translation + Vector3((-1 + i), 0, rng.rand.randf_range(-1, 1)), Vector3.ZERO, true, true, true)
+		nextEnemy.hp = 1
 	spawnCount += num
 
 func spawnMore():
-	for i in range(0, 5):
-		var nextEnemy = nme.spiderScene.instance()
+	for i in range(0, 3):
+		var nextEnemy = nme.waspScene.instance()
 		get_parent().add_child(nextEnemy)
-		nextEnemy.initialize(nme.spider, translation + Vector3((-2 + i), 3, rng.rand.randf_range(-1, 1)), Vector3(rng.rand.randf_range(-10, 10), 30, rng.rand.randf_range(-10, 10)), false, true, false)
+		nextEnemy.initialize(nme.wasp, translation + Vector3((-2 + i), 1, rng.rand.randf_range(-1, 1)), Vector3.ZERO, false, true, false)
+		
 	
 func despawn():
 	# update drop counts/odds
@@ -76,27 +79,24 @@ func despawn():
 	for i in range (0, 6):
 		debris = debrisScene.instance()
 		get_parent().add_child(debris)
-		debris.initialize(translation + Vector3(0, 1, 0), i)
-	# makes more eggs
-	for i in range (3, 6):
-		debris = debrisScene.instance()
-		get_parent().add_child(debris)
-		debris.initialize(translation + Vector3(0, 3, 0), i)
-	# makes more webs
-	for i in range (0, 2):
-		debris = debrisScene.instance()
-		get_parent().add_child(debris)
-		debris.initialize(translation + Vector3(0, 3, 0), i)
+		debris.initialize(translation + Vector3(0, -1, 0), i)
+	
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+func _process(delta):
+	# despawns when it hits the ground
+	if is_on_floor():
+		despawn()
+		spawnMore()
+	# falls if dead
+	if dead:
+		$modelZero/nest.rotate_z(-1*PI*delta)
+		velocity.y -= 80 * delta
+		velocity = move_and_slide_with_snap(velocity, Vector3(0, 1, 0), Vector3.UP, true)
 
 func _on_hurtbox_area_entered(area):
 	if invincible or dead or decoration:
@@ -137,8 +137,8 @@ func _on_AnimationPlayerDamage_animation_finished(anim_name):
 		"hurt":
 			animDamage.play("idle")
 		"dead":
-			spawnMore()
-			despawn()
+			dead = true
+			animDamage.play("idle")
 
 
 func _on_spawnDelay_timeout():

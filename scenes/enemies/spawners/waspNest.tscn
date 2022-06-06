@@ -1,0 +1,224 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://art/models/WaspSpawners/WaspSpawners.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://scenes/enemies/spawners/waspNest.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("modelZero/nest:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.55, 1.5 ), Vector3( 1.5, 1.5, 1.5 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "spawn"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("modelZero/nest:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.333333, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 0.35, -2, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.3, 1.5 ), Vector3( 1.5, 1.7, 1.5 ), Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.5, 1.5 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "dead"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("modelZero:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.2, 0, 0 ), Vector3( -0.2, 0, 0 ), Vector3( 0.2, 0, 0 ), Vector3( -0.2, 0, 0 ), Vector3( 0.1, 0, 0 ), Vector3( -0.1, 0, 0 ), Vector3( 0.1, 0, 0 ), Vector3( -0.1, 0, 0 ), Vector3( 0.1, 0, 0 ), Vector3( -0.05, 0, 0 ), Vector3( 0.05, 0, 0 ), Vector3( -0.05, 0, 0 ), Vector3( 0.05, 0, 0 ), Vector3( -0.05, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("modelZero:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("modelZero:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 0.3 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "hurt"
+length = 0.166667
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("modelZero:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.116667, 0.166667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.5, 0, 0 ), Vector3( -0.25, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("modelZero:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("modelZero:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle"
+length = 0.0833333
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("modelZero:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("modelZero:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("modelZero:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="SphereShape" id=8]
+radius = 1.25
+
+[sub_resource type="CylinderShape" id=9]
+radius = 1.75
+height = 3.0
+
+[sub_resource type="CylinderShape" id=10]
+radius = 10.0
+height = 20.0
+
+[node name="waspNest" type="KinematicBody"]
+collision_layer = 1024
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="AnimationPlayerSpawn" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 6 )
+anims/spawn = SubResource( 7 )
+
+[node name="AnimationPlayerDamage" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/dead = SubResource( 3 )
+anims/hurt = SubResource( 4 )
+anims/idle = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 8 )
+
+[node name="modelZero" type="Spatial" parent="."]
+
+[node name="nest" type="MeshInstance" parent="modelZero"]
+transform = Transform( 1.06066, 0.918558, -0.53033, -6.55671e-08, -0.75, -1.29904, -1.06066, 0.918559, -0.53033, -0.579343, 0.573954, -0.509499 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="hurtbox" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="hurtbox"]
+shape = SubResource( 9 )
+
+[node name="spawnTimer" type="Timer" parent="."]
+wait_time = 0.333
+one_shot = true
+
+[node name="aggro" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0 )
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="aggro"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+shape = SubResource( 10 )
+
+[connection signal="animation_finished" from="AnimationPlayerSpawn" to="." method="_on_AnimationPlayerSpawn_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayerDamage" to="." method="_on_AnimationPlayerDamage_animation_finished"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
+[connection signal="timeout" from="spawnTimer" to="." method="_on_spawnDelay_timeout"]
+[connection signal="area_entered" from="aggro" to="." method="_on_aggro_area_entered"]

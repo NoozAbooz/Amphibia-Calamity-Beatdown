@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=2]
@@ -14,12 +14,13 @@
 [ext_resource path="res://dirt.tres" type="Material" id=12]
 [ext_resource path="res://scenes/bridgeTest.gd" type="Script" id=13]
 [ext_resource path="res://scenes/enemies/redMantis.tscn" type="PackedScene" id=14]
-[ext_resource path="res://maps/spiderSpawner.gd" type="Script" id=15]
+[ext_resource path="res://scenes/enemies/spawners/waspNest.tscn" type="PackedScene" id=15]
 [ext_resource path="res://maps/level objects/lilypad.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/enemies/bosses/watersnake.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/enemies/wasp.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/goal.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/enemies/spawners/spiderNest.tscn" type="PackedScene" id=20]
+[ext_resource path="res://maps/decorations/swampTreeA.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/pickups/coin.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Environment" id=3]
@@ -211,7 +212,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6941, 1.68128, 72.7051 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30179, 1.68128, 71.9553 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="."]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 308.311, 10.8205, 20.5694 )
@@ -310,6 +311,21 @@ transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 13 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground15"]
+transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
+cast_shadow = 0
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="Ground16" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9239, -0.184202, 90.3501 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground16"]
+transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground16"]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
 cast_shadow = 0
 mesh = SubResource( 33 )
@@ -564,10 +580,6 @@ hp = 30
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 38.6359, 19.9889, 10.5684 )
 printVals = true
 
-[node name="Enemy8" parent="enemies" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.43643, 4.66303, 73.92 )
-printVals = true
-
 [node name="Enemy5" parent="enemies" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.9714, -0.23135, 2.06618 )
 speedWalk = 0
@@ -636,7 +648,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 92.3059
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 63.9763, 8.79494, 13.6064 )
 
 [node name="mush2" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.2473, 2.27046, 78.9322 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.771125, 2.27046, 67.9042 )
 
 [node name="mush4" parent="." instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -56.2456, 1.44654, 51.7149 )
@@ -800,10 +812,6 @@ maxCoins = 1
 minCoins = 0
 hp = 0
 
-[node name="spiderSpawner" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 120.386, 13.7723, 24.7983 )
-script = ExtResource( 15 )
-
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7354, 3.24048, 48.2193 )
 mesh = SubResource( 49 )
@@ -848,31 +856,46 @@ hpMax = 350
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 374.246, 18.1743, 21.3355 )
 
 [node name="coin10" parent="." instance=ExtResource( 22 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.6865, 5.49658, 21.3294 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.1865, 5.497, 28.2055 )
 gravOff = true
 
 [node name="coin11" parent="." instance=ExtResource( 22 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.702, 5.49658, 19.3558 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.1865, 5.49658, 28.2055 )
 value = 5
 gravOff = true
 
 [node name="coin12" parent="." instance=ExtResource( 22 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.3819, 5.49658, 19.1055 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.1865, 11.4966, 28.2055 )
 value = 999
 gravOff = true
 
 [node name="coin13" parent="." instance=ExtResource( 22 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.3973, 5.49658, 17.1319 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.1865, 5.49658, 28.2055 )
 value = 20
 gravOff = true
 
 [node name="spiderNest" parent="." instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6638, 1.2772, 67.7782 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.459, 1.2772, 70.9304 )
 
 [node name="spiderNest2" parent="." instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9577, 1.2772, 74.3869 )
 
 [node name="spiderNest3" parent="." instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6333, 1.2772, 66.5285 )
+
+[node name="waspNest" parent="." instance=ExtResource( 15 )]
+transform = Transform( 0.999733, 0, 0.0231236, 0, 1, 0, -0.0231236, 0, 0.999733, -46.2964, 6.64511, 89.9029 )
+
+[node name="waspNest3" parent="." instance=ExtResource( 15 )]
+transform = Transform( 0.841596, 0, -0.540108, 0, 1, 0, 0.540108, 0, 0.841596, -50.5006, 4.88458, 90.0579 )
+
+[node name="swampTreeA" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.735543, 0, -1.01068, 0, 1.25, 0, 1.01068, 0, 0.735543, -49.0255, 0, 86.7841 )
+
+[node name="waspNest2" parent="." instance=ExtResource( 15 )]
+transform = Transform( 0.846342, 0, -0.53264, 0, 1, 0, 0.53264, 0, 0.846342, -15.6795, 6.23923, 87.0631 )
+
+[node name="swampTreeA2" parent="." instance=ExtResource( 21 )]
+transform = Transform( -0.277531, 0, 1.2188, 0, 1.25, 0, -1.2188, 0, -0.277531, -16.1218, 0, 84.5261 )
 
 [connection signal="animation_finished" from="switch2/bridge/AnimationPlayer" to="switch2/bridge" method="_on_AnimationPlayer_animation_finished"]
