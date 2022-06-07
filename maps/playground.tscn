@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://scenes/enemies/spawners/spiderNest.tscn" type="PackedScene" id=20]
 [ext_resource path="res://maps/decorations/swampTreeA.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/pickups/coin.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/enemies/greenMantis.tscn" type="PackedScene" id=23]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -554,13 +555,13 @@ material/0 = null
 [node name="enemies" type="Spatial" parent="."]
 
 [node name="Enemy" parent="enemies" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -64.615, 1.09358, 1.39205 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 46.3037, 18.0686, -35.632 )
 
 [node name="Enemy3" parent="enemies" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -56.318, 1.09358, 2.48515 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 54.6007, 18.0686, -34.5389 )
 
 [node name="Enemy2" parent="enemies" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 188.23, 17.9932, 13.1436 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 137.074, 23.7786, 17.5166 )
 speedWalk = 0
 weakAttacker = true
 oddsDrop = 0.0
@@ -660,7 +661,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 266.141
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 86.905, -0.0447415, 33.6712 )
 
 [node name="redMantis" parent="." instance=ExtResource( 14 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60.654, 0.731779, 0.138546 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50.2647, 17.7068, -36.8856 )
 speedWalk = 4
 damage = 15
 maxCoins = 8
@@ -897,5 +898,8 @@ transform = Transform( 0.846342, 0, -0.53264, 0, 1, 0, 0.53264, 0, 0.846342, -15
 
 [node name="swampTreeA2" parent="." instance=ExtResource( 21 )]
 transform = Transform( -0.277531, 0, 1.2188, 0, 1.25, 0, -1.2188, 0, -0.277531, -16.1218, 0, 84.5261 )
+
+[node name="Enemy" parent="." instance=ExtResource( 23 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.57978, 0.94708, 48.3549 )
 
 [connection signal="animation_finished" from="switch2/bridge/AnimationPlayer" to="switch2/bridge" method="_on_AnimationPlayer_animation_finished"]

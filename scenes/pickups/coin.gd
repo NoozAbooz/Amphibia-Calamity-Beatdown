@@ -4,6 +4,7 @@ extends KinematicBody
 var force_grav = 125.0
 var velocity = Vector3.ZERO
 var bounceForce = 0
+var bounceCount = 0
 var settled = false
 export var value = 1
 export var gravOff = false # makes coins float in place instead of fall. Used for coins placed in the world.
@@ -62,8 +63,10 @@ func _process(delta):
 				velocity.y = bounceForce
 				velocity.z *= 0.5
 				bounceForce *= 0.75
-				soundManager.pitchSound("coin1", (2.2 -  ((0.3/10.0) * bounceForce)), -10) #rng.rand.randf_range(1.9, 2.2))
-				soundManager.playSound("coin1")
+				bounceCount += 1
+				if (bounceCount < 5):
+					soundManager.pitchSound("coin1", (2.2 -  ((0.3/10.0) * bounceForce)), -10)
+					soundManager.playSound("coin1")
 		if (settled):
 			velocity.x = 0
 			velocity.y = 0

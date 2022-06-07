@@ -76,10 +76,10 @@ func despawn():
 	# spawns debris
 	var debris = null
 	# makes one of everything
-	for i in range (0, 6):
+	for i in range (0, 5):
 		debris = debrisScene.instance()
 		get_parent().add_child(debris)
-		debris.initialize(translation + Vector3(0, -1, 0), i)
+		debris.initialize(translation + Vector3(0, -1, 0), 5)
 	
 	
 # Called when the node enters the scene tree for the first time.

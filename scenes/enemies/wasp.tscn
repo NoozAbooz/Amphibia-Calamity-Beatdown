@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/enemies/enemy_flying.gd" type="Script" id=1]
 [ext_resource path="res://art/enemies/wasp_prep.png" type="Texture" id=2]
+[ext_resource path="res://art/enemies/wasp_idle2.png" type="Texture" id=3]
+[ext_resource path="res://art/enemies/wasp_prep2.png" type="Texture" id=4]
 [ext_resource path="res://art/enemies/wasp_idle.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=44]
@@ -92,10 +94,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.0333333, 0.0666668, 0.1, 0.133334, 0.166667, 0.2, 0.233334, 0.266667, 0.300001, 0.333334, 0.366667, 0.400001, 0.433334, 0.466668, 0.500001, 0.533334, 0.566668, 0.600001, 0.633335, 0.666668, 0.700001, 0.733335, 0.766668, 0.800002, 0.833335, 0.866668, 0.900002, 0.933335, 0.966668 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
@@ -107,7 +109,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "attack" ]
+"values": [ "attack_prep" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
@@ -468,7 +470,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id=30]
 resource_name = "idle"
-length = 0.166667
+length = 0.133334
 loop = true
 step = 0.0166667
 tracks/0/type = "value"
@@ -478,10 +480,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.0666667 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 0, 1 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
@@ -561,19 +563,19 @@ animations = [ {
 "name": "hurt_air",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "attack_prep",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": false,
-"name": "fly",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": false,
 "name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "fly",
 "speed": 5.0
 } ]
 
@@ -630,7 +632,8 @@ transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819,
 offset = Vector2( 0, 15 )
 pixel_size = 0.07
 frames = SubResource( 38 )
-animation = "hurt_floor"
+animation = "fly"
+frame = 1
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 32
