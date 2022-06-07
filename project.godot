@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
-"class": "ChatMessage",
-"language": "GDScript",
-"path": "res://addons/discord_game_sdk/example/lobby/chat_message.gd"
-}, {
 "base": "",
 "class": "DiscordActivity",
 "language": "NativeScript",
@@ -94,11 +89,6 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_user.gdns"
 }, {
-"base": "Resource",
-"class": "GameState",
-"language": "GDScript",
-"path": "res://addons/discord_game_sdk/example/lobby/game_state.gd"
-}, {
 "base": "Reference",
 "class": "IPC",
 "language": "GDScript",
@@ -123,11 +113,6 @@ _global_script_classes=[ {
 "class": "IPCUtil",
 "language": "GDScript",
 "path": "res://addons/godot_editor_discord_presence/Discord RPC/util/IPCUtil.gd"
-}, {
-"base": "Resource",
-"class": "Member",
-"language": "GDScript",
-"path": "res://addons/discord_game_sdk/example/lobby/member.gd"
 }, {
 "base": "Reference",
 "class": "RichPresence",
@@ -175,7 +160,6 @@ _global_script_classes=[ {
 "path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/pipe/WindowsPipe.gd"
 } ]
 _global_script_class_icons={
-"ChatMessage": "",
 "DiscordActivity": "",
 "DiscordActivityAssets": "",
 "DiscordActivityManager": "",
@@ -192,13 +176,11 @@ _global_script_class_icons={
 "DiscordRPCEnum": "",
 "DiscordResult": "",
 "DiscordUser": "",
-"GameState": "",
 "IPC": "",
 "IPCModule": "",
 "IPCPayload": "",
 "IPCPipe": "",
 "IPCUtil": "",
-"Member": "",
 "RichPresence": "",
 "RichPresenceButton": "",
 "RichPresenceModule": "",
@@ -227,6 +209,7 @@ pg="*res://global/playerGlobals.gd"
 soundManager="*res://global/soundManager.tscn"
 tran="*res://global/transitioner.tscn"
 nme="*res://global/enemyInfo.gd"
+Discord="*res://addons/discord_game_sdk/discord.gd"
 
 [debug]
 
@@ -243,7 +226,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/discord_game_sdk/plugin.cfg", "res://addons/godot_editor_discord_presence/plugin.cfg" )
 
 [gdnative]
 

@@ -73,7 +73,7 @@ func _process(delta):
 			velocity.z = 0
 	# moves to player if activated
 	if (target != null) and settled:
-		velocity = 25 * (target.translation - translation).normalized()
+		velocity = 10 * (target.translation - translation).normalized()
 	# moves the coin based on velocity vector
 	velocity = move_and_slide(velocity, Vector3.UP, true)
 	# fall off world

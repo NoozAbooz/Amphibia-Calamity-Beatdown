@@ -287,6 +287,17 @@ cast_shadow = 0
 mesh = SubResource( 48 )
 material/0 = null
 
+[node name="CollisionShape2" type="CollisionShape" parent="Ground9"]
+transform = Transform( 0.98838, 0.152003, 0, -0.152003, 0.98838, 0, 0, 0, 1, 59.4707, -4.65687, 2.6226e-06 )
+shape = SubResource( 47 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Ground9"]
+transform = Transform( 0.98838, 0.152003, -5.07921e-10, -0.152003, 0.98838, -6.64425e-09, -5.07921e-10, 6.64425e-09, 1, 59.2029, -4.59553, 2.6226e-06 )
+cast_shadow = 0
+mesh = SubResource( 48 )
+skeleton = NodePath("../MeshInstance")
+material/0 = null
+
 [node name="Ground2" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.9651, -2, 0.0466042 )
 collision_layer = 2
