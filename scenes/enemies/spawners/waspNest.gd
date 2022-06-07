@@ -31,7 +31,7 @@ func spawn():
 		var nextEnemy = nme.waspScene.instance()
 		get_parent().add_child(nextEnemy)
 		nextEnemy.initialize(nme.wasp, translation + Vector3((-1 + i), 0, rng.rand.randf_range(-1, 1)), Vector3.ZERO, true, true, true)
-		nextEnemy.hp = 1
+		nextEnemy.hp = 0
 	spawnCount += num
 
 func spawnMore():
@@ -148,7 +148,6 @@ func _on_spawnDelay_timeout():
 
 func _on_aggro_area_entered(area):
 	active = true
-	$aggro.queue_free()
 
 
 func _on_AnimationPlayerSpawn_animation_finished(anim_name):
@@ -162,3 +161,16 @@ func _on_AnimationPlayerSpawn_animation_finished(anim_name):
 		"spawn":
 			counterSpawn = false
 			animSpawn.play("idle")
+
+
+func _on_aggroTimer_timeout():
+	$aggro/CollisionShape.disabled = false
+
+
+func _on_aggro_area_exited(area):
+	active = false
+	# turns off the collision and re-activates it after a short time to re-check is a player is still in range
+	# done this way to account for multiple players
+	$aggro/CollisionShape.disabled = true
+	$aggro/aggroTimer.start()
+

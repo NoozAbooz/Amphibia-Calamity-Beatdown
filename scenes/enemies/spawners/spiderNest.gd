@@ -148,7 +148,6 @@ func _on_spawnDelay_timeout():
 
 func _on_aggro_area_entered(area):
 	active = true
-	$aggro.queue_free()
 
 
 func _on_AnimationPlayerSpawn_animation_finished(anim_name):
@@ -162,3 +161,15 @@ func _on_AnimationPlayerSpawn_animation_finished(anim_name):
 		"spawn":
 			counterSpawn = false
 			animSpawn.play("idle")
+
+
+func _on_aggro_area_exited(area):
+	active = false
+	# turns off the collision and re-activates it after a short time to re-check is a player is still in range
+	# done this way to account for multiple players
+	$aggro/CollisionShape.disabled = true
+	$aggro/aggroTimer.start()
+
+
+func _on_aggroTimer_timeout():
+	$aggro/CollisionShape.disabled = false

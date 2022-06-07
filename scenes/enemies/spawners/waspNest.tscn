@@ -216,9 +216,15 @@ monitorable = false
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 shape = SubResource( 10 )
 
+[node name="aggroTimer" type="Timer" parent="aggro"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayerSpawn" to="." method="_on_AnimationPlayerSpawn_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayerDamage" to="." method="_on_AnimationPlayerDamage_animation_finished"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawnDelay_timeout"]
 [connection signal="area_entered" from="aggro" to="." method="_on_aggro_area_entered"]
+[connection signal="area_exited" from="aggro" to="." method="_on_aggro_area_exited"]
+[connection signal="timeout" from="aggro/aggroTimer" to="." method="_on_aggroTimer_timeout"]
