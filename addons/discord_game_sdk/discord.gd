@@ -258,7 +258,7 @@ func _ready():
 	
 	discore_core_ = DiscordCore.new()
 	if discore_core_:
-		discore_core_.create(932734837922611310, CreateFlags.NoRequireDiscord)
+		discore_core_.create(983557502568374282, CreateFlags.NoRequireDiscord)
 		
 		activity_manager = ActivityManager_.new(discore_core_.get_activity_manager())
 		lobby_manager = LobbyManager_.new(discore_core_.get_lobby_manager())
