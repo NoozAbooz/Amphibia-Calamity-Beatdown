@@ -16,6 +16,8 @@ var actZ = 0
 var minY = 0
 var maxZ = 0
 
+var debugMode = false
+
 onready var pivot = get_parent_spatial()
 
 var playerPositions = PoolVector3Array()
@@ -75,6 +77,23 @@ func _ready():
 	self.fov = 30
 	
 func _process(_delta):
+	# Debug mode activate/deactivate
+	if ((Input.is_action_just_pressed("cam_mode") == true)):
+		if debugMode:
+			debugMode = false
+			print("Camera Freed")
+			get_parent().get_node("leftWall/CollisionShape").disabled = false
+			get_parent().get_node("leftWall/passThrough/CollisionShape2").disabled = false
+			get_parent().get_node("rightWall/CollisionShape").disabled = false
+			get_parent().get_node("rightWall/passThrough/CollisionShape2").disabled = false
+		else:
+			debugMode = true
+			print("Camera Locked")
+			get_parent().get_node("leftWall/CollisionShape").disabled = true
+			get_parent().get_node("leftWall/passThrough/CollisionShape2").disabled = true
+			get_parent().get_node("rightWall/CollisionShape").disabled = true
+			get_parent().get_node("rightWall/passThrough/CollisionShape2").disabled = true
+	
 	# checks for active players and makes array of player positions
 	playerPositions = []
 	playerShadows = []
@@ -127,12 +146,24 @@ func _process(_delta):
 		desX = tempX/playerPositions.size()
 		desY = minY
 		desZ = maxZ
-
-	actX += 0.1*(desX - actX) 
-	actY += 0.05*(desY - actY) 
-	actZ += 0.1*(desZ - actZ) 
-	pivot.translation.x = actX + offsetX
-	pivot.translation.y = actY + offsetY
-	pivot.translation.z = actZ + offsetZ
+	
+	if (debugMode == false):
+		actX += 0.1*(desX - actX) 
+		actY += 0.05*(desY - actY) 
+		actZ += 0.1*(desZ - actZ) 
+		pivot.translation.x = actX + offsetX
+		pivot.translation.y = actY + offsetY
+		pivot.translation.z = actZ + offsetZ
+	else:
+		# debug camera moveable with arrow keys
+		if (Input.is_action_pressed("move_left_k1") == true):
+			pivot.translation.x -= 0.2
+		elif (Input.is_action_pressed("move_right_k1") == true):
+			pivot.translation.x += 0.2
+		elif (Input.is_action_pressed("move_away_k1") == true):
+			pivot.translation.y += 0.2
+		elif (Input.is_action_pressed("move_in_k1") == true):
+			pivot.translation.y -= 0.2
+			
 	
 	#print(get_parent().get_node("spawnFinder/pivot/rays").global_transform.origin)
