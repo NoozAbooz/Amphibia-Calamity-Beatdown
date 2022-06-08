@@ -5,8 +5,6 @@ var coinScene = preload("res://scenes/pickups/coin.tscn")
 var khaoScene = preload("res://scenes/pickups/khao.tscn")
 var mushScene = preload("res://scenes/pickups/mush.tscn")
 
-#var rng = RandomNumberGenerator.new()
-
 export var speedWalk = 8
 export var damage = 10
 
@@ -20,6 +18,7 @@ export var oddsDrop = 0.10 # 0.10
 export var oddsKhao = 0.20 
 export var broke = false
 export var infEnemy = false #if true, enemy does not count towards kills. Used for spawners and summons
+export var startRight = false
 
 export var hp = 100
 
@@ -28,6 +27,7 @@ var velocityG = Vector3.ZERO
 var velocityE = Vector3.ZERO
 var direction = Vector2.ZERO
 var lookRight = false
+
 var mini_jump_boost = 20
 var force_grav = 125.0
 var snapVect  = Vector3.ZERO
@@ -167,8 +167,10 @@ func reduce(value, amount):
 	return value
 
 func _ready():
-	pass
-	#rng.randomize()
+	if (startRight):
+		lookRight = true
+	else:
+		lookRight = false
 
 #func initialize(loc, vel, spd, dam, hlth, wgt, maxC, minC, oddsD = 0.1, oddsK = 0.2, brk = false, weakA = false, infVision = false):
 #	translation = loc

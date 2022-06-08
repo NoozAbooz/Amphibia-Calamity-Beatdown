@@ -13,7 +13,6 @@ var AnneScene = preload("res://scenes/players/Anne.tscn")
 var SashaScene = preload("res://scenes/players/Sasha.tscn")
 var MarcyScene = preload("res://scenes/players/Marcy.tscn")
 
-
 var camScene = preload("res://scenes/cam.tscn")
 var pauseScene = preload("res://scenes/menus/pauseScreen.tscn")
 var GOScene = preload("res://scenes/menus/gameOverScreen.tscn")
@@ -23,6 +22,8 @@ var player = AnneScene.instance()
 var offset = Vector3.ZERO
 
 var nextScene = camScene.instance()
+
+export var hideGUI = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,6 +67,9 @@ func _process(_delta):
 		player.initialize(i, (translation + offset))
 		# marks player as alive in global
 		pg.playerAlive[i] = true
+		# hides GUI if necessary
+		if (hideGUI):
+			player.get_node("playerInfo").visible = false
 		
 	# adds camera scene
 	nextScene = camScene.instance()
