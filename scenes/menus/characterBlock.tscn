@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/menus/characterBlock.gd" type="Script" id=1]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=2]
@@ -6,19 +6,11 @@
 [ext_resource path="res://art/menus/charBlock.png" type="Texture" id=5]
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=8]
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 305, 730 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 3 )
-region = Rect2( 305, 0, 305, 730 )
-
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 3 )
 region = Rect2( 1830, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 3 )
 region = Rect2( 2135, 0, 305, 730 )
 
@@ -38,17 +30,28 @@ region = Rect2( 610, 0, 305, 730 )
 atlas = ExtResource( 3 )
 region = Rect2( 915, 0, 305, 730 )
 
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 2440, 0, 305, 730 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 3 )
+region = Rect2( 2745, 0, 305, 730 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 305, 730 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 305, 0, 305, 730 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
-"loop": false,
-"name": "Anne",
-"speed": 0.0
-}, {
-"frames": [ SubResource( 7 ), SubResource( 8 ) ],
-"loop": false,
-"name": "Maggie",
-"speed": 0.0
+"frames": [ SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "Sprig",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": false,
@@ -63,6 +66,16 @@ animations = [ {
 "frames": [  ],
 "loop": false,
 "name": "Banne",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ) ],
+"loop": false,
+"name": "Maggie",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": false,
+"name": "Anne",
 "speed": 0.0
 } ]
 
@@ -160,8 +173,9 @@ __meta__ = {
 [node name="faces" type="AnimatedSprite" parent="."]
 position = Vector2( 8, 0 )
 frames = SubResource( 1 )
-animation = "Anne"
+animation = "Marcy"
 centered = false
+offset = Vector2( 0, -2.49991 )
 
 [node name="labelPlayer" type="Label" parent="."]
 margin_top = 5.0

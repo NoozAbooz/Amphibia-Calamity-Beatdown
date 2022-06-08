@@ -9,9 +9,10 @@ extends Spatial
 #	Music
 
 
-var AnneScene = preload("res://scenes/players/Anne.tscn")
+var AnneScene  = preload("res://scenes/players/Anne.tscn")
 var SashaScene = preload("res://scenes/players/Sasha.tscn")
 var MarcyScene = preload("res://scenes/players/Marcy.tscn")
+var SprigScene = preload("res://scenes/players/Sprig.tscn")
 
 var camScene = preload("res://scenes/cam.tscn")
 var pauseScene = preload("res://scenes/menus/pauseScreen.tscn")
@@ -45,6 +46,8 @@ func _process(_delta):
 				player = MarcyScene.instance()
 			"Sasha":
 				player = SashaScene.instance()
+			"Sprig":
+				player = SprigScene.instance()
 			"Maggie":
 				player = AnneScene.instance()
 			_:

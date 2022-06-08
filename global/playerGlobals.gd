@@ -49,6 +49,7 @@ var levelMusic = "ripple"
 # playable characters
 var hasMarcy  = true
 var hasSasha  = true
+var hasSprig = true
 var hasMaggie = false
 var availableChars = ["Anne"]
 
@@ -65,6 +66,8 @@ func recalcInfo():
 		availableChars.append("Marcy")
 	if hasSasha:
 		availableChars.append("Sasha")
+	if hasSprig:
+		availableChars.append("Sprig")
 	if hasMaggie:
 		availableChars.append("Maggie")
 	# inputs
