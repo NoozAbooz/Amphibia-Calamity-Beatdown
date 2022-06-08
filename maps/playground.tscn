@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=2]
@@ -92,6 +92,13 @@ extents = Vector3( 10, 1, 4 )
 material = SubResource( 8 )
 size = Vector3( 20, 2, 8 )
 
+[sub_resource type="BoxShape" id=78]
+extents = Vector3( 50, 1, 10 )
+
+[sub_resource type="CubeMesh" id=79]
+material = SubResource( 8 )
+size = Vector3( 100, 2, 20 )
+
 [sub_resource type="BoxShape" id=56]
 extents = Vector3( 30, 1, 12.5 )
 
@@ -107,6 +114,13 @@ albedo_color = Color( 0.698039, 0.501961, 0.00392157, 1 )
 
 [sub_resource type="CubeMesh" id=40]
 material = SubResource( 34 )
+
+[sub_resource type="BoxShape" id=80]
+extents = Vector3( 5, 3, 10 )
+
+[sub_resource type="CubeMesh" id=81]
+material = SubResource( 34 )
+size = Vector3( 10, 6, 20 )
 
 [sub_resource type="ConvexPolygonShape" id=6]
 points = PoolVector3Array( 0, 0, 0, 0, 0, 4, 0, 3, 4, 0, 3, 0, -1, 3, 4, -1, 3, 0 )
@@ -1043,16 +1057,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 36 ), ExtResource( 39 ), ExtResource( 30 ) ],
-"loop": false,
-"name": "attack_heavy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 40 ) ],
-"loop": false,
-"name": "hurt_air",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 28 ) ],
 "loop": false,
 "name": "hurt",
@@ -1061,6 +1065,16 @@ animations = [ {
 "frames": [ ExtResource( 34 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 35 ) ],
 "loop": false,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 39 ), ExtResource( 30 ) ],
+"loop": false,
+"name": "attack_heavy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 40 ) ],
+"loop": false,
+"name": "hurt_air",
 "speed": 5.0
 } ]
 
@@ -1904,7 +1918,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.869, -0.219011, 4.11892 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 149.322, 9.27808, 26.0735 )
 hideGUI = true
 
 [node name="MeshInstance4" type="MeshInstance" parent="."]
@@ -1991,18 +2005,18 @@ skeleton = NodePath("../MeshInstance")
 material/0 = null
 
 [node name="Ground2" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.9651, -2, 0.0466042 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -78.891, -2, 0.0466042 )
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground2"]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 13 )
+shape = SubResource( 78 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground2"]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
 cast_shadow = 0
-mesh = SubResource( 33 )
+mesh = SubResource( 79 )
 material/0 = null
 
 [node name="Ground15" type="StaticBody" parent="."]
@@ -2094,6 +2108,20 @@ cast_shadow = 0
 mesh = SubResource( 40 )
 material/0 = null
 
+[node name="Ground4" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -95.3742, -1.95253, 7.35592 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground4"]
+shape = SubResource( 80 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground4"]
+transform = Transform( 1, 0, -3.97363e-08, 0, 1, 0, 3.97363e-08, 0, 1, 0, 0, 0 )
+cast_shadow = 0
+mesh = SubResource( 81 )
+material/0 = null
+
 [node name="Ground8" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.95, 1.85059, 25.0661 )
 collision_layer = 2
@@ -2170,7 +2198,8 @@ collision_mask = 0
 shape = SubResource( 12 )
 
 [node name="Moving Plat" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 5, 19.322 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 5, 20 )
+visible = false
 collision_layer = 2
 collision_mask = 0
 
@@ -2342,7 +2371,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 201.632
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 92.3059, 11.9459, 13.6862 )
 
 [node name="mush3" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 63.9763, 8.79494, 13.6064 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64.3234, 4.40639, 27.7341 )
 
 [node name="mush2" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.771125, 2.27046, 67.9042 )
@@ -2582,6 +2611,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6333, 1.2772, 66.5285 )
 
 [node name="spiderNest4" parent="." instance=ExtResource( 20 )]
 transform = Transform( 0.989435, 0, 0.144978, 0, 1, 0, -0.144978, 0, 0.989435, 149.309, 9.01314, 16.5526 )
+maxSpawns = 24
 
 [node name="waspNest" parent="." instance=ExtResource( 15 )]
 transform = Transform( 0.999733, 0, 0.0231236, 0, 1, 0, -0.0231236, 0, 0.999733, -46.2964, 6.64511, 89.9029 )
@@ -2609,6 +2639,10 @@ transform = Transform( -0.277531, 0, 1.2188, 0, 1.25, 0, -1.2188, 0, -0.277531, 
 
 [node name="waspNest4" parent="." instance=ExtResource( 15 )]
 transform = Transform( 0.994157, 0, -0.107947, 0, 1, 0, 0.107947, 0, 0.994157, 59.5191, 15.0704, 12.7338 )
+hp = 1
+oddsSpawn = 0.0
+maxCoins = 19
+minCoins = 18
 
 [node name="swampTreeA6" parent="." instance=ExtResource( 21 )]
 transform = Transform( -0.783509, 0, 0.973966, 0, 1.25, 0, -0.973966, 0, -0.783509, 58.0099, 8.83117, 10.6471 )
@@ -2799,15 +2833,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 shape = SubResource( 67 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 23 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -84.8019, 0.900219, -5.49537 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -93.6049, -0.294128, -2.68279 )
 speedWalk = 10
 
 [node name="Enemy5" parent="." instance=ExtResource( 23 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -84.1826, 0.900219, 2.02309 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -91.4238, -0.294128, -1.21518 )
 speedWalk = 10
 
 [node name="Enemy4" parent="." instance=ExtResource( 23 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -84.3187, 0.900219, -1.88125 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -95.5234, -0.294128, -1.67311 )
 speedWalk = 10
 startRight = true
 

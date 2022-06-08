@@ -173,7 +173,7 @@ __meta__ = {
 [node name="faces" type="AnimatedSprite" parent="."]
 position = Vector2( 8, 0 )
 frames = SubResource( 1 )
-animation = "Marcy"
+animation = "Anne"
 centered = false
 offset = Vector2( 0, -2.49991 )
 
