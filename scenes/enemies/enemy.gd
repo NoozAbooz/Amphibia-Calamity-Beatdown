@@ -19,6 +19,7 @@ export var oddsKhao = 0.20
 export var broke = false
 export var infEnemy = false #if true, enemy does not count towards kills. Used for spawners and summons
 export var startRight = false
+export var ambushEnemy = false # if true, kills count towards ambush kill counts
 
 export var hp = 100
 
@@ -95,6 +96,8 @@ func setHitBox(attackDamage, type, dir):
 func despawn():
 	# Adds 1 to kill counter
 	if (infEnemy == false):
+		pg.killsTotal += 1
+	if (ambushEnemy== true):
 		pg.kills += 1
 	# update drop counts/odds
 	minCoins += (pg.luckUpgrades * pg.coinBoost)

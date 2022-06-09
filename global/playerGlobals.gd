@@ -5,7 +5,8 @@ var playerStartingMaxHP = 100 #100
 var playerStartingLives = 3 #3
 var totalMoney = 0
 var newMoney = 0
-var kills = 0
+var kills = 0 # Used to count in ambushes
+var killsTotal = 0 # Used to count total kills
 
 # upgrades
 var healthUpgrades = 0 # 20 per upgrade, max 3

@@ -1,0 +1,1077 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://maps/best_fronds/swamp.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://scenes/ambush.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/enemies/bosses/watersnake.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://maps/level objects/lilypad.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/pickups/coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://art/enemies/mantis_hurt1.png" type="Texture" id=8]
+[ext_resource path="res://scenes/enemies/enemy.gd" type="Script" id=9]
+[ext_resource path="res://art/enemies/mantis_hurt3.png" type="Texture" id=10]
+[ext_resource path="res://art/enemies/mantis temp/walk (2).png" type="Texture" id=11]
+[ext_resource path="res://art/enemies/mantis temp/walk (5).png" type="Texture" id=12]
+[ext_resource path="res://art/enemies/mantis temp/walk (6).png" type="Texture" id=13]
+[ext_resource path="res://art/enemies/mantis temp/walk (7).png" type="Texture" id=14]
+[ext_resource path="res://art/enemies/mantis temp/idle (4).png" type="Texture" id=15]
+[ext_resource path="res://art/enemies/mantis temp/walk (1).png" type="Texture" id=16]
+[ext_resource path="res://art/enemies/mantis_attack_1.png" type="Texture" id=17]
+[ext_resource path="res://art/enemies/mantis_attack_2.png" type="Texture" id=18]
+[ext_resource path="res://art/enemies/mantis temp/walk (8).png" type="Texture" id=19]
+[ext_resource path="res://art/enemies/mantis_block.png" type="Texture" id=20]
+[ext_resource path="res://art/enemies/mantis_attack_3.png" type="Texture" id=21]
+[ext_resource path="res://art/enemies/mantis temp/idle (1).png" type="Texture" id=22]
+[ext_resource path="res://art/enemies/mantis temp/walk (3).png" type="Texture" id=23]
+[ext_resource path="res://art/enemies/mantis temp/walk (4).png" type="Texture" id=24]
+[ext_resource path="res://art/enemies/mantis temp/idle (6).png" type="Texture" id=25]
+[ext_resource path="res://art/enemies/mantis_hurt2.png" type="Texture" id=26]
+[ext_resource path="res://art/enemies/mantis temp/idle (2).png" type="Texture" id=27]
+[ext_resource path="res://art/enemies/mantis temp/idle (3).png" type="Texture" id=28]
+[ext_resource path="res://art/enemies/mantis temp/idle (5).png" type="Texture" id=29]
+
+[sub_resource type="Environment" id=3]
+background_mode = 1
+background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
+background_energy = 0.0
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.85
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( 220.455, -1.4, -12.8727, 220.455, -22.96, 0, 220.455, -1.4, 0, 220.455, -22.96, 0, 220.455, -1.4, -12.8727, 220.455, -22.96, -20, 197.878, -22.96, -20, 220.455, -22.96, 0, 220.455, -22.96, -20, 192.493, -22.96, -17.7553, 220.455, -22.96, 0, 197.878, -22.96, -20, 188.945, -22.96, -15.5076, 220.455, -22.96, 0, 192.493, -22.96, -17.7553, 185.582, -22.96, -12.3687, 220.455, -22.96, 0, 188.945, -22.96, -15.5076, 183.288, -22.96, -9.3393, 220.455, -22.96, 0, 185.582, -22.96, -12.3687, 180.14, -22.96, -8.0563, 220.455, -22.96, 0, 183.288, -22.96, -9.3393, 176.64, -22.96, -8.0563, 220.455, -22.96, 0, 180.14, -22.96, -8.0563, 172.74, -22.96, -8.0563, 220.455, -22.96, 0, 176.64, -22.96, -8.0563, 172.74, -22.96, -8.0563, 130.547, -22.96, 0, 220.455, -22.96, 0, 169.922, -22.96, -10.2968, 130.547, -22.96, 0, 172.74, -22.96, -8.0563, 158.781, -22.96, -20, 130.547, -22.96, 0, 169.922, -22.96, -10.2968, 130.547, -22.96, 0, 158.781, -22.96, -20, 130.547, -22.96, -20, 126.81, -22.96, -17.52, 130.547, -22.96, 0, 130.547, -22.96, -20, 123.093, -22.96, -12.7381, 130.547, -22.96, 0, 126.81, -22.96, -17.52, 118.768, -22.96, -9.3405, 130.547, -22.96, 0, 123.093, -22.96, -12.7381, 99.268, -22.96, -9.3405, 130.547, -22.96, 0, 118.768, -22.96, -9.3405, 99.268, -22.96, -9.3405, 92.2651, -22.96, 0, 130.547, -22.96, 0, 95.5839, -22.96, -12.7208, 92.2651, -22.96, 0, 99.268, -22.96, -9.3405, 92.2651, -22.96, 0, 95.5839, -22.96, -12.7208, 92.2651, -22.96, -20, 92.2651, -22.96, -20, 46.8636, -22.96, 0, 92.2651, -22.96, 0, 46.8636, -22.96, 0, 92.2651, -22.96, -20, 46.8636, -22.96, -20, 46.8636, -22.96, -20, 33.8417, -22.96, 0, 46.8636, -22.96, 0, 33.8417, -22.96, -20, 33.8417, -22.96, 0, 46.8636, -22.96, -20, 33.8417, -22.96, -20, 25.5288, -22.96, 5, 33.8417, -22.96, 0, 25.5288, -22.96, -26, 25.5288, -22.96, 5, 33.8417, -22.96, -20, 25.5288, -22.96, -26, 5.6705, -22.96, 5, 25.5288, -22.96, 5, 5.6705, -22.96, -26, 5.6705, -22.96, 5, 25.5288, -22.96, -26, 5.6705, -22.96, -26, 0, -22.96, 0, 5.6705, -22.96, 5, 0, -22.96, 0, 5.6705, -22.96, -26, 0, -22.96, -20, 0, 3.805, -20, 0, -22.96, 0, 0, -22.96, -20, 0, -22.96, 0, 0, 3.805, -20, 0, 3.805, 0, 5.6705, 3.805, 5, 0, -22.96, 0, 0, 3.805, 0, 0, -22.96, 0, 5.6705, 3.805, 5, 5.6705, -22.96, 5, 25.5288, 3.805, 5, 5.6705, -22.96, 5, 5.6705, 3.805, 5, 5.6705, -22.96, 5, 25.5288, 3.805, 5, 25.5288, -22.96, 5, 33.8417, 3.805, 0, 25.5288, -22.96, 5, 25.5288, 3.805, 5, 25.5288, -22.96, 5, 33.8417, 3.805, 0, 33.8417, -22.96, 0, 46.8636, 0, 0, 33.8417, -22.96, 0, 33.8417, 3.805, 0, 33.8417, -22.96, 0, 46.8636, 0, 0, 46.8636, -22.96, 0, 72.3556, -2, 0, 46.8636, -22.96, 0, 46.8636, 0, 0, 46.8636, -22.96, 0, 72.3556, -2, 0, 83.884, -2, 0, 92.2651, 0, 0, 46.8636, -22.96, 0, 83.884, -2, 0, 46.8636, -22.96, 0, 92.2651, 0, 0, 92.2651, -22.96, 0, 130.547, 0, 0, 92.2651, -22.96, 0, 92.2651, 0, 0, 92.2651, -22.96, 0, 130.547, 0, 0, 130.547, -22.96, 0, 190.292, -1.4, 0, 130.547, -22.96, 0, 130.547, 0, 0, 220.455, -1.4, 0, 130.547, -22.96, 0, 190.292, -1.4, 0, 130.547, -22.96, 0, 220.455, -1.4, 0, 220.455, -22.96, 0, 190.292, -1.4, -3.1879, 220.455, -1.4, 0, 190.292, -1.4, 0, 220.455, -1.4, 0, 190.292, -1.4, -3.1879, 191.476, -1.4, -6.0361, 220.455, -1.4, 0, 191.476, -1.4, -6.0361, 196.023, -1.4, -9.4586, 220.455, -1.4, 0, 196.023, -1.4, -9.4586, 204.106, -1.4, -12.8727, 220.455, -1.4, 0, 204.106, -1.4, -12.8727, 220.455, -1.4, -12.8727, 204.106, 0, -12.8727, 220.455, -1.4, -12.8727, 204.106, -1.4, -12.8727, 220.455, -1.4, -12.8727, 204.106, 0, -12.8727, 220.455, 0, -12.8727, 220.455, -22.96, -20, 220.455, -1.4, -12.8727, 220.455, 0, -12.8727, 220.455, -22.96, -20, 220.455, 0, -12.8727, 220.455, 0, -20, 197.878, -22.96, -20, 220.455, 0, -20, 220.455, -22.96, -20, 220.455, 0, -20, 197.878, -22.96, -20, 197.878, 0, -20, 204.106, 0, -12.8727, 197.878, 0, -20, 220.455, 0, -20, 196.023, 0, -9.4586, 197.878, 0, -20, 204.106, 0, -12.8727, 196.023, 0, -9.4586, 192.493, 0, -17.7553, 197.878, 0, -20, 191.476, 0, -6.0361, 192.493, 0, -17.7553, 196.023, 0, -9.4586, 190.292, 0, -3.1879, 192.493, 0, -17.7553, 191.476, 0, -6.0361, 190.292, 0, -3.1879, 188.945, 0, -15.5076, 192.493, 0, -17.7553, 190.292, 0, 0, 188.945, 0, -15.5076, 190.292, 0, -3.1879, 190.292, 0, 0, 185.582, 0, -12.3687, 188.945, 0, -15.5076, 190.292, 0, 0, 183.288, 0, -9.3393, 185.582, 0, -12.3687, 190.292, 0, 0, 180.14, 0, -8.0563, 183.288, 0, -9.3393, 190.292, 0, 0, 176.64, 0, -8.0563, 180.14, 0, -8.0563, 190.292, 0, 0, 172.74, 0, -8.0563, 176.64, 0, -8.0563, 190.292, 0, 0, 130.547, 0, -20, 172.74, 0, -8.0563, 130.547, 0, -20, 190.292, 0, 0, 130.547, 0, 0, 130.547, 0, 0, 126.81, 0, -17.52, 130.547, 0, -20, 130.547, 0, 0, 123.093, 0, -12.7381, 126.81, 0, -17.52, 130.547, 0, 0, 118.768, 0, -9.3405, 123.093, 0, -12.7381, 130.547, 0, 0, 99.268, 0, -9.3405, 118.768, 0, -9.3405, 92.2651, 0, 0, 99.268, 0, -9.3405, 130.547, 0, 0, 92.2651, 0, 0, 95.5839, 0, -12.7208, 99.268, 0, -9.3405, 95.5839, 0, -12.7208, 92.2651, 0, 0, 92.2651, 0, -20, 92.2651, -22.96, -20, 95.5839, 0, -12.7208, 92.2651, 0, -20, 95.5839, 0, -12.7208, 92.2651, -22.96, -20, 95.5839, -22.96, -12.7208, 95.5839, -22.96, -12.7208, 99.268, 0, -9.3405, 95.5839, 0, -12.7208, 99.268, 0, -9.3405, 95.5839, -22.96, -12.7208, 99.268, -22.96, -9.3405, 118.768, -22.96, -9.3405, 99.268, 0, -9.3405, 99.268, -22.96, -9.3405, 99.268, 0, -9.3405, 118.768, -22.96, -9.3405, 118.768, 0, -9.3405, 123.093, -22.96, -12.7381, 118.768, 0, -9.3405, 118.768, -22.96, -9.3405, 118.768, 0, -9.3405, 123.093, -22.96, -12.7381, 123.093, 0, -12.7381, 123.093, -22.96, -12.7381, 126.81, 0, -17.52, 123.093, 0, -12.7381, 126.81, 0, -17.52, 123.093, -22.96, -12.7381, 126.81, -22.96, -17.52, 130.547, -22.96, -20, 126.81, 0, -17.52, 126.81, -22.96, -17.52, 126.81, 0, -17.52, 130.547, -22.96, -20, 130.547, 0, -20, 158.781, -22.96, -20, 130.547, 0, -20, 130.547, -22.96, -20, 130.547, 0, -20, 158.781, -22.96, -20, 158.781, 0, -20, 169.922, 0, -10.2968, 130.547, 0, -20, 158.781, 0, -20, 172.74, 0, -8.0563, 130.547, 0, -20, 169.922, 0, -10.2968, 172.74, 0, -8.0563, 169.922, -22.96, -10.2968, 169.922, 0, -10.2968, 169.922, -22.96, -10.2968, 172.74, 0, -8.0563, 172.74, -22.96, -8.0563, 192.493, -22.96, -17.7553, 169.922, -22.96, -10.2968, 172.74, -22.96, -8.0563, 220.455, -22.96, -30.7216, 169.922, -22.96, -10.2968, 192.493, -22.96, -17.7553, 220.455, -22.96, -30.7216, 167.615, -22.96, -14.1603, 169.922, -22.96, -10.2968, 220.455, -22.96, -30.7216, 163.442, -22.96, -18.1884, 167.615, -22.96, -14.1603, 163.178, -22.96, -30.7216, 163.442, -22.96, -18.1884, 220.455, -22.96, -30.7216, 163.178, -22.96, -30.7216, 158.781, -22.96, -20, 163.442, -22.96, -18.1884, 158.781, -22.96, -20, 163.178, -22.96, -30.7216, 158.781, -22.96, -24.4, 158.781, 13.04, -20, 158.781, -22.96, -20, 158.781, -22.96, -24.4, 158.781, -22.96, -20, 158.781, 13.04, -20, 158.781, 0, -20, 158.781, 0, -20, 163.442, -22.96, -18.1884, 158.781, -22.96, -20, 163.442, -22.96, -18.1884, 158.781, 0, -20, 163.442, 0, -18.1884, 167.615, 0, -14.1603, 163.442, -22.96, -18.1884, 163.442, 0, -18.1884, 163.442, -22.96, -18.1884, 167.615, 0, -14.1603, 167.615, -22.96, -14.1603, 163.442, -22.96, -18.1884, 169.922, -22.96, -10.2968, 167.615, -22.96, -14.1603, 158.781, -22.96, -20, 169.922, -22.96, -10.2968, 163.442, -22.96, -18.1884, 167.615, 0, -14.1603, 169.922, -22.96, -10.2968, 167.615, -22.96, -14.1603, 169.922, -22.96, -10.2968, 167.615, 0, -14.1603, 169.922, 0, -10.2968, 169.922, 0, -10.2968, 163.442, 0, -18.1884, 167.615, 0, -14.1603, 169.922, 0, -10.2968, 158.781, 0, -20, 163.442, 0, -18.1884, 158.781, 13.04, -20, 163.442, 0, -18.1884, 158.781, 0, -20, 163.442, 0, -18.1884, 158.781, 13.04, -20, 163.442, 13.04, -18.1884, 167.615, 13.04, -14.1603, 163.442, 0, -18.1884, 163.442, 13.04, -18.1884, 163.442, 0, -18.1884, 167.615, 13.04, -14.1603, 167.615, 0, -14.1603, 169.922, 13.04, -10.2968, 167.615, 0, -14.1603, 167.615, 13.04, -14.1603, 167.615, 0, -14.1603, 169.922, 13.04, -10.2968, 169.922, 0, -10.2968, 169.922, 13.04, -10.2968, 172.74, 0, -8.0563, 169.922, 0, -10.2968, 172.74, 0, -8.0563, 169.922, 13.04, -10.2968, 172.74, 13.04, -8.0563, 176.64, 13.04, -8.0563, 172.74, 0, -8.0563, 172.74, 13.04, -8.0563, 172.74, 0, -8.0563, 176.64, 13.04, -8.0563, 176.64, 0, -8.0563, 176.64, 0, -8.0563, 172.74, -22.96, -8.0563, 172.74, 0, -8.0563, 172.74, -22.96, -8.0563, 176.64, 0, -8.0563, 176.64, -22.96, -8.0563, 192.493, -22.96, -17.7553, 172.74, -22.96, -8.0563, 176.64, -22.96, -8.0563, 192.493, -22.96, -17.7553, 176.64, -22.96, -8.0563, 188.945, -22.96, -15.5076, 188.945, -22.96, -15.5076, 192.493, 0, -17.7553, 192.493, -22.96, -17.7553, 192.493, 0, -17.7553, 188.945, -22.96, -15.5076, 188.945, 0, -15.5076, 188.945, 0, -15.5076, 192.493, 13.04, -17.7553, 192.493, 0, -17.7553, 192.493, 13.04, -17.7553, 188.945, 0, -15.5076, 188.945, 13.04, -15.5076, 176.64, 13.04, -8.0563, 192.493, 13.04, -17.7553, 188.945, 13.04, -15.5076, 172.74, 13.04, -8.0563, 192.493, 13.04, -17.7553, 176.64, 13.04, -8.0563, 169.922, 13.04, -10.2968, 192.493, 13.04, -17.7553, 172.74, 13.04, -8.0563, 169.922, 13.04, -10.2968, 220.455, 13.04, -30.7216, 192.493, 13.04, -17.7553, 167.615, 13.04, -14.1603, 220.455, 13.04, -30.7216, 169.922, 13.04, -10.2968, 163.442, 13.04, -18.1884, 220.455, 13.04, -30.7216, 167.615, 13.04, -14.1603, 163.442, 13.04, -18.1884, 163.178, 13.04, -30.7216, 220.455, 13.04, -30.7216, 163.442, 13.04, -18.1884, 158.781, 13.04, -24.4, 163.178, 13.04, -30.7216, 158.781, 13.04, -24.4, 163.442, 13.04, -18.1884, 158.781, 13.04, -20, 158.781, 13.04, -20, 158.781, -22.96, -24.4, 158.781, 13.04, -24.4, 163.178, -22.96, -30.7216, 158.781, 13.04, -24.4, 158.781, -22.96, -24.4, 158.781, 13.04, -24.4, 163.178, -22.96, -30.7216, 163.178, 13.04, -30.7216, 220.455, -22.96, -30.7216, 163.178, 13.04, -30.7216, 163.178, -22.96, -30.7216, 163.178, 13.04, -30.7216, 220.455, -22.96, -30.7216, 220.455, 13.04, -30.7216, 220.455, -22.96, -30.7216, 220.455, 13.04, -20, 220.455, 13.04, -30.7216, 220.455, -22.96, -30.7216, 220.455, 0, -20, 220.455, 13.04, -20, 220.455, 0, -20, 220.455, -22.96, -30.7216, 220.455, -22.96, -20, 220.455, -22.96, -30.7216, 197.878, -22.96, -20, 220.455, -22.96, -20, 220.455, -22.96, -30.7216, 192.493, -22.96, -17.7553, 197.878, -22.96, -20, 192.493, -22.96, -17.7553, 197.878, 0, -20, 197.878, -22.96, -20, 197.878, 0, -20, 192.493, -22.96, -17.7553, 192.493, 0, -17.7553, 192.493, 13.04, -17.7553, 197.878, 0, -20, 192.493, 0, -17.7553, 197.878, 0, -20, 192.493, 13.04, -17.7553, 197.878, 13.04, -20, 220.455, 13.04, -20, 197.878, 0, -20, 197.878, 13.04, -20, 197.878, 0, -20, 220.455, 13.04, -20, 220.455, 0, -20, 197.878, 13.04, -20, 220.455, 13.04, -30.7216, 220.455, 13.04, -20, 192.493, 13.04, -17.7553, 220.455, 13.04, -30.7216, 197.878, 13.04, -20, 176.64, 13.04, -8.0563, 188.945, 13.04, -15.5076, 180.14, 13.04, -8.0563, 180.14, 13.04, -8.0563, 176.64, 0, -8.0563, 176.64, 13.04, -8.0563, 176.64, 0, -8.0563, 180.14, 13.04, -8.0563, 180.14, 0, -8.0563, 180.14, 0, -8.0563, 176.64, -22.96, -8.0563, 176.64, 0, -8.0563, 176.64, -22.96, -8.0563, 180.14, 0, -8.0563, 180.14, -22.96, -8.0563, 188.945, -22.96, -15.5076, 176.64, -22.96, -8.0563, 180.14, -22.96, -8.0563, 188.945, -22.96, -15.5076, 180.14, -22.96, -8.0563, 185.582, -22.96, -12.3687, 185.582, -22.96, -12.3687, 188.945, 0, -15.5076, 188.945, -22.96, -15.5076, 188.945, 0, -15.5076, 185.582, -22.96, -12.3687, 185.582, 0, -12.3687, 185.582, 0, -12.3687, 188.945, 13.04, -15.5076, 188.945, 0, -15.5076, 188.945, 13.04, -15.5076, 185.582, 0, -12.3687, 185.582, 13.04, -12.3687, 180.14, 13.04, -8.0563, 188.945, 13.04, -15.5076, 185.582, 13.04, -12.3687, 180.14, 13.04, -8.0563, 185.582, 13.04, -12.3687, 183.288, 13.04, -9.3393, 183.288, 13.04, -9.3393, 180.14, 0, -8.0563, 180.14, 13.04, -8.0563, 180.14, 0, -8.0563, 183.288, 13.04, -9.3393, 183.288, 0, -9.3393, 183.288, 0, -9.3393, 180.14, -22.96, -8.0563, 180.14, 0, -8.0563, 180.14, -22.96, -8.0563, 183.288, 0, -9.3393, 183.288, -22.96, -9.3393, 185.582, -22.96, -12.3687, 180.14, -22.96, -8.0563, 183.288, -22.96, -9.3393, 183.288, 0, -9.3393, 185.582, -22.96, -12.3687, 183.288, -22.96, -9.3393, 185.582, -22.96, -12.3687, 183.288, 0, -9.3393, 185.582, 0, -12.3687, 183.288, 13.04, -9.3393, 185.582, 0, -12.3687, 183.288, 0, -9.3393, 185.582, 0, -12.3687, 183.288, 13.04, -9.3393, 185.582, 13.04, -12.3687, 79.3664, -2, -20, 92.2651, -22.96, -20, 92.2651, 0, -20, 92.2651, -22.96, -20, 79.3664, -2, -20, 63.9649, -2, -20, 46.8636, 0, -20, 92.2651, -22.96, -20, 63.9649, -2, -20, 92.2651, -22.96, -20, 46.8636, 0, -20, 46.8636, -22.96, -20, 33.8417, 3.805, -20, 46.8636, -22.96, -20, 46.8636, 0, -20, 46.8636, -22.96, -20, 33.8417, 3.805, -20, 33.8417, -22.96, -20, 25.5288, 3.805, -26, 33.8417, -22.96, -20, 33.8417, 3.805, -20, 33.8417, -22.96, -20, 25.5288, 3.805, -26, 25.5288, -22.96, -26, 5.6705, 3.805, -26, 25.5288, -22.96, -26, 25.5288, 3.805, -26, 25.5288, -22.96, -26, 5.6705, 3.805, -26, 5.6705, -22.96, -26, 5.6705, 3.805, -26, 0, -22.96, -20, 5.6705, -22.96, -26, 5.6705, 3.805, -26, 0, -2.05, -20, 0, -22.96, -20, 0, -2.05, -20, 5.6705, 3.805, -26, 0, 3.805, -20, 0, 3.805, -20, 0, -22.96, -20, 0, -2.05, -20, 5.6705, 3.805, 5, 0, 3.805, -20, 5.6705, 3.805, -26, 0, 3.805, -20, 5.6705, 3.805, 5, 0, 3.805, 0, 5.6705, 3.805, 5, 5.6705, 3.805, -26, 25.5288, 3.805, 5, 25.5288, 3.805, 5, 5.6705, 3.805, -26, 25.5288, 3.805, -26, 25.5288, 3.805, 5, 25.5288, 3.805, -26, 33.8417, 3.805, -20, 25.5288, 3.805, 5, 33.8417, 3.805, -20, 33.8417, 3.805, 0, 33.8417, 3.805, -20, 46.8636, 0, 0, 33.8417, 3.805, 0, 46.8636, 0, 0, 33.8417, 3.805, -20, 46.8636, 0, -20, 46.8636, 0, -20, 64.6556, 0, 0, 46.8636, 0, 0, 64.6556, 0, 0, 46.8636, 0, -20, 63.9649, 0, -20, 64.6556, 0, 0, 63.9649, 0, -20, 64.6469, 0, -14.9458, 64.6556, 0, 0, 64.6469, 0, -14.9458, 64.6556, 0, -4.0151, 64.6556, 0, -4.0151, 72.3556, -2, 0, 64.6556, 0, 0, 72.3556, -2, 0, 64.6556, 0, -4.0151, 72.3556, -2, -4.0151, 72.3556, -2, -4.0151, 83.884, -2, 0, 72.3556, -2, 0, 83.884, -2, 0, 72.3556, -2, -4.0151, 80.1271, -2, -13.9476, 83.884, -2, 0, 80.1271, -2, -13.9476, 82.4133, -2, -9.8412, 83.884, -2, 0, 82.4133, -2, -9.8412, 83.884, -2, -4.0242, 83.884, -2, -4.0242, 83.884, 0, 0, 83.884, -2, 0, 83.884, 0, 0, 83.884, -2, -4.0242, 83.884, 0, -4.0242, 83.884, 0, -4.0242, 92.2651, 0, 0, 83.884, 0, 0, 83.884, 0, -4.0242, 92.2651, 0, -20, 92.2651, 0, 0, 82.4133, 0, -9.8412, 92.2651, 0, -20, 83.884, 0, -4.0242, 80.1271, 0, -13.9476, 92.2651, 0, -20, 82.4133, 0, -9.8412, 92.2651, 0, -20, 80.1271, 0, -13.9476, 79.3664, 0, -20, 79.3664, -2, -20, 92.2651, 0, -20, 79.3664, 0, -20, 79.3664, 0, -20, 80.1271, -2, -13.9476, 79.3664, -2, -20, 80.1271, -2, -13.9476, 79.3664, 0, -20, 80.1271, 0, -13.9476, 80.1271, 0, -13.9476, 82.4133, -2, -9.8412, 80.1271, -2, -13.9476, 82.4133, -2, -9.8412, 80.1271, 0, -13.9476, 82.4133, 0, -9.8412, 82.4133, 0, -9.8412, 83.884, -2, -4.0242, 82.4133, -2, -9.8412, 83.884, -2, -4.0242, 82.4133, 0, -9.8412, 83.884, 0, -4.0242, 80.1271, -2, -13.9476, 72.3556, -2, -4.0151, 79.3664, -2, -20, 70.7421, -2, -8.5358, 79.3664, -2, -20, 72.3556, -2, -4.0151, 66.8228, -2, -11.9532, 79.3664, -2, -20, 70.7421, -2, -8.5358, 64.6469, -2, -14.9458, 79.3664, -2, -20, 66.8228, -2, -11.9532, 79.3664, -2, -20, 64.6469, -2, -14.9458, 63.9649, -2, -20, 64.6469, 0, -14.9458, 63.9649, -2, -20, 64.6469, -2, -14.9458, 63.9649, -2, -20, 64.6469, 0, -14.9458, 63.9649, 0, -20, 46.8636, 0, -20, 63.9649, -2, -20, 63.9649, 0, -20, 64.6469, -2, -14.9458, 66.8228, 0, -11.9532, 64.6469, 0, -14.9458, 66.8228, 0, -11.9532, 64.6469, -2, -14.9458, 66.8228, -2, -11.9532, 66.8228, -2, -11.9532, 70.7421, 0, -8.5358, 66.8228, 0, -11.9532, 70.7421, 0, -8.5358, 66.8228, -2, -11.9532, 70.7421, -2, -8.5358, 70.7421, -2, -8.5358, 72.3556, 0, -4.0151, 70.7421, 0, -8.5358, 72.3556, 0, -4.0151, 70.7421, -2, -8.5358, 72.3556, -2, -4.0151, 72.3556, -2, -4.0151, 64.6556, 0, -4.0151, 72.3556, 0, -4.0151, 64.6556, 0, -4.0151, 66.8228, 0, -11.9532, 72.3556, 0, -4.0151, 64.6556, 0, -4.0151, 64.6469, 0, -14.9458, 66.8228, 0, -11.9532, 72.3556, 0, -4.0151, 66.8228, 0, -11.9532, 70.7421, 0, -8.5358, 92.2651, 0, 0, 83.884, -2, 0, 83.884, 0, 0, 72.3556, -2, 0, 46.8636, 0, 0, 64.6556, 0, 0, 190.292, -1.4, 0, 130.547, 0, 0, 190.292, 0, 0, 190.292, 0, 0, 190.292, -1.4, -3.1879, 190.292, -1.4, 0, 190.292, -1.4, -3.1879, 190.292, 0, 0, 190.292, 0, -3.1879, 190.292, 0, -3.1879, 191.476, -1.4, -6.0361, 190.292, -1.4, -3.1879, 191.476, -1.4, -6.0361, 190.292, 0, -3.1879, 191.476, 0, -6.0361, 196.023, 0, -9.4586, 191.476, -1.4, -6.0361, 191.476, 0, -6.0361, 191.476, -1.4, -6.0361, 196.023, 0, -9.4586, 196.023, -1.4, -9.4586, 204.106, 0, -12.8727, 196.023, -1.4, -9.4586, 196.023, 0, -9.4586, 196.023, -1.4, -9.4586, 204.106, 0, -12.8727, 204.106, -1.4, -12.8727, 204.106, 0, -12.8727, 220.455, 0, -20, 220.455, 0, -12.8727 )
+
+[sub_resource type="Animation" id=25]
+resource_name = "attack_heavy"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.333333, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "attack_heavy" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.333333, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 330 ), Vector2( -75, 330 ), Vector2( 75, 330 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.333333, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("zeroPoint/hitbox/hitboxCollision:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.333333, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 16, 16, 16 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("zeroPoint/hitbox/hitboxCollision:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.333333, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector3( 0, 4, 0 ), Vector3( 0, 2, -1 ), Vector3( 0, 4, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("zeroPoint/AnimatedSprite3D:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.006 ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "block"
+length = 0.166667
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "block" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 330 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("zeroPoint/hitbox/hitboxCollision:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("zeroPoint/hitbox/hitboxCollision:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("zeroPoint/AnimatedSprite3D:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.006 ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "block_hit"
+length = 0.416667
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "block" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.034, 0.0833333, 0.133333, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 330 ), Vector2( -60, 330 ), Vector2( 30, 330 ), Vector2( 10, 330 ), Vector2( 0, 330 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("zeroPoint/hitbox/hitboxCollision:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("zeroPoint/hitbox/hitboxCollision:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("zeroPoint/AnimatedSprite3D:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.006 ]
+}
+
+[sub_resource type="Animation" id=60]
+resource_name = "dead"
+length = 2.0
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hurt_floor" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 0.750001, 1, 1.25, 1.5, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 200 ), Vector2( 0, -50000 ), Vector2( 0, 200 ), Vector2( 0, -50000 ), Vector2( 0, 200 ), Vector2( 0, -50000 ), Vector2( 0, 200 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("zeroPoint/hitbox/hitboxCollision:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("zeroPoint/hitbox/hitboxCollision:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("zeroPoint/AnimatedSprite3D:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.006 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "hurt"
+length = 0.416667
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hurt" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.0833333, 0.133333, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 330 ), Vector2( -90, 330 ), Vector2( 60, 330 ), Vector2( -30, 330 ), Vector2( 0, 330 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("zeroPoint/hitbox/hitboxCollision:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("zeroPoint/hitbox/hitboxCollision:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("zeroPoint/AnimatedSprite3D:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.006 ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "hurt_air"
+length = 0.166667
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hurt_air" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 330 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("zeroPoint/hitbox/hitboxCollision:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("zeroPoint/hitbox/hitboxCollision:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("zeroPoint/AnimatedSprite3D:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.006 ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "hurt_floor"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hurt_floor" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 200 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("zeroPoint/hitbox/hitboxCollision:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("zeroPoint/hitbox/hitboxCollision:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("zeroPoint/AnimatedSprite3D:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.006 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "idle"
+length = 0.600001
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 94 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("zeroPoint/hitbox/hitboxCollision:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("zeroPoint/hitbox/hitboxCollision:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("zeroPoint/AnimatedSprite3D:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0175 ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "walk"
+length = 0.800002
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.400001, 0.500001, 0.600001, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "walk" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 96 ), Vector2( 0, 96 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("zeroPoint/hitbox/hitboxCollision:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("zeroPoint/hitbox/hitboxCollision:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("zeroPoint/AnimatedSprite3D:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0175 ]
+}
+
+[sub_resource type="SpriteFrames" id=29]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 15 ), ExtResource( 29 ), ExtResource( 25 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": false,
+"name": "block",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "hurt_floor",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": false,
+"name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_heavy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 11 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="BoxShape" id=66]
+resource_local_to_scene = true
+
+[sub_resource type="CylinderShape" id=63]
+radius = 1.5
+height = 3.0
+
+[sub_resource type="CapsuleShape" id=64]
+radius = 1.5
+height = 0.5
+
+[sub_resource type="CylinderMesh" id=65]
+top_radius = 1.5
+bottom_radius = 1.5
+height = 0.1
+
+[sub_resource type="CylinderShape" id=67]
+resource_local_to_scene = true
+radius = 3.0
+height = 12.0
+
+[sub_resource type="CylinderShape" id=68]
+resource_local_to_scene = true
+height = 3.0
+
+[node name="playground" type="Node"]
+
+[node name="editorLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -107.489, 26.2663, -127.654 )
+light_energy = 1.4
+shadow_enabled = true
+editor_only = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="playerSpawner" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.701, 4.07258, -6.0304 )
+
+[node name="ground" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.996, 7.62939e-06, 49.4045 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="swamp" type="MeshInstance" parent="ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -134.996, -7.62939e-06, -49.4045 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -134.996, -7.62939e-06, -49.4045 )
+shape = SubResource( 4 )
+
+[node name="coins" type="Spatial" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 37.0558, 4.70271, -8.49466 )
+gravOff = true
+
+[node name="coin2" parent="coins" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.0558, 3.71858, -8.49466 )
+gravOff = true
+
+[node name="coin3" parent="coins" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 43.0558, 2.8014, -8.49466 )
+gravOff = true
+
+[node name="enemies" type="Spatial" parent="."]
+
+[node name="greenMantis" type="KinematicBody" parent="enemies"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 154.244, 0.696404, -7.18667 )
+collision_layer = 16
+collision_mask = 2
+script = ExtResource( 9 )
+startRight = true
+ambushEnemy = true
+
+[node name="Label" type="Label" parent="enemies/greenMantis"]
+visible = false
+margin_left = 1184.0
+margin_right = 1280.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/greenMantis"]
+autoplay = "idle"
+anims/attack_heavy = SubResource( 25 )
+anims/block = SubResource( 31 )
+anims/block_hit = SubResource( 32 )
+anims/dead = SubResource( 60 )
+anims/hurt = SubResource( 26 )
+anims/hurt_air = SubResource( 27 )
+anims/hurt_floor = SubResource( 28 )
+anims/idle = SubResource( 30 )
+anims/walk = SubResource( 36 )
+
+[node name="zeroPoint" type="Spatial" parent="enemies/greenMantis"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="enemies/greenMantis/zeroPoint"]
+transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
+offset = Vector2( 0, 96 )
+pixel_size = 0.0175
+frames = SubResource( 29 )
+animation = "walk"
+frame = 2
+
+[node name="hitbox" type="Area" parent="enemies/greenMantis/zeroPoint"]
+collision_layer = 32
+collision_mask = 0
+monitoring = false
+
+[node name="hitboxCollision" type="CollisionShape" parent="enemies/greenMantis/zeroPoint/hitbox"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 4, 0 )
+shape = SubResource( 66 )
+disabled = true
+
+[node name="hurtbox" type="Area" parent="enemies/greenMantis/zeroPoint"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.6, 0 )
+collision_layer = 0
+collision_mask = 12
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="enemies/greenMantis/zeroPoint/hurtbox"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 63 )
+
+[node name="CollisionShapeGround" type="CollisionShape" parent="enemies/greenMantis"]
+transform = Transform( 0.965926, -1.48943e-09, -0.258819, -0.258819, -1.13133e-08, -0.965926, -1.48943e-09, 1, -1.13133e-08, 0.22, 1.714, 0 )
+shape = SubResource( 64 )
+
+[node name="shadowMaker" type="MeshInstance" parent="enemies/greenMantis"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+cast_shadow = 3
+mesh = SubResource( 65 )
+material/0 = null
+
+[node name="aggro" type="Area" parent="enemies/greenMantis"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="enemies/greenMantis/aggro"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+shape = SubResource( 67 )
+
+[node name="enemyPushback" type="Area" parent="enemies/greenMantis"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2" type="CollisionShape" parent="enemies/greenMantis/enemyPushback"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+shape = SubResource( 68 )
+
+[node name="ambush" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.289, 0.456877, -11.4746 )
+ambushName = "bestFrondsAmbush1"
+
+[node name="lilypad" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 274.766, 16.2402, 8.59316 )
+
+[node name="watersnake" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 305.4, 16.0291, 16.8501 )
+hpMax = 350
+
+[node name="goal" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 374.246, 18.1743, 21.3355 )
+
+[connection signal="animation_finished" from="enemies/greenMantis/AnimationPlayer" to="enemies/greenMantis" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="enemies/greenMantis/zeroPoint/hurtbox" to="enemies/greenMantis" method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="enemies/greenMantis/zeroPoint/hurtbox" to="enemies/greenMantis" method="_on_hurtbox_area_exited"]
+[connection signal="area_entered" from="enemies/greenMantis/aggro" to="enemies/greenMantis" method="_on_aggro_area_entered"]
+[connection signal="area_exited" from="enemies/greenMantis/aggro" to="enemies/greenMantis" method="_on_aggro_area_exited"]

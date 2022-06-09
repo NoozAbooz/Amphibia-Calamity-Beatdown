@@ -57,3 +57,8 @@ func _on_lvl1_focus_entered():
 	fucusOnButton(get_node("lvl1"))
 	pg.levelName = "playground"
 	pg.levelMusic = "ripple"
+
+func _on_lvl2_focus_entered():
+	fucusOnButton(get_node("lvl2"))
+	pg.levelName = "bestFronds"
+	pg.levelMusic = "ripple"

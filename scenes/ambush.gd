@@ -44,14 +44,18 @@ func _process(_delta):
 		PREP:
 			startingKills = pg.kills
 			wave = enemyList.get("wave" + str(waveNumber))
-			killsNeeded = len(wave)
+			if typeof(wave) == TYPE_INT:
+				killsNeeded = wave
+			else:
+				killsNeeded = len(wave)
 			timer = 0
 			nextState = FIGHT
 		FIGHT:
-			for enemy in wave:
-				if (timer > enemy.spawnTime):
-					spawn(enemy)
-					enemy.spawnTime = 999 # prevents repeated spawns of the same enemy
+			if typeof(wave) != TYPE_INT:
+				for enemy in wave:
+					if (timer > enemy.spawnTime):
+						spawn(enemy)
+						enemy.spawnTime = 99999 # prevents repeated spawns of the same enemy
 			if ((pg.kills - startingKills) >= killsNeeded):
 				nextState = WAIT
 				waveNumber += 1
@@ -76,7 +80,7 @@ func exitAmbush():
 
 func _on_cameraTrigger_area_entered(area):
 	# loads the chosen wave/enemy list (a .gd file)
-	enemyList = load("res://maps/ambushes/playgroundAmbush1.gd").new()
+	enemyList = load("res://maps/ambushes/" + ambushName + ".gd").new()
 	#enemyList = load("res://maps/ambushes/" + str(ambushName) + ".gd")
 	# Sets the state machine in motion
 	nextState = WAIT
@@ -93,6 +97,7 @@ func spawn(enemy):
 	var nextEnemy = enemy.scene.instance()
 	get_parent().add_child(nextEnemy)
 	nextEnemy.initialize(enemy.type, (enemy.loc + translation), enemy.vel, false, true)
+	nextEnemy.ambushEnemy = true
 	
 	
 #	nextEnemy = nme.greenMantisScene.instance()

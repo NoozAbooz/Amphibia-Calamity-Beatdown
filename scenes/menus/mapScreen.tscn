@@ -39,11 +39,27 @@ position = Vector2( 640, 360 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
-[node name="lvl1" type="TextureButton" parent="."]
+[node name="lvl2" type="TextureButton" parent="."]
 margin_left = 706.0
 margin_top = 414.0
 margin_right = 781.0
 margin_bottom = 464.0
+rect_scale = Vector2( 0.5, 0.5 )
+action_mode = 0
+button_mask = 0
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 8 )
+texture_focused = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lvl1" type="TextureButton" parent="."]
+margin_left = 640.0
+margin_top = 467.0
+margin_right = 715.0
+margin_bottom = 517.0
 rect_scale = Vector2( 0.5, 0.5 )
 action_mode = 0
 button_mask = 0
@@ -79,6 +95,8 @@ frame = 3
 playing = true
 flip_h = true
 
+[connection signal="focus_entered" from="lvl2" to="." method="_on_lvl2_focus_entered"]
+[connection signal="pressed" from="lvl2" to="." method="_on_lvl_pressed"]
 [connection signal="focus_entered" from="lvl1" to="." method="_on_lvl1_focus_entered"]
 [connection signal="pressed" from="lvl1" to="." method="_on_lvl_pressed"]
 [connection signal="focus_entered" from="lvl0" to="." method="_on_lvl0_focus_entered"]
