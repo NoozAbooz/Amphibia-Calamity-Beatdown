@@ -608,6 +608,8 @@ cam_mode={
 3d_physics/layer_9="Pickups"
 3d_physics/layer_10="Camera"
 3d_physics/layer_11="Player Only Ground"
+3d_physics/layer_12="Enemy Only Ground"
+3d_physics/layer_13="Windboxes"
 
 [rendering]
 

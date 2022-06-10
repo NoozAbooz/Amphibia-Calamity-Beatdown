@@ -892,7 +892,7 @@ height = 3.0
 [node name="greenMantis" type="KinematicBody"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_layer = 16
-collision_mask = 2
+collision_mask = 2050
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
@@ -939,7 +939,7 @@ disabled = true
 [node name="hurtbox" type="Area" parent="zeroPoint"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.6, 0 )
 collision_layer = 0
-collision_mask = 12
+collision_mask = 4108
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="zeroPoint/hurtbox"]

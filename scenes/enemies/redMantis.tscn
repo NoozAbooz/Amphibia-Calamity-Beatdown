@@ -722,16 +722,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "hurt_air",
@@ -740,6 +730,16 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "attack_heavy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 } ]
 
@@ -772,7 +772,7 @@ height = 3.0
 [node name="redMantis" type="KinematicBody"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_layer = 16
-collision_mask = 2
+collision_mask = 2050
 script = ExtResource( 8 )
 
 [node name="Label" type="Label" parent="."]
@@ -817,7 +817,7 @@ disabled = true
 [node name="hurtbox" type="Area" parent="zeroPoint"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.6, 0 )
 collision_layer = 0
-collision_mask = 12
+collision_mask = 4108
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="zeroPoint/hurtbox"]

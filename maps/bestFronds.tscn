@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://maps/best_fronds/swamp.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/ambush.tscn" type="PackedScene" id=2]
@@ -71,6 +71,9 @@ albedo_color = Color( 0, 0, 0, 1 )
 [sub_resource type="QuadMesh" id=82]
 material = SubResource( 81 )
 size = Vector2( 10, 12 )
+
+[sub_resource type="BoxShape" id=99]
+extents = Vector3( 0.1, 1, 14 )
 
 [sub_resource type="Animation" id=25]
 resource_name = "attack_heavy"
@@ -1779,7 +1782,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.55686, 4.07258, 2.71736 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 307.119, 4.07258, -12.4118 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -2769,6 +2772,14 @@ mesh = SubResource( 82 )
 skeleton = NodePath("")
 material/0 = null
 
+[node name="waterBoundary" type="StaticBody" parent="environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 168.871, 1.01177, -60.8192 )
+collision_layer = 2048
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="environment/waterBoundary"]
+shape = SubResource( 99 )
+
 [node name="enemies" type="Spatial" parent="."]
 
 [node name="greenMantis" type="KinematicBody" parent="enemies"]
@@ -3034,7 +3045,7 @@ gravOff = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 203.166, -1.3558, 1.79605 )
 
 [node name="lilypad3" parent="lilypads" instance=ExtResource( 5 )]
-transform = Transform( 0.828041, 0, -0.560668, 0, 1, 0, 0.560668, 0, 0.828041, 246.936, -1.35581, -3.56771 )
+transform = Transform( 0.828041, 0, -0.560668, 0, 1, 0, 0.560668, 0, 0.828041, 246.936, -1.35581, -2.59925 )
 
 [node name="lilypad4" parent="lilypads" instance=ExtResource( 5 )]
 transform = Transform( -0.4924, 0, 0.565723, 0, 0.75, 0, -0.565723, 0, -0.4924, 258.318, -1.35581, -4.82847 )
@@ -3107,7 +3118,7 @@ collision_mask = 512
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="ambush2/cameraTrigger"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 103.592, -54.8728 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 103.592, -43.4582 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="ambush2/cameraTrigger"]

@@ -545,7 +545,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id=30]
 resource_name = "idle"
-length = 1.0
 loop = true
 step = 0.0166667
 tracks/0/type = "value"
@@ -729,10 +728,20 @@ flags = 16
 atlas = ExtResource( 1 )
 region = Rect2( 68, 52, 34, 26 )
 
-[sub_resource type="AtlasTexture" id=44]
+[sub_resource type="AtlasTexture" id=52]
 flags = 16
 atlas = ExtResource( 1 )
-region = Rect2( 34, 52, 34, 26 )
+region = Rect2( 0, 52, 34, 26 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 16
+atlas = ExtResource( 1 )
+region = Rect2( 34, 78, 34, 26 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 16
+atlas = ExtResource( 1 )
+region = Rect2( 0, 78, 34, 26 )
 
 [sub_resource type="AtlasTexture" id=45]
 flags = 16
@@ -759,20 +768,10 @@ flags = 16
 atlas = ExtResource( 1 )
 region = Rect2( 136, 26, 34, 26 )
 
-[sub_resource type="AtlasTexture" id=50]
+[sub_resource type="AtlasTexture" id=44]
 flags = 16
 atlas = ExtResource( 1 )
-region = Rect2( 34, 78, 34, 26 )
-
-[sub_resource type="AtlasTexture" id=51]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 0, 78, 34, 26 )
-
-[sub_resource type="AtlasTexture" id=52]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 0, 52, 34, 26 )
+region = Rect2( 34, 52, 34, 26 )
 
 [sub_resource type="SpriteFrames" id=29]
 animations = [ {
@@ -791,14 +790,9 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 44 ) ],
+"frames": [ SubResource( 52 ) ],
 "loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
-"loop": false,
-"name": "walk",
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 50 ), SubResource( 51 ) ],
@@ -806,9 +800,14 @@ animations = [ {
 "name": "attack_heavy",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 52 ) ],
+"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 44 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 } ]
 
@@ -836,7 +835,7 @@ height = 3.0
 [node name="spider" type="KinematicBody"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_layer = 16
-collision_mask = 2
+collision_mask = 2050
 script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="."]
@@ -882,7 +881,7 @@ disabled = true
 [node name="hurtbox" type="Area" parent="zeroPoint"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.6, 0 )
 collision_layer = 0
-collision_mask = 12
+collision_mask = 4108
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="zeroPoint/hurtbox"]
