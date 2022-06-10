@@ -1918,8 +1918,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 149.322, 9.27808, 26.0735 )
-hideGUI = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.45, 0.443947, 4.04567 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="."]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 308.311, 10.8205, 20.5694 )
