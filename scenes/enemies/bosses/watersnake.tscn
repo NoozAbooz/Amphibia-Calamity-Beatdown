@@ -2238,7 +2238,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.138032, 0 )
 shape = SubResource( 8 )
 
 [node name="MeshInstanceM" type="MeshInstance" parent="padM"]
-transform = Transform( -1.71974, 0.0010685, 2.45815, 0.000474068, 3, -0.00097239, -2.45815, -0.000169055, -1.71974, 0, 0, 4.76837e-07 )
+transform = Transform( -1.71974, 0.0010685, 2.45815, 0.000474068, 3, -0.00097239, -2.45815, -0.000169055, -1.71974, 0, 0, 0 )
 mesh = SubResource( 10 )
 material/0 = SubResource( 11 )
 material/1 = null

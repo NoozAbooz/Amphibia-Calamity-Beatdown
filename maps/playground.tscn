@@ -53,12 +53,12 @@ background_energy = 0.0
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.85
 
-[sub_resource type="SpatialMaterial" id=58]
+[sub_resource type="SpatialMaterial" id=82]
 flags_do_not_receive_shadows = true
 albedo_color = Color( 0.160784, 0.278431, 0.341176, 1 )
 
 [sub_resource type="CubeMesh" id=59]
-material = SubResource( 58 )
+material = SubResource( 82 )
 size = Vector3( 80, 10, 80 )
 
 [sub_resource type="BoxShape" id=13]
@@ -1057,11 +1057,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 28 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 40 ) ],
 "loop": false,
 "name": "hurt_air",
@@ -1075,6 +1070,11 @@ animations = [ {
 "frames": [ ExtResource( 34 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 35 ) ],
 "loop": false,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 } ]
 

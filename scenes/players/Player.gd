@@ -75,6 +75,7 @@ var hurtType = 0
 var hurtDir = Vector3.ZERO
 
 var lastOnFloorHeight = 0
+var lastOnFloorPos = Vector3.ZERO
 var shadowHeight = 0 # used in camera positioning
 var secondaryY = 0
 
@@ -166,7 +167,7 @@ func setHitBox(damage, type, dir, sfx = "hit1"):
 		hitDir.x *= -1
 		
 func respawn(dead):
-	safePos = get_parent().get_node("camera_pivot/Camera").findSpawnPoint(translation)
+	safePos = get_parent().get_node("camera_pivot/Camera").findSpawnPoint(lastOnFloorPos)
 	if (dead):
 		lives -= 1
 		state = RISING
@@ -622,8 +623,9 @@ func _physics_process(delta):
 	# calculates height of floor below character for the camera
 	if ($RayCast.is_colliding()):
 		shadowHeight = $RayCast.get_collision_point().y
-	if self.is_on_floor():
+	if is_on_floor():
 		lastOnFloorHeight = translation.y
+		lastOnFloorPos = translation
 	if (shadowHeight > lastOnFloorHeight): # jumped up to higher ledge
 		secondaryY = shadowHeight
 	elif (translation.y < lastOnFloorHeight): # jumped/fell off ledge
@@ -866,11 +868,9 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 
 func _on_hurtbox_area_entered(area):
 	# evnironmental stuff
-	if area.is_in_group("oneWayRight"):
-		translation = translation + Vector3(6, 0, 0)
-		return
-	elif area.is_in_group("oneWayLeft"):
-		translation = translation + Vector3(-6, 0, 0)
+	if area.is_in_group("oneWayRight") or area.is_in_group("oneWayLeft"):
+		area.get_parent().get_parent().get_node("Camera").disableBarriers(true)
+		print("wall")
 		return
 	elif area.is_in_group("respawnZones"):
 		safePos = area.translation
@@ -962,7 +962,8 @@ func _on_hurtbox_area_entered(area):
 		
 
 func _on_hurtbox_area_exited(area):
-	if area.is_in_group("respawnZones"):
+	if area.is_in_group("oneWayRight") or area.is_in_group("oneWayLeft"):
+		area.get_parent().get_parent().get_node("Camera").disableBarriers(false)
 		return
 	elif area.is_in_group("boucePads"):
 		bouncing = false

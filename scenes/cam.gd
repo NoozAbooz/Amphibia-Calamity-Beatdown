@@ -28,6 +28,7 @@ var wallsRemoved = false
 
 var inAmbush = false
 var ambushTarget = Vector3.ZERO
+var ambushSpawnPoint = Vector3.ZERO
 
 func initialize(loc):
 	actX = loc.x
@@ -38,39 +39,54 @@ func initialize(loc):
 	pivot.translation.z = loc.z + offsetZ
 	
 func checkRespawnPoint():
+	get_parent().get_node("spawnFinder/pivot/rays/RayCast").force_raycast_update()
+	get_parent().get_node("spawnFinder/pivot/rays/RayCast2").force_raycast_update()
+	get_parent().get_node("spawnFinder/pivot/rays/RayCast3").force_raycast_update()
+	get_parent().get_node("spawnFinder/pivot/rays/RayCast4").force_raycast_update()
 	if (get_parent().get_node("spawnFinder/pivot/rays/RayCast").is_colliding()) and (get_parent().get_node("spawnFinder/pivot/rays/RayCast2").is_colliding()) and (get_parent().get_node("spawnFinder/pivot/rays/RayCast3").is_colliding()) and (get_parent().get_node("spawnFinder/pivot/rays/RayCast4").is_colliding()):
 		return true
 	else:
 		return false
 		
-func findSpawnPoint(_loc):
+func findSpawnPoint(loc):
+	if (inAmbush):
+		return ambushSpawnPoint
 	var pivotPoint = get_parent().get_node("spawnFinder/pivot")
 	var rays = get_parent().get_node("spawnFinder/pivot/rays")
-	var angle = 180
+	var angle = 0
 	var dist = 0
 	var loopCount = 0
-	#get_parent().get_node("spawnFinder").global_transform.origin = loc + Vector3(0, 100, 0)
-	get_parent().get_node("spawnFinder").translation = Vector3.ZERO - Vector3(offsetX, offsetY - 50, offsetZ)
+	# positions spawn finder on the last spot the player tounched the ground
+	get_parent().get_node("spawnFinder").global_transform.origin = loc + Vector3(0, 75, 0)
+	print("SpawnFinder: " + str(get_parent().get_node("spawnFinder").global_transform.origin))
+	# zeros the seeker position
 	pivotPoint.rotation_degrees = Vector3.ZERO
 	rays.translation = Vector3.ZERO
+	# scans for a safe spot to land the player
 	while (checkRespawnPoint() == false):
 		if (angle >= 180):
-			dist += 0.25
+			dist += 1
 			angle = -179
-		angle += 3
+		angle += 5
 		loopCount += 1
 		rays.translation.x = dist
 		pivotPoint.rotation_degrees.y = angle 
 		if (loopCount >= 30000):
 			print("not found! - " + str(dist) + " - " + str(angle))
-			break
-			#return Vector3(desX, desY+3, desZ)
-		get_parent().get_node("spawnFinder/pivot/rays/RayCast").force_raycast_update()
-		get_parent().get_node("spawnFinder/pivot/rays/RayCast2").force_raycast_update()
-		get_parent().get_node("spawnFinder/pivot/rays/RayCast3").force_raycast_update()
-		get_parent().get_node("spawnFinder/pivot/rays/RayCast4").force_raycast_update()
-	return get_parent().get_node("spawnFinder/pivot/rays/RayCast").get_collision_point() + Vector3(0, 1.5, 0.5)
-	#return rays.global_transform.origin
+			return Vector3(0, 5, 0)
+	# saves found position as spawnPoint
+	var spawnPoint = get_parent().get_node("spawnFinder/pivot/rays").global_transform.origin
+	spawnPoint.y = get_parent().get_node("spawnFinder/pivot/rays/RayCast").get_collision_point().y
+	print("found! - " + str(dist) + "m - " + str(angle) + "deg - " + str(loopCount) + "counts")
+	print("loc: " + str(loc) + " - spawn: " + str(spawnPoint))
+	return spawnPoint
+
+func disableBarriers(choice):
+	get_parent().get_node("leftWall/CollisionShape").disabled = choice
+	#get_parent().get_node("leftWall/passThroughL/CollisionShape2").disabled = choice
+	get_parent().get_node("rightWall/CollisionShape").disabled = choice
+	#get_parent().get_node("rightWall/passThroughR/CollisionShape2").disabled = choice
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -82,17 +98,11 @@ func _process(_delta):
 		if debugMode:
 			debugMode = false
 			print("Camera Freed")
-			get_parent().get_node("leftWall/CollisionShape").disabled = false
-			get_parent().get_node("leftWall/passThrough/CollisionShape2").disabled = false
-			get_parent().get_node("rightWall/CollisionShape").disabled = false
-			get_parent().get_node("rightWall/passThrough/CollisionShape2").disabled = false
+			disableBarriers(false)
 		else:
 			debugMode = true
 			print("Camera Locked")
-			get_parent().get_node("leftWall/CollisionShape").disabled = true
-			get_parent().get_node("leftWall/passThrough/CollisionShape2").disabled = true
-			get_parent().get_node("rightWall/CollisionShape").disabled = true
-			get_parent().get_node("rightWall/passThrough/CollisionShape2").disabled = true
+			disableBarriers(true)
 	
 	# checks for active players and makes array of player positions
 	playerPositions = []

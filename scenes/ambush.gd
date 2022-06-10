@@ -91,6 +91,7 @@ func _on_cameraTrigger_area_entered(area):
 	cam = area.get_parent()
 	cam.inAmbush = true
 	cam.ambushTarget = translation + Vector3(0, 0, 10)
+	cam.ambushSpawnPoint = translation + Vector3(0, 5, 0)
 	get_node("cameraTrigger").queue_free()
 	
 func spawn(enemy):
