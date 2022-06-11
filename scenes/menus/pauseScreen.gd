@@ -1,6 +1,6 @@
 extends Control
 
-enum {BASIC, DROP, VERIFY, OPTIONS}
+enum {BASIC, DROP, VERIFY, OPTIONS, COMBOS}
 var state = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -44,27 +44,37 @@ func _process(_delta):
 			$dropMenu.hide()
 			$verifyMenu.hide()
 			$optionsMenu.hide()
+			$combosMenu.hide()
 			if (pg.countPlayers() > 1):
-				$basicMenu/buttonDrop.show()
+				$basicMenu/buttonDrop.disabled = false
 			else:
-				$basicMenu/buttonDrop.hide()
+				$basicMenu/buttonDrop.disabled = true
 		DROP:
 			$labelMain.text = "DROP WHICH PLAYER"
 			$basicMenu.hide()
 			$dropMenu.show()
 			$verifyMenu.hide()
 			$optionsMenu.hide()
+			$combosMenu.hide()
 			showDropButtons()
 		VERIFY:
 			$basicMenu.hide()
 			$dropMenu.hide()
 			$verifyMenu.show()
 			$optionsMenu.hide()
+			$combosMenu.hide()
 		OPTIONS:
 			$basicMenu.hide()
 			$dropMenu.hide()
 			$verifyMenu.hide()
 			$optionsMenu.show()
+			$combosMenu.hide()
+		COMBOS:
+			$basicMenu.hide()
+			$dropMenu.hide()
+			$verifyMenu.hide()
+			$optionsMenu.hide()
+			$combosMenu.show()
 		
 
 
@@ -106,3 +116,9 @@ func _on_buttonP4_pressed():
 	despawnPlayer(3)
 	state = BASIC
 	$basicMenu/buttonResume.grab_focus()
+
+
+func _on_buttonCombo_pressed():
+	state = COMBOS
+	$combosMenu/buttonBack.grab_focus()
+
