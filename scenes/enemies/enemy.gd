@@ -406,14 +406,14 @@ func _physics_process(delta):
 	
 	# barrier pushback / bounceback
 	if isInState([HURTLAUNCH, HURTRISING, HURTFALLING]):
-		if onRightWall and (velocity.x > 0):
+		if onRightWall and (velocity.x > 0) and ambushEnemy:
 			velocity = Vector3(-15, 10, 0)
-		elif onLeftWall and (velocity.x < 0):
+		elif onLeftWall and (velocity.x < 0) and ambushEnemy:
 			velocity = Vector3(15, 10, 0)
 	else:
-		if onRightWall and (velocity.x > 0):
+		if onRightWall and (velocity.x > 0) and ambushEnemy:
 			velocity.x = 0
-		elif onLeftWall and (velocity.x < 0):
+		elif onLeftWall and (velocity.x < 0) and ambushEnemy:
 			velocity.x = 0
 		
 	
@@ -558,7 +558,10 @@ func _on_hurtbox_area_entered(area):
 	else:
 		lookRight = false
 	# plays sfx
-	soundManager.playSound(attacker.hitSound)
+	if isInState([BLOCK, BLOCKHIT]):
+		soundManager.playSound("block")
+	else:
+		soundManager.playSound(attacker.hitSound)
 		
 func _on_hurtbox_area_exited(area):
 	if area.is_in_group("oneWayRight"):

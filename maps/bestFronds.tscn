@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://maps/best_fronds/swamp.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/ambush.tscn" type="PackedScene" id=2]
@@ -291,7 +291,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.034, 0.0833333, 0.133333, 0.15 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 330 ), Vector2( -60, 330 ), Vector2( 30, 330 ), Vector2( 10, 330 ), Vector2( 0, 330 ) ]
+"values": [ Vector2( 0, 330 ), Vector2( -15, 330 ), Vector2( 10, 330 ), Vector2( -5, 330 ), Vector2( 0, 330 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
@@ -916,7 +916,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="BoxShape" id=66]
+[sub_resource type="BoxShape" id=101]
 resource_local_to_scene = true
 
 [sub_resource type="CylinderShape" id=63]
@@ -932,16 +932,16 @@ top_radius = 1.5
 bottom_radius = 1.5
 height = 0.1
 
-[sub_resource type="CylinderShape" id=67]
+[sub_resource type="CylinderShape" id=102]
 resource_local_to_scene = true
-radius = 3.0
+radius = 0.5
 height = 12.0
 
-[sub_resource type="CylinderShape" id=68]
+[sub_resource type="CylinderShape" id=103]
 resource_local_to_scene = true
 height = 3.0
 
-[sub_resource type="Animation" id=69]
+[sub_resource type="Animation" id=104]
 resource_name = "attack_heavy"
 step = 0.0166667
 tracks/0/type = "value"
@@ -1029,7 +1029,7 @@ tracks/6/keys = {
 "values": [ 0.006 ]
 }
 
-[sub_resource type="Animation" id=70]
+[sub_resource type="Animation" id=105]
 resource_name = "block"
 length = 0.166667
 loop = true
@@ -1119,7 +1119,7 @@ tracks/6/keys = {
 "values": [ 0.006 ]
 }
 
-[sub_resource type="Animation" id=71]
+[sub_resource type="Animation" id=106]
 resource_name = "block_hit"
 length = 0.416667
 step = 0.0166667
@@ -1157,7 +1157,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.034, 0.0833333, 0.133333, 0.15 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 330 ), Vector2( -60, 330 ), Vector2( 30, 330 ), Vector2( 10, 330 ), Vector2( 0, 330 ) ]
+"values": [ Vector2( 0, 330 ), Vector2( -15, 330 ), Vector2( 10, 330 ), Vector2( -5, 330 ), Vector2( 0, 330 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
@@ -1208,7 +1208,7 @@ tracks/6/keys = {
 "values": [ 0.006 ]
 }
 
-[sub_resource type="Animation" id=72]
+[sub_resource type="Animation" id=107]
 resource_name = "dead"
 length = 2.0
 step = 0.0166667
@@ -1297,7 +1297,7 @@ tracks/6/keys = {
 "values": [ 0.006 ]
 }
 
-[sub_resource type="Animation" id=73]
+[sub_resource type="Animation" id=108]
 resource_name = "hurt"
 length = 0.416667
 step = 0.0166667
@@ -1386,7 +1386,7 @@ tracks/6/keys = {
 "values": [ 0.006 ]
 }
 
-[sub_resource type="Animation" id=74]
+[sub_resource type="Animation" id=109]
 resource_name = "hurt_air"
 length = 0.166667
 loop = true
@@ -1476,7 +1476,7 @@ tracks/6/keys = {
 "values": [ 0.006 ]
 }
 
-[sub_resource type="Animation" id=75]
+[sub_resource type="Animation" id=110]
 resource_name = "hurt_floor"
 step = 0.0166667
 tracks/0/type = "value"
@@ -1564,7 +1564,7 @@ tracks/6/keys = {
 "values": [ 0.006 ]
 }
 
-[sub_resource type="Animation" id=76]
+[sub_resource type="Animation" id=111]
 resource_name = "idle"
 length = 0.600001
 loop = true
@@ -1654,7 +1654,7 @@ tracks/6/keys = {
 "values": [ 0.0175 ]
 }
 
-[sub_resource type="Animation" id=77]
+[sub_resource type="Animation" id=112]
 resource_name = "walk"
 length = 0.800002
 loop = true
@@ -1744,15 +1744,6 @@ tracks/6/keys = {
 "values": [ 0.0175 ]
 }
 
-[sub_resource type="CapsuleShape" id=97]
-radius = 1.5
-height = 0.5
-
-[sub_resource type="CylinderShape" id=98]
-resource_local_to_scene = true
-radius = 0.1
-height = 12.0
-
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 100, 100 )
 
@@ -1782,7 +1773,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.72112, 4.0726, 4.91604 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.72112, 4.0726, 3.32483 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -2826,15 +2817,15 @@ bounceHeight = 80
 
 [node name="enemies" type="Spatial" parent="."]
 
-[node name="greenMantis" type="KinematicBody" parent="enemies"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 144.956, 0.696406, 2.34745 )
+[node name="greenMantis3" type="KinematicBody" parent="enemies"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 144.897, 0.560785, 2.18007 )
 collision_layer = 16
-collision_mask = 2
+collision_mask = 2050
 script = ExtResource( 9 )
 startRight = true
 ambushEnemy = true
 
-[node name="Label" type="Label" parent="enemies/greenMantis"]
+[node name="Label" type="Label" parent="enemies/greenMantis3"]
 visible = false
 margin_left = 1184.0
 margin_right = 1280.0
@@ -2843,7 +2834,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/greenMantis"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/greenMantis3"]
 autoplay = "idle"
 anims/attack_heavy = SubResource( 25 )
 anims/block = SubResource( 31 )
@@ -2855,70 +2846,70 @@ anims/hurt_floor = SubResource( 28 )
 anims/idle = SubResource( 30 )
 anims/walk = SubResource( 36 )
 
-[node name="zeroPoint" type="Spatial" parent="enemies/greenMantis"]
+[node name="zeroPoint" type="Spatial" parent="enemies/greenMantis3"]
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="enemies/greenMantis/zeroPoint"]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="enemies/greenMantis3/zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
-offset = Vector2( 0, 96 )
+offset = Vector2( 0, 94 )
 pixel_size = 0.0175
 frames = SubResource( 29 )
-animation = "walk"
-frame = 2
+animation = "idle"
 
-[node name="hitbox" type="Area" parent="enemies/greenMantis/zeroPoint"]
+[node name="hitbox" type="Area" parent="enemies/greenMantis3/zeroPoint"]
 collision_layer = 32
 collision_mask = 0
 monitoring = false
 
-[node name="hitboxCollision" type="CollisionShape" parent="enemies/greenMantis/zeroPoint/hitbox"]
+[node name="hitboxCollision" type="CollisionShape" parent="enemies/greenMantis3/zeroPoint/hitbox"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 4, 0 )
-shape = SubResource( 66 )
+shape = SubResource( 101 )
 disabled = true
 
-[node name="hurtbox" type="Area" parent="enemies/greenMantis/zeroPoint"]
+[node name="hurtbox" type="Area" parent="enemies/greenMantis3/zeroPoint"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.6, 0 )
 collision_layer = 0
-collision_mask = 12
+collision_mask = 4108
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="enemies/greenMantis/zeroPoint/hurtbox"]
+[node name="CollisionShape" type="CollisionShape" parent="enemies/greenMantis3/zeroPoint/hurtbox"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 63 )
 
-[node name="CollisionShapeGround" type="CollisionShape" parent="enemies/greenMantis"]
+[node name="CollisionShapeGround" type="CollisionShape" parent="enemies/greenMantis3"]
 transform = Transform( 0.965926, -1.48943e-09, -0.258819, -0.258819, -1.13133e-08, -0.965926, -1.48943e-09, 1, -1.13133e-08, 0.22, 1.714, 0 )
 shape = SubResource( 64 )
 
-[node name="shadowMaker" type="MeshInstance" parent="enemies/greenMantis"]
+[node name="shadowMaker" type="MeshInstance" parent="enemies/greenMantis3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 cast_shadow = 3
 mesh = SubResource( 65 )
 material/0 = null
 
-[node name="aggro" type="Area" parent="enemies/greenMantis"]
+[node name="aggro" type="Area" parent="enemies/greenMantis3"]
 collision_layer = 0
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="enemies/greenMantis/aggro"]
+[node name="CollisionShape" type="CollisionShape" parent="enemies/greenMantis3/aggro"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
-shape = SubResource( 67 )
+shape = SubResource( 102 )
 
-[node name="enemyPushback" type="Area" parent="enemies/greenMantis"]
+[node name="enemyPushback" type="Area" parent="enemies/greenMantis3"]
 collision_layer = 16
 collision_mask = 16
 
-[node name="CollisionShape2" type="CollisionShape" parent="enemies/greenMantis/enemyPushback"]
+[node name="CollisionShape2" type="CollisionShape" parent="enemies/greenMantis3/enemyPushback"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
-shape = SubResource( 68 )
+shape = SubResource( 103 )
 
-[node name="greenMantis2" type="KinematicBody" parent="enemies"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 238.901, 0.696406, -8.12608 )
+[node name="greenMantis4" type="KinematicBody" parent="enemies"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 238.448, 0.176142, -8.57375 )
 collision_layer = 16
-collision_mask = 2
+collision_mask = 2050
 script = ExtResource( 9 )
 startRight = true
+hp = 0
 
-[node name="Label" type="Label" parent="enemies/greenMantis2"]
+[node name="Label" type="Label" parent="enemies/greenMantis4"]
 visible = false
 margin_left = 1184.0
 margin_right = 1280.0
@@ -2927,73 +2918,72 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/greenMantis2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/greenMantis4"]
 autoplay = "idle"
-anims/attack_heavy = SubResource( 69 )
-anims/block = SubResource( 70 )
-anims/block_hit = SubResource( 71 )
-anims/dead = SubResource( 72 )
-anims/hurt = SubResource( 73 )
-anims/hurt_air = SubResource( 74 )
-anims/hurt_floor = SubResource( 75 )
-anims/idle = SubResource( 76 )
-anims/walk = SubResource( 77 )
+anims/attack_heavy = SubResource( 104 )
+anims/block = SubResource( 105 )
+anims/block_hit = SubResource( 106 )
+anims/dead = SubResource( 107 )
+anims/hurt = SubResource( 108 )
+anims/hurt_air = SubResource( 109 )
+anims/hurt_floor = SubResource( 110 )
+anims/idle = SubResource( 111 )
+anims/walk = SubResource( 112 )
 
-[node name="zeroPoint" type="Spatial" parent="enemies/greenMantis2"]
+[node name="zeroPoint" type="Spatial" parent="enemies/greenMantis4"]
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="enemies/greenMantis2/zeroPoint"]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="enemies/greenMantis4/zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
-offset = Vector2( 0, 96 )
+offset = Vector2( 0, 94 )
 pixel_size = 0.0175
 frames = SubResource( 29 )
-animation = "walk"
-frame = 2
+animation = "idle"
 
-[node name="hitbox" type="Area" parent="enemies/greenMantis2/zeroPoint"]
+[node name="hitbox" type="Area" parent="enemies/greenMantis4/zeroPoint"]
 collision_layer = 32
 collision_mask = 0
 monitoring = false
 
-[node name="hitboxCollision" type="CollisionShape" parent="enemies/greenMantis2/zeroPoint/hitbox"]
+[node name="hitboxCollision" type="CollisionShape" parent="enemies/greenMantis4/zeroPoint/hitbox"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 4, 0 )
-shape = SubResource( 66 )
+shape = SubResource( 101 )
 disabled = true
 
-[node name="hurtbox" type="Area" parent="enemies/greenMantis2/zeroPoint"]
+[node name="hurtbox" type="Area" parent="enemies/greenMantis4/zeroPoint"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.6, 0 )
 collision_layer = 0
-collision_mask = 12
+collision_mask = 4108
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="enemies/greenMantis2/zeroPoint/hurtbox"]
+[node name="CollisionShape" type="CollisionShape" parent="enemies/greenMantis4/zeroPoint/hurtbox"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 63 )
 
-[node name="CollisionShapeGround" type="CollisionShape" parent="enemies/greenMantis2"]
+[node name="CollisionShapeGround" type="CollisionShape" parent="enemies/greenMantis4"]
 transform = Transform( 0.965926, -1.48943e-09, -0.258819, -0.258819, -1.13133e-08, -0.965926, -1.48943e-09, 1, -1.13133e-08, 0.22, 1.714, 0 )
-shape = SubResource( 97 )
+shape = SubResource( 64 )
 
-[node name="shadowMaker" type="MeshInstance" parent="enemies/greenMantis2"]
+[node name="shadowMaker" type="MeshInstance" parent="enemies/greenMantis4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 cast_shadow = 3
 mesh = SubResource( 65 )
 material/0 = null
 
-[node name="aggro" type="Area" parent="enemies/greenMantis2"]
+[node name="aggro" type="Area" parent="enemies/greenMantis4"]
 collision_layer = 0
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="enemies/greenMantis2/aggro"]
+[node name="CollisionShape" type="CollisionShape" parent="enemies/greenMantis4/aggro"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
-shape = SubResource( 98 )
+shape = SubResource( 102 )
 
-[node name="enemyPushback" type="Area" parent="enemies/greenMantis2"]
+[node name="enemyPushback" type="Area" parent="enemies/greenMantis4"]
 collision_layer = 16
 collision_mask = 16
 
-[node name="CollisionShape2" type="CollisionShape" parent="enemies/greenMantis2/enemyPushback"]
+[node name="CollisionShape2" type="CollisionShape" parent="enemies/greenMantis4/enemyPushback"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
-shape = SubResource( 68 )
+shape = SubResource( 103 )
 
 [node name="spider" parent="enemies" instance=ExtResource( 35 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 312.68, 0.931422, -13.7036 )
@@ -3180,14 +3170,14 @@ hpMax = 350
 [node name="goal" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.0242, 18.1743, -26.3003 )
 
-[connection signal="animation_finished" from="enemies/greenMantis/AnimationPlayer" to="enemies/greenMantis" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="area_entered" from="enemies/greenMantis/zeroPoint/hurtbox" to="enemies/greenMantis" method="_on_hurtbox_area_entered"]
-[connection signal="area_exited" from="enemies/greenMantis/zeroPoint/hurtbox" to="enemies/greenMantis" method="_on_hurtbox_area_exited"]
-[connection signal="area_entered" from="enemies/greenMantis/aggro" to="enemies/greenMantis" method="_on_aggro_area_entered"]
-[connection signal="area_exited" from="enemies/greenMantis/aggro" to="enemies/greenMantis" method="_on_aggro_area_exited"]
-[connection signal="animation_finished" from="enemies/greenMantis2/AnimationPlayer" to="enemies/greenMantis2" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="area_entered" from="enemies/greenMantis2/zeroPoint/hurtbox" to="enemies/greenMantis2" method="_on_hurtbox_area_entered"]
-[connection signal="area_exited" from="enemies/greenMantis2/zeroPoint/hurtbox" to="enemies/greenMantis2" method="_on_hurtbox_area_exited"]
-[connection signal="area_entered" from="enemies/greenMantis2/aggro" to="enemies/greenMantis2" method="_on_aggro_area_entered"]
-[connection signal="area_exited" from="enemies/greenMantis2/aggro" to="enemies/greenMantis2" method="_on_aggro_area_exited"]
+[connection signal="animation_finished" from="enemies/greenMantis3/AnimationPlayer" to="enemies/greenMantis3" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="enemies/greenMantis3/zeroPoint/hurtbox" to="enemies/greenMantis3" method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="enemies/greenMantis3/zeroPoint/hurtbox" to="enemies/greenMantis3" method="_on_hurtbox_area_exited"]
+[connection signal="area_entered" from="enemies/greenMantis3/aggro" to="enemies/greenMantis3" method="_on_aggro_area_entered"]
+[connection signal="area_exited" from="enemies/greenMantis3/aggro" to="enemies/greenMantis3" method="_on_aggro_area_exited"]
+[connection signal="animation_finished" from="enemies/greenMantis4/AnimationPlayer" to="enemies/greenMantis4" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="enemies/greenMantis4/zeroPoint/hurtbox" to="enemies/greenMantis4" method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="enemies/greenMantis4/zeroPoint/hurtbox" to="enemies/greenMantis4" method="_on_hurtbox_area_exited"]
+[connection signal="area_entered" from="enemies/greenMantis4/aggro" to="enemies/greenMantis4" method="_on_aggro_area_entered"]
+[connection signal="area_exited" from="enemies/greenMantis4/aggro" to="enemies/greenMantis4" method="_on_aggro_area_exited"]
 [connection signal="area_entered" from="ambush2/cameraTrigger" to="ambush2" method="_on_cameraTrigger_area_entered"]

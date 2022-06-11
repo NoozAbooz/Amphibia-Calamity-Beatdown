@@ -239,7 +239,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.034, 0.0833333, 0.133333, 0.15 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 330 ), Vector2( -60, 330 ), Vector2( 30, 330 ), Vector2( 10, 330 ), Vector2( 0, 330 ) ]
+"values": [ Vector2( 0, 330 ), Vector2( -15, 330 ), Vector2( 10, 330 ), Vector2( -5, 330 ), Vector2( 0, 330 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("zeroPoint/hitbox/hitboxCollision:disabled")
@@ -920,11 +920,11 @@ anims/walk = SubResource( 36 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
-offset = Vector2( 0, 96 )
+offset = Vector2( 0, 94 )
 pixel_size = 0.0175
 frames = SubResource( 29 )
-animation = "walk"
-frame = 2
+animation = "idle"
+frame = 1
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 32
