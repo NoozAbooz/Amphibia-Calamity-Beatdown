@@ -555,12 +555,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
-"name": "hurt",
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],

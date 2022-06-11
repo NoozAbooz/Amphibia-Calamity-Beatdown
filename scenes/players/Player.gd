@@ -91,6 +91,9 @@ var nextState = IDLE
 
 var fps = 1
 
+var windVect = Vector3.ZERO # "push" from wind boxes
+var isInWindbox = false
+
 onready var anim = $"AnimationPlayer"
 onready var sprite = $"zeroPoint/AnimatedSprite3D"
 var animFinished = false
@@ -703,7 +706,17 @@ func _physics_process(delta):
 		hurtCount = 0
 	
 	# Y movement
-	velocity.y -= force_grav * delta
+	# gravity/wind
+	if (windVect.y <= 0):
+		velocity.y -= force_grav * delta
+	elif (velocity.y >= 0):
+		velocity.y -= force_grav * delta * -0.1 * windVect.y
+	else:
+		velocity.y -= force_grav * delta * -0.5 * windVect.y
+	# caps y speed
+	if (velocity.y >= 70):
+		velocity.y = 70
+	# launched
 	if (state == JUMP):
 		velocity.y = force_jump
 	elif (state == DJUMP):
@@ -772,12 +785,21 @@ func _physics_process(delta):
 		velocity.y = hurtDir.y
 		velocity.z = hurtDir.z
 	
+	# effect of windboxes
+	if (windVect != Vector3.ZERO) and (!isInWindbox):
+		if (is_on_floor()):
+			windVect = Vector3.ZERO
+		elif (direction.x * windVect.x <= 0) and (direction.z * windVect.z <= 0):
+			windVect = Vector3.ZERO
+	if (!isInState([BLOCK, BLOCKHIT, HURTFLOOR])):
+		move_and_slide(Vector3(windVect.x, 0, windVect.z), Vector3.UP, true, 4, 1.05)
 	
 	# move and slide
 	if isInState([JUMP, RISING, HURTLAUNCH, HURTRISING, BOUNCE]):
 		snapVect = Vector3.ZERO
 	else:
 		snapVect = Vector3(0, -2, 0)
+	
 	velocity = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true, 4, 1.05)
 	
 	# fall off world
@@ -887,6 +909,10 @@ func _on_hurtbox_area_entered(area):
 		soundManager.pitchSound("jump", 0.45)
 		soundManager.playSound("jump")
 		return
+	elif area.is_in_group("windboxes"):
+		isInWindbox = true
+		windVect = area.direction.normalized() * area.magnitude
+		return
 	# pickups
 	elif area.is_in_group("coins"):
 		coins += area.get_parent().value
@@ -967,5 +993,10 @@ func _on_hurtbox_area_exited(area):
 		return
 	elif area.is_in_group("boucePads"):
 		bouncing = false
+		return
+	elif area.is_in_group("windboxes"):
+		isInWindbox = false
+		return
 	else:
 		invincible = false
+		return
