@@ -30,7 +30,7 @@ func _on_lockButton_toggled(button_pressed):
 		pg.luckUpgrades   = 3 # increase coin drop by 1 and drop chances by 5%
 		pg.hasSpin    = true
 		pg.hasSlide   = true
-		pg.hasSpike   = true
+		pg.hasAirSpin = true
 		pg.hasDJ      = true
 		pg.hasCounter = true
 		
@@ -42,7 +42,7 @@ func _on_lockButton_toggled(button_pressed):
 		pg.luckUpgrades   = 0 # increase coin drop by 1 and drop chances by 5%
 		pg.hasSpin    = false
 		pg.hasSlide   = false
-		pg.hasSpike   = false
+		pg.hasAirSpin = false
 		pg.hasDJ      = false
 		pg.hasCounter = false
 		

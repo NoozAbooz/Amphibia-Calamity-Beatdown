@@ -286,7 +286,10 @@ func _physics_process(delta):
 				animFinished = false
 		BLOCK:
 			if (blockCounterReady()):
-				nextState = IDLE
+				if checkInRange(target):
+					nextState = A_H
+				else:
+					nextState = IDLE
 			else:
 				nextState = BLOCK
 		BLOCKHIT:
@@ -311,10 +314,10 @@ func _physics_process(delta):
 	if (justHurt):
 		justHurt = false
 		#print("HIT")
-		if isInState([BLOCK]):
+		if isInState([BLOCK]) and (hurtType == KB_WEAK):
 			nextState = BLOCKHIT
 			hurtDamage = 0
-		elif isInState([BLOCKHIT]):
+		elif isInState([BLOCKHIT]) and (hurtType == KB_WEAK):
 			hurtAgain = true
 			nextState = BLOCKHIT
 			hurtDamage = 0

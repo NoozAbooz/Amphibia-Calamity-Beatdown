@@ -422,7 +422,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id=14]
 resource_name = "attack_L1"
-length = 0.500001
+length = 0.416667
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite3D:frame")
@@ -672,7 +672,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id=20]
 resource_name = "attack_L3"
-length = 0.750001
+length = 0.500001
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite3D:frame")
@@ -3303,6 +3303,7 @@ rings = 1
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_mask = 1030
 script = ExtResource( 2 )
+comboReady = true
 
 [node name="Label" type="Label" parent="."]
 margin_right = 50.0
@@ -3346,11 +3347,12 @@ anims/walk = SubResource( 7 )
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
 layers = 3
-offset = Vector2( 0, 25 )
+offset = Vector2( 10, 25 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 42 )
-animation = "stand"
+animation = "attack_L1"
+frame = 3
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8

@@ -301,10 +301,7 @@ func _physics_process(delta):
 			elif (Input.is_action_pressed(right_button) == false) and (Input.is_action_pressed(left_button) == false):
 				nextState = WALK
 			elif Input.is_action_just_pressed(light_attack_button):
-				if pg.hasSlide:
-					nextState = A_SL
-				else:
-					nextState = A_L1
+				nextState = A_SL
 			elif Input.is_action_just_pressed(heavy_attack_button):
 				if pg.hasSlide:
 					nextState = A_SH
@@ -325,7 +322,7 @@ func _physics_process(delta):
 			elif Input.is_action_just_pressed(light_attack_button):
 				nextState = A_AL1
 			elif Input.is_action_just_pressed(heavy_attack_button):
-				if (speed == speed_run) and pg.hasSpike:
+				if (speed == speed_run):
 					nextState = A_AH2
 				else:
 					nextState = A_AH1
@@ -346,7 +343,7 @@ func _physics_process(delta):
 			elif Input.is_action_just_pressed(light_attack_button):
 				nextState = A_AL1
 			elif Input.is_action_just_pressed(heavy_attack_button):
-				if (speed == speed_run) and pg.hasSpike:
+				if (speed == speed_run):
 					nextState = A_AH2
 				else:
 					nextState = A_AH1
@@ -405,7 +402,14 @@ func _physics_process(delta):
 				animFinished = false
 		A_AL1:
 			if is_on_floor():
-				nextState = LAND
+				if checkWalk() == false:
+					nextState = IDLE
+				elif (speed == speed_run):
+					nextState = RUN
+				elif (speed == speed_walk):
+					nextState = WALK
+				else:
+					nextState = IDLE
 			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
 				nextState = A_AL2
 			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
@@ -418,10 +422,17 @@ func _physics_process(delta):
 				animFinished = false
 		A_AL2:
 			if is_on_floor():
-				nextState = LAND
+				if checkWalk() == false:
+					nextState = IDLE
+				elif (speed == speed_run):
+					nextState = RUN
+				elif (speed == speed_walk):
+					nextState = WALK
+				else:
+					nextState = IDLE
 			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
 				nextState = A_AL3
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)) and pg.hasSpike:
+			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
 				nextState = A_AH2
 			elif animFinished and (velocity.y <= 0):
 				nextState = FALLING
@@ -791,8 +802,7 @@ func _physics_process(delta):
 			windVect = Vector3.ZERO
 		elif (direction.x * windVect.x <= 0) and (direction.z * windVect.z <= 0):
 			windVect = Vector3.ZERO
-	if (!isInState([BLOCK, BLOCKHIT, HURTFLOOR])):
-		move_and_slide(Vector3(windVect.x, 0, windVect.z), Vector3.UP, true, 4, 1.05)
+	
 	
 	# move and slide
 	if isInState([JUMP, RISING, HURTLAUNCH, HURTRISING, BOUNCE]):
@@ -801,6 +811,8 @@ func _physics_process(delta):
 		snapVect = Vector3(0, -2, 0)
 	
 	velocity = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true, 4, 1.05)
+	if (!isInState([BLOCK, BLOCKHIT, HURTFLOOR])):
+		move_and_slide_with_snap(Vector3(windVect.x, 0, windVect.z), snapVect, Vector3.UP, true, 4, 1.05)
 	
 	# fall off world
 	if (translation.y <= deathFloorHeight):
