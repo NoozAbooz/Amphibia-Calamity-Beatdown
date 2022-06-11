@@ -1,7 +1,8 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://art/sprig/sprig_run.png" type="Texture" id=1]
 [ext_resource path="res://art/sprig/sprig_idle.png" type="Texture" id=2]
+[ext_resource path="res://scenes/players/Player.gd" type="Script" id=3]
 [ext_resource path="res://art/anne/rising.png" type="Texture" id=4]
 [ext_resource path="res://art/anne/a_l3.png" type="Texture" id=5]
 [ext_resource path="res://art/anne/falling.png" type="Texture" id=6]
@@ -36,979 +37,6 @@
 [ext_resource path="res://art/pickups/coin_icon.png" type="Texture" id=42]
 [ext_resource path="res://scenes/players/lifeCounterFont.tres" type="DynamicFont" id=43]
 [ext_resource path="res://art/menus/hp_bar.png" type="Texture" id=44]
-
-[sub_resource type="GDScript" id=49]
-script/source = "extends KinematicBody
-
-var vfxScene = preload(\"res://scenes/vfx.tscn\")
-
-var playerNum = 1
-
-var speed_walk = 10 #12
-var speed_run = 18 #24
-var speed_z = 10 #8
-var force_jump = 36.0 #42
-var force_jump_double = 36.0 #42
-var force_grav = 125.0
-export var comboReady = false
-export var hitLanded = false
-
-var left_button = \"move_left_\"# + str(playerInput)
-var right_button = \"move_right_\"# + str(playerInput)
-var up_button = \"move_away_\"# + str(playerInput)
-var down_button = \"move_in_\"# + str(playerInput)
-var jump_button = \"jump_\"# + str(playerInput)
-var light_attack_button = \"light_attack_\"# + str(playerInput)
-var heavy_attack_button = \"heavy_attack_\"# + str(playerInput)
-var block_button = \"block_\"# + str(playerInput)
-
-var hp:float = 50
-var hpMax:float = 100
-var lives = 3
-var coins = 0
-
-var safePos = Vector3.ZERO
-var deathFloorHeight = -30
-
-var velocity = Vector3.ZERO
-var speed = speed_walk
-var lookRight = true
-
-var doubleJumpReady = true
-var mini_jump_boost = 0
-var recoilStart = false
-var recoilCounter = 0
-var recoilDir = 0
-var canMove = true # true if player is not in recoil
-
-var bouncing = false
-var bounceHeight = 0
-
-var LCancel = false
-var LCancelActiveTimer = 0
-var LCancelResetTimer = 0
-
-var counterTimer = 0
-var counterMax = 10
-
-var slideReady = true
-var slideSpeed = 0
-var slideDir = Vector2.ZERO
-
-var runTimer = 0
-var runTimerMax = 20
-
-var hitDamage = 0
-var hitDamageMulti = 1.0
-var hitType = 0
-var hitDir = Vector3.ZERO
-var hitSound = \"\"
-
-var justHurt = false
-var hurtAgain = false
-var hurtCount = 0
-var invincible = false
-var invincibleState = false
-var invincibleGetUp = 0 # cannot be it if this value is above 0
-var hurtDamage = 0
-var hurtType = 0
-var hurtDir = Vector3.ZERO
-
-var lastOnFloorHeight = 0
-var shadowHeight = 0 # used in camera positioning
-var secondaryY = 0
-
-enum printStatesEnum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
-enum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
-enum {UP, DOWN, LEFT, RIGHT, NONE}
-enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP}
-var oldInput = UP
-var newInput = DOWN
-
-var state = IDLE
-var nextState = IDLE
-
-var fps = 1
-
-onready var anim = $\"AnimationPlayer\"
-onready var sprite = $\"zeroPoint/AnimatedSprite3D\"
-var animFinished = false
-
-
-func initialize(num, pos):
-	# adds hit box area to appropriate group so enemies can tell hitboxes apart
-	$\"zeroPoint/hitbox\".add_to_group(\"player\"+str(num))
-	# sets up inputs
-	left_button = \"move_left_\" + str(pg.playerInput[num])
-	right_button = \"move_right_\" + str(pg.playerInput[num])
-	up_button = \"move_away_\" + str(pg.playerInput[num])
-	down_button = \"move_in_\" + str(pg.playerInput[num])
-	jump_button = \"jump_\" + str(pg.playerInput[num])
-	light_attack_button = \"light_attack_\" + str(pg.playerInput[num])
-	heavy_attack_button = \"heavy_attack_\" + str(pg.playerInput[num])
-	block_button = \"block_\" + str(pg.playerInput[num])
-	# positions player panel
-	$playerInfo.anchor_left = 0.25 * num
-	# sets player position, velocity, and starting respawn point
-	translation = pos
-	safePos = pos
-	velocity = Vector3.ZERO
-	# renames player root node
-	self.name = \"Player\" + str(num)
-	# updates lives, hp, damage
-	updateStats()
-	#sets player number
-	playerNum = num
-	
-func updateStats():
-	# sets lives
-	if pg.hardcoreMode:
-		lives = 1
-	elif pg.unlimitedLives:
-		lives = 99999
-	else:
-		lives = pg.playerStartingLives + pg.livesUpgrades
-	# sets player health
-	hpMax = pg.playerStartingMaxHP + (pg.healthUpgrades * pg.healthBoost)
-	hp = float(hpMax)
-	$playerInfo/lifeBar.margin_left = $playerInfo/lifeBar.margin_right - hpMax
-	$playerInfo/lifeOutline.margin_left = $playerInfo/lifeOutline.margin_right - (hpMax + 8)
-	# sets player damage multiplier
-	hitDamageMulti = 1 + (pg.damageUpgrades * pg.damageBoost)
-	# sets player luck
-
-func isInState(list):
-	var found = false
-	for i in list:
-		if state == i:
-			found = true
-	return found
-		
-	
-func checkWalk():
-	var walk = false
-	if ((Input.is_action_pressed(right_button) == true) or (Input.is_action_pressed(left_button) == true) or (Input.is_action_pressed(down_button) == true) or (Input.is_action_pressed(up_button) == true)):
-		walk = true
-	return walk
-	
-func checkWalkJust():
-	var walk = false
-	if ((Input.is_action_just_pressed(right_button) == true) or (Input.is_action_just_pressed(left_button) == true) or (Input.is_action_just_pressed(down_button) == true) or (Input.is_action_just_pressed(up_button) == true)):
-		walk = true
-	return walk
-	
-func setHitBox(damage, type, dir, sfx = \"hit1\"):
-	hitDamage = damage * hitDamageMulti
-	hitType = type
-	hitDir = dir # for direction, +x and +y means away and up. ~10 for magnitude
-	hitSound = sfx
-	if (lookRight == false):
-		hitDir.x *= -1
-		
-func respawn(dead):
-	safePos = get_parent().get_node(\"camera_pivot/Camera\").findSpawnPoint(translation)
-	if (dead):
-		lives -= 1
-		state = RISING
-		nextState = RISING
-		hp = hpMax
-	else:
-		addHealth(-10)
-		state = HURTRISING
-	if (lives <= 0):
-		pg.playerAlive[playerNum] = false
-		queue_free()
-	else:
-		translation = safePos + Vector3(0, 5, 0)
-		velocity = Vector3.ZERO + Vector3(0, 15, 0)
-		
-func addHealth(amount):
-	hp += amount
-	if (hp <= 0):
-		hp = 0
-	elif (hp >= hpMax):
-		hp = hpMax
-
-func _physics_process(delta):
-	
-	var direction = Vector3.ZERO
-	var snapVect  = Vector3.ZERO
-	
-	# Movement inputs
-	if (canMove) and (pg.dontMove == false):
-		if Input.is_action_pressed(right_button) and Input.is_action_pressed(left_button):
-			direction.x = 0
-		elif Input.is_action_pressed(right_button):
-			direction.x = 1
-		elif Input.is_action_pressed(left_button):
-			direction.x = -1
-		else:
-			direction.x = 0
-		if Input.is_action_pressed(down_button) and Input.is_action_pressed(up_button):
-			direction.z = 0
-		elif Input.is_action_pressed(down_button):
-			direction.z = 1
-		elif Input.is_action_pressed(up_button):
-			direction.z = -1
-		else:
-			direction.z = 0
-	else:
-		direction.x = 0
-		direction.z = 0
-		
-	# Double-tap checks
-	if Input.is_action_just_pressed(right_button):
-		runTimer = runTimerMax
-		if (oldInput != RIGHT):
-			oldInput = RIGHT
-		else:
-			newInput = RIGHT
-	if Input.is_action_just_pressed(left_button):
-		runTimer = runTimerMax
-		if (oldInput != LEFT):
-			oldInput = LEFT
-		else:
-			newInput = LEFT
-	runTimer -= 1
-	if (runTimer <= 0):
-		runTimer = 0
-		oldInput = NONE
-		newInput = NONE
-		
-	# L canceling
-	if (LCancelActiveTimer > 0):
-		LCancelActiveTimer -= 1
-	if (LCancelResetTimer > 0):
-		LCancelResetTimer -= 1
-	if (is_on_floor() == false) and Input.is_action_just_pressed(block_button) and (LCancelResetTimer <= 0):
-		LCancel = true
-		LCancelActiveTimer = 10
-		LCancelResetTimer = 40
-	if (LCancelActiveTimer <= 0):
-		LCancel = false
-	if (Input.is_action_just_pressed(light_attack_button)) or (Input.is_action_just_pressed(heavy_attack_button)):
-		LCancel = false
-	
-	# state changes
-	match state:
-		IDLE:
-			canMove = true
-			if pg.dontMove:
-				nextState = IDLE
-			elif Input.is_action_just_pressed(jump_button):
-				nextState = JUMP
-			elif checkWalk() and (direction != Vector3.ZERO):
-				nextState = WALK
-			elif Input.is_action_just_pressed(light_attack_button):
-				nextState = A_L1
-			elif Input.is_action_just_pressed(heavy_attack_button):
-				nextState = A_H1
-			elif Input.is_action_pressed(block_button):
-				nextState = BLOCK
-			else:
-				nextState = IDLE
-		WALK:
-			if (direction == Vector3.ZERO):
-				nextState = IDLE
-			elif( (runTimer > 0) and (oldInput == newInput) and (newInput != NONE) ):
-				runTimer = 0
-				nextState = RUN
-			elif Input.is_action_just_pressed(jump_button):
-				nextState = JUMP
-			elif (is_on_floor() == false):
-				nextState = FALLING
-			elif Input.is_action_just_pressed(light_attack_button):
-				nextState = A_L1
-			elif Input.is_action_just_pressed(heavy_attack_button):
-				nextState = A_H1
-			elif Input.is_action_just_pressed(block_button):
-				nextState = BLOCK
-			else:
-				nextState = WALK
-		RUN:
-			if (direction == Vector3.ZERO):
-				nextState = IDLE
-			elif (velocity.x == 0):
-				nextState = WALK
-			elif Input.is_action_just_pressed(jump_button):
-				nextState = JUMP
-			elif (is_on_floor() == false):
-				nextState = FALLING
-			elif (Input.is_action_pressed(right_button) == false) and (Input.is_action_pressed(left_button) == false):
-				nextState = WALK
-			elif Input.is_action_just_pressed(light_attack_button):
-				if pg.hasSlide:
-					nextState = A_SL
-				else:
-					nextState = A_L1
-			elif Input.is_action_just_pressed(heavy_attack_button):
-				if pg.hasSlide:
-					nextState = A_SH
-				else:
-					nextState = A_H1
-			else:
-				nextState = RUN
-		JUMP:
-			nextState = RISING
-		DJUMP:
-			nextState = RISING
-			doubleJumpReady = false
-		RISING:
-			if (velocity.y <= 0):
-				nextState = FALLING
-			elif doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
-				nextState = DJUMP
-			elif Input.is_action_just_pressed(light_attack_button):
-				nextState = A_AL1
-			elif Input.is_action_just_pressed(heavy_attack_button):
-				if (speed == speed_run) and pg.hasSpike:
-					nextState = A_AH2
-				else:
-					nextState = A_AH1
-			else:
-				nextState = RISING
-		FALLING:
-			if is_on_floor():
-				if checkWalk() == false:
-					nextState = IDLE
-				elif (speed == speed_run):
-					nextState = RUN
-				elif (speed == speed_walk):
-					nextState = WALK
-				else:
-					nextState = IDLE
-			elif doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
-				nextState = DJUMP
-			elif Input.is_action_just_pressed(light_attack_button):
-				nextState = A_AL1
-			elif Input.is_action_just_pressed(heavy_attack_button):
-				if (speed == speed_run) and pg.hasSpike:
-					nextState = A_AH2
-				else:
-					nextState = A_AH1
-			else:
-				nextState = FALLING
-		BOUNCE:
-			doubleJumpReady = true
-			nextState = RISING
-		LAND:
-			if (LCancel):
-				nextState = LANDC
-				state = LANDC
-				soundManager.playSound(\"counter\")
-			if (animFinished):
-				nextState = IDLE
-				animFinished = false
-		LANDC:
-			if (animFinished):
-				nextState = IDLE
-				animFinished = false
-			elif checkWalk() and (direction != Vector3.ZERO):
-				nextState = WALK
-		A_L1:
-			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
-				nextState = A_L2
-			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
-				nextState = A_H2
-			elif animFinished:
-				nextState = IDLE
-				animFinished = false
-		A_L2:
-			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
-				nextState = A_L3
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
-				nextState = A_H1
-			elif animFinished:
-				nextState = IDLE
-				animFinished = false
-		A_L3:
-			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)) and pg.hasSpin:
-				nextState = A_H3
-			elif animFinished:
-				nextState = IDLE
-				animFinished = false
-		A_H1:
-			if animFinished:
-				nextState = IDLE
-				animFinished = false
-		A_H2:
-			if animFinished:
-				nextState = IDLE
-				animFinished = false
-		A_H3:
-			if animFinished:
-				nextState = IDLE
-				animFinished = false
-		A_AL1:
-			if is_on_floor():
-				nextState = LAND
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
-				nextState = A_AL2
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
-				nextState = A_AH1
-			elif animFinished and (velocity.y <= 0):
-				nextState = FALLING
-				animFinished = false
-			elif animFinished:
-				nextState = RISING
-				animFinished = false
-		A_AL2:
-			if is_on_floor():
-				nextState = LAND
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
-				nextState = A_AL3
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)) and pg.hasSpike:
-				nextState = A_AH2
-			elif animFinished and (velocity.y <= 0):
-				nextState = FALLING
-				animFinished = false
-			elif animFinished:
-				nextState = RISING
-				animFinished = false
-		A_AL3:
-			if is_on_floor():
-				nextState = LAND
-			elif (comboReady) and (hitLanded) and doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
-				nextState = DJUMP
-			elif animFinished and (velocity.y <= 0):
-				nextState = FALLING
-				animFinished = false
-			elif animFinished:
-				nextState = RISING
-				animFinished = false
-		A_AH1:
-			if is_on_floor():
-				nextState = LAND
-			elif animFinished and (velocity.y <= 0):
-				nextState = FALLING
-				animFinished = false
-			elif animFinished:
-				nextState = RISING
-				animFinished = false
-		A_AH2:
-			if is_on_floor():
-				nextState = LAND
-			elif animFinished and (velocity.y <= 0):
-				nextState = FALLING
-				animFinished = false
-			elif animFinished:
-				nextState = RISING
-				animFinished = false
-		A_SL:
-			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
-				speed = speed_walk
-				nextState = JUMP
-			elif (comboReady) and (hitLanded) and checkWalkJust() and (direction != Vector3.ZERO):
-				nextState = WALK
-			elif (is_on_floor() == false):
-				nextState = FALLING
-			elif animFinished:
-				nextState = IDLE
-				animFinished = false
-		A_SH:
-			if (is_on_floor() == false):
-				nextState = FALLING
-			elif animFinished:
-				nextState = IDLE
-				animFinished = false
-		BLOCK:
-			if (is_on_floor() == false):
-				nextState = FALLING
-			elif (Input.is_action_pressed(block_button) == false):
-				nextState = IDLE
-		BLOCKHIT:
-			if (is_on_floor() == false):
-				nextState = FALLING
-			elif (Input.is_action_pressed(block_button) == false):
-				nextState = IDLE
-			elif (animFinished):
-				nextState = BLOCK
-				animFinished = false
-		COUNTER:
-			if (is_on_floor() == false):
-				nextState = FALLING
-			elif (comboReady) and (Input.is_action_just_pressed(jump_button)):
-				nextState = JUMP
-			elif (comboReady) and checkWalkJust() and (direction != Vector3.ZERO):
-				nextState = WALK
-			elif (comboReady) and Input.is_action_just_pressed(light_attack_button):
-				nextState = A_L1
-			elif (comboReady) and Input.is_action_just_pressed(heavy_attack_button):
-				nextState = A_H1
-			elif animFinished:
-				nextState = IDLE
-				animFinished = false
-		HURT:
-			if (animFinished):
-				nextState = IDLE
-				animFinished = false
-		HURTLAUNCH:
-			nextState = HURTRISING
-		HURTRISING:
-			if (velocity.y <= 0):
-				nextState = HURTFALLING
-			else:
-				nextState = HURTRISING
-		HURTFALLING:
-			if is_on_floor():
-				nextState = HURTFLOOR
-			else:
-				nextState = HURTFALLING
-		HURTFLOOR:
-			#randf ( )
-			if (hp <= 0) and (LCancel) and (rng.rand.randf() <= 0.666):
-				nextState = LANDC
-				state = LANDC
-				soundManager.playSound(\"counter\")
-			elif (hp <= 0):
-				nextState = KO
-			elif (LCancel):
-				soundManager.playSound(\"counter\")
-				nextState = LANDC
-				state = LANDC
-			elif (animFinished):
-				animFinished = false
-				nextState = IDLE
-			else:
-				nextState = HURTFLOOR
-		KO:
-			if (animFinished):
-				animFinished = false
-				respawn(true)
-			else:
-				nextState = KO
-		_:
-			pass
-			#state = IDLE
-			#nextState = IDLE
-	# Bounce Pads
-	if (bouncing) and (isInState([RISING]) == false):
-		nextState = BOUNCE
-	# checking for various invincibility flags
-	if (isInState([KO, HURTFALLING, HURTFLOOR])):
-		invincibleState = true
-	else:
-		invincibleState = false
-	if isInState([HURTFLOOR, HURTRISING, HURTFALLING]):
-		invincibleGetUp = 60
-	elif (invincibleGetUp >= 0):
-		invincibleGetUp -= 1
-	# taking damage
-	if (justHurt):
-		justHurt = false
-		#print(\"HIT\")
-		if isInState([HURTFLOOR]):
-			nextState = HURTFLOOR
-		elif isInState([HURTFALLING]):
-			nextState = HURTFALLING
-		elif isInState([COUNTER]):
-			nextState = COUNTER
-			hurtDamage = 0
-			#hurtType
-		elif isInState([BLOCK]) and (counterTimer > 0) and pg.hasCounter:
-			nextState = COUNTER
-			hurtDamage = 0
-		elif isInState([BLOCK, BLOCKHIT]):
-			nextState = BLOCKHIT
-			hurtDamage = 0.25 * hurtDamage
-		elif (hurtType == KB_STRONG) or (hurtType == KB_ANGLED):
-			nextState = HURTLAUNCH
-		elif (isInState([HURT]) and hurtCount >= 2):
-			hurtDir = Vector3(0, 20, 0)
-			nextState = HURTLAUNCH
-			hurtType = KB_ANGLED
-		elif isInState([HURT]):
-			hurtAgain = true
-			nextState = HURT
-		else:
-			nextState = HURT
-		hurtCount += 1
-		addHealth(-1 * hurtDamage)
-		# plays sfx
-		if (nextState == COUNTER):
-			soundManager.playSound(\"counter\")
-		elif (nextState == BLOCKHIT):
-			soundManager.playSound(\"block\")
-		elif (hurtType == KB_WEAK):
-			soundManager.playSound(\"hurt1\")
-		else:
-			soundManager.playSound(\"hurt2\")
-	# tricky sfx
-	if (nextState == RUN) and (state != RUN):
-		soundManager.playSound(\"run\")
-	elif (nextState == BLOCK) and (state != BLOCK) and (state != BLOCKHIT):
-		soundManager.playSound(\"shield\")
-	elif ((nextState == A_SL) or (nextState == A_SH)) and (state != A_SL) and (state != A_SH):
-		soundManager.playSound(\"slide\")
-	elif (nextState == JUMP):
-		soundManager.pitchSound(\"jump\", 0.8)
-		soundManager.playSound(\"jump\")
-	elif (nextState == DJUMP):
-		soundManager.pitchSound(\"jump\", 1.0)
-		soundManager.playSound(\"jump\")
-	# sets state
-	state = nextState
-	
-	# Counter mechanic
-	if (counterTimer > 0):
-		counterTimer -= 1
-	if Input.is_action_just_pressed(block_button):
-		counterTimer = counterMax
-		
-	# resets animFinished if in looping animation state to prevent bugs
-	if (isInState([IDLE, WALK, RUN, RISING, FALLING, HURTFALLING, HURTRISING, BLOCK])):
-		animFinished = false
-	
-	# calculates height of floor below character for the camera
-	if ($RayCast.is_colliding()):
-		shadowHeight = $RayCast.get_collision_point().y
-	if self.is_on_floor():
-		lastOnFloorHeight = translation.y
-	if (shadowHeight > lastOnFloorHeight): # jumped up to higher ledge
-		secondaryY = shadowHeight
-	elif (translation.y < lastOnFloorHeight): # jumped/fell off ledge
-		if ($RayCast.is_colliding()): # not over death pit
-			secondaryY = shadowHeight
-		else:
-			secondaryY = lastOnFloorHeight
-	else:
-		secondaryY = lastOnFloorHeight
-
-	
-	# mirror character if necessary
-	if(state == WALK or state == RUN or state == DJUMP) and (direction != Vector3.ZERO):
-		#$\"zeroPoint\".look_at(translation + Vector3(direction.x, 0, 0), Vector3.UP)
-		if (direction.x > 0):
-			lookRight = true
-			sprite.set_rotation_degrees(Vector3(-15, 90, 0))
-			$\"zeroPoint\".set_rotation_degrees(Vector3(0, 180, 0))
-			#sprite.set_translation(Vector3(0.5, 0, 0))
-		elif (direction.x < 0):
-			lookRight = false
-			sprite.set_rotation_degrees(Vector3(15, 90, 0))
-			$\"zeroPoint\".set_rotation_degrees(Vector3(0, 0, 0))
-			#sprite.set_translation(Vector3(-0.5, 0, 0))
-
-		
-	# sets up hitbox stats
-	if   isInState([A_L1]):
-		setHitBox(5, KB_WEAK, Vector3(1, 0, 0))
-	elif isInState([A_L2]):
-		setHitBox(10, KB_WEAK, Vector3(1, 0, 0), \"hit2\")
-	elif isInState([A_L3]):
-		setHitBox(10, KB_WEAK, Vector3(1, 0, 0))
-	elif isInState([A_H1]):
-		setHitBox(12, KB_STRONG, Vector3(30, 25, 0), \"hit3\")
-	elif isInState([A_H2]):
-		setHitBox(20, KB_STRONG, Vector3(7, 50, 0), \"hit3\")
-	elif isInState([A_H3]):
-		if (comboReady):
-			setHitBox(15, KB_ANGLED, Vector3(15, 35, 0), \"hit4\")
-		else:
-			setHitBox(2, KB_WEAK, Vector3(1, 0, 0))
-	elif isInState([A_AH1]):
-		setHitBox(20, KB_ANGLED, Vector3(40, 10, 0), \"hit3\")
-	elif isInState([A_AH2]):
-		setHitBox(35, KB_STRONG_RECOIL, Vector3(30, -70, 0), \"hit4\")
-	elif isInState([A_AL1]):
-		setHitBox(8, KB_AIR, Vector3(1, 0, 0))
-	elif isInState([A_AL2]):
-		setHitBox(8, KB_AIR, Vector3(1, 0, 0), \"hit2\")
-	elif isInState([A_AL3]):
-		setHitBox(12, KB_AIR_UP, Vector3(1, 30, 0))	
-	elif isInState([A_SL]):
-		setHitBox(15, KB_STRONG, Vector3(-7, 40, 0), \"hit2\")
-	elif isInState([A_SH]):
-		setHitBox(20, KB_STRONG_RECOIL, Vector3(30, 25, 0), \"hit3\")
-	elif isInState([COUNTER]):
-		setHitBox(35, KB_ANGLED, Vector3(5, 40, 0), \"hit4\")
-	elif isInState([HURTFLOOR]):
-		setHitBox(1, KB_ANGLED, Vector3(5, 15, 0))
-	else:
-		#setHitBox(0, KB_WEAK, Vector3.ZERO)
-		pass
-	
-	# resets combo flag in non-battle states
-	if isInState([IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, HURT, HURTLAUNCH]):
-		comboReady = false
-		
-	# resets jumps
-	if is_on_floor():
-		doubleJumpReady = true
-		
-	# resets hurt counter (to prevent infinite combos)
-	if (isInState([HURT]) == false):
-		hurtCount = 0
-	
-	# Y movement
-	velocity.y -= force_grav * delta
-	if (state == JUMP):
-		velocity.y = force_jump
-	elif (state == DJUMP):
-		velocity.y = force_jump_double
-	elif (state == BOUNCE):
-		velocity.y = bounceHeight
-	elif (mini_jump_boost > 0):
-		velocity.y = mini_jump_boost
-		mini_jump_boost = 0
-	
-	# sets X speed
-	if isInState([WALK, IDLE]):
-		speed = speed_walk
-	elif isInState([RUN, A_SL, A_SH]):
-		speed = speed_run
-		
-	# X movement
-	if isInState([WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2]):
-		canMove = true
-		velocity.x = speed * direction.x
-		velocity.z = speed_z * direction.z
-	elif isInState([HURTLAUNCH, HURTRISING, HURTFALLING]):
-		pass
-	else:
-		velocity.x = 0
-		velocity.z = 0
-		
-	# recoil
-	if (recoilCounter > 0): 
-		recoilCounter -= 1 
-	if (recoilStart):
-		canMove = false
-		recoilStart = false
-		recoilCounter = 30
-		speed = speed_walk
-		if (lookRight):
-			recoilDir = 1
-		else:
-			recoilDir = -1
-		velocity.y = 0.75 * force_jump_double
-		if (state == A_SH):
-			state = RISING
-	if (recoilCounter > 0) and (is_on_floor() == false):
-		velocity.x = -1.25 * speed * recoilDir
-		velocity.z = 0
-		
-	# sliding
-	if (isInState([A_SL, A_SH]) == false):
-		slideReady = true
-	if (slideReady) and isInState([A_SL, A_SH]):
-		slideReady = false
-		slideSpeed = speed_run * 2.0
-		slideDir.x = direction.x
-		slideDir.y = direction.z
-	elif isInState([A_SL, A_SH]):
-		velocity.x = slideSpeed * slideDir.x
-		velocity.z = slideSpeed * (float(speed_z) / float(speed_run)) * slideDir.y
-		if (slideSpeed > 0):
-			slideSpeed -= 1.5
-		if (slideSpeed < 0):
-			slideSpeed = 0
-	
-	# large knockback
-	if isInState([HURTLAUNCH]):
-		velocity.x = hurtDir.x
-		velocity.y = hurtDir.y
-		velocity.z = hurtDir.z
-	
-	
-	# move and slide
-	if isInState([JUMP, RISING, HURTLAUNCH, HURTRISING, BOUNCE]):
-		snapVect = Vector3.ZERO
-	else:
-		snapVect = Vector3(0, -2, 0)
-	velocity = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true, 4, 1.05)
-	
-	# fall off world
-	if (translation.y <= deathFloorHeight):
-		respawn(false)
-	
-	# animations
-	if isInState([WALK]):
-		anim.play(\"walk\")
-	if isInState([RUN]):
-		anim.play(\"run\")
-	elif isInState([IDLE]):
-		anim.play(\"idle\")
-	elif isInState([RISING]):
-		anim.play(\"rise\")
-	elif isInState([FALLING]):
-		anim.play(\"fall\")
-	elif isInState([LAND]):
-		anim.play(\"land\")
-	elif isInState([LANDC]):
-		anim.play(\"land_cancel\")
-	elif isInState([A_L1]):
-		anim.play(\"attack_L1\")
-	elif isInState([A_L2]):
-		anim.play(\"attack_L2\")
-	elif isInState([A_L3]):
-		anim.play(\"attack_L3\")
-	elif isInState([A_H1]):
-		anim.play(\"attack_H1\")
-	elif isInState([A_H2]):
-		anim.play(\"attack_H2\")
-	elif isInState([A_H3]):
-		anim.play(\"attack_H3\")
-	elif isInState([A_AL1]):
-		anim.play(\"attack_air_L1\")
-	elif isInState([A_AL2]):
-		anim.play(\"attack_air_L2\")
-	elif isInState([A_AL3]):
-		anim.play(\"attack_air_L3\")
-	elif isInState([A_AH1]):
-		anim.play(\"attack_air_H1\")
-	elif isInState([A_AH2]):
-		anim.play(\"attack_air_H2\")
-	elif isInState([A_SL]):
-		anim.play(\"attack_slide_L\")
-	elif isInState([A_SH]):
-		anim.play(\"attack_slide_H\")
-	elif isInState([BLOCK]):
-		anim.play(\"block\")
-	elif isInState([BLOCKHIT]):
-		anim.play(\"block_hit\")
-	elif isInState([COUNTER]):
-		anim.play(\"counter\")
-	elif isInState([HURT]):
-		anim.play(\"hurt\")
-		if hurtAgain:
-			hurtAgain = false
-			anim.seek(0)
-	elif isInState([HURTRISING, HURTFALLING]):
-		anim.play(\"hurt_air\")
-	elif isInState([HURTFLOOR]):
-		anim.play(\"hurt_floor\")
-	elif isInState([KO]):
-		anim.play(\"dead\")
-		
-	# updates bottom of screen panel
-	$playerInfo/lifeBar.value = 100 * float(hp/hpMax)
-	$playerInfo/coinCounter.text = str(coins).pad_zeros(3)
-	if (lives > 9):
-		$playerInfo/lifeCounter.text = \" \"
-	else:
-		$playerInfo/lifeCounter.text = str(lives)
-	
-	
-	# testing prints
-	#$Label.text = str(printStatesEnum.keys()[state]) + \"\\n\" + str(translation.x)
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-	#initialize(playerNum, translation)
-
-
-
-func _on_AnimationPlayer_animation_finished(_anim_name):
-	animFinished = true
-
-
-func _on_hurtbox_area_entered(area):
-	# evnironmental stuff
-	if area.is_in_group(\"oneWayRight\"):
-		translation = translation + Vector3(6, 0, 0)
-		return
-	elif area.is_in_group(\"oneWayLeft\"):
-		translation = translation + Vector3(-6, 0, 0)
-		return
-	elif area.is_in_group(\"respawnZones\"):
-		safePos = area.translation
-		print(area.translation)
-		return
-	elif area.is_in_group(\"boucePads\"):
-		if (bouncing == false):
-			bouncing = true
-		else:
-			return
-		bounceHeight = area.get_parent().bounceHeight
-		area.get_parent().bounce()
-		# play sfx
-		soundManager.pitchSound(\"jump\", 0.45)
-		soundManager.playSound(\"jump\")
-		return
-	# pickups
-	elif area.is_in_group(\"coins\"):
-		coins += area.get_parent().value
-		# makes visual effect
-		var vfx = vfxScene.instance()
-		get_parent().add_child(vfx)
-		vfx.playEffect(\"coin\", 0.5*(translation + area.get_parent().translation))
-		# removes coin
-		area.get_parent().queue_free()
-		# plays sfx
-		soundManager.pitchSound(\"coin1\", rng.rand.randf_range(0.9, 1.2))
-		soundManager.playSound(\"coin1\")
-		return
-	elif area.is_in_group(\"healthSmall\"):
-		addHealth(0.25*hpMax)
-		# makes visual effect
-		var vfx = vfxScene.instance()
-		get_parent().add_child(vfx)
-		vfx.playEffect(\"health\", 0.5*(translation + area.get_parent().translation))
-		# removes item
-		area.get_parent().queue_free()
-		# plays sfx
-		soundManager.playSound(\"pickup\")
-		return
-	elif area.is_in_group(\"healthBig\"):
-		addHealth(hpMax)
-		# makes visual effect
-		var vfx = vfxScene.instance()
-		get_parent().add_child(vfx)
-		vfx.playEffect(\"health\", 0.5*(translation + area.get_parent().translation))
-		# removes item
-		area.get_parent().queue_free()
-		# plays sfx
-		soundManager.playSound(\"pickup\")
-		return
-	# Enemy hitboxes:
-	if (invincible == false) and (invincibleState == false) and (invincibleGetUp <= 0):
-		justHurt = true
-	else:
-		return
-	invincible = true
-	# handles attack if projectile, sets attacker and attackerLocation variables
-	var attacker = area.get_parent()
-	if area.is_in_group(\"projectiles\"):
-		attacker = area.get_parent()
-	else:
-		attacker = area.get_parent().get_parent()
-	var attackerLoc = attacker.translation
-	if area.is_in_group(\"bosses\"):
-		attackerLoc += attacker.get_node(\"boss\").translation
-	# makes visual effect
-	var vfx = vfxScene.instance()
-	get_parent().add_child(vfx)
-	vfx.playEffect(\"hit\", 0.5*(translation + attackerLoc))
-	# stores damage/knockback variables
-	hurtDamage = attacker.hitDamage
-	hurtType = attacker.hitType
-	hurtDir = attacker.hitDir
-	# changes attack to launching if \"dead\"
-	if (hurtType == KB_WEAK) and (hp <= 0):
-		hurtType = KB_ANGLED
-		hurtDir = Vector3(10, 25, 0)
-	# changes x-z knokback angle to be away from attacker if an angled attack
-	if (hurtType == KB_ANGLED):
-		var mag = abs(attacker.hitDir.x)
-		var vp = Vector2(translation.x, translation.z)
-		var va = Vector2(attackerLoc.x, attackerLoc.z)
-		var newDir = Vector2.ZERO
-		newDir = vp - va
-		newDir = newDir.normalized() * mag
-		hurtDir.x = newDir.x
-		hurtDir.z = newDir.y
-		
-
-func _on_hurtbox_area_exited(area):
-	if area.is_in_group(\"respawnZones\"):
-		return
-	elif area.is_in_group(\"boucePads\"):
-		bouncing = false
-	else:
-		invincible = false
-"
 
 [sub_resource type="Animation" id=18]
 resource_name = "attack_H1"
@@ -3900,7 +2928,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id=17]
 resource_name = "run"
-length = 0.166667
+length = 0.266667
 loop = true
 step = 0.0166667
 tracks/0/type = "value"
@@ -3910,10 +2938,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.0333333, 0.0666667, 0.1, 0.133333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233334 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite3D:animation")
@@ -3973,7 +3001,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 16 ) ]
+"values": [ Vector2( 0, 17.5 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("../CollisionShape:shape:height")
@@ -4002,7 +3030,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "walk"
-length = 0.416667
+length = 0.533334
 loop = true
 step = 0.0166667
 tracks/0/type = "value"
@@ -4012,10 +3040,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.0833333, 0.166667, 0.25, 0.333333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite3D:animation")
@@ -4075,7 +3103,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 16 ) ]
+"values": [ Vector2( 0, 17.5 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("../CollisionShape:shape:height")
@@ -4114,61 +3142,58 @@ region = Rect2( 32, 0, 32, 32 )
 atlas = ExtResource( 2 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=51]
+[sub_resource type="AtlasTexture" id=59]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 34, 32 )
+region = Rect2( 0, 0, 48, 35 )
 
-[sub_resource type="AtlasTexture" id=52]
+[sub_resource type="AtlasTexture" id=60]
 atlas = ExtResource( 1 )
-region = Rect2( 34, 0, 34, 32 )
+region = Rect2( 48, 0, 48, 35 )
 
-[sub_resource type="AtlasTexture" id=53]
+[sub_resource type="AtlasTexture" id=61]
 atlas = ExtResource( 1 )
-region = Rect2( 68, 0, 34, 32 )
+region = Rect2( 96, 0, 48, 35 )
 
-[sub_resource type="AtlasTexture" id=54]
+[sub_resource type="AtlasTexture" id=62]
 atlas = ExtResource( 1 )
-region = Rect2( 102, 0, 34, 32 )
+region = Rect2( 144, 0, 48, 35 )
 
-[sub_resource type="AtlasTexture" id=55]
+[sub_resource type="AtlasTexture" id=63]
 atlas = ExtResource( 1 )
-region = Rect2( 136, 0, 34, 32 )
+region = Rect2( 192, 0, 48, 35 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 1 )
+region = Rect2( 240, 0, 48, 35 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 1 )
+region = Rect2( 288, 0, 48, 35 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 1 )
+region = Rect2( 336, 0, 48, 35 )
 
 [sub_resource type="SpriteFrames" id=50]
 animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"frames": [ SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 57 ) ],
 "loop": false,
-"name": "attack_air_L1",
+"name": "stand",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": false,
+"name": "land",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
 "loop": false,
 "name": "attack_H1",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": false,
-"name": "fall",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_air_H1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": false,
-"name": "attack_slide_L",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_L3",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 57 ) ],
-"loop": false,
-"name": "stand",
 "speed": 15.0
 }, {
 "frames": [ ExtResource( 30 ) ],
@@ -4181,34 +3206,9 @@ animations = [ {
 "name": "attack_air_L2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_H3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_H2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
-"loop": false,
-"name": "land",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
 "loop": false,
 "name": "attack_air_L3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "rise",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "attack_L2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
@@ -4216,19 +3216,59 @@ animations = [ {
 "name": "attack_L1",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_H3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "fall",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": false,
+"name": "attack_slide_L",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "rise",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_air_H1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "attack_L2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 25 ), ExtResource( 23 ) ],
 "loop": false,
 "name": "attack_air_H2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 32 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
 "loop": false,
-"name": "counter",
+"name": "attack_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_air_L1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 33 ) ],
 "loop": false,
 "name": "block",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 32 ) ],
+"loop": false,
+"name": "counter",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 36 ) ],
@@ -4238,15 +3278,15 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 35 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 35 ) ],
 "loop": false,
-"name": "hurt",
+"name": "hurt_air",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ) ],
+"frames": [ SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ) ],
 "loop": false,
 "name": "walk",
 "speed": 15.0
@@ -4267,10 +3307,10 @@ height = 1.2
 height = 0.1
 rings = 1
 
-[node name="Player" type="KinematicBody"]
+[node name="Sprig" type="KinematicBody"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_mask = 1030
-script = SubResource( 49 )
+script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 margin_right = 50.0
@@ -4314,12 +3354,12 @@ anims/walk = SubResource( 7 )
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
 layers = 3
-offset = Vector2( 0, 16 )
+offset = Vector2( 0, 17.5 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 50 )
-animation = "stand"
-frame = 1
+animation = "walk"
+frame = 3
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -4332,7 +3372,7 @@ shape = SubResource( 15 )
 disabled = true
 
 [node name="hurtbox" type="Area" parent="zeroPoint"]
-collision_mask = 484
+collision_mask = 4580
 
 [node name="CollisionShape" type="CollisionShape" parent="zeroPoint/hurtbox"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
