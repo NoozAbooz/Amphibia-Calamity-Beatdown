@@ -595,7 +595,7 @@ func _physics_process(delta):
 	if (bouncing) and (isInState([RISING]) == false):
 		nextState = BOUNCE
 	# checking for various invincibility flags
-	if (isInState([KO, HURTFALLING, HURTFLOOR])):
+	if (isInState([KO, HURTFALLING, HURTFLOOR, A_AH3_HIT])):
 		invincibleState = true
 	else:
 		invincibleState = false
