@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hurt_2.png-988805f191fdb117164895163c8b58da.stex"
+path="res://.import/sprig_attacks.png-7964319e4a750e063a09da80950cb61a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/anne/hurt_2.png"
-dest_files=[ "res://.import/hurt_2.png-988805f191fdb117164895163c8b58da.stex" ]
+source_file="res://art/sprig/sprig_attacks.png"
+dest_files=[ "res://.import/sprig_attacks.png-7964319e4a750e063a09da80950cb61a.stex" ]
 
 [params]
 
@@ -20,10 +20,10 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
-flags/mipmaps=true
+flags/filter=true
+flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

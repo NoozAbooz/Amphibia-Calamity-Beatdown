@@ -9,6 +9,7 @@ var speed_run = 18 #24
 var speed_z = 10 #8
 var force_jump = 36.0 #42
 var force_jump_double = 36.0 #42
+var force_jump_AH3 = 25
 var force_grav = 125.0
 export var comboReady = false
 export var hitLanded = false
@@ -80,8 +81,8 @@ var lastOnFloorPos = Vector3.ZERO
 var shadowHeight = 0 # used in camera positioning
 var secondaryY = 0
 
-enum printStatesEnum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
-enum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
+enum printStatesEnum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
+enum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
 enum {UP, DOWN, LEFT, RIGHT, NONE}
 enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP}
 var oldInput = UP
@@ -452,6 +453,8 @@ func _physics_process(delta):
 				nextState = LAND
 			elif (comboReady) and (hitLanded) and doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
 				nextState = DJUMP
+			elif (comboReady) and (hitLanded) and  (Input.is_action_just_pressed(heavy_attack_button)) and pg.hasAirSpin:
+				nextState = A_AH3_LAUNCH
 			elif animFinished and (velocity.y <= 0):
 				nextState = FALLING
 				animFinished = false
@@ -475,6 +478,31 @@ func _physics_process(delta):
 				animFinished = false
 			elif animFinished:
 				nextState = RISING
+				animFinished = false
+		A_AH3_LAUNCH:
+			nextState = A_AH3_RISE
+		A_AH3_RISE:
+			if is_on_floor():
+				nextState = LAND
+			elif (Input.is_action_just_pressed(heavy_attack_button)):
+				nextState = A_AH3_HIT
+			elif animFinished:
+				nextState = FALLING
+				animFinished = false
+		A_AH3_HIT:
+			if is_on_floor():
+				nextState = A_AH3_LAND
+			elif animFinished:
+				nextState = FALLING
+				animFinished = false
+		A_AH3_LAND:
+			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+				speed = speed_walk
+				nextState = JUMP
+			elif (comboReady) and (hitLanded) and checkWalkJust() and (direction != Vector3.ZERO):
+				nextState = WALK
+			elif animFinished:
+				nextState = IDLE
 				animFinished = false
 		A_SL:
 			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
@@ -693,6 +721,10 @@ func _physics_process(delta):
 		setHitBox(20, KB_ANGLED, Vector3(40, 10, 0), "hit3")
 	elif isInState([A_AH2]):
 		setHitBox(35, KB_STRONG_RECOIL, Vector3(30, -70, 0), "hit4")
+	elif isInState([A_AH3_HIT]):
+		setHitBox(1, KB_STRONG, Vector3(0, -50, 0), "hit3")
+	elif isInState([A_AH3_LAND]):
+		setHitBox(35, KB_ANGLED, Vector3(5, 50, 0), "hit3")
 	elif isInState([A_AL1]):
 		setHitBox(8, KB_AIR, Vector3(1, 0, 0))
 	elif isInState([A_AL2]):
@@ -739,6 +771,8 @@ func _physics_process(delta):
 		velocity.y = force_jump
 	elif (state == DJUMP):
 		velocity.y = force_jump_double
+	elif (state == A_AH3_LAUNCH):
+		velocity.y = 30
 	elif (state == BOUNCE):
 		velocity.y = bounceHeight
 	elif (mini_jump_boost > 0):
@@ -752,7 +786,7 @@ func _physics_process(delta):
 		speed = speed_run
 		
 	# X movement
-	if isInState([WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2]):
+	if isInState([WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE]):
 		canMove = true
 		velocity.x = speed * direction.x
 		velocity.z = speed_z * direction.z
@@ -810,6 +844,13 @@ func _physics_process(delta):
 		elif (direction.x * windVect.x <= 0) and (direction.z * windVect.z <= 0):
 			windVect = Vector3.ZERO
 	
+	# Heavy Air attack 3
+	if (isInState([A_AH3_HIT])) and !comboReady:
+		canMove = true
+		velocity.x = speed * direction.x
+		velocity.z = speed_z * direction.z
+	elif (isInState([A_AH3_HIT])) and hitLanded:
+		velocity.y = -50
 	
 	# move and slide
 	if isInState([JUMP, RISING, HURTLAUNCH, HURTRISING, BOUNCE]):
@@ -862,6 +903,12 @@ func _physics_process(delta):
 		anim.play("attack_air_H1")
 	elif isInState([A_AH2]):
 		anim.play("attack_air_H2")
+	elif isInState([A_AH3_LAUNCH, A_AH3_RISE]):
+		anim.play("attack_air_H3_rise")
+	elif isInState([A_AH3_HIT]):
+		anim.play("attack_air_H3_hit")
+	elif isInState([A_AH3_LAND]):
+		anim.play("attack_air_H3_land")
 	elif isInState([A_SL]):
 		anim.play("attack_slide_L")
 	elif isInState([A_SH]):
