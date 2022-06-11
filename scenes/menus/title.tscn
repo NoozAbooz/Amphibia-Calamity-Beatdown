@@ -76,22 +76,24 @@ __meta__ = {
 [node name="keyboardControls" type="Label" parent="."]
 margin_left = 15.0
 margin_top = 406.0
-margin_right = 415.0
+margin_right = 499.0
 margin_bottom = 723.0
 theme = ExtResource( 2 )
 text = "Controls:
 
 wasd - movement
-J - strong attack
-k - weak attack
-l - jump
-; - block"
+J - weak attack
+k - strong attack
+space -  jump
+l - block
+; or h - run
+Double tap wsad - run"
 
 [node name="controllerControls" type="Label" parent="."]
-margin_left = 900.0
+margin_left = 770.0
 margin_top = 403.0
-margin_right = 1272.0
-margin_bottom = 631.0
+margin_right = 1280.0
+margin_bottom = 697.0
 theme = ExtResource( 2 )
 text = "
 
@@ -99,8 +101,13 @@ Dpad - movement
 y - strong attack
 x - weak attack
 a - jump
-R1 - block"
+R - block
+L - run
+double tap Dpad - run"
 align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="startButton" to="." method="_on_startButton_pressed"]
 [connection signal="toggled" from="lockButton" to="." method="_on_lockButton_toggled"]

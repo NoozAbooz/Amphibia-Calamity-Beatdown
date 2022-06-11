@@ -21,6 +21,7 @@ var jump_button = "jump_"# + str(playerInput)
 var light_attack_button = "light_attack_"# + str(playerInput)
 var heavy_attack_button = "heavy_attack_"# + str(playerInput)
 var block_button = "block_"# + str(playerInput)
+var run_button = "run_"# + str(playerInput)
 
 var hp:float = 50
 var hpMax:float = 100
@@ -111,6 +112,7 @@ func initialize(num, pos):
 	light_attack_button = "light_attack_" + str(pg.playerInput[num])
 	heavy_attack_button = "heavy_attack_" + str(pg.playerInput[num])
 	block_button = "block_" + str(pg.playerInput[num])
+	run_button = "run_" + str(pg.playerInput[num])
 	# positions player panel
 	$playerInfo.anchor_left = 0.25 * num
 	# sets player position, velocity, and starting respawn point
@@ -274,6 +276,9 @@ func _physics_process(delta):
 		WALK:
 			if (direction == Vector3.ZERO):
 				nextState = IDLE
+			elif Input.is_action_pressed(run_button) and (direction.x != 0):
+				runTimer = 0
+				nextState = RUN
 			elif( (runTimer > 0) and (oldInput == newInput) and (newInput != NONE) ):
 				runTimer = 0
 				nextState = RUN
@@ -292,6 +297,8 @@ func _physics_process(delta):
 		RUN:
 			if (direction == Vector3.ZERO):
 				nextState = IDLE
+			elif Input.is_action_just_released(run_button):
+				nextState = WALK
 			elif (velocity.x == 0):
 				nextState = WALK
 			elif Input.is_action_just_pressed(jump_button):
