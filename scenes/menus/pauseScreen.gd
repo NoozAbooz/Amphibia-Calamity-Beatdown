@@ -75,7 +75,38 @@ func _process(_delta):
 			$verifyMenu.hide()
 			$optionsMenu.hide()
 			$combosMenu.show()
-		
+			# scrolling
+			if Input.is_action_pressed("ui_up"):
+				$combosMenu/namesContainer.scroll_vertical -= 6
+				$combosMenu/symbolsContainer.scroll_vertical -= 6
+			if Input.is_action_pressed("ui_down"):
+				$combosMenu/namesContainer.scroll_vertical += 6
+				$combosMenu/symbolsContainer.scroll_vertical += 6
+			# add/remove unlockable moves
+			if pg.hasSpin:
+				$combosMenu/namesContainer/names/nameSpin.show()
+				$combosMenu/symbolsContainer/symbols/symSpin.show()
+			else:
+				$combosMenu/namesContainer/names/nameSpin.hide()
+				$combosMenu/symbolsContainer/symbols/symSpin.hide()
+			if pg.hasAirSpin:
+				$combosMenu/namesContainer/names/nameAirSpin.show()
+				$combosMenu/symbolsContainer/symbols/symAirSpin.show()
+			else:
+				$combosMenu/namesContainer/names/nameAirSpin.hide()
+				$combosMenu/symbolsContainer/symbols/symAirSpin.hide()
+			if pg.hasSlide:
+				$combosMenu/namesContainer/names/nameTackle.show()
+				$combosMenu/symbolsContainer/symbols/symTackle.show()
+			else:
+				$combosMenu/namesContainer/names/nameTackle.hide()
+				$combosMenu/symbolsContainer/symbols/symTackle.hide()
+			if pg.hasCounter:
+				$combosMenu/namesContainer/names/nameCounter.show()
+				$combosMenu/symbolsContainer/symbols/symCounter.show()
+			else:
+				$combosMenu/namesContainer/names/nameCounter.hide()
+				$combosMenu/symbolsContainer/symbols/symCounter.hide()
 
 
 func _on_buttonResume_pressed():

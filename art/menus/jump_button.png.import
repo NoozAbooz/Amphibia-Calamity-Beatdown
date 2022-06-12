@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprig_attacks.png-7964319e4a750e063a09da80950cb61a.stex"
+path="res://.import/jump_button.png-3d0ed5ae4ed02c9858b092ca20ebcba1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprig/sprig_attacks.png"
-dest_files=[ "res://.import/sprig_attacks.png-7964319e4a750e063a09da80950cb61a.stex" ]
+source_file="res://art/menus/jump_button.png"
+dest_files=[ "res://.import/jump_button.png-3d0ed5ae4ed02c9858b092ca20ebcba1.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

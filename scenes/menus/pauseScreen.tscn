@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=3]
+[ext_resource path="res://art/menus/heavy_button.png" type="Texture" id=4]
+[ext_resource path="res://art/menus/light_button.png" type="Texture" id=5]
+[ext_resource path="res://art/menus/block_button.png" type="Texture" id=6]
+[ext_resource path="res://art/menus/run_button.png" type="Texture" id=7]
+[ext_resource path="res://art/menus/jump_button.png" type="Texture" id=8]
+[ext_resource path="res://themes/Combo_small_desc_text.tres" type="Theme" id=9]
 
 [node name="pauseScreen" type="Control"]
 pause_mode = 2
@@ -23,7 +29,7 @@ __meta__ = {
 
 [node name="labelMain" type="Label" parent="."]
 margin_right = 1280.0
-margin_bottom = 200.0
+margin_bottom = 118.0
 theme = ExtResource( 1 )
 text = "PAUSED"
 align = 1
@@ -33,6 +39,7 @@ __meta__ = {
 }
 
 [node name="basicMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -89,6 +96,7 @@ __meta__ = {
 }
 
 [node name="dropMenu" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1240.0
@@ -159,16 +167,679 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="dark2" type="ColorRect" parent="combosMenu"]
+margin_left = 10.0
+margin_top = 120.0
+margin_right = 1270.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="buttonBack" type="Button" parent="combosMenu"]
 margin_left = 320.0
-margin_top = 600.0
+margin_top = 625.0
 margin_right = 960.0
-margin_bottom = 650.0
+margin_bottom = 675.0
 theme = ExtResource( 3 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="namesContainer" type="ScrollContainer" parent="combosMenu"]
+margin_left = 175.0
+margin_top = 120.0
+margin_right = 1250.0
+margin_bottom = 600.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="names" type="VBoxContainer" parent="combosMenu/namesContainer"]
+margin_right = 432.0
+margin_bottom = 1040.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="combosMenu/namesContainer/names"]
+margin_right = 432.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit combo"
+align = 2
+valign = 1
+
+[node name="Label2" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 70.0
+margin_right = 432.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Uppercut"
+align = 2
+valign = 1
+
+[node name="Label3" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 140.0
+margin_right = 432.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Mega Punch"
+align = 2
+valign = 1
+
+[node name="nameSpin" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 210.0
+margin_right = 432.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spin Attack"
+align = 2
+valign = 1
+
+[node name="Label7" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 280.0
+margin_right = 432.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Slide"
+align = 2
+valign = 1
+
+[node name="nameTackle" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 350.0
+margin_right = 432.0
+margin_bottom = 410.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tackle"
+align = 2
+valign = 1
+
+[node name="Label4" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 420.0
+margin_right = 432.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit air combo"
+align = 2
+valign = 1
+
+[node name="Label6" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 490.0
+margin_right = 432.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Aerial Mega Punch"
+align = 2
+valign = 1
+
+[node name="Label8" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 560.0
+margin_right = 432.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spike Combo"
+align = 2
+valign = 1
+
+[node name="nameAirSpin" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 630.0
+margin_right = 432.0
+margin_bottom = 690.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Shell Breaker"
+align = 2
+valign = 1
+
+[node name="Label9" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 700.0
+margin_right = 432.0
+margin_bottom = 760.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spike"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 770.0
+margin_right = 432.0
+margin_bottom = 830.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Block"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nameCounter" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 840.0
+margin_right = 432.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Counter"
+align = 2
+valign = 1
+
+[node name="Label10" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 910.0
+margin_right = 432.0
+margin_bottom = 970.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Hard Landing Cancel"
+align = 2
+valign = 1
+
+[node name="Label11" type="Label" parent="combosMenu/namesContainer/names"]
+margin_top = 980.0
+margin_right = 432.0
+margin_bottom = 1040.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tech"
+align = 2
+valign = 1
+
+[node name="symbolsContainer" type="ScrollContainer" parent="combosMenu"]
+margin_left = 630.0
+margin_top = 120.0
+margin_right = 1250.0
+margin_bottom = 600.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="symbols" type="VBoxContainer" parent="combosMenu/symbolsContainer"]
+margin_right = 471.0
+margin_bottom = 1040.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sym1" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_right = 471.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym1"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym1"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym1"]
+margin_left = 128.0
+margin_right = 188.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="sym2" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 70.0
+margin_right = 471.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym2"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym2"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="sym3" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 140.0
+margin_right = 471.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym3"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym3"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym3"]
+margin_left = 128.0
+margin_right = 188.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="symSpin" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 210.0
+margin_right = 471.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symSpin"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symSpin"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symSpin"]
+margin_left = 128.0
+margin_right = 188.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symSpin"]
+margin_left = 192.0
+margin_right = 252.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="sym7" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 280.0
+margin_right = 471.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym7"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym7"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="symTackle" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 350.0
+margin_right = 471.0
+margin_bottom = 410.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symTackle"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symTackle"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="sym4" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 420.0
+margin_right = 471.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym4"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym4"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym4"]
+margin_left = 128.0
+margin_right = 188.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym4"]
+margin_left = 192.0
+margin_right = 252.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="sym6" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 490.0
+margin_right = 471.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym6"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym6"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym6"]
+margin_left = 128.0
+margin_right = 188.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="sym8" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 560.0
+margin_right = 471.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym8"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym8"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym8"]
+margin_left = 128.0
+margin_right = 188.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym8"]
+margin_left = 192.0
+margin_right = 252.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="symAirSpin" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 630.0
+margin_right = 471.0
+margin_bottom = 690.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symAirSpin"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symAirSpin"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symAirSpin"]
+margin_left = 128.0
+margin_right = 188.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symAirSpin"]
+margin_left = 192.0
+margin_right = 252.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symAirSpin"]
+margin_left = 256.0
+margin_right = 316.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symAirSpin"]
+margin_left = 320.0
+margin_right = 380.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="sym9" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 700.0
+margin_right = 471.0
+margin_bottom = 760.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym9"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym9"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym9"]
+margin_left = 128.0
+margin_right = 188.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="sym5" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 770.0
+margin_right = 471.0
+margin_bottom = 830.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym5"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="symCounter" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 840.0
+margin_right = 471.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/symCounter"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="Label8" type="Label" parent="combosMenu/symbolsContainer/symbols/symCounter"]
+margin_left = 64.0
+margin_right = 471.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 9 )
+text = "(RIght before being hit)"
+valign = 1
+
+[node name="sym10" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 910.0
+margin_right = 471.0
+margin_bottom = 970.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym10"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="Label8" type="Label" parent="combosMenu/symbolsContainer/symbols/sym10"]
+margin_left = 64.0
+margin_right = 441.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 9 )
+text = "(RIght before landing
+  after a heavy attack)"
+valign = 1
+
+[node name="sym11" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 980.0
+margin_right = 471.0
+margin_bottom = 1040.0
+rect_min_size = Vector2( 0, 60 )
+theme = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="combosMenu/symbolsContainer/symbols/sym11"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="Label8" type="Label" parent="combosMenu/symbolsContainer/symbols/sym11"]
+margin_left = 64.0
+margin_right = 427.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 9 )
+text = "(RIght before landing
+  after being hit)"
+valign = 1
 
 [node name="verifyMenu" type="Control" parent="."]
 margin_right = 40.0

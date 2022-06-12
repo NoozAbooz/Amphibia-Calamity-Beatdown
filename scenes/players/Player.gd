@@ -8,8 +8,8 @@ var speed_walk = 10 #12
 var speed_run = 18 #24
 var speed_z = 10 #8
 var force_jump = 36.0 #42
-var force_jump_double = 36.0 #42
-var force_jump_AH3 = 25
+var force_jump_double = 30.0 #42
+var force_jump_AH3 = 30
 var force_grav = 125.0
 export var comboReady = false
 export var hitLanded = false
@@ -772,7 +772,7 @@ func _physics_process(delta):
 	elif (state == DJUMP):
 		velocity.y = force_jump_double
 	elif (state == A_AH3_LAUNCH):
-		velocity.y = 30
+		velocity.y = force_jump_AH3
 	elif (state == BOUNCE):
 		velocity.y = bounceHeight
 	elif (mini_jump_boost > 0):
