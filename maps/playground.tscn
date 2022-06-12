@@ -1057,14 +1057,14 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 28 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 40 ) ],
 "loop": false,
 "name": "hurt_air",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 36 ), ExtResource( 39 ), ExtResource( 30 ) ],
-"loop": false,
-"name": "attack_heavy",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 34 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 35 ) ],
@@ -1072,9 +1072,9 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 28 ) ],
+"frames": [ ExtResource( 36 ), ExtResource( 39 ), ExtResource( 30 ) ],
 "loop": false,
-"name": "hurt",
+"name": "attack_heavy",
 "speed": 5.0
 } ]
 

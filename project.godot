@@ -194,7 +194,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Amphibia Beat Em' Up"
+config/name="Amphibia: Calamity Beatdown"
 run/main_scene="res://scenes/menus/title.tscn"
 config/icon="res://icon.png"
 
@@ -608,6 +608,10 @@ cam_mode={
 3d_physics/layer_9="Pickups"
 3d_physics/layer_10="Camera"
 3d_physics/layer_11="Player Only Ground"
+
+[logging]
+
+file_logging/enable_file_logging.pc=false
 
 [rendering]
 
