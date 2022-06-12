@@ -23,7 +23,7 @@ const dropBoost    = 0.05
 # attack unlocks
 var hasSpin    = false
 var hasSlide   = false
-var hasSpike   = false
+var hasAirSpin = false
 var hasDJ      = false
 var hasCounter = false
 

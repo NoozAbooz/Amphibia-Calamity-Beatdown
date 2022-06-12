@@ -60,6 +60,8 @@ var floatHeight = 5
 
 var enemyPush = Vector3.ZERO
 
+var windVect = Vector3.ZERO
+
 var swayTimer = 0
 var swayDes = Vector3(1, 0, 0)
 var rotationVector = Vector3(1, 0, 0)
@@ -478,6 +480,7 @@ func _physics_process(delta):
 	else:
 		snapVect = Vector3(0, -5, 0)
 	# move and slide
+	move_and_slide(windVect, Vector3.UP, true)
 	velocity = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true)
 	
 	# mirror enemy if necessary
@@ -567,6 +570,10 @@ func _on_hurtbox_area_entered(area):
 	elif area.is_in_group("oneWayLeft"):
 		onRightWall = true
 		return
+	# environmental stuff
+	elif area.is_in_group("windboxes"):
+		windVect = area.direction.normalized() * area.magnitude
+		return
 	# identifies attacker
 	var attacker = area.get_parent().get_parent()
 	# returns if in an invincible state (just got hit)
@@ -636,6 +643,9 @@ func _on_hurtbox_area_exited(area):
 		return
 	elif area.is_in_group("oneWayLeft"):
 		onRightWall = false
+		return
+	elif area.is_in_group("windboxes"):
+		windVect = Vector3.ZERO
 		return
 	else:
 		invincible = false

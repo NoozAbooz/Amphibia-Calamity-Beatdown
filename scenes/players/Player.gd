@@ -9,6 +9,7 @@ var speed_run = 18 #24
 var speed_z = 10 #8
 var force_jump = 36.0 #42
 var force_jump_double = 36.0 #42
+var force_jump_AH3 = 25
 var force_grav = 125.0
 export var comboReady = false
 export var hitLanded = false
@@ -21,6 +22,7 @@ var jump_button = "jump_"# + str(playerInput)
 var light_attack_button = "light_attack_"# + str(playerInput)
 var heavy_attack_button = "heavy_attack_"# + str(playerInput)
 var block_button = "block_"# + str(playerInput)
+var run_button = "run_"# + str(playerInput)
 
 var hp:float = 50
 var hpMax:float = 100
@@ -79,8 +81,8 @@ var lastOnFloorPos = Vector3.ZERO
 var shadowHeight = 0 # used in camera positioning
 var secondaryY = 0
 
-enum printStatesEnum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
-enum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
+enum printStatesEnum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
+enum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
 enum {UP, DOWN, LEFT, RIGHT, NONE}
 enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP}
 var oldInput = UP
@@ -90,6 +92,9 @@ var state = IDLE
 var nextState = IDLE
 
 var fps = 1
+
+var windVect = Vector3.ZERO # "push" from wind boxes
+var isInWindbox = false
 
 onready var anim = $"AnimationPlayer"
 onready var sprite = $"zeroPoint/AnimatedSprite3D"
@@ -108,6 +113,7 @@ func initialize(num, pos):
 	light_attack_button = "light_attack_" + str(pg.playerInput[num])
 	heavy_attack_button = "heavy_attack_" + str(pg.playerInput[num])
 	block_button = "block_" + str(pg.playerInput[num])
+	run_button = "run_" + str(pg.playerInput[num])
 	# positions player panel
 	$playerInfo.anchor_left = 0.25 * num
 	# sets player position, velocity, and starting respawn point
@@ -271,6 +277,9 @@ func _physics_process(delta):
 		WALK:
 			if (direction == Vector3.ZERO):
 				nextState = IDLE
+			elif Input.is_action_pressed(run_button) and (direction.x != 0):
+				runTimer = 0
+				nextState = RUN
 			elif( (runTimer > 0) and (oldInput == newInput) and (newInput != NONE) ):
 				runTimer = 0
 				nextState = RUN
@@ -289,6 +298,8 @@ func _physics_process(delta):
 		RUN:
 			if (direction == Vector3.ZERO):
 				nextState = IDLE
+			elif Input.is_action_just_released(run_button):
+				nextState = WALK
 			elif (velocity.x == 0):
 				nextState = WALK
 			elif Input.is_action_just_pressed(jump_button):
@@ -298,10 +309,7 @@ func _physics_process(delta):
 			elif (Input.is_action_pressed(right_button) == false) and (Input.is_action_pressed(left_button) == false):
 				nextState = WALK
 			elif Input.is_action_just_pressed(light_attack_button):
-				if pg.hasSlide:
-					nextState = A_SL
-				else:
-					nextState = A_L1
+				nextState = A_SL
 			elif Input.is_action_just_pressed(heavy_attack_button):
 				if pg.hasSlide:
 					nextState = A_SH
@@ -322,7 +330,7 @@ func _physics_process(delta):
 			elif Input.is_action_just_pressed(light_attack_button):
 				nextState = A_AL1
 			elif Input.is_action_just_pressed(heavy_attack_button):
-				if (speed == speed_run) and pg.hasSpike:
+				if (speed == speed_run):
 					nextState = A_AH2
 				else:
 					nextState = A_AH1
@@ -343,7 +351,7 @@ func _physics_process(delta):
 			elif Input.is_action_just_pressed(light_attack_button):
 				nextState = A_AL1
 			elif Input.is_action_just_pressed(heavy_attack_button):
-				if (speed == speed_run) and pg.hasSpike:
+				if (speed == speed_run):
 					nextState = A_AH2
 				else:
 					nextState = A_AH1
@@ -402,7 +410,14 @@ func _physics_process(delta):
 				animFinished = false
 		A_AL1:
 			if is_on_floor():
-				nextState = LAND
+				if checkWalk() == false:
+					nextState = IDLE
+				elif (speed == speed_run):
+					nextState = RUN
+				elif (speed == speed_walk):
+					nextState = WALK
+				else:
+					nextState = IDLE
 			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
 				nextState = A_AL2
 			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
@@ -415,10 +430,17 @@ func _physics_process(delta):
 				animFinished = false
 		A_AL2:
 			if is_on_floor():
-				nextState = LAND
+				if checkWalk() == false:
+					nextState = IDLE
+				elif (speed == speed_run):
+					nextState = RUN
+				elif (speed == speed_walk):
+					nextState = WALK
+				else:
+					nextState = IDLE
 			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
 				nextState = A_AL3
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)) and pg.hasSpike:
+			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
 				nextState = A_AH2
 			elif animFinished and (velocity.y <= 0):
 				nextState = FALLING
@@ -431,6 +453,8 @@ func _physics_process(delta):
 				nextState = LAND
 			elif (comboReady) and (hitLanded) and doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
 				nextState = DJUMP
+			elif (comboReady) and (hitLanded) and  (Input.is_action_just_pressed(heavy_attack_button)) and pg.hasAirSpin:
+				nextState = A_AH3_LAUNCH
 			elif animFinished and (velocity.y <= 0):
 				nextState = FALLING
 				animFinished = false
@@ -454,6 +478,31 @@ func _physics_process(delta):
 				animFinished = false
 			elif animFinished:
 				nextState = RISING
+				animFinished = false
+		A_AH3_LAUNCH:
+			nextState = A_AH3_RISE
+		A_AH3_RISE:
+			if is_on_floor():
+				nextState = LAND
+			elif (Input.is_action_just_pressed(heavy_attack_button)):
+				nextState = A_AH3_HIT
+			elif animFinished:
+				nextState = FALLING
+				animFinished = false
+		A_AH3_HIT:
+			if is_on_floor():
+				nextState = A_AH3_LAND
+			elif animFinished:
+				nextState = FALLING
+				animFinished = false
+		A_AH3_LAND:
+			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+				speed = speed_walk
+				nextState = JUMP
+			elif (comboReady) and (hitLanded) and checkWalkJust() and (direction != Vector3.ZERO):
+				nextState = WALK
+			elif animFinished:
+				nextState = IDLE
 				animFinished = false
 		A_SL:
 			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
@@ -546,7 +595,7 @@ func _physics_process(delta):
 	if (bouncing) and (isInState([RISING]) == false):
 		nextState = BOUNCE
 	# checking for various invincibility flags
-	if (isInState([KO, HURTFALLING, HURTFLOOR])):
+	if (isInState([KO, HURTFALLING, HURTFLOOR, A_AH3_HIT])):
 		invincibleState = true
 	else:
 		invincibleState = false
@@ -672,6 +721,10 @@ func _physics_process(delta):
 		setHitBox(20, KB_ANGLED, Vector3(40, 10, 0), "hit3")
 	elif isInState([A_AH2]):
 		setHitBox(35, KB_STRONG_RECOIL, Vector3(30, -70, 0), "hit4")
+	elif isInState([A_AH3_HIT]):
+		setHitBox(1, KB_STRONG, Vector3(0, -50, 0), "hit3")
+	elif isInState([A_AH3_LAND]):
+		setHitBox(35, KB_ANGLED, Vector3(5, 50, 0), "hit3")
 	elif isInState([A_AL1]):
 		setHitBox(8, KB_AIR, Vector3(1, 0, 0))
 	elif isInState([A_AL2]):
@@ -703,11 +756,23 @@ func _physics_process(delta):
 		hurtCount = 0
 	
 	# Y movement
-	velocity.y -= force_grav * delta
+	# gravity/wind
+	if (windVect.y <= 0):
+		velocity.y -= force_grav * delta
+	elif (velocity.y >= 0):
+		velocity.y -= force_grav * delta * -0.1 * windVect.y
+	else:
+		velocity.y -= force_grav * delta * -0.5 * windVect.y
+	# caps y speed
+	if (velocity.y >= 70):
+		velocity.y = 70
+	# launched
 	if (state == JUMP):
 		velocity.y = force_jump
 	elif (state == DJUMP):
 		velocity.y = force_jump_double
+	elif (state == A_AH3_LAUNCH):
+		velocity.y = 30
 	elif (state == BOUNCE):
 		velocity.y = bounceHeight
 	elif (mini_jump_boost > 0):
@@ -721,7 +786,7 @@ func _physics_process(delta):
 		speed = speed_run
 		
 	# X movement
-	if isInState([WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2]):
+	if isInState([WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE]):
 		canMove = true
 		velocity.x = speed * direction.x
 		velocity.z = speed_z * direction.z
@@ -772,13 +837,30 @@ func _physics_process(delta):
 		velocity.y = hurtDir.y
 		velocity.z = hurtDir.z
 	
+	# effect of windboxes
+	if (windVect != Vector3.ZERO) and (!isInWindbox):
+		if (is_on_floor()):
+			windVect = Vector3.ZERO
+		elif (direction.x * windVect.x <= 0) and (direction.z * windVect.z <= 0):
+			windVect = Vector3.ZERO
+	
+	# Heavy Air attack 3
+	if (isInState([A_AH3_HIT])) and !comboReady:
+		canMove = true
+		velocity.x = speed * direction.x
+		velocity.z = speed_z * direction.z
+	elif (isInState([A_AH3_HIT])) and hitLanded:
+		velocity.y = -50
 	
 	# move and slide
 	if isInState([JUMP, RISING, HURTLAUNCH, HURTRISING, BOUNCE]):
 		snapVect = Vector3.ZERO
 	else:
 		snapVect = Vector3(0, -2, 0)
+	
 	velocity = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true, 4, 1.05)
+	if (!isInState([BLOCK, BLOCKHIT, HURTFLOOR])):
+		move_and_slide_with_snap(Vector3(windVect.x, 0, windVect.z), snapVect, Vector3.UP, true, 4, 1.05)
 	
 	# fall off world
 	if (translation.y <= deathFloorHeight):
@@ -821,6 +903,12 @@ func _physics_process(delta):
 		anim.play("attack_air_H1")
 	elif isInState([A_AH2]):
 		anim.play("attack_air_H2")
+	elif isInState([A_AH3_LAUNCH, A_AH3_RISE]):
+		anim.play("attack_air_H3_rise")
+	elif isInState([A_AH3_HIT]):
+		anim.play("attack_air_H3_hit")
+	elif isInState([A_AH3_LAND]):
+		anim.play("attack_air_H3_land")
 	elif isInState([A_SL]):
 		anim.play("attack_slide_L")
 	elif isInState([A_SH]):
@@ -886,6 +974,10 @@ func _on_hurtbox_area_entered(area):
 		# play sfx
 		soundManager.pitchSound("jump", 0.45)
 		soundManager.playSound("jump")
+		return
+	elif area.is_in_group("windboxes"):
+		isInWindbox = true
+		windVect = area.direction.normalized() * area.magnitude
 		return
 	# pickups
 	elif area.is_in_group("coins"):
@@ -967,5 +1059,10 @@ func _on_hurtbox_area_exited(area):
 		return
 	elif area.is_in_group("boucePads"):
 		bouncing = false
+		return
+	elif area.is_in_group("windboxes"):
+		isInWindbox = false
+		return
 	else:
 		invincible = false
+		return

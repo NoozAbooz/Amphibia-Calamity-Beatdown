@@ -60,6 +60,8 @@ var blockResetTime = 60
 
 var enemyPush = Vector3.ZERO
 
+var windVect = Vector3.ZERO
+
 #var attackWaitCounter = 1500
 #var attackReady = false
 
@@ -284,7 +286,10 @@ func _physics_process(delta):
 				animFinished = false
 		BLOCK:
 			if (blockCounterReady()):
-				nextState = IDLE
+				if checkInRange(target):
+					nextState = A_H
+				else:
+					nextState = IDLE
 			else:
 				nextState = BLOCK
 		BLOCKHIT:
@@ -309,10 +314,10 @@ func _physics_process(delta):
 	if (justHurt):
 		justHurt = false
 		#print("HIT")
-		if isInState([BLOCK]):
+		if isInState([BLOCK]) and (hurtType == KB_WEAK):
 			nextState = BLOCKHIT
 			hurtDamage = 0
-		elif isInState([BLOCKHIT]):
+		elif isInState([BLOCKHIT]) and (hurtType == KB_WEAK):
 			hurtAgain = true
 			nextState = BLOCKHIT
 			hurtDamage = 0
@@ -401,14 +406,14 @@ func _physics_process(delta):
 	
 	# barrier pushback / bounceback
 	if isInState([HURTLAUNCH, HURTRISING, HURTFALLING]):
-		if onRightWall and (velocity.x > 0):
-			velocity = Vector3(-20, 15, 0)
-		elif onLeftWall and (velocity.x < 0):
-			velocity = Vector3(20, 15, 0)
+		if onRightWall and (velocity.x > 0) and ambushEnemy:
+			velocity = Vector3(-25, 15, 0)
+		elif onLeftWall and (velocity.x < 0) and ambushEnemy:
+			velocity = Vector3(25, 15, 0)
 	else:
-		if onRightWall and (velocity.x > 0):
+		if onRightWall and (velocity.x > 0) and ambushEnemy:
 			velocity.x = 0
-		elif onLeftWall and (velocity.x < 0):
+		elif onLeftWall and (velocity.x < 0) and ambushEnemy:
 			velocity.x = 0
 		
 	
@@ -418,6 +423,7 @@ func _physics_process(delta):
 	else:
 		snapVect = Vector3(0, -5, 0)
 	# move and slide
+	move_and_slide(windVect, Vector3.UP, true)
 	velocity = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true)
 	
 	# mirror enemy if necessary
@@ -487,6 +493,10 @@ func _on_hurtbox_area_entered(area):
 	elif area.is_in_group("oneWayLeft"):
 		onRightWall = true
 		return
+	# environmental stuff
+	elif area.is_in_group("windboxes"):
+		windVect = area.direction.normalized() * area.magnitude
+		return
 	# identifies attacker
 	var attacker = area.get_parent().get_parent()
 	# returns if in an invincible state (just got hit)
@@ -548,7 +558,10 @@ func _on_hurtbox_area_entered(area):
 	else:
 		lookRight = false
 	# plays sfx
-	soundManager.playSound(attacker.hitSound)
+	if isInState([BLOCK, BLOCKHIT]):
+		soundManager.playSound("block")
+	else:
+		soundManager.playSound(attacker.hitSound)
 		
 func _on_hurtbox_area_exited(area):
 	if area.is_in_group("oneWayRight"):
@@ -556,6 +569,9 @@ func _on_hurtbox_area_exited(area):
 		return
 	elif area.is_in_group("oneWayLeft"):
 		onRightWall = false
+		return
+	elif area.is_in_group("windboxes"):
+		windVect = Vector3.ZERO
 		return
 	else:
 		invincible = false
