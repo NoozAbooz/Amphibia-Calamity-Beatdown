@@ -5,16 +5,13 @@
 [ext_resource path="res://themes/Early GameBoy.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 67
+size = 48
 font_data = ExtResource( 3 )
 
 [node name="title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="startButton" type="Button" parent="."]
 margin_left = 535.0
@@ -60,18 +57,15 @@ __meta__ = {
 }
 
 [node name="titleText" type="Label" parent="."]
-margin_left = 24.0
-margin_top = 56.0
-margin_right = 1265.0
-margin_bottom = 141.0
+margin_left = 23.0
+margin_top = 72.0
+margin_right = 1271.0
+margin_bottom = 132.0
 rect_pivot_offset = Vector2( 1575, 607 )
 custom_fonts/font = SubResource( 1 )
-text = "Amphibia beat em' up"
+text = "Amphibia: Calamity Beatdown"
 align = 1
 valign = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="keyboardControls" type="Label" parent="."]
 margin_left = 15.0

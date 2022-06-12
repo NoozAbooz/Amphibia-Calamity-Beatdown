@@ -14,9 +14,9 @@ IF "%input%" == "" (
 
 :commit
 git config core.autocrlf input
-git.exe pull
 git.exe add -A
 git.exe commit -m "%input%"
+git.exe pull
 git.exe push
 
 ECHO 
