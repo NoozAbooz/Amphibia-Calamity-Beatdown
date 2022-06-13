@@ -130,7 +130,7 @@ flip_h = true
 pixel_size = 0.07
 frames = SubResource( 2 )
 animation = "silver"
-frame = 5
+frame = 1
 playing = true
 
 [node name="hurtbox" type="Area" parent="." groups=["coins"]]

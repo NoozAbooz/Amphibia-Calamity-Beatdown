@@ -6,8 +6,10 @@ var velocity = Vector3.ZERO
 var bounceForce = 0
 var bounceCount = 0
 var settled = false
+var magActivated = false
 export var value = 1
 export var gravOff = false # makes coins float in place instead of fall. Used for coins placed in the world.
+
 
 var deathFloorHeight = -30
 
@@ -15,6 +17,7 @@ var target = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$magnet/CollisionShape3.disabled = true
 	match value:
 		1:
 			get_node("AnimatedSprite3D").play("copper")
@@ -79,6 +82,10 @@ func _process(delta):
 	# fall off world
 	if (translation.y <= deathFloorHeight):
 		queue_free()
+	# activates magnet if coin is settled
+	if settled and !magActivated:
+		$magnet/CollisionShape3.disabled = false
+		magActivated = true
 
 
 func _on_magnet_area_entered(area):
