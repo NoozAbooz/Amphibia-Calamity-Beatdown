@@ -9,5 +9,11 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 0
 
+[node name="Cylinder001" parent="." index="3"]
+transform = Transform( 4.49089, 0, 0, 0, 1, 0, 0, 0, 4.49089, 0.593871, -1.8655, 11.5355 )
+
+[node name="Cube001" parent="." index="4"]
+transform = Transform( 0.743236, 0, 0, 0, 0.743236, 0, 0, 0, 0.743236, 0.452704, -3.43138, 11.5447 )
+
 [node name="Sphere" parent="." index="5"]
-transform = Transform( 0.710166, 0, 0, 0, 0.710166, 0, 0, 0, 0.710166, 0.669253, 6.04219, 11.5191 )
+transform = Transform( 0.710166, 0, 0, 0, 0.710166, 0, 0, 0, 0.710166, 0.669253, -0.00726557, 11.5191 )

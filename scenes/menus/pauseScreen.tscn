@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://art/menus/run_button.png" type="Texture" id=7]
 [ext_resource path="res://art/menus/jump_button.png" type="Texture" id=8]
 [ext_resource path="res://themes/Combo_small_desc_text.tres" type="Theme" id=9]
+[ext_resource path="res://art/menus/charBlock.png" type="Texture" id=10]
 
 [node name="pauseScreen" type="Control"]
 pause_mode = 2
@@ -168,11 +169,11 @@ __meta__ = {
 }
 
 [node name="dark2" type="ColorRect" parent="combosMenu"]
-margin_left = 10.0
-margin_top = 120.0
-margin_right = 1270.0
-margin_bottom = 600.0
-color = Color( 0, 0, 0, 1 )
+margin_left = 155.0
+margin_top = 115.0
+margin_right = 1125.0
+margin_bottom = 580.0
+color = Color( 0.270588, 0.270588, 0.270588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -189,26 +190,31 @@ __meta__ = {
 }
 
 [node name="namesContainer" type="ScrollContainer" parent="combosMenu"]
-margin_left = 175.0
-margin_top = 120.0
-margin_right = 1250.0
-margin_bottom = 600.0
+margin_left = 167.0
+margin_top = 116.0
+margin_right = 1310.0
+margin_bottom = 578.0
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="names" type="VBoxContainer" parent="combosMenu/namesContainer"]
-margin_right = 432.0
-margin_bottom = 1040.0
+margin_right = 444.0
+margin_bottom = 1068.0
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HSeparator" type="HSeparator" parent="combosMenu/namesContainer/names"]
+margin_right = 444.0
+margin_bottom = 4.0
+
 [node name="Label" type="Label" parent="combosMenu/namesContainer/names"]
-margin_right = 432.0
-margin_bottom = 60.0
+margin_top = 14.0
+margin_right = 444.0
+margin_bottom = 74.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -217,9 +223,9 @@ align = 2
 valign = 1
 
 [node name="Label2" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 70.0
-margin_right = 432.0
-margin_bottom = 130.0
+margin_top = 84.0
+margin_right = 444.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -228,9 +234,9 @@ align = 2
 valign = 1
 
 [node name="Label3" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 140.0
-margin_right = 432.0
-margin_bottom = 200.0
+margin_top = 154.0
+margin_right = 444.0
+margin_bottom = 214.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -239,9 +245,9 @@ align = 2
 valign = 1
 
 [node name="nameSpin" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 210.0
-margin_right = 432.0
-margin_bottom = 270.0
+margin_top = 224.0
+margin_right = 444.0
+margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -250,9 +256,9 @@ align = 2
 valign = 1
 
 [node name="Label7" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 280.0
-margin_right = 432.0
-margin_bottom = 340.0
+margin_top = 294.0
+margin_right = 444.0
+margin_bottom = 354.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -261,9 +267,9 @@ align = 2
 valign = 1
 
 [node name="nameTackle" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 350.0
-margin_right = 432.0
-margin_bottom = 410.0
+margin_top = 364.0
+margin_right = 444.0
+margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -272,9 +278,9 @@ align = 2
 valign = 1
 
 [node name="Label4" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 420.0
-margin_right = 432.0
-margin_bottom = 480.0
+margin_top = 434.0
+margin_right = 444.0
+margin_bottom = 494.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -283,9 +289,9 @@ align = 2
 valign = 1
 
 [node name="Label6" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 490.0
-margin_right = 432.0
-margin_bottom = 550.0
+margin_top = 504.0
+margin_right = 444.0
+margin_bottom = 564.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -294,9 +300,9 @@ align = 2
 valign = 1
 
 [node name="Label8" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 560.0
-margin_right = 432.0
-margin_bottom = 620.0
+margin_top = 574.0
+margin_right = 444.0
+margin_bottom = 634.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -305,9 +311,9 @@ align = 2
 valign = 1
 
 [node name="nameAirSpin" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 630.0
-margin_right = 432.0
-margin_bottom = 690.0
+margin_top = 644.0
+margin_right = 444.0
+margin_bottom = 704.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -316,9 +322,9 @@ align = 2
 valign = 1
 
 [node name="Label9" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 700.0
-margin_right = 432.0
-margin_bottom = 760.0
+margin_top = 714.0
+margin_right = 444.0
+margin_bottom = 774.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -330,9 +336,9 @@ __meta__ = {
 }
 
 [node name="Label5" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 770.0
-margin_right = 432.0
-margin_bottom = 830.0
+margin_top = 784.0
+margin_right = 444.0
+margin_bottom = 844.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -344,9 +350,9 @@ __meta__ = {
 }
 
 [node name="nameCounter" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 840.0
-margin_right = 432.0
-margin_bottom = 900.0
+margin_top = 854.0
+margin_right = 444.0
+margin_bottom = 914.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -355,20 +361,20 @@ align = 2
 valign = 1
 
 [node name="Label10" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 910.0
-margin_right = 432.0
-margin_bottom = 970.0
+margin_top = 924.0
+margin_right = 444.0
+margin_bottom = 984.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Hard Landing Cancel"
+text = " Hard Landing Cancel"
 align = 2
 valign = 1
 
 [node name="Label11" type="Label" parent="combosMenu/namesContainer/names"]
-margin_top = 980.0
-margin_right = 432.0
-margin_bottom = 1040.0
+margin_top = 994.0
+margin_right = 444.0
+margin_bottom = 1054.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -376,11 +382,16 @@ text = "Tech"
 align = 2
 valign = 1
 
+[node name="HSeparator2" type="HSeparator" parent="combosMenu/namesContainer/names"]
+margin_top = 1064.0
+margin_right = 444.0
+margin_bottom = 1068.0
+
 [node name="symbolsContainer" type="ScrollContainer" parent="combosMenu"]
 margin_left = 630.0
-margin_top = 120.0
-margin_right = 1250.0
-margin_bottom = 600.0
+margin_top = 116.0
+margin_right = 1331.0
+margin_bottom = 578.0
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -388,15 +399,20 @@ __meta__ = {
 
 [node name="symbols" type="VBoxContainer" parent="combosMenu/symbolsContainer"]
 margin_right = 471.0
-margin_bottom = 1040.0
+margin_bottom = 1068.0
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sym1" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+[node name="HSeparator3" type="HSeparator" parent="combosMenu/symbolsContainer/symbols"]
 margin_right = 471.0
-margin_bottom = 60.0
+margin_bottom = 4.0
+
+[node name="sym1" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 14.0
+margin_right = 471.0
+margin_bottom = 74.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -424,9 +440,9 @@ texture = ExtResource( 5 )
 stretch_mode = 4
 
 [node name="sym2" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 70.0
+margin_top = 84.0
 margin_right = 471.0
-margin_bottom = 130.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -446,9 +462,9 @@ texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="sym3" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 140.0
+margin_top = 154.0
 margin_right = 471.0
-margin_bottom = 200.0
+margin_bottom = 214.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -476,9 +492,9 @@ texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="symSpin" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 210.0
+margin_top = 224.0
 margin_right = 471.0
-margin_bottom = 270.0
+margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -514,9 +530,9 @@ texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="sym7" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 280.0
+margin_top = 294.0
 margin_right = 471.0
-margin_bottom = 340.0
+margin_bottom = 354.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -536,9 +552,9 @@ texture = ExtResource( 5 )
 stretch_mode = 4
 
 [node name="symTackle" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 350.0
+margin_top = 364.0
 margin_right = 471.0
-margin_bottom = 410.0
+margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -558,9 +574,9 @@ texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="sym4" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 420.0
+margin_top = 434.0
 margin_right = 471.0
-margin_bottom = 480.0
+margin_bottom = 494.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -596,9 +612,9 @@ texture = ExtResource( 5 )
 stretch_mode = 4
 
 [node name="sym6" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 490.0
+margin_top = 504.0
 margin_right = 471.0
-margin_bottom = 550.0
+margin_bottom = 564.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -626,9 +642,9 @@ texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="sym8" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 560.0
+margin_top = 574.0
 margin_right = 471.0
-margin_bottom = 620.0
+margin_bottom = 634.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 __meta__ = {
@@ -667,9 +683,9 @@ texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="symAirSpin" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 630.0
+margin_top = 644.0
 margin_right = 471.0
-margin_bottom = 690.0
+margin_bottom = 704.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -721,9 +737,9 @@ texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="sym9" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 700.0
+margin_top = 714.0
 margin_right = 471.0
-margin_bottom = 760.0
+margin_bottom = 774.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -751,9 +767,9 @@ texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="sym5" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 770.0
+margin_top = 784.0
 margin_right = 471.0
-margin_bottom = 830.0
+margin_bottom = 844.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 __meta__ = {
@@ -768,9 +784,9 @@ texture = ExtResource( 6 )
 stretch_mode = 4
 
 [node name="symCounter" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 840.0
+margin_top = 854.0
 margin_right = 471.0
-margin_bottom = 900.0
+margin_bottom = 914.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -792,9 +808,9 @@ text = "(RIght before being hit)"
 valign = 1
 
 [node name="sym10" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 910.0
+margin_top = 924.0
 margin_right = 471.0
-margin_bottom = 970.0
+margin_bottom = 984.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -817,9 +833,9 @@ text = "(RIght before landing
 valign = 1
 
 [node name="sym11" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
-margin_top = 980.0
+margin_top = 994.0
 margin_right = 471.0
-margin_bottom = 1040.0
+margin_bottom = 1054.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
 
@@ -840,6 +856,28 @@ theme = ExtResource( 9 )
 text = "(RIght before landing
   after being hit)"
 valign = 1
+
+[node name="HSeparator4" type="HSeparator" parent="combosMenu/symbolsContainer/symbols"]
+margin_top = 1064.0
+margin_right = 471.0
+margin_bottom = 1068.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="combosMenu"]
+margin_left = 150.0
+margin_top = 110.0
+margin_right = 1130.0
+margin_bottom = 585.0
+texture = ExtResource( 10 )
+patch_margin_left = 17
+patch_margin_top = 15
+patch_margin_right = 17
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="verifyMenu" type="Control" parent="."]
 margin_right = 40.0

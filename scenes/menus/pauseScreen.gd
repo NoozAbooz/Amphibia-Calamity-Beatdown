@@ -82,6 +82,8 @@ func _process(_delta):
 			if Input.is_action_pressed("ui_down"):
 				$combosMenu/namesContainer.scroll_vertical += 6
 				$combosMenu/symbolsContainer.scroll_vertical += 6
+			if $combosMenu/namesContainer.scroll_vertical != $combosMenu/symbolsContainer.scroll_vertical:
+				$combosMenu/namesContainer.scroll_vertical = $combosMenu/symbolsContainer.scroll_vertical
 			# add/remove unlockable moves
 			if pg.hasSpin:
 				$combosMenu/namesContainer/names/nameSpin.show()

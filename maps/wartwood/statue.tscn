@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/models/Wartwood/statue/StatueWartwood.glb" type="PackedScene" id=1]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 3.0
+height = 4.0
+
+[sub_resource type="CylinderShape" id=2]
+radius = 6.4
+height = 1.5
+
+[node name="statue" type="StaticBody"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="StatueWartwood" parent="." instance=ExtResource( 1 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
+
+[node name="body" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.132345, 3.0577, 0 )
+shape = SubResource( 1 )
+
+[node name="ground" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47592, 0 )
+shape = SubResource( 2 )

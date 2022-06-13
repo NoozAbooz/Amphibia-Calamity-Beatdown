@@ -12,6 +12,9 @@ font_data = ExtResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="startButton" type="Button" parent="."]
 margin_left = 535.0
@@ -76,8 +79,8 @@ theme = ExtResource( 2 )
 text = "Controls:
 
 wasd - movement
-J - weak attack
-k - strong attack
+J - light attack
+k - heavy attack
 space -  jump
 l - block
 ; or h - run
@@ -92,8 +95,8 @@ theme = ExtResource( 2 )
 text = "
 
 Dpad - movement
-y - strong attack
-x - weak attack
+x - light attack
+y - heavy attack
 a - jump
 R - block
 L - run

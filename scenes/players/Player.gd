@@ -859,7 +859,7 @@ func _physics_process(delta):
 		snapVect = Vector3(0, -2, 0)
 	
 	velocity = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true, 4, 1.05)
-	if (!isInState([BLOCK, BLOCKHIT, HURTFLOOR])):
+	if (!isInState([BLOCK, BLOCKHIT, HURTFLOOR])) and (isInWindbox):
 		move_and_slide_with_snap(Vector3(windVect.x, 0, windVect.z), snapVect, Vector3.UP, true, 4, 1.05)
 	
 	# fall off world

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprig_run.png-d6c2f10d2cd4801e72131d72a8306b3c.stex"
+path="res://.import/sprig_idle.png-1f8d6f88ecfbf12f52666d7b221cfd61.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprig/sprig_run.png"
-dest_files=[ "res://.import/sprig_run.png-d6c2f10d2cd4801e72131d72a8306b3c.stex" ]
+source_file="res://art/plantars/sprig_idle.png"
+dest_files=[ "res://.import/sprig_idle.png-1f8d6f88ecfbf12f52666d7b221cfd61.stex" ]
 
 [params]
 
