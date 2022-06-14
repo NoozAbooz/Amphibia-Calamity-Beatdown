@@ -32,11 +32,12 @@ func _ready():
 
 
 func _process(_delta):
-	
+	# Sets globals BEFORE spawning players since player initializations use these vars
+	for i in range(0, 4):
+		pg.playerAlive[i] = pg.playerActive[i]
 	for i in range(0, 4):
 		# skips player spawning if there is none
 		if (pg.playerActive[i] == false):
-			pg.playerAlive[i] = false
 			continue
 		# determines character choice and sets player variable
 		match pg.playerCharacter[i]:
@@ -68,8 +69,6 @@ func _process(_delta):
 				offset = Vector3.ZERO
 		# initializes player
 		player.initialize(i, (translation + offset))
-		# marks player as alive in global
-		pg.playerAlive[i] = true
 		# hides GUI if necessary
 		if (hideGUI):
 			player.get_node("playerInfo").visible = false

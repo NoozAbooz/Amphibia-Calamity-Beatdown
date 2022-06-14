@@ -22,13 +22,13 @@ region = Rect2( 1220, 0, 305, 730 )
 atlas = ExtResource( 3 )
 region = Rect2( 1525, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
-region = Rect2( 610, 0, 305, 730 )
+region = Rect2( 0, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
-region = Rect2( 915, 0, 305, 730 )
+region = Rect2( 305, 0, 305, 730 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 3 )
@@ -38,13 +38,13 @@ region = Rect2( 2440, 0, 305, 730 )
 atlas = ExtResource( 3 )
 region = Rect2( 2745, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 305, 730 )
+region = Rect2( 610, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 3 )
-region = Rect2( 305, 0, 305, 730 )
+region = Rect2( 915, 0, 305, 730 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -58,14 +58,9 @@ animations = [ {
 "name": "Marcy",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": false,
-"name": "Sasha",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "Banne",
+"name": "Anne",
 "speed": 0.0
 }, {
 "frames": [ SubResource( 15 ), SubResource( 16 ) ],
@@ -73,9 +68,14 @@ animations = [ {
 "name": "Maggie",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"frames": [  ],
 "loop": false,
-"name": "Anne",
+"name": "Banne",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ) ],
+"loop": false,
+"name": "Sasha",
 "speed": 0.0
 } ]
 

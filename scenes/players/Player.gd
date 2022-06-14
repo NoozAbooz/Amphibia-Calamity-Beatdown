@@ -62,6 +62,7 @@ var runTimerMax = 20
 
 var hitDamage = 0
 var hitDamageMulti = 1.0
+var hurtDamageMulti = 1.0
 var hitType = 0
 var hitDir = Vector3.ZERO
 var hitSound = ""
@@ -140,9 +141,16 @@ func updateStats():
 	hp = float(hpMax)
 	$playerInfo/lifeBar.margin_left = $playerInfo/lifeBar.margin_right - hpMax
 	$playerInfo/lifeOutline.margin_left = $playerInfo/lifeOutline.margin_right - (hpMax + 8)
-	# sets player damage multiplier
-	hitDamageMulti = 1 + (pg.damageUpgrades * pg.damageBoost)
-	# sets player luck
+	# sets player damage multipliers
+	hitDamageMulti = 1 + (pg.damageUpgrades * pg.damageBoost) 
+	hurtDamageMulti = 1
+	# nerfs for multiplayer mode
+	var numExtras = (pg.countPlayers() - 1)
+	if (numExtras >= 1):
+		hitDamageMulti  = hitDamageMulti  * pow(0.7, numExtras)
+		hurtDamageMulti = hurtDamageMulti * pow(1.2, numExtras)
+	#print("extras: " + str(numExtras))
+	#print("hit: " + str(hitDamageMulti) + " | hurt: " + str(hurtDamageMulti))
 
 func isInState(list):
 	var found = false
@@ -633,7 +641,8 @@ func _physics_process(delta):
 		else:
 			nextState = HURT
 		hurtCount += 1
-		addHealth(-1 * hurtDamage)
+		addHealth(-1 * hurtDamage * hurtDamageMulti)
+		#print("hurt: " + str(-1 * hurtDamage * hurtDamageMulti))
 		# plays sfx
 		if (nextState == COUNTER):
 			soundManager.playSound("counter")
