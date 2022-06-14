@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/mapBG.png" type="Texture" id=2]
@@ -8,6 +8,13 @@
 [ext_resource path="res://art/menus/AnneWalk3.png" type="Texture" id=6]
 [ext_resource path="res://art/menus/lvl_button_normal.png" type="Texture" id=7]
 [ext_resource path="res://art/menus/lvl_button_dis.png" type="Texture" id=8]
+[ext_resource path="res://art/menus/map popup/playground.png" type="Texture" id=9]
+[ext_resource path="res://art/menus/map popup/check_empty.png" type="Texture" id=10]
+[ext_resource path="res://art/menus/map popup/wartwood.png" type="Texture" id=11]
+[ext_resource path="res://art/menus/map popup/phone.png" type="Texture" id=12]
+[ext_resource path="res://art/menus/map popup/check.png" type="Texture" id=13]
+[ext_resource path="res://art/menus/map popup/bestFronds.png" type="Texture" id=14]
+[ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -15,6 +22,42 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "bestFronds",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "playground",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "wartwood",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "check",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "uncheck",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "none",
+"speed": 5.0
 } ]
 
 [node name="mapScreen" type="Control"]
@@ -33,11 +76,6 @@ texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="cam" type="Camera2D" parent="."]
-position = Vector2( 640, 360 )
-current = true
-zoom = Vector2( 0.5, 0.5 )
 
 [node name="lvl2" type="TextureButton" parent="."]
 margin_left = 706.0
@@ -91,9 +129,69 @@ __meta__ = {
 position = Vector2( 266, 818 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 1 )
-frame = 3
 playing = true
 flip_h = true
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2( 640, 360 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="phone" type="Sprite" parent="cam"]
+position = Vector2( 0, 1000 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+
+[node name="ColorRect" type="ColorRect" parent="cam/phone"]
+margin_left = -356.0
+margin_top = -130.0
+margin_right = 56.0
+margin_bottom = 132.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelPic" type="AnimatedSprite" parent="cam/phone"]
+position = Vector2( -150, 0 )
+frames = SubResource( 2 )
+animation = "bestFronds"
+
+[node name="levelName" type="Label" parent="cam/phone"]
+margin_left = 56.0
+margin_top = -124.0
+margin_right = 394.0
+margin_bottom = -52.0
+theme = ExtResource( 15 )
+text = "Beta Playground"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="checkBox" type="AnimatedSprite" parent="cam/phone"]
+position = Vector2( 224, -6 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+animation = "none"
+
+[node name="playButton" type="Button" parent="cam/phone"]
+margin_left = 100.0
+margin_top = 66.0
+margin_right = 350.0
+margin_bottom = 116.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme = ExtResource( 15 )
+text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="focus_entered" from="lvl2" to="." method="_on_lvl2_focus_entered"]
 [connection signal="pressed" from="lvl2" to="." method="_on_lvl_pressed"]
@@ -101,3 +199,4 @@ flip_h = true
 [connection signal="pressed" from="lvl1" to="." method="_on_lvl_pressed"]
 [connection signal="focus_entered" from="lvl0" to="." method="_on_lvl0_focus_entered"]
 [connection signal="pressed" from="lvl0" to="." method="_on_lvl_pressed"]
+[connection signal="pressed" from="cam/phone/playButton" to="." method="_on_playButton_pressed"]

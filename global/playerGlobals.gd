@@ -46,6 +46,7 @@ var hardcoreMode   = false
 # destination level info
 var levelName = "test"
 var levelMusic = "ripple"
+var levelNum = 0
 
 # playable characters
 var hasMarcy  = true
@@ -54,11 +55,15 @@ var hasSprig = true
 var hasMaggie = false
 var availableChars = ["Anne"]
 
+# Completed levels
+var completedLevels = [true, true, false, false, false, false, false, false, false, false, false,]
+
 # game over stuff
 var GOCount = 0
 
 # pauses player for cutscenes/other events
 var dontMove = false
+
 
 func recalcInfo():
 	# characters
