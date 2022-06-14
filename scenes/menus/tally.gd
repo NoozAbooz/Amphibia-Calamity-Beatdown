@@ -27,6 +27,14 @@ func _process(_delta):
 					get_node("block" + str(i)).coppers -= 1
 					pg.totalMoney += 1
 					stillCounting = true
+		# skip
+		if (Input.is_action_just_pressed("ui_accept") == true):
+			for i in range(0, 4):
+				if has_node("block" + str(i)):
+					pg.totalMoney += get_node("block" + str(i)).coppers
+					get_node("block" + str(i)).coppers = 0
+					stillCounting = false
+	# check if done and delay for 2 seconds
 	if (stillCounting == false) and (state == "counting") and (endTimer.is_stopped()):
 		endTimer.start(2.0)
 
@@ -45,6 +53,7 @@ func loadBlocks():
 		block.set_name("block" + str(i))
 	
 func returnToMap():
+	pg.completedLevels[pg.levelNum] = true
 	soundManager.FadeOutSong("stats")
 	tran.loadLevel("res://scenes/menus/mapOpen.tscn")
 

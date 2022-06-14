@@ -105,15 +105,15 @@ flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 230, 200, 230, 200 )
 
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 230, 200 )
-
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 460, 0, 230, 200 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 230, 200 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
@@ -137,14 +137,14 @@ animations = [ {
 "name": "SashaD",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 4 ) ],
-"loop": false,
-"name": "Anne",
-"speed": 0.0
-}, {
 "frames": [ SubResource( 5 ) ],
 "loop": false,
 "name": "Marcy",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": false,
+"name": "Anne",
 "speed": 0.0
 }, {
 "frames": [ SubResource( 6 ) ],
