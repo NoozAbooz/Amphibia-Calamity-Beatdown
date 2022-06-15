@@ -10,7 +10,7 @@ extends Control
 func _ready():
 	get_node("startButton").grab_focus()
 	get_node("bg").play()
-	soundManager.playMusicIfDiff("map")
+	soundManager.playMusicIfDiff("menu")
 
 func _on_startButton_pressed():
 	get_tree().change_scene("res://scenes/menus/mapScreen.tscn")

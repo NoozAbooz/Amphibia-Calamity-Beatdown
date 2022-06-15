@@ -18,7 +18,7 @@ var lastLevel = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	posDes = get_node("lvl0").rect_position
-	soundManager.playMusicIfDiff("map")
+	soundManager.playMusicIfDiff("menu")
 	get_node("lvl0").grab_focus()
 	cam.zoom = Vector2(1,1)
 	loading = false
@@ -92,7 +92,7 @@ func _on_lvl0_focus_entered():
 func _on_lvl1_focus_entered():
 	fucusOnButton(get_node("lvl1"))
 	pg.levelName = "playground"
-	pg.levelMusic = "ripple"
+	pg.levelMusic = "marcy"
 	pg.levelNum = 1
 	$cam/phone/levelName.text = "Beta Playground"
 	$cam/phone/levelPic.play("playground")
@@ -100,7 +100,7 @@ func _on_lvl1_focus_entered():
 func _on_lvl2_focus_entered():
 	fucusOnButton(get_node("lvl2"))
 	pg.levelName = "bestFronds"
-	pg.levelMusic = "ripple"
+	pg.levelMusic = "swamp"
 	pg.levelNum = 2
 	$cam/phone/levelName.text = "Trip to the Lake"
 	$cam/phone/levelPic.play("bestFronds")

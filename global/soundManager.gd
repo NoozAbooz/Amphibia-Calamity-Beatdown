@@ -12,7 +12,13 @@ func _ready():
 	pass # Replace with function body.
 
 func playSound(name):
-	get_node("sfx/" + name).play()
+	if (name == "none"):
+		return
+	elif (name == "hit5") and (get_node("sfx/" + name).is_playing()): 
+		# sounds in this group will not play over themselves
+		return
+	else:
+		get_node("sfx/" + name).play()
 	
 func pitchSound(name, pitch, volume = 0):
 	get_node("sfx/" + name).pitch_scale = pitch

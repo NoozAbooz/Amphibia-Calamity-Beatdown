@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://sounds/hit2.wav" type="AudioStream" id=1]
 [ext_resource path="res://global/soundManager.gd" type="Script" id=2]
@@ -24,6 +24,10 @@
 [ext_resource path="res://music/go.ogg" type="AudioStream" id=22]
 [ext_resource path="res://music/boss1.ogg" type="AudioStream" id=23]
 [ext_resource path="res://music/stats.ogg" type="AudioStream" id=24]
+[ext_resource path="res://music/menu.ogg" type="AudioStream" id=25]
+[ext_resource path="res://sounds/hit5.wav" type="AudioStream" id=26]
+[ext_resource path="res://music/marcy.ogg" type="AudioStream" id=27]
+[ext_resource path="res://music/l1.ogg" type="AudioStream" id=28]
 
 [node name="soundManager" type="Node"]
 script = ExtResource( 2 )
@@ -38,9 +42,14 @@ stream = ExtResource( 1 )
 
 [node name="hit3" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 3 )
+pitch_scale = 0.9
 
 [node name="hit4" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 4 )
+pitch_scale = 0.8
+
+[node name="hit5" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource( 26 )
 
 [node name="hurt1" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 7 )
@@ -76,7 +85,6 @@ stream = ExtResource( 12 )
 
 [node name="jump" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 14 )
-pitch_scale = 0.5
 
 [node name="pause" type="AudioStreamPlayer" parent="sfx"]
 pause_mode = 2
@@ -92,6 +100,21 @@ pitch_scale = 0.8
 [node name="test" type="AudioStreamPlayer" parent="music"]
 pause_mode = 1
 stream = ExtResource( 19 )
+volume_db = -6.0
+
+[node name="marcy" type="AudioStreamPlayer" parent="music"]
+pause_mode = 1
+stream = ExtResource( 27 )
+volume_db = -6.0
+
+[node name="swamp" type="AudioStreamPlayer" parent="music"]
+pause_mode = 1
+stream = ExtResource( 28 )
+volume_db = -6.0
+
+[node name="menu" type="AudioStreamPlayer" parent="music"]
+pause_mode = 1
+stream = ExtResource( 25 )
 volume_db = -6.0
 
 [node name="map" type="AudioStreamPlayer" parent="music"]

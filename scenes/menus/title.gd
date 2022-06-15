@@ -2,7 +2,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	soundManager.playMusicIfDiff("test")
+	soundManager.playMusicIfDiff("menu")
 	$startButton.grab_focus()
 	_on_lockButton_toggled(false)
 	$lockButton.pressed = false

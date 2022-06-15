@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/marcy.ogg-2d3884f3119adb743c8390e1f2f4760f.oggstr"
+
+[deps]
+
+source_file="res://music/marcy.ogg"
+dest_files=[ "res://.import/marcy.ogg-2d3884f3119adb743c8390e1f2f4760f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

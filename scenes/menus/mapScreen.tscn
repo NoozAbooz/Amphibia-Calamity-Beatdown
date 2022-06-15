@@ -26,9 +26,9 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "bestFronds",
+"name": "wartwood",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -36,22 +36,22 @@ animations = [ {
 "name": "playground",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "wartwood",
+"name": "bestFronds",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "check",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "uncheck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "check",
 "speed": 5.0
 }, {
 "frames": [  ],

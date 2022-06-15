@@ -660,10 +660,10 @@ func _physics_process(delta):
 	elif ((nextState == A_SL) or (nextState == A_SH)) and (state != A_SL) and (state != A_SH):
 		soundManager.playSound("slide")
 	elif (nextState == JUMP):
-		soundManager.pitchSound("jump", 0.8)
+		soundManager.pitchSound("jump", 1.0)
 		soundManager.playSound("jump")
 	elif (nextState == DJUMP):
-		soundManager.pitchSound("jump", 1.0)
+		soundManager.pitchSound("jump", 1.2)
 		soundManager.playSound("jump")
 	# sets state
 	state = nextState
@@ -723,9 +723,9 @@ func _physics_process(delta):
 		setHitBox(20, KB_STRONG, Vector3(7, 50, 0), "hit3")
 	elif isInState([A_H3]):
 		if (comboReady):
-			setHitBox(15, KB_ANGLED, Vector3(15, 35, 0), "hit4")
+			setHitBox(15, KB_ANGLED, Vector3(15, 35, 0), "none")
 		else:
-			setHitBox(2, KB_WEAK, Vector3(1, 0, 0))
+			setHitBox(2, KB_WEAK, Vector3(1, 0, 0), "hit5")
 	elif isInState([A_AH1]):
 		setHitBox(20, KB_ANGLED, Vector3(40, 10, 0), "hit3")
 	elif isInState([A_AH2]):
