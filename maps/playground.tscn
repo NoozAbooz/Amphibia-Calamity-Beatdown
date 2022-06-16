@@ -2,12 +2,12 @@
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/ambush.tscn" type="PackedScene" id=3]
+[ext_resource path="res://maps/level objects/ambush.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/pickups/khao.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/switch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/enemies/enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/arrowLauncher.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Mushroom.tscn" type="PackedScene" id=8]
+[ext_resource path="res://maps/level objects/Mushroom.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemies/spider.tscn" type="PackedScene" id=9]
 [ext_resource path="res://maps/untitled.obj" type="ArrayMesh" id=10]
 [ext_resource path="res://grass.tres" type="Material" id=11]
@@ -20,7 +20,7 @@
 [ext_resource path="res://scenes/enemies/wasp.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/goal.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/enemies/spawners/spiderNest.tscn" type="PackedScene" id=20]
-[ext_resource path="res://maps/decorations/swampTreeA.tscn" type="PackedScene" id=21]
+[ext_resource path="res://maps/decorations/trees/swampTreeA.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/pickups/coin.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/enemies/greenMantis.tscn" type="PackedScene" id=23]
 [ext_resource path="res://art/enemies/mantis temp/idle (2).png" type="Texture" id=24]
@@ -45,7 +45,7 @@
 [ext_resource path="res://art/enemies/mantis temp/walk (3).png" type="Texture" id=43]
 [ext_resource path="res://art/enemies/mantis temp/walk (4).png" type="Texture" id=44]
 [ext_resource path="res://art/enemies/mantis temp/walk (5).png" type="Texture" id=45]
-[ext_resource path="res://scenes/windbox.tscn" type="PackedScene" id=46]
+[ext_resource path="res://maps/level objects/windbox.tscn" type="PackedScene" id=46]
 [ext_resource path="res://scenes/playerWarpExit.tscn" type="PackedScene" id=47]
 [ext_resource path="res://scenes/playerWarp.tscn" type="PackedScene" id=48]
 
@@ -2219,31 +2219,25 @@ anims/move = SubResource( 38 )
 
 [node name="Mushroom" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6571, -11.3432, -4.36643 )
-visible = false
 
 [node name="Mushroom2" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.291, 3.19491, 7.31386 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.234, 3.19491, 9.72976 )
 bounceHeight = 25
 
 [node name="Mushroom4" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151.108, 8.43058, 7.97228 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 184.051, 8.43058, 10.3882 )
 bounceHeight = 25
 
 [node name="Mushroom6" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 160.432, 4.70371, 8.64919 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 193.375, 4.70371, 11.0651 )
 bounceHeight = 25
 
 [node name="Mushroom3" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 153.173, -1.12459, 13.5042 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 186.116, -1.12459, 15.9201 )
 bounceHeight = 48
 
 [node name="Mushroom5" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 145.925, 4.07383, 13.2128 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 178.868, 4.07383, 15.6287 )
 bounceHeight = 35
 
 [node name="arrow launcher" parent="." instance=ExtResource( 7 )]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://maps/best_fronds/swamp.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://scenes/ambush.tscn" type="PackedScene" id=2]
+[ext_resource path="res://maps/level objects/ambush.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/enemies/bosses/watersnake.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://maps/level objects/lilypad.tscn" type="PackedScene" id=5]
@@ -32,9 +32,11 @@
 [ext_resource path="res://scenes/pickups/khao.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=31]
 [ext_resource path="res://art/enemies/green_mantis.png" type="Texture" id=32]
-[ext_resource path="res://scenes/Mushroom.tscn" type="PackedScene" id=33]
-[ext_resource path="res://scenes/ambush.gd" type="Script" id=34]
+[ext_resource path="res://maps/level objects/Mushroom.tscn" type="PackedScene" id=33]
+[ext_resource path="res://maps/level objects/ambush.gd" type="Script" id=34]
 [ext_resource path="res://scenes/enemies/enemySpawnPoint.tscn" type="PackedScene" id=35]
+[ext_resource path="res://maps/decorations/trees/swampTreeD.tscn" type="PackedScene" id=36]
+[ext_resource path="res://maps/decorations/trees/swampTreeC.tscn" type="PackedScene" id=37]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -977,11 +979,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ) ],
-"loop": false,
-"name": "attack_heavy",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": false,
 "name": "hurt",
@@ -990,6 +987,11 @@ animations = [ {
 "frames": [ ExtResource( 26 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ) ],
+"loop": false,
+"name": "attack_heavy",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 78 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ) ],
@@ -1843,11 +1845,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_heavy",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": false,
 "name": "hurt",
@@ -1856,6 +1853,11 @@ animations = [ {
 "frames": [ ExtResource( 26 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_heavy",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 11 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 19 ) ],
@@ -2959,6 +2961,24 @@ shape = SubResource( 99 )
 [node name="Mushroom" parent="environment" instance=ExtResource( 33 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 210.667, -15.5296, -95.9555 )
 bounceHeight = 80
+
+[node name="decorations" type="Spatial" parent="."]
+
+[node name="swampTreeD2" parent="decorations" instance=ExtResource( 36 )]
+transform = Transform( -0.991438, 0, 0.130578, 0, 1, 0, -0.130578, 0, -0.991438, -5.03382, 3.805, 1.8565 )
+preset = 1
+
+[node name="swampTreeD" parent="decorations" instance=ExtResource( 36 )]
+transform = Transform( -0.148966, 0, -0.988842, 0, 1, 0, 0.988842, 0, -0.148966, 16.3206, 3.805, -8.86806 )
+preset = 4
+
+[node name="swampTreeC" parent="decorations" instance=ExtResource( 37 )]
+transform = Transform( -0.338262, 0, 0.941052, 0, 1, 0, -0.941052, 0, -0.338262, -2.11001, 3.805, -6.0644 )
+preset = 2
+
+[node name="swampTreeC2" parent="decorations" instance=ExtResource( 37 )]
+transform = Transform( 0.69794, 0, 0.716156, 0, 1, 0, -0.716156, 0, 0.69794, 5.58303, 3.805, -9.04746 )
+preset = 3
 
 [node name="enemies" type="Spatial" parent="."]
 
