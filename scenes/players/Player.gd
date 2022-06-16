@@ -1024,7 +1024,7 @@ func _on_hurtbox_area_entered(area):
 		soundManager.playSound("pickup")
 		return
 	# Enemy hitboxes:
-	if (invincible == false) and (invincibleState == false) and (invincibleGetUp <= 0):
+	if (invincible == false) and (invincibleState == false) and (invincibleGetUp <= 0) and (pg.dontMove == false):
 		justHurt = true
 	else:
 		return

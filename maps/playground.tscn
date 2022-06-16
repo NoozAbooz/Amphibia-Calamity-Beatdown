@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=2]
@@ -46,6 +46,8 @@
 [ext_resource path="res://art/enemies/mantis temp/walk (4).png" type="Texture" id=44]
 [ext_resource path="res://art/enemies/mantis temp/walk (5).png" type="Texture" id=45]
 [ext_resource path="res://scenes/windbox.tscn" type="PackedScene" id=46]
+[ext_resource path="res://scenes/playerWarpExit.tscn" type="PackedScene" id=47]
+[ext_resource path="res://scenes/playerWarp.tscn" type="PackedScene" id=48]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -1058,11 +1060,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 36 ), ExtResource( 39 ), ExtResource( 30 ) ],
-"loop": false,
-"name": "attack_heavy",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 28 ) ],
 "loop": false,
 "name": "hurt",
@@ -1071,6 +1068,11 @@ animations = [ {
 "frames": [ ExtResource( 40 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 39 ), ExtResource( 30 ) ],
+"loop": false,
+"name": "attack_heavy",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 34 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 35 ) ],
@@ -2872,6 +2874,14 @@ startRight = true
 transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 10, 41.0975, 0.874093, 21.7699 )
 direction = Vector3( 0, 0, 1 )
 magnitude = 8
+
+[node name="warps" type="Spatial" parent="."]
+
+[node name="warp0" parent="warps" instance=ExtResource( 48 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -120.2, 0.315853, -0.475311 )
+
+[node name="warpExit0" parent="warps" instance=ExtResource( 47 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8903, 3.12555, 94.1895 )
 
 [connection signal="animation_finished" from="switch2/bridge/AnimationPlayer" to="switch2/bridge" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="idle mantis/AnimationPlayer" to="idle mantis" method="_on_AnimationPlayer_animation_finished"]

@@ -103,6 +103,9 @@ func _process(_delta):
 			debugMode = true
 			print("Camera Locked")
 			disableBarriers(true)
+			
+	# cutscenes/warps
+		
 	
 	# checks for active players and makes array of player positions
 	playerPositions = []
