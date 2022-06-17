@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/enemies/spawners/debris.gd" type="Script" id=1]
 [ext_resource path="res://art/models/SpiderSpawners/egg_debris_medium.glb" type="PackedScene" id=2]
@@ -7,6 +7,22 @@
 [ext_resource path="res://art/models/SpiderSpawners/web_debris_1.glb" type="PackedScene" id=5]
 [ext_resource path="res://art/models/SpiderSpawners/egg_debris_small_2.glb" type="PackedScene" id=6]
 [ext_resource path="res://art/models/SpiderSpawners/egg_debris_small.glb" type="PackedScene" id=7]
+[ext_resource path="res://maps/decorations/small plants/mushGreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://maps/decorations/small plants/mushYellow.tscn" type="PackedScene" id=9]
+[ext_resource path="res://maps/decorations/small plants/mushPurple.tscn" type="PackedScene" id=10]
+[ext_resource path="res://art/models/Barrel/Barrel_Texture_04.png" type="Texture" id=11]
+[ext_resource path="res://art/models/Barrel/barrel_shard2.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://art/models/Barrel/barrel_shard1.obj" type="ArrayMesh" id=13]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 23
+load_path = "res://.import/Barrel_Texture_04.png-7ed77b11e746264ec52d9b49dbb38c8e.s3tc.stex"
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = SubResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 11 )
 
 [node name="debris" type="Spatial"]
 script = ExtResource( 1 )
@@ -42,5 +58,32 @@ visible = false
 [node name="egg_debris_small_2" parent="model" instance=ExtResource( 6 )]
 transform = Transform( 3, -5.96047e-07, 2.38419e-07, 5.96047e-07, 3, -1.19209e-07, -2.38419e-07, 1.19209e-07, 3, -0.917237, -0.0251442, -0.346929 )
 visible = false
+
+[node name="mush_1" parent="model" instance=ExtResource( 8 )]
+visible = false
+
+[node name="mush_2" parent="model" instance=ExtResource( 9 )]
+visible = false
+
+[node name="mush_3" parent="model" instance=ExtResource( 10 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
+visible = false
+
+[node name="wood_1" type="Spatial" parent="model"]
+transform = Transform( 0.836013, 0.408247, -0.366629, -0.455221, 0.889083, -0.0480207, 0.306359, 0.207043, 0.929127, -1.09843, -0.306418, -0.759717 )
+visible = false
+
+[node name="barrel_shard1" type="MeshInstance" parent="model/wood_1"]
+transform = Transform( 1, 0, 0, 2.98023e-08, 1, 0, 0, -1.49012e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 13 )
+material/0 = SubResource( 2 )
+
+[node name="wood_2" type="Spatial" parent="model"]
+visible = false
+
+[node name="barrel_shard2" type="MeshInstance" parent="model/wood_2"]
+transform = Transform( 0.247018, 0.368985, -0.89601, -0.359949, 0.893443, 0.268695, 0.899676, 0.256145, 0.353512, -1.18983, -0.252848, -0.681837 )
+mesh = ExtResource( 12 )
+material/0 = SubResource( 3 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

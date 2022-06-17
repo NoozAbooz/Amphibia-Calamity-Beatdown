@@ -4,7 +4,7 @@ var force_grav = 100.0
 var velocity = Vector3.ZERO
 
 var object = 0 # a number that represents what model of debris to use. Set by game object that spawns the debris.
-enum {WEB1, WEB2, EGGL, EGGM, EGGS, EGGS2}
+enum {WEB1, WEB2, EGGL, EGGM, EGGS, EGGS2, MUSH1, MUSH2, MUSH3, WOOD1, WOOD2}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +31,16 @@ func initialize(location, objectNumber):
 			$model/egg_debris_small.visible = true
 		EGGS2:
 			$model/egg_debris_small_2.visible = true
+		MUSH1:
+			$model/mush_1.visible = true
+		MUSH2:
+			$model/mush_2.visible = true
+		MUSH3:
+			$model/mush_3.visible = true
+		WOOD1:
+			$model/wood_1.visible = true
+		WOOD2:
+			$model/wood_2.visible = true
 		_: 
 			$model/egg_debris_large.visible = true
 	

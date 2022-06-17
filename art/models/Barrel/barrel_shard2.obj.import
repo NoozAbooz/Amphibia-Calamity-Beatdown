@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/barrel_shard2.obj-192fe918879ab158334c15a08cd37c38.mesh"
+
+[deps]
+
+files=[ "res://.import/barrel_shard2.obj-192fe918879ab158334c15a08cd37c38.mesh" ]
+
+source_file="res://art/models/Barrel/barrel_shard2.obj"
+dest_files=[ "res://.import/barrel_shard2.obj-192fe918879ab158334c15a08cd37c38.mesh", "res://.import/barrel_shard2.obj-192fe918879ab158334c15a08cd37c38.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

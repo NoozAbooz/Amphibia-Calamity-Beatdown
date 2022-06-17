@@ -307,7 +307,7 @@ func _physics_process(delta):
 			state = IDLE
 			nextState = IDLE
 	# taking damage
-	if (isInState([KO])):
+	if (isInState([KO, SPAWN])):
 		invincibleState = true
 	else:
 		invincibleState = false
@@ -418,7 +418,7 @@ func _physics_process(delta):
 		
 	
 	# snapping setup
-	if isInState([HURTLAUNCH, HURTRISING]):
+	if isInState([HURTLAUNCH, HURTRISING, SPAWN]):
 		snapVect = Vector3.ZERO
 	else:
 		snapVect = Vector3(0, -5, 0)

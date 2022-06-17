@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://art/models/Barrel/Barrel_Texture_04.png" type="Texture" id=1]
+[ext_resource path="res://art/models/Barrel/barrel_closed.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="CylinderShape" id=2]
+radius = 1.2
+height = 2.3
+
+[node name="barrelClosed" type="StaticBody"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="mesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5654 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0 )
+shape = SubResource( 2 )

@@ -105,7 +105,7 @@ volume_db = -6.0
 [node name="marcy" type="AudioStreamPlayer" parent="music"]
 pause_mode = 1
 stream = ExtResource( 27 )
-volume_db = -6.0
+volume_db = -15.0
 
 [node name="swamp" type="AudioStreamPlayer" parent="music"]
 pause_mode = 1
