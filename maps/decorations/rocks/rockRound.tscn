@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://art/models/Rocks/Rock_04.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://art/models/Rocks/Rocks_Textures.png" type="Texture" id=2]
+[ext_resource path="res://art/models/Rocks/Rocks_Normals.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 3 )
+
+[sub_resource type="SphereShape" id=2]
+radius = 1.60259
+
+[node name="rock" type="StaticBody"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="mesh" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )
