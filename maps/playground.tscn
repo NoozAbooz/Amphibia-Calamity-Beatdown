@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=128 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=2]
@@ -54,6 +54,17 @@
 [ext_resource path="res://maps/decorations/rocks/rockSmall.tscn" type="PackedScene" id=52]
 [ext_resource path="res://maps/decorations/rocks/rockLong.tscn" type="PackedScene" id=53]
 [ext_resource path="res://maps/decorations/rocks/rockRound.tscn" type="PackedScene" id=54]
+[ext_resource path="res://maps/decorations/mushPurpleBig.tscn" type="PackedScene" id=55]
+[ext_resource path="res://maps/decorations/small plants/mushPurple.tscn" type="PackedScene" id=56]
+[ext_resource path="res://maps/decorations/small plants/mushGreen.tscn" type="PackedScene" id=57]
+[ext_resource path="res://maps/decorations/small plants/mushPink.tscn" type="PackedScene" id=58]
+[ext_resource path="res://maps/decorations/small plants/mushOrange.tscn" type="PackedScene" id=59]
+[ext_resource path="res://maps/decorations/small plants/mushBlue.tscn" type="PackedScene" id=60]
+[ext_resource path="res://maps/decorations/trees/swampTreeB.tscn" type="PackedScene" id=61]
+[ext_resource path="res://maps/decorations/trees/swampTreeD.tscn" type="PackedScene" id=62]
+[ext_resource path="res://maps/decorations/small plants/plantA.tscn" type="PackedScene" id=63]
+[ext_resource path="res://maps/decorations/small plants/plantB.tscn" type="PackedScene" id=64]
+[ext_resource path="res://maps/decorations/trees/swampTreeC.tscn" type="PackedScene" id=65]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -2125,7 +2136,7 @@ collision_mask = 0
 shape = SubResource( 80 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground4"]
-transform = Transform( 1, 0, -3.97363e-08, 0, 1, 0, 3.97363e-08, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, -3.97363e-08, 0, 1, 0, 3.97363e-08, 0, 1, -0.0169039, 0.00767994, -0.00749969 )
 cast_shadow = 0
 mesh = SubResource( 81 )
 material/0 = null
@@ -2951,6 +2962,46 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 66.5952
 
 [node name="barrelOpen6" parent="." instance=ExtResource( 50 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60.387, 1.04203, 29.8849 )
+
+[node name="mushPurple2" parent="." instance=ExtResource( 55 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -89.1843, -2.19097, 13.2167 )
+
+[node name="PlantB" parent="." instance=ExtResource( 64 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -99.726, -2.19097, 17.379 )
+
+[node name="PlantA" parent="." instance=ExtResource( 63 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -103.183, -2.19097, 17.254 )
+
+[node name="mushGreen" parent="." instance=ExtResource( 57 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -102.179, -2.19095, 14.1153 )
+
+[node name="mushPurple" parent="." instance=ExtResource( 56 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.9729, -2.19097, 13.3357 )
+
+[node name="mushPink" parent="." instance=ExtResource( 58 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -99.7905, -1.86394, 9.92546 )
+
+[node name="mushOrange" parent="." instance=ExtResource( 59 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -101.777, -1.84009, 9.88689 )
+
+[node name="mushBlue" parent="." instance=ExtResource( 60 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -103.931, -1.87101, 10.0446 )
+
+[node name="swampTreeA13" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.4285, 8.69203, 9.4137 )
+preset = 1
+
+[node name="swampTreeB" parent="." instance=ExtResource( 61 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.4894, 8.54822, 9.9472 )
+preset = 2
+
+[node name="swampTreeD" parent="." instance=ExtResource( 62 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 101.023, 8.66798, 9.4798 )
+preset = 3
+
+[node name="swampTreeC" parent="." instance=ExtResource( 65 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.3871, 9.52951, 8.9466 )
+preset = 4
 
 [connection signal="animation_finished" from="switch2/bridge/AnimationPlayer" to="switch2/bridge" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="idle mantis/AnimationPlayer" to="idle mantis" method="_on_AnimationPlayer_animation_finished"]

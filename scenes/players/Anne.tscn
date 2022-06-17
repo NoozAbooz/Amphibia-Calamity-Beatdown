@@ -167,7 +167,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=26]
@@ -292,7 +292,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=28]
@@ -417,7 +417,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -542,7 +542,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -667,7 +667,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -792,7 +792,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=24]
@@ -917,7 +917,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=25]
@@ -1042,12 +1042,11 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=50]
 resource_name = "attack_air_H3_hit"
-length = 1.0
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite3D:frame")
@@ -1167,7 +1166,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=51]
@@ -1292,7 +1291,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=49]
@@ -1417,7 +1416,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=21]
@@ -1542,7 +1541,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=27]
@@ -1667,7 +1666,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -1791,7 +1790,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=32]
@@ -1916,7 +1915,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.2, 1.05, 0 ) ]
+"values": [ Vector3( 0, 1.05, 0 ) ]
 }
 
 [sub_resource type="Animation" id=31]
@@ -2041,7 +2040,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.2, 1.05, 0 ) ]
+"values": [ Vector3( 0, 1.05, 0 ) ]
 }
 
 [sub_resource type="Animation" id=33]
@@ -2167,7 +2166,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=37]
@@ -2268,7 +2267,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=34]
@@ -2393,7 +2392,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=41]
@@ -2494,7 +2493,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -2596,7 +2595,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=36]
@@ -2697,7 +2696,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=38]
@@ -2799,7 +2798,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=39]
@@ -2899,7 +2898,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -3000,7 +2999,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=30]
@@ -3101,7 +3100,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=40]
@@ -3202,7 +3201,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -3304,7 +3303,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -3406,7 +3405,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -3508,7 +3507,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.290019, 1.6, 0 ) ]
+"values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
 [sub_resource type="AtlasTexture" id=43]
@@ -3548,56 +3547,6 @@ animations = [ {
 "name": "stand",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_H2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
-"loop": false,
-"name": "land",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_H1",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": false,
-"name": "attack_slide_H",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "attack_air_L2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_air_L3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "attack_L1",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_H3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": false,
-"name": "fall",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": false,
-"name": "attack_slide_L",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": false,
 "name": "rise",
@@ -3618,9 +3567,59 @@ animations = [ {
 "name": "attack_air_H2",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": false,
+"name": "attack_slide_L",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": false,
+"name": "land",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
 "loop": false,
-"name": "attack_L3",
+"name": "attack_air_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": false,
+"name": "attack_slide_H",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "attack_air_L2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "attack_L1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_H3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "fall",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "attack_air_H3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
@@ -3628,9 +3627,9 @@ animations = [ {
 "name": "attack_air_L1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "attack_air_H3",
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_L3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 33 ) ],
@@ -3650,11 +3649,6 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 35 ) ],
 "loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 35 ) ],
-"loop": false,
 "name": "hurt_air",
 "speed": 5.0
 }, {
@@ -3662,6 +3656,11 @@ animations = [ {
 "loop": false,
 "name": "walk",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 35 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 5.0
 } ]
 
 [sub_resource type="BoxShape" id=15]
@@ -3729,11 +3728,11 @@ anims/walk = SubResource( 7 )
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
 layers = 3
-offset = Vector2( 15, 26 )
+offset = Vector2( 0, 25 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 42 )
-animation = "attack_air_H3"
+animation = "walk"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -3753,7 +3752,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 shape = SubResource( 35 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.965926, -1.48943e-09, -0.258819, -0.258819, -1.13133e-08, -0.965926, -1.48943e-09, 1, -1.13133e-08, 0.290019, 1.6, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.6, 0 )
 shape = SubResource( 5 )
 
 [node name="shadowMaker" type="MeshInstance" parent="."]

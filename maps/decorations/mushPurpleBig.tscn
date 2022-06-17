@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://art/models/DecorativeTreesMushrooms/Material_012.material" type="Material" id=1]
 
@@ -17,9 +17,16 @@ surfaces/0 = {
 "vertex_count": 148
 }
 
-[node name="mushPurple" type="Spatial"]
+[sub_resource type="CylinderShape" id=2]
+radius = 2.0
+height = 2.5
+
+[node name="mushPurple" type="StaticBody"]
 
 [node name="MushroomIndividual004MushroomIndividual001" type="MeshInstance" parent="."]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0 )
+shape = SubResource( 2 )
