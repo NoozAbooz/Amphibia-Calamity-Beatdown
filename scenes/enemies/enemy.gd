@@ -228,7 +228,7 @@ func initialize(type, loc, vel = Vector3.ZERO, brk = false, infVis = false, infE
 		target = rng.rand.randi_range(0, 3)
 		while (pg.playerAlive[target] == false):
 			target = rng.rand.randi_range(0, 3)
-		target = get_parent().get_node_or_null("Player" + str(target))
+		target = get_node_or_null("/root/" + pg.levelName + "/Player" + str(target))
 
 func _physics_process(delta):
 	
