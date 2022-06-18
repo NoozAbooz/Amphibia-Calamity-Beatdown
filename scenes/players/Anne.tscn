@@ -3732,7 +3732,7 @@ offset = Vector2( 0, 25 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 42 )
-animation = "walk"
+animation = "stand"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8

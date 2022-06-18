@@ -1938,7 +1938,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 358.835, 17.4079, 21.0727 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0713, 1.12738, 13.6684 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="."]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 308.311, 10.8205, 20.5694 )
@@ -2943,7 +2943,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 67.8328
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 65.4384, 1.04203, 27.6422 )
 
 [node name="barrelOpen12" parent="." instance=ExtResource( 50 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 65.947, 1.04203, 30.0601 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 65.3991, 1.04203, 30.4057 )
 
 [node name="barrelOpen13" parent="." instance=ExtResource( 50 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60.3264, 8.6242, 29.4646 )
@@ -2958,7 +2958,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 57.2374
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 61.7331, 4.29319, 29.3853 )
 
 [node name="barrelOpen11" parent="." instance=ExtResource( 50 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 66.5952, 4.29319, 27.9505 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 66.5894, 4.46353, 27.8286 )
 
 [node name="barrelOpen6" parent="." instance=ExtResource( 50 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60.387, 1.04203, 29.8849 )
