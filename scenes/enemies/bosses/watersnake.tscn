@@ -13,19 +13,19 @@
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 1, 100, 100 )
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=38]
 flags_transparent = true
 albedo_color = Color( 0, 0, 0, 0.156863 )
 
 [sub_resource type="CubeMesh" id=6]
-material = SubResource( 2 )
+material = SubResource( 38 )
 size = Vector3( 2, 30, 30 )
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=39]
 albedo_color = Color( 0.952941, 0.458824, 0, 1 )
 
 [sub_resource type="SphereMesh" id=7]
-material = SubResource( 4 )
+material = SubResource( 39 )
 
 [sub_resource type="CylinderShape" id=8]
 radius = 6.0

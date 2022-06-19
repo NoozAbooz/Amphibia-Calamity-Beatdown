@@ -2,6 +2,9 @@ extends Spatial
 
 # tells the object which "ambush" to play
 export var ambushName = "playgroundAmbush1"
+# id not none plays this song as the ambush starts
+export var uniqueMusic = "none"
+export var waveForMusicStart = 0
 
 var enemyList = null
 var cam = null
@@ -51,6 +54,10 @@ func _process(_delta):
 			timer = 0
 			nextState = FIGHT
 		FIGHT:
+			# music
+			if (uniqueMusic != "none") and (waveNumber == waveForMusicStart):
+				soundManager.playMusicIfDiff(uniqueMusic)
+			# spawning
 			if typeof(wave) != TYPE_INT:
 				for enemy in wave:
 					if (timer > enemy.spawnTime):
@@ -75,6 +82,8 @@ func exitAmbush():
 	var vfx = vfxScene.instance()
 	get_parent().add_child(vfx)
 	vfx.playEffect("go_arrow")
+	# restarts music if necessary
+	soundManager.playMusicIfDiff(pg.levelMusic)
 	# deletes ambush node
 	queue_free()
 

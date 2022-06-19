@@ -15,10 +15,10 @@ extends Spatial
 
 var numWaves = 2
 var wave0 = [
-	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(0, 3, -14),  Vector3.ZERO, 120)
+	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(9, 0, -3),  Vector3.ZERO, 120)
 ]
 var wave1 = [
-	nme.ambEnemy.new(nme.redMantisScene,   nme.redMantis,   Vector3(0, 20, -1),  Vector3.ZERO, 60)
+	nme.ambEnemy.new(nme.redMantisScene,   nme.redMantis,   Vector3(0, 20, 0),  Vector3.ZERO, 60)
 ]
 
 # Called when the node enters the scene tree for the first time.
