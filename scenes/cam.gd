@@ -30,6 +30,9 @@ var inAmbush = false
 var ambushTarget = Vector3.ZERO
 var ambushSpawnPoint = Vector3.ZERO
 
+var onLeftWall  = false
+var onRightWall = false
+
 func initialize(loc):
 	actX = loc.x
 	actY = loc.y
@@ -130,11 +133,6 @@ func _process(_delta):
 	if (playerPositions.size() == 0):
 		return
 	
-	# eliminates walls if only one player left
-#	if (playerCount == 1) and (wallsRemoved == false):
-#		wallsRemoved = true
-#		get_parent_spatial().get_node("leftWall").queue_free()
-#		get_parent_spatial().get_node("rightWall").queue_free()
 		
 	# puts camera at average position
 	tempX = 0 #sum of x values
@@ -159,6 +157,12 @@ func _process(_delta):
 		desX = tempX/playerPositions.size()
 		desY = minY
 		desZ = maxZ
+		
+	# x correction for camera walls
+	if (onLeftWall) and (desX < actX):
+		desX = actX
+	elif (onRightWall) and (desX > actX):
+		desX = actX
 	
 	if (debugMode == false):
 		actX += 0.1*(desX - actX) 

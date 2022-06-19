@@ -2299,7 +2299,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
 shape = SubResource( 17 )
 
 [node name="info" type="Node2D" parent="."]
-position = Vector2( 640, 0 )
+position = Vector2( 640, -300 )
 
 [node name="lifeBar" type="ProgressBar" parent="info"]
 margin_left = -314.0
@@ -2342,7 +2342,7 @@ __meta__ = {
 }
 
 [node name="ArenaAnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
+autoplay = "wait"
 anims/exit = SubResource( 36 )
 anims/flipL = SubResource( 14 )
 anims/flipM = SubResource( 22 )

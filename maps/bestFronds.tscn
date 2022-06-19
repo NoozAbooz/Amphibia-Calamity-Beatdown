@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://maps/best_fronds/swamp.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://maps/level objects/ambush.tscn" type="PackedScene" id=2]
@@ -39,12 +39,13 @@
 [ext_resource path="res://art/models/LilyPads/Lilypad2.material" type="Material" id=37]
 [ext_resource path="res://maps/decorations/small plants/bush1.tscn" type="PackedScene" id=38]
 [ext_resource path="res://maps/decorations/small plants/bush3.tscn" type="PackedScene" id=39]
-[ext_resource path="res://scenes/playerWarpExit.tscn" type="PackedScene" id=40]
-[ext_resource path="res://scenes/playerWarp.tscn" type="PackedScene" id=41]
+[ext_resource path="res://maps/level objects/playerWarpExit.tscn" type="PackedScene" id=40]
+[ext_resource path="res://maps/level objects/playerWarp.tscn" type="PackedScene" id=41]
 [ext_resource path="res://maps/decorations/barrelClosed.tscn" type="PackedScene" id=42]
 [ext_resource path="res://maps/level objects/barrelOpen.tscn" type="PackedScene" id=43]
 [ext_resource path="res://maps/level objects/musicTrigger.tscn" type="PackedScene" id=44]
 [ext_resource path="res://maps/level objects/musicTrigger.gd" type="Script" id=45]
+[ext_resource path="res://maps/level objects/cameraWall.tscn" type="PackedScene" id=46]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -1997,7 +1998,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8525, 4.0726, 5.31677 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8303, 4.13848, 5.78454 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -4107,7 +4108,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 511.951, 13.2637, -58.9043 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -255.561, 13.5491, -59.4724 )
 
 [node name="warpExit0" parent="warps" instance=ExtResource( 40 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -254.137, 11.5512, -43.1356 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -250.647, 11.1697, -46.0414 )
 
 [node name="warpExit1" parent="warps" instance=ExtResource( 40 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512.09, 10.8884, -45.7825 )
@@ -4128,18 +4129,29 @@ coppers = 5
 silverCoins = 3
 bigFoods = 1
 
-[node name="musicTrigger" parent="." instance=ExtResource( 44 )]
+[node name="triggers" type="Spatial" parent="."]
+
+[node name="cameraWall" parent="triggers" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -259.29, 16.3664, -37.7732 )
+
+[node name="cameraWall2" parent="triggers" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -160.685, 16.3664, -44.7717 )
+
+[node name="cameraWall3" parent="triggers" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5077, 6.69483, 2.10975 )
+
+[node name="musicTrigger" parent="triggers" instance=ExtResource( 44 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -233.737, 13.201, -44.5587 )
 
-[node name="reset" type="Area" parent="musicTrigger"]
+[node name="reset" type="Area" parent="triggers/musicTrigger"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 745.838, 0.400969, 0.109604 )
 collision_layer = 0
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="musicTrigger/reset"]
+[node name="CollisionShape" type="CollisionShape" parent="triggers/musicTrigger/reset"]
 shape = SubResource( 132 )
 
-[node name="musicTrigger2" type="Area" parent="."]
+[node name="musicTrigger2" type="Area" parent="triggers"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512.11, 13.201, -44.5587 )
 collision_layer = 0
 collision_mask = 512
@@ -4147,14 +4159,14 @@ monitorable = false
 script = ExtResource( 45 )
 function = 1
 
-[node name="CollisionShape" type="CollisionShape" parent="musicTrigger2"]
+[node name="CollisionShape" type="CollisionShape" parent="triggers/musicTrigger2"]
 shape = SubResource( 130 )
 
-[node name="MeshInstance" type="MeshInstance" parent="musicTrigger2"]
+[node name="MeshInstance" type="MeshInstance" parent="triggers/musicTrigger2"]
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="MeshInstance2" type="MeshInstance" parent="musicTrigger2"]
+[node name="MeshInstance2" type="MeshInstance" parent="triggers/musicTrigger2"]
 mesh = SubResource( 6 )
 material/0 = null
 
@@ -4185,4 +4197,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 809.646, 18.1743, -9.86287 )
 [connection signal="area_exited" from="enemies/greenMantis4/zeroPoint/hurtbox" to="enemies/greenMantis4" method="_on_hurtbox_area_exited"]
 [connection signal="area_entered" from="enemies/greenMantis4/aggro" to="enemies/greenMantis4" method="_on_aggro_area_entered"]
 [connection signal="area_exited" from="enemies/greenMantis4/aggro" to="enemies/greenMantis4" method="_on_aggro_area_exited"]
-[connection signal="area_entered" from="musicTrigger2" to="musicTrigger2" method="_on_musicTrigger_area_entered"]
+[connection signal="area_entered" from="triggers/musicTrigger2" to="triggers/musicTrigger2" method="_on_musicTrigger_area_entered"]
