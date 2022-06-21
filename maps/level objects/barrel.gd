@@ -33,9 +33,8 @@ func _ready():
 func _process(delta):
 	velocity.x = 0
 	velocity.z = 0
-	if (!is_on_floor()):
-		velocity.y -= force_grav * delta
-		velocity = move_and_slide(velocity, Vector3.UP, true)
+	velocity.y -= force_grav * delta
+	velocity = move_and_slide(velocity, Vector3.UP, true)
 	
 func shuffleDrops(luck):
 	# zeros out options first
