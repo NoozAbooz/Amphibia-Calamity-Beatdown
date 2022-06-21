@@ -26,8 +26,8 @@ func _ready():
 func _process(delta):
 	#positions camera and marker
 	marker.position = Vector2(posDes.x, posDes.y + markerOffset)
-	cam.position.x += 0.085*(posDes.x - cam.position.x)
-	cam.position.y += 0.085*(posDes.y - cam.position.y)
+	cam.position.x += (posDes.x - cam.position.x) * delta * 4
+	cam.position.y += (posDes.y - cam.position.y) * delta * 4
 	cam.zoom.x += 0.09*(zoomDes.x - cam.zoom.x)
 	cam.zoom.y += 0.09*(zoomDes.y - cam.zoom.y)
 	# "back" Inputs
@@ -54,7 +54,7 @@ func _process(delta):
 		phonePosDes = Vector2(0, 0)
 	else:
 		phonePosDes = Vector2(0, 500)
-	phone.position.y += 0.1*(phonePosDes.y - phone.position.y)
+	phone.position.y += (phonePosDes.y - phone.position.y) * delta * 6
 	# check box for level completion
 	if (pg.levelNum == 0):
 		$cam/phone/checkBox.play("none")

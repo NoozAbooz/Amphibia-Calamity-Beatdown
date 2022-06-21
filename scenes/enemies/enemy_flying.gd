@@ -168,11 +168,11 @@ func attackEndCounterReady():
 	else:
 		return false
 		
-func getAttackDirection(target):
-	if (target == null):
+func getAttackDirection(tempTarget):
+	if (tempTarget == null):
 		attackDirection = Vector3.ZERO
 	else:
-		attackDirection = target.translation - translation
+		attackDirection = tempTarget.translation - translation
 		attackDirection = attackSpeed * attackDirection.normalized()
 	return
 		
