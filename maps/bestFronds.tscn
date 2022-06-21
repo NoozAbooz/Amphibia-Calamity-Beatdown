@@ -2519,7 +2519,7 @@ albedo_color = Color( 0, 1, 0.552941, 1 )
 material = SubResource( 131 )
 
 [sub_resource type="BoxShape" id=153]
-extents = Vector3( 30, 100, 100 )
+extents = Vector3( 10, 100, 100 )
 
 [sub_resource type="SpatialMaterial" id=154]
 flags_transparent = true
@@ -2553,7 +2553,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 837.279, 4.00427, -26.1341 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.923, 3.91611, 6.03872 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -3130,18 +3130,6 @@ enemyNum = 2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 308.845, 15.4159, -30.2715 )
 enemyNum = 2
 
-[node name="spider8" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 288.694, 15.4159, -25.1619 )
-enemyNum = 2
-
-[node name="spider9" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 292.812, 15.4159, -19.9815 )
-enemyNum = 2
-
-[node name="spider10" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 259.239, 15.4159, -33.7439 )
-enemyNum = 2
-
 [node name="spider11" parent="enemies" instance=ExtResource( 35 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 251.052, 15.4159, -30.8872 )
 enemyNum = 2
@@ -3152,10 +3140,6 @@ enemyNum = 2
 
 [node name="spider12" parent="enemies" instance=ExtResource( 35 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 469.316, 11.3992, -31.2984 )
-enemyNum = 2
-
-[node name="spider13" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 472.506, 11.3992, -29.4854 )
 enemyNum = 2
 
 [node name="spider14" parent="enemies" instance=ExtResource( 35 )]
@@ -3180,9 +3164,6 @@ enemyNum = 3
 [node name="wasp3" parent="enemies" instance=ExtResource( 35 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 495.554, 13.6992, -30.0627 )
 enemyNum = 3
-
-[node name="mantis2" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 350.08, 0.931422, -12.2944 )
 
 [node name="mantis3" parent="enemies" instance=ExtResource( 35 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 517.042, 13.174, -28.6702 )
@@ -3446,6 +3427,17 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 422.852
 [node name="barrelOpen6" parent="barrels" instance=ExtResource( 43 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 566.719, 10.4846, -21.8374 )
 
+[node name="barrelOpen8" parent="barrels" instance=ExtResource( 43 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 672.42, 17.0567, -50.6501 )
+
+[node name="barrelOpen9" parent="barrels" instance=ExtResource( 43 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 669.956, 17.0567, -49.1826 )
+
+[node name="barrelOpen10" parent="barrels" instance=ExtResource( 43 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 826.649, 3.92754, -24.7419 )
+randomContents = false
+foods = 4
+
 [node name="triggers" type="Spatial" parent="."]
 
 [node name="cameraWall" parent="triggers" instance=ExtResource( 46 )]
@@ -3497,7 +3489,7 @@ mesh = SubResource( 145 )
 material/0 = null
 
 [node name="musicTrigger3" parent="triggers" instance=ExtResource( 44 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 845.294, 5.85719, -28.227 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 857.912, 5.85719, -28.227 )
 
 [node name="musicTrigger4" type="Area" parent="triggers"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 683.308, 19.2579, -47.5037 )
