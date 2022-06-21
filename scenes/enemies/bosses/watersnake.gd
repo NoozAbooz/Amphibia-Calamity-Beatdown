@@ -344,8 +344,3 @@ func _on_playerCheckR_area_entered(area):
 
 func _on_playerCheckR_area_exited(area):
 	padRCount -= 1
-
-
-func _on_audioTrigger_area_entered(area):
-	soundManager.FadeOutSong(pg.levelMusic)
-	get_node("audioTrigger").queue_free()

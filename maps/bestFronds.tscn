@@ -2553,7 +2553,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.0321, 4.00428, 7.54844 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 837.279, 4.00427, -26.1341 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -2718,7 +2718,7 @@ autoplay = "float"
 anims/float = SubResource( 148 )
 
 [node name="rock" parent="environment" instance=ExtResource( 51 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 94.3187, 11.6942, -91.0679 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 94.3187, 11.2721, -91.0679 )
 
 [node name="decorations" type="Spatial" parent="."]
 
@@ -3325,6 +3325,36 @@ flower = true
 transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 524.569, 8.63974, -21.6355 )
 flower = true
 
+[node name="lilypad17" parent="lilypads" instance=ExtResource( 5 )]
+transform = Transform( 0.0260637, 0, 0.49932, 0, 0.5, 0, -0.49932, 0, 0.0260637, 870.203, 2.87458, -32.6062 )
+
+[node name="lilypad21" parent="lilypads" instance=ExtResource( 5 )]
+transform = Transform( 0.0260637, 0, 0.49932, 0, 0.5, 0, -0.49932, 0, 0.0260637, 918.473, 2.87458, -35.9812 )
+
+[node name="lilypad18" parent="lilypads" instance=ExtResource( 5 )]
+transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 877.339, 2.87458, -27.1931 )
+flower = true
+
+[node name="lilypad19" parent="lilypads" instance=ExtResource( 5 )]
+transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 889.654, 2.87458, -24.9867 )
+flower = true
+
+[node name="lilypad22" parent="lilypads" instance=ExtResource( 5 )]
+transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 968.725, 2.87458, -36.6186 )
+flower = true
+
+[node name="lilypad23" parent="lilypads" instance=ExtResource( 5 )]
+transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 977.555, 2.87458, -28.2415 )
+flower = true
+
+[node name="lilypad20" parent="lilypads" instance=ExtResource( 5 )]
+transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 900.252, 2.87458, -30.4675 )
+flower = true
+
+[node name="lilypad24" parent="lilypads" instance=ExtResource( 5 )]
+transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 909.586, 2.87458, -37.5763 )
+flower = true
+
 [node name="lilypad11" parent="lilypads" instance=ExtResource( 5 )]
 transform = Transform( 0.374061, 0, -0.33178, 0, 0.5, 0, 0.33178, 0, 0.374061, 489.226, 8.63974, -34.1093 )
 
@@ -3558,7 +3588,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 633.79, 18.8346, -38.2777 )
 ambushName = "bestFrondsAmbush3"
 
 [node name="watersnake" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 948.156, 2.89046, -33.9385 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 942.506, 2.89046, -36.576 )
 hpMax = 350
 
 [node name="goal" parent="." instance=ExtResource( 4 )]
