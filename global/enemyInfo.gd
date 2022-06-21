@@ -45,8 +45,8 @@ func _ready():
 	greenMantis.dam   = 10
 	greenMantis.hlth  = 100
 	greenMantis.wgt   = 0
-	greenMantis.maxC  = 8
-	greenMantis.minC  = 4
+	greenMantis.maxC  = 6
+	greenMantis.minC  = 2
 	greenMantis.oddsD = 0.1
 	greenMantis.oddsK = 0.2
 	greenMantis.weakA = false
@@ -57,7 +57,7 @@ func _ready():
 	redMantis.dam = 15
 	redMantis.hlth = 180
 	redMantis.wgt = 2
-	redMantis.maxC = 12
+	redMantis.maxC = 10
 	redMantis.minC = 8
 	redMantis.oddsD = 0.25
 	redMantis.oddsK = 0.2
@@ -69,7 +69,7 @@ func _ready():
 	spider.dam = 1
 	spider.hlth = 0
 	spider.wgt = 0
-	spider.maxC = 3
+	spider.maxC = 2
 	spider.minC = 1
 	spider.oddsD = 0.05
 	spider.oddsK = 0.2
@@ -81,7 +81,7 @@ func _ready():
 	wasp.dam = 5
 	wasp.hlth = 30
 	wasp.wgt = 0
-	wasp.maxC = 3
+	wasp.maxC = 2
 	wasp.minC = 1
 	wasp.oddsD = 0.05
 	wasp.oddsK = 0.2
