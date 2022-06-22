@@ -2187,24 +2187,6 @@ material/0 = null
 mesh = SubResource( 7 )
 material/0 = null
 
-[node name="audioTrigger" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.0145, 0, 0 )
-visible = false
-collision_layer = 0
-collision_mask = 512
-monitorable = false
-
-[node name="CollisionShape" type="CollisionShape" parent="audioTrigger"]
-shape = SubResource( 5 )
-
-[node name="MeshInstance" type="MeshInstance" parent="audioTrigger"]
-mesh = SubResource( 6 )
-material/0 = null
-
-[node name="MeshInstance2" type="MeshInstance" parent="audioTrigger"]
-mesh = SubResource( 7 )
-material/0 = null
-
 [node name="padL" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0 )
 collision_layer = 2
@@ -2367,7 +2349,6 @@ anims/under_water = SubResource( 31 )
 anims/wait = SubResource( 26 )
 
 [connection signal="area_entered" from="cameraTrigger" to="." method="_on_cameraTrigger_area_entered"]
-[connection signal="area_entered" from="audioTrigger" to="." method="_on_audioTrigger_area_entered"]
 [connection signal="area_entered" from="padL/playerCheck" to="." method="_on_playerCheckL_area_entered"]
 [connection signal="area_exited" from="padL/playerCheck" to="." method="_on_playerCheckL_area_exited"]
 [connection signal="area_entered" from="padM/playerCheck" to="." method="_on_playerCheckM_area_entered"]

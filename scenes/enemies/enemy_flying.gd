@@ -109,7 +109,8 @@ func despawn():
 		pg.kills += 1
 	# update drop counts/odds
 	minCoins += (pg.luckUpgrades * pg.coinBoost)
-	maxCoins += (pg.luckUpgrades * pg.coinBoost)
+	if (minCoins > maxCoins):
+		minCoins = maxCoins
 	oddsDrop += (pg.luckUpgrades * pg.dropBoost)
 	#print(oddsDrop)
 	queue_free()
@@ -167,11 +168,11 @@ func attackEndCounterReady():
 	else:
 		return false
 		
-func getAttackDirection(target):
-	if (target == null):
+func getAttackDirection(tempTarget):
+	if (tempTarget == null):
 		attackDirection = Vector3.ZERO
 	else:
-		attackDirection = target.translation - translation
+		attackDirection = tempTarget.translation - translation
 		attackDirection = attackSpeed * attackDirection.normalized()
 	return
 		
