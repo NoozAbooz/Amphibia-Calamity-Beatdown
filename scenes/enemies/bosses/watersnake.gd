@@ -271,7 +271,7 @@ func _on_cameraTrigger_area_entered(area):
 	cam = area.get_parent()
 	cam.inAmbush = true
 	cam.ambushTarget = translation + cameraOffset
-	cam.ambushSpawnPoint = translation + Vector3(0, 5, -11)
+	cam.ambushSpawnPoint = translation + Vector3(0, 5, 9)
 	get_node("cameraTrigger").queue_free()
 	aggro = true
 
