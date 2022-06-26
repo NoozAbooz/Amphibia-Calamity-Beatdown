@@ -124,7 +124,7 @@ settings/stdout/print_fps=true
 
 window/size/width=1280
 window/size/height=720
-window/vsync/use_vsync=false
+window/vsync/vsync_via_compositor=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -545,6 +545,7 @@ file_logging/enable_file_logging.pc=false
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
 threads/thread_model=2
 vram_compression/import_etc2=false
