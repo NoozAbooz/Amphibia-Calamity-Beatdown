@@ -3,16 +3,15 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Barrel_Texture_04.png-7ed77b11e746264ec52d9b49dbb38c8e.s3tc.stex"
-path.etc2="res://.import/Barrel_Texture_04.png-7ed77b11e746264ec52d9b49dbb38c8e.etc2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://art/models/Barrel/Barrel_Texture_04.png"
-dest_files=[ "res://.import/Barrel_Texture_04.png-7ed77b11e746264ec52d9b49dbb38c8e.s3tc.stex", "res://.import/Barrel_Texture_04.png-7ed77b11e746264ec52d9b49dbb38c8e.etc2.stex" ]
+dest_files=[ "res://.import/Barrel_Texture_04.png-7ed77b11e746264ec52d9b49dbb38c8e.s3tc.stex" ]
 
 [params]
 

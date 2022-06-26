@@ -130,7 +130,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/ImportCleaner/plugin.cfg", "res://addons/discord_game_sdk/plugin.cfg", "res://addons/godot_editor_discord_presence/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/ImportCleaner/plugin.cfg", "res://addons/discord_game_sdk/plugin.cfg" )
 
 [gdnative]
 
@@ -545,5 +545,7 @@ file_logging/enable_file_logging.pc=false
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
-quality/filters/msaa=4
+quality/driver/fallback_to_gles2=true
+threads/thread_model=2
+vram_compression/import_etc2=false
+quality/filters/msaa=2
