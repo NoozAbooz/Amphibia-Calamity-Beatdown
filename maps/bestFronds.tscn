@@ -1595,6 +1595,16 @@ animations = [ {
 "loop": false,
 "name": "hurt",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ) ],
+"loop": false,
+"name": "attack_heavy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 5.0
 } ]
 
 [sub_resource type="BoxShape" id=117]
@@ -2442,6 +2452,7 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
+<<<<<<< HEAD
 "frames": [ ExtResource( 16 ), ExtResource( 11 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 19 ) ],
 "loop": false,
 "name": "walk",
@@ -2452,9 +2463,27 @@ animations = [ {
 "name": "attack_heavy",
 "speed": 5.0
 }, {
+=======
+>>>>>>> 01bc5bbf426b76682674fb39569227be1daa66cb
 "frames": [ ExtResource( 26 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+<<<<<<< HEAD
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "hurt",
+=======
+"frames": [ ExtResource( 16 ), ExtResource( 11 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "walk",
+>>>>>>> 01bc5bbf426b76682674fb39569227be1daa66cb
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_heavy",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],

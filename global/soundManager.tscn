@@ -36,26 +36,33 @@ script = ExtResource( 2 )
 
 [node name="hit1" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 5 )
+volume_db = -4.0
 
 [node name="hit2" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 1 )
+volume_db = -4.0
 
 [node name="hit3" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 3 )
+volume_db = -4.0
 pitch_scale = 0.9
 
 [node name="hit4" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 4 )
+volume_db = -4.0
 pitch_scale = 0.8
 
 [node name="hit5" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 26 )
+volume_db = -4.0
 
 [node name="hurt1" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 7 )
+volume_db = 2.0
 
 [node name="hurt2" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 6 )
+volume_db = -4.0
 
 [node name="shield" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 15 )
@@ -68,6 +75,7 @@ stream = ExtResource( 9 )
 
 [node name="coin1" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 10 )
+volume_db = -4.0
 
 [node name="pickup" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 13 )
@@ -85,6 +93,7 @@ stream = ExtResource( 12 )
 
 [node name="jump" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 14 )
+volume_db = -3.0
 
 [node name="pause" type="AudioStreamPlayer" parent="sfx"]
 pause_mode = 2
@@ -110,12 +119,12 @@ volume_db = -15.0
 [node name="swamp" type="AudioStreamPlayer" parent="music"]
 pause_mode = 1
 stream = ExtResource( 28 )
-volume_db = -6.0
+volume_db = -9.0
 
 [node name="menu" type="AudioStreamPlayer" parent="music"]
 pause_mode = 1
 stream = ExtResource( 25 )
-volume_db = -6.0
+volume_db = -5.0
 
 [node name="map" type="AudioStreamPlayer" parent="music"]
 pause_mode = 1
@@ -130,17 +139,17 @@ volume_db = -6.0
 [node name="stats" type="AudioStreamPlayer" parent="music"]
 pause_mode = 1
 stream = ExtResource( 24 )
-volume_db = -6.0
+volume_db = -9.0
 
 [node name="boss1" type="AudioStreamPlayer" parent="music"]
 pause_mode = 1
 stream = ExtResource( 23 )
-volume_db = -8.0
+volume_db = -13.0
 
 [node name="go" type="AudioStreamPlayer" parent="music"]
 pause_mode = 1
 stream = ExtResource( 22 )
-volume_db = -6.0
+volume_db = -12.0
 
 [node name="Tween" type="Tween" parent="."]
 
