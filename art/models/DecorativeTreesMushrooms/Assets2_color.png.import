@@ -3,16 +3,15 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Assets2_color.png-968f1f7c22c3bc0a2a2f58e32769e75a.s3tc.stex"
-path.etc2="res://.import/Assets2_color.png-968f1f7c22c3bc0a2a2f58e32769e75a.etc2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://art/models/DecorativeTreesMushrooms/Assets2_color.png"
-dest_files=[ "res://.import/Assets2_color.png-968f1f7c22c3bc0a2a2f58e32769e75a.s3tc.stex", "res://.import/Assets2_color.png-968f1f7c22c3bc0a2a2f58e32769e75a.etc2.stex" ]
+dest_files=[ "res://.import/Assets2_color.png-968f1f7c22c3bc0a2a2f58e32769e75a.s3tc.stex" ]
 
 [params]
 

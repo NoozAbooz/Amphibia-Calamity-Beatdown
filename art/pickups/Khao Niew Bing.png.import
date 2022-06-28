@@ -3,16 +3,15 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Khao Niew Bing.png-86aae86334f33a6b07c99476224613a9.s3tc.stex"
-path.etc2="res://.import/Khao Niew Bing.png-86aae86334f33a6b07c99476224613a9.etc2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://art/pickups/Khao Niew Bing.png"
-dest_files=[ "res://.import/Khao Niew Bing.png-86aae86334f33a6b07c99476224613a9.s3tc.stex", "res://.import/Khao Niew Bing.png-86aae86334f33a6b07c99476224613a9.etc2.stex" ]
+dest_files=[ "res://.import/Khao Niew Bing.png-86aae86334f33a6b07c99476224613a9.s3tc.stex" ]
 
 [params]
 

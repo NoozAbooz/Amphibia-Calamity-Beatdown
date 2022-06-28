@@ -3,16 +3,15 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Mysterious Mushroom.png-816b7d7fab8e52496c001f6cf963469f.s3tc.stex"
-path.etc2="res://.import/Mysterious Mushroom.png-816b7d7fab8e52496c001f6cf963469f.etc2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://art/pickups/Mysterious Mushroom.png"
-dest_files=[ "res://.import/Mysterious Mushroom.png-816b7d7fab8e52496c001f6cf963469f.s3tc.stex", "res://.import/Mysterious Mushroom.png-816b7d7fab8e52496c001f6cf963469f.etc2.stex" ]
+dest_files=[ "res://.import/Mysterious Mushroom.png-816b7d7fab8e52496c001f6cf963469f.s3tc.stex" ]
 
 [params]
 

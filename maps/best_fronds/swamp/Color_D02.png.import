@@ -3,16 +3,15 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Color_D02.png-f67073ec08769e6a89c6352af4bb81bb.s3tc.stex"
-path.etc2="res://.import/Color_D02.png-f67073ec08769e6a89c6352af4bb81bb.etc2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://maps/best_fronds/swamp/Color_D02.png"
-dest_files=[ "res://.import/Color_D02.png-f67073ec08769e6a89c6352af4bb81bb.s3tc.stex", "res://.import/Color_D02.png-f67073ec08769e6a89c6352af4bb81bb.etc2.stex" ]
+dest_files=[ "res://.import/Color_D02.png-f67073ec08769e6a89c6352af4bb81bb.s3tc.stex" ]
 
 [params]
 
@@ -25,7 +24,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
