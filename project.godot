@@ -130,7 +130,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/ImportCleaner/plugin.cfg", "res://addons/discord_game_sdk/plugin.cfg", "res://addons/godot_editor_discord_presence/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/ImportCleaner/plugin.cfg", "res://addons/discord_game_sdk/plugin.cfg" )
 
 [gdnative]
 

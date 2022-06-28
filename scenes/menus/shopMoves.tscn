@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/menus/shopMoves.gd" type="Script" id=1]
+
+[node name="shopMoves" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="confirm" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="dialogue" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="leftChar" type="AnimatedSprite" parent="dialogue"]
+
+[node name="rightChar" type="AnimatedSprite" parent="dialogue"]
+
+[node name="leftCharAnim" type="AnimationPlayer" parent="dialogue"]
+
+[node name="rightCharAnim" type="AnimationPlayer" parent="dialogue"]
