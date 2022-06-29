@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/wartwood/wartwood_raw.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://art/enemies/mantis_attack_2.png" type="Texture" id=24]
 [ext_resource path="res://maps/wartwood/statue.tscn" type="PackedScene" id=25]
 [ext_resource path="res://maps/wartwood/school.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/npcs/npc_generic.tscn" type="PackedScene" id=27]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -849,6 +850,11 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "block",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 16 ) ],
 "loop": false,
 "name": "attack_heavy",
@@ -859,19 +865,14 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 18 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "walk",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": false,
 "name": "hurt_air",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 18 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 5 ) ],
 "loop": false,
-"name": "block",
+"name": "walk",
 "speed": 5.0
 } ]
 
@@ -1009,6 +1010,11 @@ shape = SubResource( 68 )
 
 [node name="school" parent="." instance=ExtResource( 26 )]
 transform = Transform( -0.358001, 0.00638644, -0.933699, 0.0178363, 0.999841, 0, 0.933551, -0.0166538, -0.358058, 60.3435, -1.10481, 7.65521 )
+
+[node name="npcs" type="Spatial" parent="."]
+
+[node name="npcTest" parent="npcs" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.3259, -1.19224, 17.7772 )
 
 [connection signal="animation_finished" from="greenMantis/AnimationPlayer" to="greenMantis" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="greenMantis/zeroPoint/hurtbox" to="greenMantis" method="_on_hurtbox_area_entered"]

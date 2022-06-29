@@ -56,7 +56,7 @@ var hasMaggie = false
 var availableChars = ["Anne"]
 
 # Completed levels
-var completedLevels = [true, true, false, false, false, false, false, false, false, false, false,]
+var completedLevels = [true, true, false, false, false, false, false, false, false, false, false]
 
 # game over stuff
 var GOCount = 0
@@ -100,7 +100,20 @@ func countPlayers():
 		if i:
 			count += 1
 	return count
-		
+
+# returns number of completed levels. Note Wartwood and the test playground are levels
+# 0 and 1 and are not included in the count
+func countCompletedLevels():
+	var count = 0
+	for i in completedLevels:
+		if i:
+			count += 1
+	#removes levels 0 and 1
+	count -= 2
+	if count <= 0:
+		count = 0
+	return count
+	
 
 func backToMapLose():
 	soundManager.stopMusic()
