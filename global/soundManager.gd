@@ -56,6 +56,14 @@ func stopMusic():
 	for song in $"music".get_children():
 		song.stop()
 		
+# Used for pause screen
+func pauseMusic():
+	for song in get_node("music").get_children():
+		song.set_stream_paused(true)
+func resumeMusic():
+	for song in get_node("music").get_children():
+		song.set_stream_paused(false)
+		
 func FadeOutSong(name):
 	var song = get_node("music/" + name)
 	oldDB = song.volume_db

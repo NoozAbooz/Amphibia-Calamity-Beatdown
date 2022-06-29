@@ -107,47 +107,47 @@ pitch_scale = 0.8
 [node name="music" type="Node" parent="."]
 
 [node name="test" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 19 )
 volume_db = -6.0
 
 [node name="marcy" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 27 )
 volume_db = -15.0
 
 [node name="swamp" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 28 )
 volume_db = -9.0
 
 [node name="menu" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 25 )
 volume_db = -5.0
 
 [node name="map" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 21 )
 volume_db = -6.0
 
 [node name="ripple" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 20 )
 volume_db = -6.0
 
 [node name="stats" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 24 )
 volume_db = -9.0
 
 [node name="boss1" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 23 )
 volume_db = -13.0
 
 [node name="go" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 22 )
 volume_db = -12.0
 

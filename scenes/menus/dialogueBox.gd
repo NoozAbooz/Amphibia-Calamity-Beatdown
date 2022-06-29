@@ -46,6 +46,9 @@ func initialize(dialogeName):
 	var filePath = "res://dialogue/" + dialogeName + ".json"
 	var file = File.new()
 	
+	# Pauses the game
+	get_tree().paused = true
+	
 	# checks if file even exists
 	if file.file_exists(filePath) == false:
 		print("dialogue not found!")
@@ -61,6 +64,7 @@ func initialize(dialogeName):
 func endDialogue():
 	pg.inCutscene = false
 	pg.dontMove = false
+	get_tree().paused = false
 	queue_free()
 
 func skip():
