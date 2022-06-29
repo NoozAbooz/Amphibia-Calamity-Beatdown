@@ -63,6 +63,7 @@ var GOCount = 0
 
 # pauses player for cutscenes/other events
 var dontMove = false
+var inCutscene = false
 
 
 func recalcInfo():

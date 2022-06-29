@@ -1,0 +1,389 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scenes/menus/dialogueBox.gd" type="Script" id=1]
+[ext_resource path="res://scenes/menus/dialogueSpriteFrame.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://art/menus/char_info.png" type="Texture" id=3]
+[ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=4]
+[ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "offScreen"
+length = 0.0833333
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("leftChar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("leftChar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -300, 300 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "slide_in"
+length = 0.5
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("leftChar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("leftChar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( -300, 300 ), Vector2( 400, 300 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "slide_out"
+length = 0.333333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("leftChar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("leftChar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 400, 300 ), Vector2( -300, 300 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "still_in"
+length = 0.0833333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("leftChar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("leftChar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 400, 300 ), Vector2( 400, 300 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "still_out"
+length = 0.0833333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("leftChar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("leftChar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -300, 300 ), Vector2( -300, 300 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "offScreen"
+length = 0.0833333
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("rightChar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("rightChar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1580, 300 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "slide_in"
+length = 0.5
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("rightChar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("rightChar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1580, 300 ), Vector2( 880, 300 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "slide_out"
+length = 0.333333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("rightChar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("rightChar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 2, 0.2 ),
+"update": 0,
+"values": [ Vector2( 880, 300 ), Vector2( 1580, 300 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "still_in"
+length = 0.0833333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("rightChar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("rightChar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 880, 300 ), Vector2( 880, 300 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "still_out"
+length = 0.0833333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("rightChar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("rightChar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1580, 300 ), Vector2( 1580, 300 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "hide",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), null ],
+"loop": true,
+"name": "blink",
+"speed": 3.0
+} ]
+
+[node name="dialogueBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dark" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0.313726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="leftChar" type="AnimatedSprite" parent="."]
+position = Vector2( 400, 300 )
+scale = Vector2( 0.75, 0.75 )
+frames = ExtResource( 2 )
+animation = "anne_normal"
+flip_h = true
+
+[node name="rightChar" type="AnimatedSprite" parent="."]
+position = Vector2( 1580, 300 )
+scale = Vector2( 0.75, 0.75 )
+frames = ExtResource( 2 )
+animation = "marcy_smug"
+
+[node name="leftCharAnim" type="AnimationPlayer" parent="."]
+autoplay = "offScreen"
+anims/offScreen = SubResource( 1 )
+anims/slide_in = SubResource( 3 )
+anims/slide_out = SubResource( 5 )
+anims/still_in = SubResource( 6 )
+anims/still_out = SubResource( 7 )
+
+[node name="rightCharAnim" type="AnimationPlayer" parent="."]
+autoplay = "offScreen"
+anims/offScreen = SubResource( 2 )
+anims/slide_in = SubResource( 8 )
+anims/slide_out = SubResource( 9 )
+anims/still_in = SubResource( 10 )
+anims/still_out = SubResource( 11 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_top = 500.0
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 3 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arrow" type="AnimatedSprite" parent="."]
+position = Vector2( 1248, 680 )
+frames = SubResource( 4 )
+animation = "blink"
+playing = true
+
+[node name="label" type="Label" parent="."]
+margin_left = 50.0
+margin_top = 550.0
+margin_right = 1230.0
+margin_bottom = 720.0
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="animation_finished" from="leftCharAnim" to="." method="_on_leftCharAnim_animation_finished"]
+[connection signal="animation_finished" from="rightCharAnim" to="." method="_on_rightCharAnim_animation_finished"]
