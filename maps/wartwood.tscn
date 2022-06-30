@@ -1016,10 +1016,11 @@ transform = Transform( -0.358001, 0.00638644, -0.933699, 0.0178363, 0.999841, 0,
 
 [node name="hopPop" parent="." instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.4147, -1.28107, 16.5234 )
+dialogueName = "hoppop_school"
 
 [node name="wally" parent="." instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.4342, -0.149254, 20.9741 )
-hasDialogue = false
+dialogueName = "wally_boom"
 startLeft = true
 
 [connection signal="animation_finished" from="greenMantis/AnimationPlayer" to="greenMantis" method="_on_AnimationPlayer_animation_finished"]

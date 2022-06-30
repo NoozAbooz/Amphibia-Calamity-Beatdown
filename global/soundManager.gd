@@ -26,7 +26,7 @@ func getDefaultVol(name):
 func playSound(name):
 	if (name == "none"):
 		return
-	elif (name == "hit5") and (get_node("sfx/" + name).is_playing()): 
+	elif ((name == "hit5") or (name == "talk")) and (get_node("sfx/" + name).is_playing()): 
 		# sounds in this group will not play over themselves
 		return
 	else:

@@ -1,8 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=4 format=2]
+[gd_resource type="SpriteFrames" load_steps=10 format=2]
 
 [ext_resource path="res://art/cutscenes/Anne_ask.png" type="Texture" id=1]
 [ext_resource path="res://art/cutscenes/Marcy_happy.png" type="Texture" id=2]
 [ext_resource path="res://art/cutscenes/Anne_normal.png" type="Texture" id=3]
+[ext_resource path="res://art/cutscenes/Marcy_normal.png" type="Texture" id=4]
+[ext_resource path="res://art/cutscenes/Marcy_ask.png" type="Texture" id=5]
+[ext_resource path="res://art/cutscenes/HP_ask.png" type="Texture" id=6]
+[ext_resource path="res://art/cutscenes/Wally_ask.png" type="Texture" id=7]
+[ext_resource path="res://art/cutscenes/Wally_normal.png" type="Texture" id=8]
+[ext_resource path="res://art/cutscenes/HP_mad.png" type="Texture" id=9]
 
 [resource]
 animations = [ {
@@ -11,9 +17,19 @@ animations = [ {
 "name": "empty",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Marcy_happy",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Anne_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Marcy_normal",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
@@ -21,8 +37,28 @@ animations = [ {
 "name": "Anne_ask",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "Marcy_smug",
+"name": "Wally_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Marcy_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "HP_mad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "HP_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Wally_normal",
 "speed": 5.0
 } ]

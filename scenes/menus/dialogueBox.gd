@@ -128,7 +128,9 @@ func _process(delta):
 				nextState = WAITING
 				arrow.play("blink")
 			messageNode.percent_visible = (messagePercent* 0.01)
+			soundManager.playSound("talk")
 		WAITING:
+			soundManager.get_node("sfx/talk").stop()
 			if skip():
 				messagePercent = 0
 				nextState = MOVINGOUT
