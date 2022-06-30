@@ -56,7 +56,8 @@ var hasMaggie = false
 var availableChars = ["Anne"]
 
 # Completed levels
-var completedLevels = [true, true, false, false, false, false, false, false, false, false, false]
+#                     [Wartwood, Test,  l1,    l2,    l3,    l4,    l5,    l6,    l7,    l8,    l9,   final]
+var completedLevels = [  true,   true, true, true, false, false, false, false, false, false, false, false]
 
 # game over stuff
 var GOCount = 0

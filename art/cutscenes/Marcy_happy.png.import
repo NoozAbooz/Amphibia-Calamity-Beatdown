@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/marcy smug.png-88a48a69d9fe44878ce61cb90df5bf45.stex"
+path="res://.import/Marcy_happy.png-d35471be321e60b621b7cd6de5d86a45.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cutscenes/marcy smug.png"
-dest_files=[ "res://.import/marcy smug.png-88a48a69d9fe44878ce61cb90df5bf45.stex" ]
+source_file="res://art/cutscenes/Marcy_happy.png"
+dest_files=[ "res://.import/Marcy_happy.png-d35471be321e60b621b7cd6de5d86a45.stex" ]
 
 [params]
 

@@ -329,17 +329,17 @@ __meta__ = {
 }
 
 [node name="leftChar" type="AnimatedSprite" parent="."]
-position = Vector2( 400, 300 )
+position = Vector2( -300, 300 )
 scale = Vector2( 0.75, 0.75 )
 frames = ExtResource( 2 )
-animation = "anne_normal"
+animation = "Anne_ask"
 flip_h = true
 
 [node name="rightChar" type="AnimatedSprite" parent="."]
 position = Vector2( 1580, 300 )
 scale = Vector2( 0.75, 0.75 )
 frames = ExtResource( 2 )
-animation = "marcy_smug"
+animation = "Marcy_smug"
 
 [node name="leftCharAnim" type="AnimationPlayer" parent="."]
 autoplay = "offScreen"
@@ -374,7 +374,6 @@ __meta__ = {
 position = Vector2( 1248, 680 )
 frames = SubResource( 4 )
 animation = "blink"
-frame = 1
 playing = true
 
 [node name="label" type="Label" parent="."]

@@ -1,7 +1,7 @@
 [
-  {"sprite":"anne_point",  "pos":"left",  "move_in":"slide", "move_out":"slide", "text":"Uh... are you sure about this Marcy?"},
-  {"sprite":"marcy_smug",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Of course Anne!" },
-  {"sprite":"marcy_smug",  "pos":"right", "move_in":"still", "move_out":"slide", "text":"Have I ever been wrong?" },
-  {"sprite":"anne_normal", "pos":"left",  "move_in":"slide", "move_out":"none",  "text":"Alright..."},
-  {"sprite":"anne_normal", "pos":"left",  "move_in":"still", "move_out":"slide", "text":"If you say so."}
+  {"sprite":"[PC]_ask",    "pos":"left",  "move_in":"slide", "move_out":"slide", "text":"Uh... are you sure about this Marcy?"},
+  {"sprite":"Marcy_smug",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Of course [PC]!" },
+  {"sprite":"Marcy_smug",  "pos":"right", "move_in":"still", "move_out":"slide", "text":"Have I ever been wrong?" },
+  {"sprite":"[PC]_normal", "pos":"left",  "move_in":"slide", "move_out":"none",  "text":"Alright..."},
+  {"sprite":"[PC]_normal", "pos":"left",  "move_in":"still", "move_out":"slide", "text":"If you say so."}
 ]

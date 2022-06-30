@@ -9,6 +9,8 @@ var dialogue = []
 var dialogueIndex = 0
 var numLines = 0
 
+var playerChar = "anne"
+
 onready var messageNode = get_node("label")
 var messageLength = 0
 var messagePercent = 0.0
@@ -39,9 +41,9 @@ func _ready():
 	get_node("rightCharAnim").play("offScreen")
 	arrow.play("hide")
 	# for testing
-	initialize("test")
+	initialize("test", "Anne")
 
-func initialize(dialogeName):
+func initialize(dialogeName, playerName = "Anne"):
 	# loads the correct dialoge json
 	var filePath = "res://dialogue/" + dialogeName + ".json"
 	var file = File.new()
@@ -58,6 +60,10 @@ func initialize(dialogeName):
 	dialogue = parse_json(file.get_as_text())
 	numLines = len(dialogue)
 	
+	# edits dialogue
+	for line in dialogue:
+		line['text'] = line['text'].replace("[PC]", playerName)
+		line['sprite'] = line['sprite'].replace("[PC]", playerName)
 	# starts FSM
 	state = READ
 

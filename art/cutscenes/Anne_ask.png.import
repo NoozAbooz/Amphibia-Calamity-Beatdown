@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/anne point.png-7e3ad0a8a31daac7f2a5d54c8d9443e4.stex"
+path="res://.import/Anne_ask.png-b9f91f2b7dd7b20563a38f59dc1d323a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cutscenes/anne point.png"
-dest_files=[ "res://.import/anne point.png-7e3ad0a8a31daac7f2a5d54c8d9443e4.stex" ]
+source_file="res://art/cutscenes/Anne_ask.png"
+dest_files=[ "res://.import/Anne_ask.png-b9f91f2b7dd7b20563a38f59dc1d323a.stex" ]
 
 [params]
 

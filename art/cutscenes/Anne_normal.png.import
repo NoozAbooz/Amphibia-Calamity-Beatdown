@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/anne normal.png-ccd25dd5be36d2701b12ef7a4a7b05a7.stex"
+path="res://.import/Anne_normal.png-20186aac20adb692293059ff625e9c2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cutscenes/anne normal.png"
-dest_files=[ "res://.import/anne normal.png-ccd25dd5be36d2701b12ef7a4a7b05a7.stex" ]
+source_file="res://art/cutscenes/Anne_normal.png"
+dest_files=[ "res://.import/Anne_normal.png-20186aac20adb692293059ff625e9c2d.stex" ]
 
 [params]
 
