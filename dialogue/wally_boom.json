@@ -1,5 +1,5 @@
 [
-  {"sprite":"Wally_ask",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"Oi ! [PC]! You lot need any more boomshrrom for your next trip out?" },
-  {"sprite":"[PC]_normal",  "pos":"left", "move_in":"slide", "move_out":"slide", "text":"Nah, Polly keeps up pretty well stocked." },
+  {"sprite":"Wally_ask",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"Oi! [PC]! You lot need any more boomshrrom for your next trip out?" },
+  {"sprite":"[PC]_normal",  "pos":"left", "move_in":"slide", "move_out":"slide", "text":"Nah, Polly keeps us pretty well stocked." },
   {"sprite":"Wally_ask",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"A tadpole after me own heart. Good luck out there!" }
 ]

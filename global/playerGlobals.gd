@@ -42,6 +42,8 @@ var numPlayers = 1
 var unlimitedLives = false
 var unlimitedMoney = false
 var hardcoreMode   = false
+var allCharsMode   = false
+# perfect shield?
 
 # destination level info
 var levelName = "test"
@@ -70,13 +72,13 @@ var inCutscene = false
 func recalcInfo():
 	# characters
 	availableChars = ["Anne"]
-	if hasMarcy:
+	if hasMarcy or allCharsMode:
 		availableChars.append("Marcy")
-	if hasSasha:
+	if hasSasha or allCharsMode:
 		availableChars.append("Sasha")
-	if hasSprig:
+	if hasSprig or allCharsMode:
 		availableChars.append("Sprig")
-	if hasMaggie:
+	if hasMaggie or allCharsMode:
 		availableChars.append("Maggie")
 	# inputs
 	checkAvailableInputs()
