@@ -1,0 +1,6 @@
+[
+  {"sprite":"Fel_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Ah yes, the Shell Breaker is one of my personal favorites. It's a little tricky to pull off." },
+  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"Start off with a standard 3-hit arial combo, then press the heavy attack button to bounce upward and prepare your swing." },
+  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"Press the heavy attack button again once the enemy is right in front of you to send it, and yourself, straight downwards." },
+  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"slide",  "text":"Once you land, that nasty bug, and any other bugs nearby, will be sent flying! You can even act out of it to keep the combo going!"}
+]

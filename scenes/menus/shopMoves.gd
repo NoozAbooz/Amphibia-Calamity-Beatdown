@@ -5,6 +5,8 @@ var dialogueScene = preload("res://scenes/menus/dialogueBox.tscn")
 onready var main = get_node("main")
 onready var conf = get_node("confirm")
 
+var boughtSomething = false
+
 var state = "main"
 
 class item:
@@ -45,30 +47,35 @@ func _ready():
 	item0.title = "Double Jump"
 	item0.cost = COST0
 	item0.desc = "Jump again while in mid-air to extend combos and get to hard to reach places."
+	item0.dialogue = "fel_dj"
 	
 	item1 = item.new()
 	item1.num = 1
 	item1.title = "Spin Attack"
 	item1.cost = COST1
 	item1.desc = "Perform a multi-hit area attack after a 3-hit combo to knock away surrounding enemies."
+	item1.dialogue = "fel_spin"
 	
 	item2 = item.new()
 	item2.num = 2
 	item2.title = "Shell Breaker"
 	item2.cost = COST2
 	item2.desc = "Perform a devastating slam attack after an arial 3-hit combo that also damages enemies below you."
+	item2.dialogue = "fel_breaker"
 	
 	item3 = item.new()
 	item3.num = 3
 	item3.title = "Counter Attack"
 	item3.cost = COST3
 	item3.desc = "Block just before taking a hit to negate all damage and send nearby foes skyward. Follow up with air or ground attacks for even more damage!"
+	item3.dialogue = "fel_counter"
 	
 	item4 = item.new()
 	item4.num = 4
 	item4.title = "Tackle"
 	item4.cost = COST4
 	item4.desc = "Knock enemies back and deal more damage with this heavier version of the slide attack."
+	item4.dialogue = "fel_tackle"
 	
 	refreshShop()
 	
@@ -79,7 +86,7 @@ func _ready():
 	get_node("confirm").hide()
 	
 	# intro dialogue
-	playDialogue("hoppop_school")
+	playDialogue("fel_enter")
 	
 	get_node("main/buttonExit").grab_focus()
 	
@@ -218,7 +225,9 @@ func _on_buttonExit_focus_entered():
 	get_node("NinePatchRect/description").text = "Return to Wartwood?"
 
 func _on_buttonExit_pressed():
-	tran.loadLevel("res://maps/wartwood.tscn")
+	# sets timer (timer is paused durring dialogue
+	get_node("Timer").start()
+	playDialogue("fel_exit")
 	
 func playDialogue(dialogueName):
 	# finds first alive player
@@ -250,3 +259,7 @@ func _process(delta):
 		# removed to players don't spam b durring cutscene and leave
 		if (state == "confirm"):
 			_on_buttonNo_pressed()
+
+
+func _on_Timer_timeout():
+	tran.loadLevel("res://maps/wartwood.tscn")

@@ -294,6 +294,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
 [connection signal="focus_entered" from="main/buttonExit" to="." method="_on_buttonExit_focus_entered"]
 [connection signal="pressed" from="main/buttonExit" to="." method="_on_buttonExit_pressed"]
 [connection signal="focus_entered" from="main/options/buttonItem0" to="." method="_on_buttonItem0_focus_entered"]
@@ -308,3 +312,4 @@ __meta__ = {
 [connection signal="pressed" from="main/options/buttonItem4" to="." method="_on_buttonItem_pressed"]
 [connection signal="pressed" from="confirm/NinePatchRect/buttonYes" to="." method="_on_buttonYes_pressed"]
 [connection signal="pressed" from="confirm/NinePatchRect/buttonNo" to="." method="_on_buttonNo_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
