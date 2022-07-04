@@ -18,7 +18,7 @@
 [ext_resource path="res://maps/level objects/lilypad.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/enemies/bosses/watersnake.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/enemies/wasp.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/goal.tscn" type="PackedScene" id=19]
+[ext_resource path="res://maps/level objects/goal.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/enemies/spawners/spiderNest.tscn" type="PackedScene" id=20]
 [ext_resource path="res://maps/decorations/trees/swampTreeA.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/pickups/coin.tscn" type="PackedScene" id=22]

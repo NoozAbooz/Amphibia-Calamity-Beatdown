@@ -3,7 +3,7 @@ extends Node
 # player variables
 var playerStartingMaxHP = 100 #100
 var playerStartingLives = 3 #3
-var totalMoney = 0
+var totalMoney = 5000
 var newMoney = 0
 var kills = 0 # Used to count in ambushes
 var killsTotal = 0 # Used to count total kills
@@ -129,3 +129,8 @@ func endLevel():
 	soundManager.FadeOutSong(levelMusic)
 	# plays transitioner to fade and open tally scene
 	tran.endLevel()
+	
+func spend(amount):
+	totalMoney -= amount
+	if (totalMoney <= 0):
+		totalMoney = 0

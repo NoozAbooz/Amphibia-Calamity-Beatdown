@@ -3,7 +3,7 @@
 [ext_resource path="res://maps/best_fronds/env.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://maps/level objects/ambush.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/enemies/bosses/watersnake.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://maps/level objects/goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://maps/level objects/lilypad.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/pickups/coin.tscn" type="PackedScene" id=7]

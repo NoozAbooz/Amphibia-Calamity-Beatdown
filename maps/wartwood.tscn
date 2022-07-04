@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/wartwood/wartwood_raw.tscn" type="PackedScene" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://maps/wartwood/school.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/npcs/hopPop.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/npcs/wally.tscn" type="PackedScene" id=28]
+[ext_resource path="res://maps/level objects/shopTrigger.tscn" type="PackedScene" id=29]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -1022,6 +1023,9 @@ dialogueName = "hoppop_school"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.4342, -0.149254, 20.9741 )
 dialogueName = "wally_boom"
 startLeft = true
+
+[node name="shopTrigger" parent="." instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4292, 1.84533, 24.0959 )
 
 [connection signal="animation_finished" from="greenMantis/AnimationPlayer" to="greenMantis" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="greenMantis/zeroPoint/hurtbox" to="greenMantis" method="_on_hurtbox_area_entered"]

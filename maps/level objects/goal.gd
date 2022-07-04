@@ -26,7 +26,7 @@ func _on_zone_area_entered(area):
 	zone.queue_free()
 	# removes ability to pause
 	get_parent().get_node("pauseScreen").queue_free()
-	# updates globar player values from player nodes
+	# updates global player values from player nodes
 	pg.playerLives = [0, 0, 0, 0]
 	pg.playerCoins = [0, 0, 0, 0]
 	for i in range(0, 4):

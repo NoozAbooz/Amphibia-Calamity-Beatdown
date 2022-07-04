@@ -31,6 +31,7 @@
 [ext_resource path="res://sounds/talk.wav" type="AudioStream" id=29]
 
 [node name="soundManager" type="Node"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="sfx" type="Node" parent="."]
