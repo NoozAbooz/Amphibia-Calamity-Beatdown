@@ -1,0 +1,4 @@
+[
+  {"sprite":"Fel_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Ah, [PC]! \n\nPerfect timing." },
+  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"slide", "text":"What new martial arts techniques would you like me to teach you today?" },
+]

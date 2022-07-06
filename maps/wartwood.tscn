@@ -1025,7 +1025,11 @@ dialogueName = "wally_boom"
 startLeft = true
 
 [node name="shopTrigger" parent="." instance=ExtResource( 29 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4292, 1.84533, 24.0959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4217, -3.51547, 25.4831 )
+
+[node name="shopTrigger2" parent="." instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5375, -3.51547, 4.08445 )
+destinationSceneName = "shopUpgrades"
 
 [connection signal="animation_finished" from="greenMantis/AnimationPlayer" to="greenMantis" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="greenMantis/zeroPoint/hurtbox" to="greenMantis" method="_on_hurtbox_area_entered"]

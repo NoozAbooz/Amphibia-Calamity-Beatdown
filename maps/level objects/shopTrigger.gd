@@ -5,8 +5,9 @@ onready var zone = get_node("zone")
 export var destinationSceneName = "shopMoves"
 
 func _ready():
-	pass # Replace with function body.
-
+	# removes visible mesh
+	get_node("zone/MeshInstance").queue_free()
+	
 func _on_Area_area_entered(area):
 	# removes area detection for goal
 	zone.queue_free()

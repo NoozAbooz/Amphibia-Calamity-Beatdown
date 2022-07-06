@@ -21,64 +21,57 @@ class item:
 	var dialogue = "wally_boom"
 
 # costs
-var COST0 = 300
-var COST1 = 250
-var COST2 = 250
-var COST3 = 200
-var COST4 = 200
+var defaultCost = 100
+var costIncrement = 75
+var COST0 = 0
+var COST1 = 0
+var COST2 = 0
+var COST3 = 0
 
 var curItem = item.new()
 var item0 = null
 var item1 = null
 var item2 = null
 var item3 = null
-var item4 = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	# unlimied money code
 	if (pg.unlimitedMoney):
 		COST0 = 0
 		COST1 = 0
 		COST2 = 0
 		COST3 = 0
-		COST4 = 0
 		
 	# available items
 	item0 = item.new()
 	item0.num = 0
-	item0.title = "Double Jump"
+	item0.title = "Health Upgrade"
 	item0.cost = COST0
-	item0.desc = "Jump again while in mid-air to extend combos and get to hard to reach places."
-	item0.dialogue = "fel_dj"
+	item0.desc = "Increases max HP by 20%"
+	item0.dialogue = "mad_hp"
 	
 	item1 = item.new()
 	item1.num = 1
-	item1.title = "Spin Attack"
+	item1.title = "Extra Lives Upgrade"
 	item1.cost = COST1
-	item1.desc = "Perform a multi-hit area attack after a 3-hit combo to knock away surrounding enemies."
-	item1.dialogue = "fel_spin"
+	item1.desc = "Start with 1 additional extra life in every level."
+	item1.dialogue = "mad_lives"
 	
 	item2 = item.new()
 	item2.num = 2
-	item2.title = "Shell Breaker"
+	item2.title = "Damage Upgrade"
 	item2.cost = COST2
-	item2.desc = "Perform a devastating slam attack after an arial 3-hit combo that also damages enemies below you."
-	item2.dialogue = "fel_breaker"
+	item2.desc = "Increases damage from all attacks by 20%"
+	item2.dialogue = "mad_dam"
 	
 	item3 = item.new()
 	item3.num = 3
-	item3.title = "Counter Attack"
+	item3.title = "Luck Upgrade"
 	item3.cost = COST3
-	item3.desc = "Block just before taking a hit to negate all damage and send nearby foes skyward. Follow up with air or ground attacks for even more damage!"
-	item3.dialogue = "fel_counter"
-	
-	item4 = item.new()
-	item4.num = 4
-	item4.title = "Tackle"
-	item4.cost = COST4
-	item4.desc = "Knock enemies back and deal more damage with this heavier version of the slide attack."
-	item4.dialogue = "fel_tackle"
+	item3.desc = "Increases odds of enemies and barrels dropping better items."
+	item3.dialogue = "mad_luck"
 	
 	refreshShop()
 	
@@ -89,7 +82,7 @@ func _ready():
 	get_node("confirm").hide()
 	
 	# intro dialogue
-	playDialogue("fel_enter")
+	playDialogue("mad_enter")
 	
 	get_node("main/buttonExit").grab_focus()
 	
@@ -111,15 +104,13 @@ func buyItem(item):
 	pg.spend(item.cost)
 	match item.num:
 		0:
-			pg.hasDJ = true
+			pg.healthUpgrades += 1
 		1:
-			pg.hasSpin = true
+			pg.livesUpgrades  += 1
 		2:
-			pg.hasAirSpin = true
+			pg.damageUpgrades += 1
 		3:
-			pg.hasCounter = true
-		4:
-			pg.hasSlide = true
+			pg.luckUpgrades   += 1
 		_:
 			pass
 	playDialogue(item.dialogue)
@@ -132,10 +123,26 @@ func refreshShop():
 	# updates total
 	get_node("pockets/totalMoney").text = str(pg.totalMoney)
 	
+	# determines costs of available upgrades
+	COST0 = defaultCost + (costIncrement * pg.healthUpgrades)
+	COST1 = defaultCost + (costIncrement * pg.livesUpgrades)
+	COST2 = defaultCost + (costIncrement * pg.damageUpgrades)
+	COST3 = defaultCost + (costIncrement * pg.luckUpgrades)
+	# unlimied money code
+	if (pg.unlimitedMoney):
+		COST0 = 0
+		COST1 = 0
+		COST2 = 0
+		COST3 = 0
+	# sets items costs
+	item0.cost = COST0
+	item1.cost = COST1
+	item2.cost = COST2
+	item3.cost = COST3
+	
 	# shows/hides buttons and costs depending on global flags
-	if (pg.hasDJ):
+	if (pg.healthUpgrades >= 3):
 		get_node("main/options/buttonItem0").disabled = true
-		get_node("main/options/buttonItem0").text = "PURCHASED"
 		get_node("main/options/cost0").hide()
 		item0.desc = ""
 	elif (pg.totalMoney < COST0):
@@ -147,9 +154,8 @@ func refreshShop():
 		get_node("main/options/cost0").show()
 		get_node("main/options/cost0").text = str(COST0)
 		
-	if (pg.hasSpin):
+	if (pg.livesUpgrades >= 3):
 		get_node("main/options/buttonItem1").disabled = true
-		get_node("main/options/buttonItem1").text = "PURCHASED"
 		get_node("main/options/cost1").hide()
 		item1.desc = ""
 	elif (pg.totalMoney < COST1):
@@ -161,9 +167,8 @@ func refreshShop():
 		get_node("main/options/cost1").show()
 		get_node("main/options/cost1").text = str(COST1)
 		
-	if (pg.hasAirSpin):
+	if (pg.damageUpgrades >= 3):
 		get_node("main/options/buttonItem2").disabled = true
-		get_node("main/options/buttonItem2").text = "PURCHASED"
 		get_node("main/options/cost2").hide()
 		item2.desc = ""
 	elif (pg.totalMoney < COST2):
@@ -175,9 +180,8 @@ func refreshShop():
 		get_node("main/options/cost2").show()
 		get_node("main/options/cost2").text = str(COST2)
 		
-	if (pg.hasCounter):
+	if (pg.luckUpgrades >= 3):
 		get_node("main/options/buttonItem3").disabled = true
-		get_node("main/options/buttonItem3").text = "PURCHASED"
 		get_node("main/options/cost3").hide()
 		item3.desc = ""
 	elif (pg.totalMoney < COST3):
@@ -188,21 +192,6 @@ func refreshShop():
 		get_node("main/options/buttonItem3").disabled = false
 		get_node("main/options/cost3").show()
 		get_node("main/options/cost3").text = str(COST3)
-	
-	if (pg.hasSlide):
-		get_node("main/options/buttonItem4").disabled = true
-		get_node("main/options/buttonItem4").text = "PURCHASED"
-		get_node("main/options/cost4").hide()
-		item4.desc = ""
-	elif (pg.totalMoney < COST4):
-		get_node("main/options/buttonItem4").disabled = true
-		get_node("main/options/cost4").show()
-		get_node("main/options/cost4").text = str(COST4)
-	else:
-		get_node("main/options/buttonItem4").disabled = false
-		get_node("main/options/cost4").show()
-		get_node("main/options/cost4").text = str(COST4)
-		
 
 func _on_buttonItem0_focus_entered():
 	curItem = item0
@@ -220,9 +209,6 @@ func _on_buttonItem3_focus_entered():
 	curItem = item3
 	refreshShop()
 	
-func _on_buttonItem4_focus_entered():
-	curItem = item4
-	refreshShop()
 
 func _on_buttonExit_focus_entered():
 	get_node("NinePatchRect/description").text = "Return to Wartwood?"
@@ -230,10 +216,10 @@ func _on_buttonExit_focus_entered():
 func _on_buttonExit_pressed():
 	if (loading):
 		return
-	# sets timer (timer is paused durring dialogue
-	loading = true
+	# sets timer (timer is paused during dialogue)
 	get_node("Timer").start()
-	playDialogue("fel_exit")
+	loading = true
+	playDialogue("mad_exit")
 	
 func playDialogue(dialogueName):
 	# finds first alive player
@@ -252,7 +238,6 @@ func _on_buttonYes_pressed():
 
 func _on_buttonNo_pressed():
 	switchToMain()
-
 
 func _on_buttonItem_pressed():
 	if (loading):

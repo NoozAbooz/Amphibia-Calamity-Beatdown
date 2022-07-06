@@ -44,6 +44,7 @@ var unlimitedMoney = false
 var hardcoreMode   = false
 var allCharsMode   = false
 # perfect shield?
+# damage slider?
 
 # destination level info
 var levelName = "test"
