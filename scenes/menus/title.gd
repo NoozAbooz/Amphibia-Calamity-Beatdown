@@ -8,9 +8,7 @@ func _ready():
 	$lockButton.pressed = false
 	_on_hitboxButton_toggled(false)
 	$hitboxButton.pressed = false
-	
-	# Discord integration
-	update_activity()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -58,22 +56,3 @@ func _on_hitboxButton_toggled(button_pressed):
 		get_tree().set_debug_collisions_hint(false)
 		
 	print("hitboxes changed!")
-
-func update_activity() -> void:
-	var activity = Discord.Activity.new()
-	activity.set_type(Discord.ActivityType.Playing)
-	activity.set_details("Currently on:")
-	activity.set_state("Main Menu")
-
-	var assets = activity.get_assets()
-	assets.set_large_image("main")
-	assets.set_large_text(":smug_anne:")
-	assets.set_small_image("mantis_stand")
-	assets.set_small_text("Angy mantis")
-	
-	var timestamps = activity.get_timestamps()
-	timestamps.set_start(OS.get_unix_time())
-
-	var result = yield(Discord.activity_manager.update_activity(activity), "result").result
-	if result != Discord.Result.Ok:
-		push_error(str(result))
