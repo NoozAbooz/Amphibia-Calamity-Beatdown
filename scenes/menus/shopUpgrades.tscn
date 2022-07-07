@@ -1,10 +1,37 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/menus/shopUpgrades.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/char_info.png" type="Texture" id=2]
 [ext_resource path="res://art/pickups/coin_icon.png" type="Texture" id=3]
 [ext_resource path="res://themes/shop_button.tres" type="Theme" id=4]
+[ext_resource path="res://art/menus/upgrade_counter_0.png" type="Texture" id=5]
+[ext_resource path="res://art/menus/upgrade_counter_1.png" type="Texture" id=6]
+[ext_resource path="res://art/menus/upgrade_counter_2.png" type="Texture" id=7]
+[ext_resource path="res://art/menus/upgrade_counter_3.png" type="Texture" id=8]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "1",
+"speed": 5.0
+} ]
 
 [node name="shopUpgrades" type="Control"]
 anchor_right = 1.0
@@ -174,6 +201,26 @@ position = Vector2( 125, 30 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 
+[node name="ind0" type="AnimatedSprite" parent="main/options"]
+position = Vector2( 90, 140 )
+frames = SubResource( 1 )
+animation = "0"
+
+[node name="ind1" type="AnimatedSprite" parent="main/options"]
+position = Vector2( 90, 225 )
+frames = SubResource( 1 )
+animation = "0"
+
+[node name="ind2" type="AnimatedSprite" parent="main/options"]
+position = Vector2( 90, 310 )
+frames = SubResource( 1 )
+animation = "0"
+
+[node name="ind3" type="AnimatedSprite" parent="main/options"]
+position = Vector2( 90, 395 )
+frames = SubResource( 1 )
+animation = "0"
+
 [node name="confirm" type="Control" parent="."]
 visible = false
 margin_right = 40.0
@@ -233,6 +280,9 @@ __meta__ = {
 [node name="pockets" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="pockets1" type="NinePatchRect" parent="pockets"]
 margin_left = 1020.0
