@@ -3,7 +3,7 @@ extends Node
 # player variables
 var playerStartingMaxHP = 100 #100
 var playerStartingLives = 3 #3
-var totalMoney = 0
+var totalMoney = 5000
 var newMoney = 0
 var kills = 0 # Used to count in ambushes
 var killsTotal = 0 # Used to count total kills
@@ -42,6 +42,9 @@ var numPlayers = 1
 var unlimitedLives = false
 var unlimitedMoney = false
 var hardcoreMode   = false
+var allCharsMode   = false
+# perfect shield?
+# damage slider?
 
 # destination level info
 var levelName = "test"
@@ -56,25 +59,27 @@ var hasMaggie = false
 var availableChars = ["Anne"]
 
 # Completed levels
-var completedLevels = [true, true, false, false, false, false, false, false, false, false, false,]
+#                     [Wartwood, Test,  l1,    l2,    l3,    l4,    l5,    l6,    l7,    l8,    l9,   final]
+var completedLevels = [  true,   true, true, true, false, false, false, false, false, false, false, false]
 
 # game over stuff
 var GOCount = 0
 
 # pauses player for cutscenes/other events
 var dontMove = false
+var inCutscene = false
 
 
 func recalcInfo():
 	# characters
 	availableChars = ["Anne"]
-	if hasMarcy:
+	if hasMarcy or allCharsMode:
 		availableChars.append("Marcy")
-	if hasSasha:
+	if hasSasha or allCharsMode:
 		availableChars.append("Sasha")
-	if hasSprig:
+	if hasSprig or allCharsMode:
 		availableChars.append("Sprig")
-	if hasMaggie:
+	if hasMaggie or allCharsMode:
 		availableChars.append("Maggie")
 	# inputs
 	checkAvailableInputs()
@@ -99,7 +104,20 @@ func countPlayers():
 		if i:
 			count += 1
 	return count
-		
+
+# returns number of completed levels. Note Wartwood and the test playground are levels
+# 0 and 1 and are not included in the count
+func countCompletedLevels():
+	var count = 0
+	for i in completedLevels:
+		if i:
+			count += 1
+	#removes levels 0 and 1
+	count -= 2
+	if count <= 0:
+		count = 0
+	return count
+	
 
 func backToMapLose():
 	soundManager.stopMusic()
@@ -112,3 +130,8 @@ func endLevel():
 	soundManager.FadeOutSong(levelMusic)
 	# plays transitioner to fade and open tally scene
 	tran.endLevel()
+	
+func spend(amount):
+	totalMoney -= amount
+	if (totalMoney <= 0):
+		totalMoney = 0

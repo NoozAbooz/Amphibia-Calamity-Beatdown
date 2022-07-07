@@ -1,0 +1,315 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/menus/shopMoves.gd" type="Script" id=1]
+[ext_resource path="res://art/menus/char_info.png" type="Texture" id=2]
+[ext_resource path="res://art/pickups/coin_icon.png" type="Texture" id=3]
+[ext_resource path="res://themes/shop_button.tres" type="Theme" id=4]
+[ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=10]
+
+[node name="shopMoves" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_top = 567.0
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 2 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="description" type="Label" parent="NinePatchRect"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 1250.0
+margin_bottom = 123.0
+theme = ExtResource( 10 )
+text = "What new move can I teach you today?"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonExit" type="Button" parent="main"]
+margin_left = 150.0
+margin_top = 455.0
+margin_right = 450.0
+margin_bottom = 540.0
+theme = ExtResource( 4 )
+text = "Exit Shop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="options" type="Control" parent="main"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonItem0" type="Button" parent="main/options"]
+margin_left = 100.0
+margin_top = 30.0
+margin_right = 500.0
+margin_bottom = 90.0
+theme = ExtResource( 4 )
+text = "Double Jump"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonItem1" type="Button" parent="main/options"]
+margin_left = 100.0
+margin_top = 115.0
+margin_right = 500.0
+margin_bottom = 175.0
+theme = ExtResource( 4 )
+text = "Spin Attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonItem2" type="Button" parent="main/options"]
+margin_left = 100.0
+margin_top = 200.0
+margin_right = 500.0
+margin_bottom = 260.0
+theme = ExtResource( 4 )
+text = "Shell Breaker"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonItem3" type="Button" parent="main/options"]
+margin_left = 100.0
+margin_top = 285.0
+margin_right = 500.0
+margin_bottom = 345.0
+theme = ExtResource( 4 )
+text = "Counter Attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonItem4" type="Button" parent="main/options"]
+margin_left = 100.0
+margin_top = 370.0
+margin_right = 500.0
+margin_bottom = 430.0
+theme = ExtResource( 4 )
+text = "Tackle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cost0" type="Label" parent="main/options"]
+margin_left = 500.0
+margin_top = 30.0
+margin_right = 600.0
+margin_bottom = 90.0
+theme = ExtResource( 10 )
+text = "999"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="main/options/cost0"]
+position = Vector2( 125, 30 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="cost1" type="Label" parent="main/options"]
+margin_left = 500.0
+margin_top = 115.0
+margin_right = 600.0
+margin_bottom = 175.0
+theme = ExtResource( 10 )
+text = "999"
+align = 2
+valign = 1
+
+[node name="Sprite2" type="Sprite" parent="main/options/cost1"]
+position = Vector2( 125, 30 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="cost2" type="Label" parent="main/options"]
+margin_left = 500.0
+margin_top = 200.0
+margin_right = 600.0
+margin_bottom = 260.0
+theme = ExtResource( 10 )
+text = "999"
+align = 2
+valign = 1
+
+[node name="Sprite3" type="Sprite" parent="main/options/cost2"]
+position = Vector2( 125, 30 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="cost3" type="Label" parent="main/options"]
+margin_left = 500.0
+margin_top = 285.0
+margin_right = 600.0
+margin_bottom = 345.0
+theme = ExtResource( 10 )
+text = "999"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite4" type="Sprite" parent="main/options/cost3"]
+position = Vector2( 125, 30 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="cost4" type="Label" parent="main/options"]
+margin_left = 500.0
+margin_top = 370.0
+margin_right = 600.0
+margin_bottom = 430.0
+theme = ExtResource( 10 )
+text = "999"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite4" type="Sprite" parent="main/options/cost4"]
+position = Vector2( 125, 30 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="confirm" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="confirm"]
+margin_top = 450.0
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 2 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="description" type="Label" parent="confirm/NinePatchRect"]
+margin_left = 30.0
+margin_top = 44.0
+margin_right = 1250.0
+margin_bottom = 238.0
+theme = ExtResource( 10 )
+text = "Purchase Double Jump for 300 Coppers?"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonYes" type="Button" parent="confirm/NinePatchRect"]
+margin_left = 245.0
+margin_top = 109.0
+margin_right = 545.0
+margin_bottom = 194.0
+theme = ExtResource( 4 )
+text = "BUY IT!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonNo" type="Button" parent="confirm/NinePatchRect"]
+margin_left = 745.0
+margin_top = 109.0
+margin_right = 1045.0
+margin_bottom = 194.0
+theme = ExtResource( 4 )
+text = "eh..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pockets" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="pockets1" type="NinePatchRect" parent="pockets"]
+margin_left = 1020.0
+margin_right = 1280.0
+margin_bottom = 80.0
+texture = ExtResource( 2 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="pockets"]
+position = Vector2( 1240, 40 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="totalMoney" type="Label" parent="pockets"]
+margin_left = 1036.0
+margin_top = 20.0
+margin_right = 1217.0
+margin_bottom = 59.0
+theme = ExtResource( 10 )
+text = "9999999"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="focus_entered" from="main/buttonExit" to="." method="_on_buttonExit_focus_entered"]
+[connection signal="pressed" from="main/buttonExit" to="." method="_on_buttonExit_pressed"]
+[connection signal="focus_entered" from="main/options/buttonItem0" to="." method="_on_buttonItem0_focus_entered"]
+[connection signal="pressed" from="main/options/buttonItem0" to="." method="_on_buttonItem_pressed"]
+[connection signal="focus_entered" from="main/options/buttonItem1" to="." method="_on_buttonItem1_focus_entered"]
+[connection signal="pressed" from="main/options/buttonItem1" to="." method="_on_buttonItem_pressed"]
+[connection signal="focus_entered" from="main/options/buttonItem2" to="." method="_on_buttonItem2_focus_entered"]
+[connection signal="pressed" from="main/options/buttonItem2" to="." method="_on_buttonItem_pressed"]
+[connection signal="focus_entered" from="main/options/buttonItem3" to="." method="_on_buttonItem3_focus_entered"]
+[connection signal="pressed" from="main/options/buttonItem3" to="." method="_on_buttonItem_pressed"]
+[connection signal="focus_entered" from="main/options/buttonItem4" to="." method="_on_buttonItem4_focus_entered"]
+[connection signal="pressed" from="main/options/buttonItem4" to="." method="_on_buttonItem_pressed"]
+[connection signal="pressed" from="confirm/NinePatchRect/buttonYes" to="." method="_on_buttonYes_pressed"]
+[connection signal="pressed" from="confirm/NinePatchRect/buttonNo" to="." method="_on_buttonNo_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

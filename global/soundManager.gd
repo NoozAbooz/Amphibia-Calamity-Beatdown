@@ -26,7 +26,7 @@ func getDefaultVol(name):
 func playSound(name):
 	if (name == "none"):
 		return
-	elif (name == "hit5") and (get_node("sfx/" + name).is_playing()): 
+	elif ((name == "hit5") or (name == "talk")) and (get_node("sfx/" + name).is_playing()): 
 		# sounds in this group will not play over themselves
 		return
 	else:
@@ -55,6 +55,14 @@ func stopMusic():
 	#get_tree().call_group("groupName", "stop")
 	for song in $"music".get_children():
 		song.stop()
+		
+# Used for pause screen
+func pauseMusic():
+	for song in get_node("music").get_children():
+		song.set_stream_paused(true)
+func resumeMusic():
+	for song in get_node("music").get_children():
+		song.set_stream_paused(false)
 		
 func FadeOutSong(name):
 	var song = get_node("music/" + name)

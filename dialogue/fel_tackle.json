@@ -1,0 +1,5 @@
+[
+  {"sprite":"Fel_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"You want a running attack with more power behind it, eh?" },
+  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"While in a run, press the heavy attack button to perform a head on tackle!" },
+  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"slide", "text":"It may not set up for combos like the light variant, but it's quick speed and high damage makes it great for finishing off enemies. Or just pushing them away if they're in your personal space!"}
+]

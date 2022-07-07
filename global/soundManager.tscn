@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://sounds/hit2.wav" type="AudioStream" id=1]
 [ext_resource path="res://global/soundManager.gd" type="Script" id=2]
@@ -28,8 +28,10 @@
 [ext_resource path="res://sounds/hit5.wav" type="AudioStream" id=26]
 [ext_resource path="res://music/marcy.ogg" type="AudioStream" id=27]
 [ext_resource path="res://music/l1.ogg" type="AudioStream" id=28]
+[ext_resource path="res://sounds/talk.wav" type="AudioStream" id=29]
 
 [node name="soundManager" type="Node"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="sfx" type="Node" parent="."]
@@ -104,50 +106,55 @@ pause_mode = 2
 stream = ExtResource( 17 )
 pitch_scale = 0.8
 
+[node name="talk" type="AudioStreamPlayer" parent="sfx"]
+pause_mode = 2
+stream = ExtResource( 29 )
+pitch_scale = 0.85
+
 [node name="music" type="Node" parent="."]
 
 [node name="test" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 19 )
 volume_db = -6.0
 
 [node name="marcy" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 27 )
 volume_db = -15.0
 
 [node name="swamp" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 28 )
 volume_db = -9.0
 
 [node name="menu" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 25 )
 volume_db = -5.0
 
 [node name="map" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 21 )
 volume_db = -6.0
 
 [node name="ripple" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 20 )
 volume_db = -6.0
 
 [node name="stats" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 24 )
 volume_db = -9.0
 
 [node name="boss1" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 23 )
 volume_db = -13.0
 
 [node name="go" type="AudioStreamPlayer" parent="music"]
-pause_mode = 1
+pause_mode = 2
 stream = ExtResource( 22 )
 volume_db = -12.0
 

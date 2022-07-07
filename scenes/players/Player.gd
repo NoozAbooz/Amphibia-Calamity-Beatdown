@@ -82,6 +82,8 @@ var lastOnFloorPos = Vector3.ZERO
 var shadowHeight = 0 # used in camera positioning
 var secondaryY = 0
 
+var nearNPC = false
+
 enum printStatesEnum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
 enum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
 enum {UP, DOWN, LEFT, RIGHT, NONE}
@@ -274,7 +276,7 @@ func _physics_process(delta):
 				nextState = JUMP
 			elif checkWalk() and (direction != Vector3.ZERO):
 				nextState = WALK
-			elif Input.is_action_just_pressed(light_attack_button):
+			elif Input.is_action_just_pressed(light_attack_button) and not nearNPC:
 				nextState = A_L1
 			elif Input.is_action_just_pressed(heavy_attack_button):
 				nextState = A_H1
@@ -295,7 +297,7 @@ func _physics_process(delta):
 				nextState = JUMP
 			elif (is_on_floor() == false):
 				nextState = FALLING
-			elif Input.is_action_just_pressed(light_attack_button):
+			elif Input.is_action_just_pressed(light_attack_button) and not nearNPC:
 				nextState = A_L1
 			elif Input.is_action_just_pressed(heavy_attack_button):
 				nextState = A_H1

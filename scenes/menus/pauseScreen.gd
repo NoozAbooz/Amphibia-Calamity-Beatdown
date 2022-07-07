@@ -19,12 +19,16 @@ func showDropButtons():
 			get_node("dropMenu/buttonP" + str(i+1)).disabled = true
 
 func _process(_delta):
+	if (pg.inCutscene):
+		return
 	# handles pause menu appearing/dissapearing
 	if (Input.is_action_just_pressed("pause") == true):
 		if (get_tree().paused):
 			get_tree().paused = false
+			soundManager.resumeMusic()
 		else:
 			soundManager.playSound("pause")
+			soundManager.pauseMusic()
 			get_tree().paused = true
 			$basicMenu.show()
 			$dropMenu.hide()
