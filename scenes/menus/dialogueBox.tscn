@@ -332,14 +332,14 @@ __meta__ = {
 position = Vector2( -300, 300 )
 scale = Vector2( 0.75, 0.75 )
 frames = ExtResource( 2 )
-animation = "Fel_normal"
+animation = "Mad_normal"
 flip_h = true
 
 [node name="rightChar" type="AnimatedSprite" parent="."]
 position = Vector2( 1580, 300 )
 scale = Vector2( 0.75, 0.75 )
 frames = ExtResource( 2 )
-animation = "Fel_normal"
+animation = "Mad_normal"
 
 [node name="leftCharAnim" type="AnimationPlayer" parent="."]
 autoplay = "offScreen"

@@ -192,6 +192,12 @@ func refreshShop():
 		get_node("main/options/buttonItem3").disabled = false
 		get_node("main/options/cost3").show()
 		get_node("main/options/cost3").text = str(COST3)
+		
+	# indicators
+	get_node("main/options/ind0").play(str(pg.healthUpgrades))
+	get_node("main/options/ind1").play(str(pg.livesUpgrades))
+	get_node("main/options/ind2").play(str(pg.damageUpgrades))
+	get_node("main/options/ind3").play(str(pg.luckUpgrades))
 
 func _on_buttonItem0_focus_entered():
 	curItem = item0
