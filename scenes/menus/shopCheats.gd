@@ -33,12 +33,26 @@ func _ready():
 	soundManager.playMusic("map")
 	
 	# signals from buttons
-	easy.connect("focus_entered", self, "_on_button_focus_entered", ["Players deal more damage and take less damage."])
-	normal.connect("focus_entered", self, "_on_button_focus_entered", ["Players deal and receive regular damage."])
-	hard.connect("focus_entered", self, "_on_button_focus_entered", ["Players receive double damage."])
+	easy.connect("focus_entered", self, "_on_button_focus_entered", ["Makes players deal more damage and take less damage."])
+	normal.connect("focus_entered", self, "_on_button_focus_entered", ["Makes players deal and receive regular damage."])
+	hard.connect("focus_entered", self, "_on_button_focus_entered", ["Makes players receive double damage."])
 	easy.connect("pressed", self, "_on_button_pressed", ["easy"])
 	normal.connect("pressed", self, "_on_button_pressed", ["normal"])
 	hard.connect("pressed", self, "_on_button_pressed", ["hard"])
+	one.connect("focus_entered", self, "_on_button_focus_entered", ["Makes it so each player only has one life per level."])
+	default.connect("focus_entered", self, "_on_button_focus_entered", ["Makes players start each level with the standard number of lives. This number can be increased by purchasing upgrades from Maddie."])
+	unlimited.connect("focus_entered", self, "_on_button_focus_entered", ["Makes it so players have infinite lives."])
+	one.connect("pressed", self, "_on_button_pressed", ["one"])
+	default.connect("pressed", self, "_on_button_pressed", ["default"])
+	unlimited.connect("pressed", self, "_on_button_pressed", ["unlimited"])
+	cashOn.connect("focus_entered", self, "_on_button_focus_entered", ["Makes all purchasable items free."])
+	cashOff.connect("focus_entered", self, "_on_button_focus_entered", ["Makes shop items their normal price."])
+	cashOn.connect("pressed", self, "_on_button_pressed", ["cashOn"])
+	cashOff.connect("pressed", self, "_on_button_pressed", ["cashOff"])
+	charsOn.connect("focus_entered", self, "_on_button_focus_entered", ["Makes Marcy and Sasha playable even if they haven't been unlocked yet."])
+	charsOff.connect("focus_entered", self, "_on_button_focus_entered", ["Hides secret characters until their conditions are met."])
+	charsOn.connect("pressed", self, "_on_button_pressed", ["charsOn"])
+	charsOff.connect("pressed", self, "_on_button_pressed", ["charsOff"])
 	
 	# intro dialogue
 	if (pg.seenToadstool):
@@ -146,6 +160,23 @@ func _on_button_pressed(buttonName):
 		"hard":
 			pg.easyMode = false
 			pg.hardMode = true
+		"one":
+			pg.unlimitedLives = false
+			pg.hardcoreMode = true
+		"default":
+			pg.unlimitedLives = false
+			pg.hardcoreMode = false
+		"unlimited":
+			pg.unlimitedLives = true
+			pg.hardcoreMode = false
+		"cashOn":
+			pg.unlimitedMoney = true
+		"cashOff":
+			pg.unlimitedMoney = false
+		"charsOn":
+			pg.allCharsMode = true
+		"charsOff":
+			pg.allCharsMode = false
 	
 	refreshShop()	
 
