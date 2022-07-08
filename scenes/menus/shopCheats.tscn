@@ -1,0 +1,248 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/menus/shopCheats.gd" type="Script" id=1]
+[ext_resource path="res://art/menus/char_info.png" type="Texture" id=2]
+[ext_resource path="res://themes/shop_button.tres" type="Theme" id=4]
+[ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=10]
+
+[node name="shopCheats" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_top = 567.0
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 2 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="description" type="Label" parent="NinePatchRect"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 1250.0
+margin_bottom = 123.0
+theme = ExtResource( 10 )
+text = "What new move can I teach you today?"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonExit" type="Button" parent="main"]
+margin_left = 540.0
+margin_top = 450.0
+margin_right = 740.0
+margin_bottom = 535.0
+theme = ExtResource( 4 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labels" type="Control" parent="main"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label0" type="Label" parent="main/labels"]
+margin_left = 70.0
+margin_top = 55.0
+margin_right = 470.0
+margin_bottom = 115.0
+theme = ExtResource( 4 )
+text = "Difficulty:"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label1" type="Label" parent="main/labels"]
+margin_left = 70.0
+margin_top = 140.0
+margin_right = 470.0
+margin_bottom = 200.0
+theme = ExtResource( 4 )
+text = "Lives:"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="main/labels"]
+margin_left = 70.0
+margin_top = 225.0
+margin_right = 470.0
+margin_bottom = 285.0
+theme = ExtResource( 4 )
+text = "Unlimited Money:"
+align = 2
+valign = 1
+
+[node name="Label3" type="Label" parent="main/labels"]
+margin_left = 70.0
+margin_top = 310.0
+margin_right = 470.0
+margin_bottom = 370.0
+theme = ExtResource( 4 )
+text = "All Characters:"
+align = 2
+valign = 1
+
+[node name="diff" type="Control" parent="main"]
+margin_left = 500.0
+margin_top = 55.0
+margin_right = 1200.0
+margin_bottom = 115.0
+
+[node name="easy" type="Button" parent="main/diff"]
+margin_right = 220.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "Easy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="normal" type="Button" parent="main/diff"]
+margin_left = 240.0
+margin_right = 460.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "Normal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hard" type="Button" parent="main/diff"]
+margin_left = 480.0
+margin_right = 700.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "Hard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lives" type="Control" parent="main"]
+margin_left = 500.0
+margin_top = 140.0
+margin_right = 1200.0
+margin_bottom = 200.0
+
+[node name="one" type="Button" parent="main/lives"]
+margin_right = 220.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "Infinite"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="default" type="Button" parent="main/lives"]
+margin_left = 240.0
+margin_right = 460.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "Normal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="unlimited" type="Button" parent="main/lives"]
+margin_left = 480.0
+margin_right = 700.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "Just One"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cash" type="Control" parent="main"]
+margin_left = 500.0
+margin_top = 225.0
+margin_right = 1200.0
+margin_bottom = 285.0
+
+[node name="cashOn" type="Button" parent="main/cash"]
+margin_right = 120.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "on"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cashOff" type="Button" parent="main/cash"]
+margin_left = 150.0
+margin_right = 270.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "off"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chars" type="Control" parent="main"]
+margin_left = 500.0
+margin_top = 310.0
+margin_right = 1200.0
+margin_bottom = 370.0
+
+[node name="charOn" type="Button" parent="main/chars"]
+margin_right = 120.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "on"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charOff" type="Button" parent="main/chars"]
+margin_left = 150.0
+margin_right = 270.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "off"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="focus_entered" from="main/buttonExit" to="." method="_on_buttonExit_focus_entered"]
+[connection signal="pressed" from="main/buttonExit" to="." method="_on_buttonExit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

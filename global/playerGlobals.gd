@@ -3,7 +3,7 @@ extends Node
 # player variables
 var playerStartingMaxHP = 100 #100
 var playerStartingLives = 3 #3
-var totalMoney = 5000
+var totalMoney = 0
 var newMoney = 0
 var kills = 0 # Used to count in ambushes
 var killsTotal = 0 # Used to count total kills
@@ -19,6 +19,8 @@ const damageBoost  = 0.2
 const coinBoost    = 1
 const dropBoost    = 0.05
 
+# saved flags
+var seenToadstool = false
 
 # attack unlocks
 var hasSpin    = false
@@ -40,20 +42,20 @@ var numPlayers = 1
 
 # cheats
 var unlimitedLives = false
-var unlimitedMoney = false
+var unlimitedMoney = true
 var hardcoreMode   = false
 var allCharsMode   = false
-# perfect shield?
-# damage slider?
-
+var easyMode       = false
+var hardMode       = false
+ 
 # destination level info
 var levelName = "test"
 var levelMusic = "ripple"
 var levelNum = 0
 
 # playable characters
-var hasMarcy  = true
-var hasSasha  = true
+var hasMarcy  = false
+var hasSasha  = false
 var hasSprig = true
 var hasMaggie = false
 var availableChars = ["Anne"]
@@ -79,7 +81,7 @@ func recalcInfo():
 		availableChars.append("Sasha")
 	if hasSprig or allCharsMode:
 		availableChars.append("Sprig")
-	if hasMaggie or allCharsMode:
+	if hasMaggie:
 		availableChars.append("Maggie")
 	# inputs
 	checkAvailableInputs()

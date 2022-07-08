@@ -146,6 +146,11 @@ func updateStats():
 	# sets player damage multipliers
 	hitDamageMulti = 1 + (pg.damageUpgrades * pg.damageBoost) 
 	hurtDamageMulti = 1
+	if (pg.easyMode):
+		hitDamageMulti *= 1.5
+		hurtDamageMulti *= 0.5
+	elif (pg.hardMode):
+		hurtDamageMulti *= 2
 	# nerfs for multiplayer mode
 	var numExtras = (pg.countPlayers() - 1)
 	if (numExtras >= 1):

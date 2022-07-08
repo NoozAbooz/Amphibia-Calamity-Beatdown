@@ -338,6 +338,7 @@ func _physics_process(delta):
 		else:
 			nextState = HURT
 		hp -= hurtDamage
+		#print(str(hurtDamage))
 	state = nextState
 	
 	# resets animFinished if in looping animation state to prevent bugs
