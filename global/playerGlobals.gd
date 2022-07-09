@@ -42,7 +42,7 @@ var numPlayers = 1
 
 # cheats
 var unlimitedLives = false
-var unlimitedMoney = true
+var unlimitedMoney = false
 var hardcoreMode   = false
 var allCharsMode   = false
 var easyMode       = false

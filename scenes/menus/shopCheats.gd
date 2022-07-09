@@ -58,7 +58,8 @@ func _ready():
 	if (pg.seenToadstool):
 		playDialogue("fel_enter")
 	else:
-		playDialogue("fel_enter")
+		playDialogue("hoppop_school")
+		pg.seenToadstool = true
 	
 	get_node("main/buttonExit").grab_focus()
 	

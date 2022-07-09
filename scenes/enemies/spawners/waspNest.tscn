@@ -191,7 +191,7 @@ shape = SubResource( 8 )
 [node name="modelZero" type="Spatial" parent="."]
 
 [node name="nest" type="MeshInstance" parent="modelZero"]
-transform = Transform( 1.06066, 0.918558, -0.53033, -6.55671e-08, -0.75, -1.29904, -1.06066, 0.918559, -0.53033, -0.579343, 0.573954, -0.509499 )
+transform = Transform( 1.06066, 0.918558, -0.53033, -1.13247e-07, -0.75, -1.29904, -1.06066, 0.918559, -0.53033, -0.579343, 0.573954, -0.509499 )
 mesh = ExtResource( 1 )
 material/0 = null
 

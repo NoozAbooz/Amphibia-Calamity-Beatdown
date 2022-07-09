@@ -21,9 +21,9 @@ func _ready():
 func initialize(spawnLocation, val = 1):
 	value = val
 	translation = spawnLocation
-	velocity.y = rng.rand.randf_range(20, 40)
+	velocity.y = rng.rand.randf_range(25, 35)
 	bounceForce = velocity.y * 0.75
-	velocity.x = rng.rand.randf_range(5, 10)
+	velocity.x = rng.rand.randf_range(3, 7)
 	velocity = velocity.rotated(Vector3.UP, rng.rand.randf_range(0, 6.28))
 	get_node("AnimatedSprite3D").play()
 	value = val

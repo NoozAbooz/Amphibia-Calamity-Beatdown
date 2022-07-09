@@ -5,11 +5,36 @@
 
 [sub_resource type="Animation" id=6]
 resource_name = "idle"
+length = 1.0
 step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("modelZero/SpiderSpawner2-con:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.6, 1.5 ), Vector3( 1.5, 1.5, 1.5 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "spawn"
 step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("modelZero/SpiderSpawner2-con:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.300001, 0.566667, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.3, 1.5 ), Vector3( 1.5, 1.85, 1.5 ), Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.5, 1.5 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "dead"
@@ -242,7 +267,7 @@ shape = SubResource( 1 )
 [node name="modelZero" type="Spatial" parent="."]
 
 [node name="SpiderSpawner2-con" type="MeshInstance" parent="modelZero"]
-transform = Transform( 2.92061e-07, 0, 1.5, 0, 1.5, 0, -1.5, 0, 2.92061e-07, 0, 1, 0 )
+transform = Transform( 2.92061e-07, 0, 1.5, 0, 1.48853, 0, -1.5, 0, 2.92061e-07, 0, 1, 0 )
 mesh = SubResource( 9 )
 material/0 = null
 

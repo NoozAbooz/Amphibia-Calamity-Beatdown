@@ -915,7 +915,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58572, 2.8737, 28.0755 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4022, 1.48213, 20.1024 )
 
 [node name="environment" type="Spatial" parent="."]
 

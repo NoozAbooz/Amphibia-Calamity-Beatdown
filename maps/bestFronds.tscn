@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=2]
+[gd_scene load_steps=168 format=2]
 
 [ext_resource path="res://maps/best_fronds/env.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://maps/level objects/ambush.tscn" type="PackedScene" id=2]
@@ -52,7 +52,6 @@
 [ext_resource path="res://maps/decorations/rocks/rockTall.tscn" type="PackedScene" id=50]
 [ext_resource path="res://maps/decorations/rocks/rockRound.tscn" type="PackedScene" id=51]
 [ext_resource path="res://art/models/DecorativeTreesMushrooms/Material_012.material" type="Material" id=52]
-[ext_resource path="res://maps/level objects/dialogueTrigger.tscn" type="PackedScene" id=53]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -1577,6 +1576,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 20 ) ],
+"loop": false,
+"name": "block",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": false,
 "name": "hurt_floor",
@@ -1600,11 +1604,6 @@ animations = [ {
 "frames": [ ExtResource( 26 ) ],
 "loop": false,
 "name": "hurt_air",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ) ],
-"loop": false,
-"name": "block",
 "speed": 5.0
 } ]
 
@@ -2443,6 +2442,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 20 ) ],
+"loop": false,
+"name": "block",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": false,
 "name": "hurt_floor",
@@ -2466,11 +2470,6 @@ animations = [ {
 "frames": [ ExtResource( 26 ) ],
 "loop": false,
 "name": "hurt_air",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ) ],
-"loop": false,
-"name": "block",
 "speed": 5.0
 } ]
 
@@ -2554,7 +2553,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.923, 3.91611, 6.03872 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 432.383, 10.4713, -23.065 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -3586,9 +3585,6 @@ hpMax = 350
 
 [node name="goal" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1008.46, 7.10856, -27.1588 )
-
-[node name="dialogueTrigger" parent="." instance=ExtResource( 53 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0053, 0.582853, -2.86163 )
 
 [connection signal="animation_finished" from="enemies/greenMantis/AnimationPlayer" to="enemies/greenMantis" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="enemies/greenMantis/zeroPoint/hurtbox" to="enemies/greenMantis" method="_on_hurtbox_area_entered"]

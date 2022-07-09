@@ -262,7 +262,9 @@ func _physics_process(delta):
 			else:
 				nextState = WALK
 		HURT:
-			if (animFinished):
+			if is_on_floor() == false:
+				nextState = HURTFALLING
+			elif (animFinished):
 				animFinished = false
 				nextState = FLEE
 			else:
@@ -282,6 +284,8 @@ func _physics_process(delta):
 		HURTFLOOR:
 			if (hp <= 0):
 				nextState = KO
+			elif is_on_floor() == false:
+				nextState = HURTFALLING
 			elif (animFinished):
 				animFinished = false
 				nextState = FLEE
