@@ -103,6 +103,11 @@ onready var anim = $"AnimationPlayer"
 onready var sprite = $"zeroPoint/AnimatedSprite3D"
 var animFinished = false
 
+#input buffer stuff
+var inputBuffKey = null
+var inputBuffTimer = 0
+var inputBuffMax = 8
+
 
 func initialize(num, pos):
 	# adds hit box area to appropriate group so enemies can tell hitboxes apart
@@ -129,6 +134,30 @@ func initialize(num, pos):
 	updateStats()
 	#sets player number
 	playerNum = num
+
+func clearInputBuffer():
+	inputBuffKey = null
+	inputBuffTimer = 0
+	
+func updateInputBuffer(delta):
+	# increments timer and resets if necessary
+	if (inputBuffTimer <= 0):
+		clearInputBuffer()
+	else:
+		inputBuffTimer -= 60 * delta
+	# if a key is pressed, re-starts timer and stores key
+	if (Input.is_action_just_pressed(jump_button) == true):
+		inputBuffKey = jump_button
+		inputBuffTimer = inputBuffMax
+	elif (Input.is_action_just_pressed(light_attack_button) == true):
+		inputBuffKey = light_attack_button
+		inputBuffTimer = inputBuffMax
+	elif (Input.is_action_just_pressed(heavy_attack_button) == true):
+		inputBuffKey = heavy_attack_button
+		inputBuffTimer = inputBuffMax
+	elif (Input.is_action_just_pressed(block_button) == true):
+		clearInputBuffer()
+	print("key: " + str(inputBuffKey) + "   |   timer: " + str(inputBuffTimer))
 	
 func updateStats():
 	# sets lives
@@ -216,6 +245,9 @@ func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var snapVect  = Vector3.ZERO
 	
+	# input buffer
+	updateInputBuffer(delta)
+	
 	# Movement inputs
 	if (canMove) and (pg.dontMove == false):
 		if Input.is_action_pressed(right_button) and Input.is_action_pressed(left_button):
@@ -277,13 +309,19 @@ func _physics_process(delta):
 			canMove = true
 			if pg.dontMove:
 				nextState = IDLE
-			elif Input.is_action_just_pressed(jump_button):
+			#elif Input.is_action_just_pressed(jump_button):
+			elif (inputBuffKey == jump_button):
+				clearInputBuffer()
 				nextState = JUMP
 			elif checkWalk() and (direction != Vector3.ZERO):
 				nextState = WALK
-			elif Input.is_action_just_pressed(light_attack_button) and (nearNPCs <= 0):
+			#elif Input.is_action_just_pressed(light_attack_button) and (nearNPCs <= 0):
+			elif (inputBuffKey == light_attack_button) and (nearNPCs <= 0):
+				clearInputBuffer()
 				nextState = A_L1
-			elif Input.is_action_just_pressed(heavy_attack_button):
+			#elif Input.is_action_just_pressed(heavy_attack_button):
+			elif (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				nextState = A_H1
 			elif Input.is_action_pressed(block_button):
 				nextState = BLOCK
@@ -298,13 +336,19 @@ func _physics_process(delta):
 			elif( (runTimer > 0) and (oldInput == newInput) and (newInput != NONE) ):
 				runTimer = 0
 				nextState = RUN
-			elif Input.is_action_just_pressed(jump_button):
+			#elif Input.is_action_just_pressed(jump_button):
+			elif (inputBuffKey == jump_button):
+				clearInputBuffer()
 				nextState = JUMP
 			elif (is_on_floor() == false):
 				nextState = FALLING
-			elif Input.is_action_just_pressed(light_attack_button) and (nearNPCs <= 0):
+			#elif Input.is_action_just_pressed(light_attack_button) and (nearNPCs <= 0):
+			elif (inputBuffKey == light_attack_button) and (nearNPCs <= 0):
+				clearInputBuffer()
 				nextState = A_L1
-			elif Input.is_action_just_pressed(heavy_attack_button):
+			#elif Input.is_action_just_pressed(heavy_attack_button):
+			elif (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				nextState = A_H1
 			elif Input.is_action_just_pressed(block_button):
 				nextState = BLOCK
@@ -317,15 +361,21 @@ func _physics_process(delta):
 				nextState = WALK
 			elif (velocity.x == 0):
 				nextState = WALK
-			elif Input.is_action_just_pressed(jump_button):
+			#elif Input.is_action_just_pressed(jump_button):
+			elif (inputBuffKey == jump_button):
+				clearInputBuffer()
 				nextState = JUMP
 			elif (is_on_floor() == false):
 				nextState = FALLING
 			elif (Input.is_action_pressed(right_button) == false) and (Input.is_action_pressed(left_button) == false):
 				nextState = WALK
-			elif Input.is_action_just_pressed(light_attack_button):
+			#elif Input.is_action_just_pressed(light_attack_button):
+			elif (inputBuffKey == light_attack_button):
+				clearInputBuffer()
 				nextState = A_SL
-			elif Input.is_action_just_pressed(heavy_attack_button):
+			#elif Input.is_action_just_pressed(heavy_attack_button):
+			elif (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				if pg.hasSlide:
 					nextState = A_SH
 				else:
@@ -340,11 +390,17 @@ func _physics_process(delta):
 		RISING:
 			if (velocity.y <= 0):
 				nextState = FALLING
-			elif doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
+			#elif doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
+			elif doubleJumpReady and (inputBuffKey == jump_button) and pg.hasDJ:
+				clearInputBuffer()
 				nextState = DJUMP
-			elif Input.is_action_just_pressed(light_attack_button):
+			#elif Input.is_action_just_pressed(light_attack_button):
+			elif (inputBuffKey == light_attack_button):
+				clearInputBuffer()
 				nextState = A_AL1
-			elif Input.is_action_just_pressed(heavy_attack_button):
+			#elif Input.is_action_just_pressed(heavy_attack_button):
+			elif (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				if (speed == speed_run):
 					nextState = A_AH2
 				else:
@@ -361,11 +417,17 @@ func _physics_process(delta):
 					nextState = WALK
 				else:
 					nextState = IDLE
-			elif doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
+			#elif doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
+			elif doubleJumpReady and (inputBuffKey == jump_button) and pg.hasDJ:
+				clearInputBuffer()
 				nextState = DJUMP
-			elif Input.is_action_just_pressed(light_attack_button):
+			#elif Input.is_action_just_pressed(light_attack_button):
+			elif (inputBuffKey == light_attack_button):
+				clearInputBuffer()
 				nextState = A_AL1
-			elif Input.is_action_just_pressed(heavy_attack_button):
+			#elif Input.is_action_just_pressed(heavy_attack_button):
+			elif (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				if (speed == speed_run):
 					nextState = A_AH2
 				else:
@@ -390,29 +452,45 @@ func _physics_process(delta):
 			elif checkWalk() and (direction != Vector3.ZERO):
 				nextState = WALK
 		A_L1:
-			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
+			#if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
+			if (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button):
+				clearInputBuffer()
 				nextState = A_L2
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
+			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
+			elif (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				nextState = A_H2
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+			elif (comboReady) and (hitLanded) and (inputBuffKey == jump_button):
+				clearInputBuffer()
 				nextState = JUMP
 			elif animFinished:
 				nextState = IDLE
 				animFinished = false
 		A_L2:
-			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
+			#if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
+			if (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button):
+				clearInputBuffer()
 				nextState = A_L3
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
+			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
+			elif (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				nextState = A_H1
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+			elif (comboReady) and (hitLanded) and (inputBuffKey == jump_button):
+				clearInputBuffer()
 				nextState = JUMP
 			elif animFinished:
 				nextState = IDLE
 				animFinished = false
 		A_L3:
-			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)) and pg.hasSpin:
+			#if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)) and pg.hasSpin:
+			if (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button) and pg.hasSpin:
+				clearInputBuffer()
 				nextState = A_H3
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+			elif (comboReady) and (hitLanded) and (inputBuffKey == jump_button):
+				clearInputBuffer()
 				nextState = JUMP
 			elif animFinished:
 				nextState = IDLE
@@ -439,9 +517,17 @@ func _physics_process(delta):
 					nextState = WALK
 				else:
 					nextState = IDLE
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
+			#elif (comboReady) and (hitLanded) and doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
+			elif (comboReady) and (hitLanded) and doubleJumpReady and (inputBuffKey == jump_button) and pg.hasDJ:
+				clearInputBuffer()
+				nextState = DJUMP
+			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
+			elif (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button):
+				clearInputBuffer()
 				nextState = A_AL2
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
+			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
+			elif (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				nextState = A_AH1
 			elif animFinished and (velocity.y <= 0):
 				nextState = FALLING
@@ -459,9 +545,17 @@ func _physics_process(delta):
 					nextState = WALK
 				else:
 					nextState = IDLE
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
+			#elif (comboReady) and (hitLanded) and doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
+			elif (comboReady) and (hitLanded) and doubleJumpReady and (inputBuffKey == jump_button) and pg.hasDJ:
+				clearInputBuffer()
+				nextState = DJUMP
+			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(light_attack_button)):
+			elif (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button):
+				clearInputBuffer()
 				nextState = A_AL3
-			elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
+			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)):
+			elif (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				nextState = A_AH2
 			elif animFinished and (velocity.y <= 0):
 				nextState = FALLING
@@ -472,9 +566,13 @@ func _physics_process(delta):
 		A_AL3:
 			if is_on_floor():
 				nextState = LAND
-			elif (comboReady) and (hitLanded) and doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
+			#elif (comboReady) and (hitLanded) and doubleJumpReady and (Input.is_action_just_pressed(jump_button)) and pg.hasDJ:
+			elif (comboReady) and (hitLanded) and doubleJumpReady and (inputBuffKey == jump_button) and pg.hasDJ:
+				clearInputBuffer()
 				nextState = DJUMP
-			elif (comboReady) and (hitLanded) and  (Input.is_action_just_pressed(heavy_attack_button)) and pg.hasAirSpin:
+			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(heavy_attack_button)) and pg.hasAirSpin:
+			elif (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button) and pg.hasAirSpin:
+				clearInputBuffer()
 				nextState = A_AH3_LAUNCH
 			elif animFinished and (velocity.y <= 0):
 				nextState = FALLING
@@ -505,7 +603,9 @@ func _physics_process(delta):
 		A_AH3_RISE:
 			if is_on_floor():
 				nextState = LAND
-			elif (Input.is_action_just_pressed(heavy_attack_button)):
+			#elif (Input.is_action_just_pressed(heavy_attack_button)):
+			elif (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				nextState = A_AH3_HIT
 			elif animFinished:
 				nextState = FALLING
@@ -517,7 +617,9 @@ func _physics_process(delta):
 				nextState = FALLING
 				animFinished = false
 		A_AH3_LAND:
-			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+			#if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+			if (comboReady) and (hitLanded) and (inputBuffKey == jump_button):
+				clearInputBuffer()
 				speed = speed_walk
 				nextState = JUMP
 			elif (comboReady) and (hitLanded) and checkWalkJust() and (direction != Vector3.ZERO):
@@ -526,7 +628,9 @@ func _physics_process(delta):
 				nextState = IDLE
 				animFinished = false
 		A_SL:
-			if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+			#if (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
+			if (comboReady) and (hitLanded) and (inputBuffKey == jump_button):
+				clearInputBuffer()
 				speed = speed_walk
 				nextState = JUMP
 			elif (comboReady) and (hitLanded) and checkWalkJust() and (direction != Vector3.ZERO):
@@ -545,6 +649,9 @@ func _physics_process(delta):
 		BLOCK:
 			if (is_on_floor() == false):
 				nextState = FALLING
+			elif (Input.is_action_just_pressed(jump_button)):
+				clearInputBuffer()
+				nextState = JUMP
 			elif (Input.is_action_pressed(block_button) == false):
 				nextState = IDLE
 		BLOCKHIT:
@@ -558,13 +665,19 @@ func _physics_process(delta):
 		COUNTER:
 			if (is_on_floor() == false):
 				nextState = FALLING
-			elif (comboReady) and (Input.is_action_just_pressed(jump_button)):
+			#elif (comboReady) and (Input.is_action_just_pressed(jump_button)):
+			elif (comboReady) and (inputBuffKey == jump_button):
+				clearInputBuffer()
 				nextState = JUMP
 			elif (comboReady) and checkWalkJust() and (direction != Vector3.ZERO):
 				nextState = WALK
-			elif (comboReady) and Input.is_action_just_pressed(light_attack_button):
+			#elif (comboReady) and Input.is_action_just_pressed(light_attack_button):
+			elif (comboReady) and (inputBuffKey == light_attack_button):
+				clearInputBuffer()
 				nextState = A_L1
-			elif (comboReady) and Input.is_action_just_pressed(heavy_attack_button):
+			#elif (comboReady) and Input.is_action_just_pressed(heavy_attack_button):
+			elif (comboReady) and (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
 				nextState = A_H1
 			elif animFinished:
 				nextState = IDLE
