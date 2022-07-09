@@ -33,6 +33,9 @@ monitoring = false
 [node name="CollisionShape" type="CollisionShape" parent="Camera/Area"]
 shape = SubResource( 4 )
 
+[node name="Timer" type="Timer" parent="Camera"]
+one_shot = true
+
 [node name="leftWall" type="KinematicBody" parent="."]
 transform = Transform( 0.906308, 1.49011e-08, 0.422617, 0.109382, 0.965923, -0.234569, -0.408218, 0.258818, 0.875424, -19.0937, 9.38038, -35.0062 )
 collision_layer = 4
@@ -123,3 +126,5 @@ cast_to = Vector3( 0, -300, 0 )
 collision_mask = 2
 debug_shape_custom_color = Color( 0.898039, 0, 1, 1 )
 debug_shape_thickness = 4.0
+
+[connection signal="timeout" from="Camera/Timer" to="Camera" method="_on_Timer_timeout"]

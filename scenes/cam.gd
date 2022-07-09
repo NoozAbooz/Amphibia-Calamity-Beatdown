@@ -4,6 +4,11 @@ export var offsetX = 0
 export var offsetY = 12
 export var offsetZ = 28
 
+var shakeX = 0
+var shakeY = 0
+var shakeZ = 0
+var shaking = false
+
 var tempX = 0
 var tempY = 0
 var tempZ = 0
@@ -28,7 +33,11 @@ var wallsRemoved = false
 
 var inAmbush = false
 var ambushTarget = Vector3.ZERO
+var inCutscene = false
+var cutsceneTarget = Vector3.ZERO
+var oldTarget = Vector3.ZERO
 var ambushSpawnPoint = Vector3.ZERO
+var returning = false
 
 var onLeftWall  = false
 var onRightWall = false
@@ -90,7 +99,28 @@ func disableBarriers(choice):
 	get_parent().get_node("rightWall/CollisionShape").disabled = choice
 	#get_parent().get_node("rightWall/passThroughR/CollisionShape2").disabled = choice
 
-
+# cutscene functions
+func startCutscene():
+	disableBarriers(true)
+	pg.dontMove = true
+	inCutscene = true
+	oldTarget.x = actX
+	oldTarget.y = actY
+	oldTarget.z = actZ
+func endCutscene():
+	inCutscene = false
+	returning = true
+func reEnablePlay():
+	disableBarriers(false)
+	pg.dontMove = false
+	returning = false
+	inCutscene = false
+	
+# camera shake
+func shake(sec):
+	shaking = true
+	get_node("Timer").start(sec)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.fov = 30
@@ -106,9 +136,6 @@ func _process(_delta):
 			debugMode = true
 			print("Camera Locked")
 			disableBarriers(true)
-			
-	# cutscenes/warps
-		
 	
 	# checks for active players and makes array of player positions
 	playerPositions = []
@@ -148,8 +175,16 @@ func _process(_delta):
 	for shadow in playerShadows:
 		if (minY > shadow):
 			minY = shadow
-			
-	if (inAmbush):
+	
+	if (returning):
+		desX = oldTarget.x
+		desY = oldTarget.y
+		desZ = oldTarget.z
+	elif (inCutscene):
+		desX = cutsceneTarget.x
+		desY = cutsceneTarget.y
+		desZ = cutsceneTarget.z
+	elif (inAmbush):
 		desX = ambushTarget.x
 		desY = ambushTarget.y
 		desZ = ambushTarget.z
@@ -163,14 +198,24 @@ func _process(_delta):
 		desX = actX
 	elif (onRightWall) and (desX > actX):
 		desX = actX
+		
+	# randomizes shake effect
+	if shaking:
+		shakeX = rng.rand.randf_range(-0.5, 0.5)
+		shakeY = rng.rand.randf_range(-0.5, 0.5)
+		shakeZ = rng.rand.randf_range(-0.5, 0.5)
+	else:
+		shakeX = 0
+		shakeY = 0
+		shakeZ = 0
 	
 	if (debugMode == false):
 		actX += 0.1*(desX - actX) 
 		actY += 0.05*(desY - actY) 
 		actZ += 0.1*(desZ - actZ) 
-		pivot.translation.x = actX + offsetX
-		pivot.translation.y = actY + offsetY
-		pivot.translation.z = actZ + offsetZ
+		pivot.translation.x = actX + offsetX + shakeX
+		pivot.translation.y = actY + offsetY + shakeY
+		pivot.translation.z = actZ + offsetZ + shakeZ
 	else:
 		# debug camera moveable with arrow keys
 		if (Input.is_action_pressed("move_left_k1") == true):
@@ -181,6 +226,12 @@ func _process(_delta):
 			pivot.translation.y += 0.2
 		elif (Input.is_action_pressed("move_in_k1") == true):
 			pivot.translation.y -= 0.2
-			
 	
-	#print(get_parent().get_node("spawnFinder/pivot/rays").global_transform.origin)
+	# checks if cam has returned to previous position after a cutscene, and if yer re-enables movement
+	if (returning):
+		if (abs(actX - oldTarget.x) < 0.1) and (abs(actY - oldTarget.y) < 0.1) and (abs(actZ - oldTarget.z) < 0.1):
+			reEnablePlay()
+
+
+func _on_Timer_timeout():
+	shaking = false

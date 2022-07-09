@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://sounds/hit2.wav" type="AudioStream" id=1]
 [ext_resource path="res://global/soundManager.gd" type="Script" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://music/marcy.ogg" type="AudioStream" id=27]
 [ext_resource path="res://music/l1.ogg" type="AudioStream" id=28]
 [ext_resource path="res://sounds/talk.wav" type="AudioStream" id=29]
+[ext_resource path="res://sounds/roar.wav" type="AudioStream" id=30]
 
 [node name="soundManager" type="Node"]
 pause_mode = 2
@@ -110,6 +111,11 @@ pitch_scale = 0.8
 pause_mode = 2
 stream = ExtResource( 29 )
 pitch_scale = 0.85
+
+[node name="roar" type="AudioStreamPlayer" parent="sfx"]
+pause_mode = 2
+stream = ExtResource( 30 )
+volume_db = -5.0
 
 [node name="music" type="Node" parent="."]
 

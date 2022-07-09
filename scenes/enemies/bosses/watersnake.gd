@@ -2,6 +2,7 @@ extends Spatial
 
 var cam = null
 var cameraOffset = Vector3(0, 0, 15)
+var cameraOffsetIntro = Vector3(0, 3, 0)
 var vfxScene = preload("res://scenes/vfx.tscn")
 var countDown = 180
 var aggro = false
@@ -17,7 +18,7 @@ export var hpMax = 300
 var hp = 0
 var invincible = false
 
-enum {WAIT, INTRO, IDLE, ENTERWATER, EXITWATER, MOVE, BITE, FLIPWARN, FLIP, DEAD, UNLOAD}
+enum {WAIT, INTROPREP, INTRO, IDLE, ENTERWATER, EXITWATER, MOVE, BITE, FLIPWARN, FLIP, DEAD, UNLOAD}
 enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP}
 enum {LEFT, MIDLEFT, MIDRIGHT, RIGHT, PADLEFT, PADMID, PADRIGHT}
 
@@ -111,6 +112,15 @@ func _ready():
 	hp = hpMax
 	$"info/lifeBar".max_value = hpMax
 
+# animation controlled functions
+func startCutscene():
+	cam.startCutscene()
+func endCutscene():
+	cam.endCutscene()
+func playAndShake():
+	cam.shake(1)
+	soundManager.playMusic(bossMusic)
+	soundManager.playSound("roar")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -120,7 +130,6 @@ func _process(delta):
 			location = MIDLEFT
 			if aggro:
 				nextState = INTRO
-				soundManager.playMusic(bossMusic)
 			else:
 				nextState = WAIT
 		INTRO:
@@ -264,6 +273,7 @@ func _process(delta):
 		nextState = DEAD
 		state = DEAD
 		defeated = true
+		
 
 
 func _on_cameraTrigger_area_entered(area):
@@ -271,6 +281,7 @@ func _on_cameraTrigger_area_entered(area):
 	cam = area.get_parent()
 	cam.inAmbush = true
 	cam.ambushTarget = translation + cameraOffset
+	cam.cutsceneTarget = translation + cameraOffsetIntro
 	cam.ambushSpawnPoint = translation + Vector3(0, 5, 9)
 	get_node("cameraTrigger").queue_free()
 	aggro = true

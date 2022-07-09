@@ -157,7 +157,7 @@ func updateInputBuffer(delta):
 		inputBuffTimer = inputBuffMax
 	elif (Input.is_action_just_pressed(block_button) == true):
 		clearInputBuffer()
-	print("key: " + str(inputBuffKey) + "   |   timer: " + str(inputBuffTimer))
+	#print("key: " + str(inputBuffKey) + "   |   timer: " + str(inputBuffTimer))
 	
 func updateStats():
 	# sets lives
@@ -1093,11 +1093,11 @@ func _on_hurtbox_area_entered(area):
 	# evnironmental stuff
 	if area.is_in_group("oneWayRight") or area.is_in_group("oneWayLeft"):
 		area.get_parent().get_parent().get_node("Camera").disableBarriers(true)
-		print("wall")
+		#print("wall")
 		return
 	elif area.is_in_group("respawnZones"):
 		safePos = area.translation
-		print(area.translation)
+		#print(area.translation)
 		return
 	elif area.is_in_group("boucePads"):
 		if (bouncing == false):
