@@ -41,7 +41,7 @@ func _process(_delta):
 		get_node("bubble").hide()
 	# checks for input and creates dialogue node
 	for player in nearbyPlayers:
-		if (Input.is_action_just_pressed("light_attack_" + str(pg.playerInput[player.playerNum]))) and (player.isInState([player.IDLE, player.WALK])):
+		if (Input.is_action_just_pressed("light_attack_" + str(pg.playerInput[player.playerNum]))) and (player.isInState([player.IDLE, player.WALK])) and (pg.inCutscene == false):
 			# turns toward player
 			if (player.translation.x > self.translation.x):
 				get_node("character").flip_h = false
@@ -57,7 +57,7 @@ func playDialogue(playerName):
 func _on_talkZone_area_entered(area):
 	# sets player flag so they cant attack
 	var player = area.get_parent().get_parent()
-	player.nearNPC = true
+	player.nearNPCs += 1
 	var playerNum = player.playerNum
 	# updates in range player list
 	nearbyPlayers.append(player)
@@ -66,7 +66,7 @@ func _on_talkZone_area_entered(area):
 func _on_talkZone_area_exited(area):
 	# sets player flag so they cant attack
 	var player = area.get_parent().get_parent()
-	player.nearNPC = false
+	player.nearNPCs -= 1
 	var playerNum = player.playerNum
 	# updates in range player list
 	nearbyPlayers.erase(player)

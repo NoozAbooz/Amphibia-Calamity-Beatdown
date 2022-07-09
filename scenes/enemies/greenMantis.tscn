@@ -835,30 +835,6 @@ region = Rect2( 256, 0, 64, 70 )
 atlas = ExtResource( 3 )
 region = Rect2( 320, 0, 64, 70 )
 
-[sub_resource type="AtlasTexture" id=72]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 140, 64, 70 )
-
-[sub_resource type="AtlasTexture" id=73]
-atlas = ExtResource( 3 )
-region = Rect2( 64, 140, 64, 70 )
-
-[sub_resource type="AtlasTexture" id=74]
-atlas = ExtResource( 3 )
-region = Rect2( 128, 140, 64, 70 )
-
-[sub_resource type="AtlasTexture" id=75]
-atlas = ExtResource( 3 )
-region = Rect2( 192, 140, 64, 70 )
-
-[sub_resource type="AtlasTexture" id=76]
-atlas = ExtResource( 3 )
-region = Rect2( 256, 140, 64, 70 )
-
-[sub_resource type="AtlasTexture" id=77]
-atlas = ExtResource( 3 )
-region = Rect2( 320, 140, 64, 70 )
-
 [sub_resource type="AtlasTexture" id=78]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 70, 64, 70 )
@@ -891,6 +867,30 @@ region = Rect2( 384, 70, 64, 70 )
 atlas = ExtResource( 3 )
 region = Rect2( 448, 70, 64, 70 )
 
+[sub_resource type="AtlasTexture" id=72]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 140, 64, 70 )
+
+[sub_resource type="AtlasTexture" id=73]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 140, 64, 70 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 140, 64, 70 )
+
+[sub_resource type="AtlasTexture" id=75]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 140, 64, 70 )
+
+[sub_resource type="AtlasTexture" id=76]
+atlas = ExtResource( 3 )
+region = Rect2( 256, 140, 64, 70 )
+
+[sub_resource type="AtlasTexture" id=77]
+atlas = ExtResource( 3 )
+region = Rect2( 320, 140, 64, 70 )
+
 [sub_resource type="SpriteFrames" id=29]
 animations = [ {
 "frames": [ SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ) ],
@@ -908,24 +908,24 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ) ],
-"loop": false,
-"name": "attack_heavy",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": false,
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "hurt_air",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ) ],
 "loop": false,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ) ],
+"loop": false,
+"name": "attack_heavy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "hurt_air",
 "speed": 5.0
 } ]
 

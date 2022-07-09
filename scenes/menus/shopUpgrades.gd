@@ -49,7 +49,7 @@ func _ready():
 	item0.num = 0
 	item0.title = "Health Upgrade"
 	item0.cost = COST0
-	item0.desc = "Increases max HP by 20%"
+	item0.desc = "Increases max HP by 20 percent"
 	item0.dialogue = "mad_hp"
 	
 	item1 = item.new()
@@ -63,7 +63,7 @@ func _ready():
 	item2.num = 2
 	item2.title = "Damage Upgrade"
 	item2.cost = COST2
-	item2.desc = "Increases damage from all attacks by 20%"
+	item2.desc = "Increases damage from all attacks by 20 percent"
 	item2.dialogue = "mad_dam"
 	
 	item3 = item.new()

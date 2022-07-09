@@ -1020,7 +1020,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.4147, -1.28107, 16.5234 )
 dialogueName = "hoppop_school"
 
 [node name="wally" parent="." instance=ExtResource( 28 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.4342, -0.149254, 20.9741 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.1821, -0.715415, 17.2429 )
 dialogueName = "wally_boom"
 startLeft = true
 

@@ -361,6 +361,12 @@ func _physics_process(delta):
 			setHitBox(damage, KB_WEAK, Vector3(25, 30, 0))
 		else:
 			setHitBox(damage, KB_STRONG, Vector3(25, 30, 0))
+			
+	# turns on/off enemy only ground for walk off barriers
+	if (isInState([WALK, IDLE])):
+		set_collision_mask_bit(11, true)
+	else:
+		set_collision_mask_bit(11, false)
 	
 	# Y movement	
 	velocity.y -= force_grav * delta

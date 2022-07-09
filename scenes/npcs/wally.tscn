@@ -5,7 +5,7 @@
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=3]
 
 [sub_resource type="BoxShape" id=9]
-extents = Vector3( 4, 6, 2 )
+extents = Vector3( 2.5, 6, 2 )
 
 [sub_resource type="CylinderMesh" id=10]
 height = 0.1
@@ -68,7 +68,7 @@ offset = Vector2( 0, 20 )
 pixel_size = 0.07
 frames = SubResource( 7 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="bubble" type="AnimatedSprite3D" parent="."]

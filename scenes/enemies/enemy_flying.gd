@@ -374,6 +374,12 @@ func _physics_process(delta):
 	# fleeing delay
 	if (isInState([FLEE])):
 		fleeWaitCounter -= rng.rand.randf()
+	
+	# turns on/off enemy only ground for walk off barriers
+	if (isInState([WALK, IDLE])):
+		set_collision_mask_bit(11, true)
+	else:
+		set_collision_mask_bit(11, false)
 		
 	# sets up hitbox
 	if isInState([ATTACK]):
@@ -446,7 +452,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0
 		velocity.z = 0
-		
+	
 	# knockback
 	if isInState([HURTLAUNCH]):
 		velocity.x = hurtDir.x

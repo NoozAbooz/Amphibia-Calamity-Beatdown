@@ -36,6 +36,17 @@ func _process(_delta):
 			$optionsMenu.hide()
 			$basicMenu/buttonResume.grab_focus()
 			state = BASIC
+	# "back" button
+	if (get_tree().paused) and (Input.is_action_just_pressed("ui_cancel") == true):
+		match state:
+			BASIC:
+				get_tree().paused = false
+				soundManager.resumeMusic()
+			DROP:
+				_on_buttonBack_pressed()
+			COMBOS:
+				_on_buttonBack_pressed()
+				
 	if (get_tree().paused):
 		self.show()
 	else:
