@@ -2553,7 +2553,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 848.072, 5.40997, -26.9676 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 941.492, 5.40997, -23.3498 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -3581,7 +3581,6 @@ ambushName = "bestFrondsAmbush3"
 
 [node name="watersnake" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 942.506, 2.89046, -36.576 )
-hpMax = 350
 
 [node name="goal" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1008.46, 7.10856, -27.1588 )

@@ -3496,11 +3496,6 @@ tracks/7/keys = {
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
 
-[sub_resource type="AtlasTexture" id=64]
-flags = 17
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 40, 50 )
-
 [sub_resource type="AtlasTexture" id=66]
 flags = 17
 atlas = ExtResource( 9 )
@@ -3520,6 +3515,11 @@ region = Rect2( 0, 0, 40, 50 )
 flags = 17
 atlas = ExtResource( 7 )
 region = Rect2( 40, 0, 40, 50 )
+
+[sub_resource type="AtlasTexture" id=64]
+flags = 17
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 40, 50 )
 
 [sub_resource type="AtlasTexture" id=65]
 flags = 17
@@ -3556,7 +3556,7 @@ flags = 17
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 40, 50 )
 
-[sub_resource type="AtlasTexture" id=75]
+[sub_resource type="AtlasTexture" id=74]
 flags = 17
 atlas = ExtResource( 4 )
 region = Rect2( 40, 0, 40, 50 )
@@ -3601,7 +3601,7 @@ flags = 17
 atlas = ExtResource( 3 )
 region = Rect2( 280, 0, 40, 50 )
 
-[sub_resource type="AtlasTexture" id=74]
+[sub_resource type="AtlasTexture" id=75]
 flags = 17
 atlas = ExtResource( 4 )
 region = Rect2( 40, 0, 40, 50 )
@@ -3613,49 +3613,19 @@ animations = [ {
 "name": "stand",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 64 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
 "loop": false,
-"name": "rise",
+"name": "attack_H1",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_air_H1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "attack_L2",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 66 ), SubResource( 67 ) ],
-"loop": false,
-"name": "attack_air_H2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_H2",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 45 ) ],
 "loop": false,
 "name": "attack_slide_L",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 62 ), SubResource( 63 ) ],
-"loop": false,
-"name": "land",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
 "loop": false,
-"name": "attack_air_L3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 45 ) ],
-"loop": false,
-"name": "attack_slide_H",
+"name": "attack_air_L1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
@@ -3664,14 +3634,49 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "attack_L1",
-"speed": 15.0
+"loop": false,
+"name": "attack_air_L3",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 66 ), SubResource( 67 ) ],
+"loop": false,
+"name": "attack_air_H2",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 21 ) ],
 "loop": false,
 "name": "attack_H3",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "attack_L1",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 62 ), SubResource( 63 ) ],
+"loop": false,
+"name": "land",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ) ],
+"loop": false,
+"name": "attack_slide_H",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "attack_air_H3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H2",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 64 ) ],
+"loop": false,
+"name": "rise",
+"speed": 15.0
 }, {
 "frames": [ SubResource( 65 ) ],
 "loop": false,
@@ -3680,22 +3685,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
 "loop": false,
-"name": "attack_H1",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "attack_air_H3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_air_L1",
+"name": "attack_air_H1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
 "loop": false,
 "name": "attack_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "attack_L2",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 68 ) ],
@@ -3713,9 +3713,9 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 75 ) ],
+"frames": [ SubResource( 74 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ) ],
@@ -3723,9 +3723,9 @@ animations = [ {
 "name": "walk",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 74 ) ],
+"frames": [ SubResource( 75 ) ],
 "loop": false,
-"name": "hurt",
+"name": "hurt_air",
 "speed": 5.0
 } ]
 

@@ -14,28 +14,31 @@ export var bossMusic = "boss1"
 var hitDamage = 0
 var hitType = 0
 var hitDir = Vector3.ZERO
-export var hpMax = 300
+export var hpMax = 350
 var hp = 0
 var invincible = false
 
-enum {WAIT, INTROPREP, INTRO, IDLE, ENTERWATER, EXITWATER, MOVE, BITE, FLIPWARN, FLIP, DEAD, UNLOAD}
-enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP}
+enum {WAIT, INTROPREP, INTRO, IDLE, ENTERWATER, EXITWATER, MOVE, BITE, FLIPWARN, FLIP, DEAD, UNLOAD, SWEEP, JUMP}
+enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP, KB_WEAK_PIERCE, KB_STRONG_PIERCE, KB_ANGLED_PIERCE}
 enum {LEFT, MIDLEFT, MIDRIGHT, RIGHT, PADLEFT, PADMID, PADRIGHT}
 
 var state = WAIT
 var nextState = WAIT
+var phase = 0
 var arenaAnimFinished = false
 var bossAnimFinished = false
 var location = MIDLEFT
+var biteCount = 0
 
 var padLCount = 0
 var padMCount = 0
 var padRCount = 0
+var padMPlayers = []
 
 onready var arenaAnim = $"ArenaAnimationPlayer"
 onready var bossAnim  = $"BossAnimationPlayer"
 onready var boss = $"boss"
-onready var sprite = $"boss/sprite"
+onready var model = $"boss/model"
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -48,11 +51,36 @@ func setHitBox(attackDamage, type, dir):
 	if (lookRight == false):
 		hitDir.x *= -1
 		
-func rollBite():
-	if inRange() and (rng.rand.randf() <= 0.666):
-		return BITE
-	else:
+func rollAttackPad():
+	if not inRange():
 		return ENTERWATER
+	elif (biteCount == 3):
+		return JUMP
+	match phase:
+		0:
+			if (rng.rand.randf() <= 0.666):
+				return BITE
+		1: 
+			if (rng.rand.randf() <= 0.5):
+				return BITE
+			elif (rng.rand.randf() <= 0.5):
+				return JUMP
+		2:
+			if (rng.rand.randf() <= 0.4):
+				return BITE
+			else:
+				return JUMP
+		_:
+			return ENTERWATER
+	return ENTERWATER
+
+func checkForRespawningPlayer():
+	if (padMCount <= 0):
+		return false
+	for player in padMPlayers:
+		if player.isInState([player.HURTRISING, player.HURTFALLING, player.HURTFLOOR, player.KO]):
+			return true
+	return false
 
 func rollLocation():
 	if (padMCount > 0):
@@ -77,23 +105,35 @@ func rollLocationFlip():
 		return PADRIGHT
 	else:
 		return PADMID
-
-func rollFlip():
-	if (float(hp)/float(hpMax)) >= 0.8:
-		if ((rng.rand.randf() <= 0.25)):
-			return FLIPWARN
-		else:
-			return EXITWATER
-	elif (float(hp)/float(hpMax)) >= 0.333:
-		if ((rng.rand.randf() <= 0.35)):
-			return FLIPWARN
-		else:
-			return EXITWATER
+		
+func findPhase():
+	if (float(hp)/float(hpMax)) >= 0.75:
+		return 0
+	elif (float(hp)/float(hpMax)) >= 0.33:
+		return 1
 	else:
-		if ((rng.rand.randf() <= 0.5)):
-			return FLIPWARN
-		else:
+		return 2
+
+func rollAttackWater():
+	match phase:
+		0:
+			if ((rng.rand.randf() <= 0.25)):
+				return FLIPWARN
+		1:
+			if ((rng.rand.randf() <= 0.35)):
+				if ((rng.rand.randf() <= 0.3)):
+					return FLIPWARN
+				else:
+					return SWEEP
+		2:
+			if ((rng.rand.randf() <= 0.4)):
+				if ((rng.rand.randf() <= 0.5)):
+					return FLIPWARN
+				else:
+					return SWEEP
+		_:
 			return EXITWATER
+	return EXITWATER
 
 func inRange():
 	if ((location == LEFT) or (location == RIGHT)) and (padMCount > 0):
@@ -127,20 +167,24 @@ func _process(delta):
 	# FSM
 	match state:
 		WAIT:
-			location = MIDLEFT
+			location = MIDRIGHT
 			if aggro:
 				nextState = INTRO
 			else:
 				nextState = WAIT
 		INTRO:
-			location = MIDLEFT
+			location = MIDRIGHT
 			if bossAnimFinished:
 				bossAnimFinished = false
 				nextState = IDLE
 		IDLE:
 			if bossAnimFinished:
 				bossAnimFinished = false
-				nextState = rollBite()
+				nextState = rollAttackPad()
+				if (nextState == BITE):
+					biteCount += 1
+				else:
+					biteCount = 0
 		ENTERWATER:
 			if bossAnimFinished:
 				bossAnimFinished = false
@@ -150,20 +194,35 @@ func _process(delta):
 				bossAnimFinished = false
 				nextState = IDLE
 		MOVE:
+			boss.set_rotation_degrees(Vector3(0, 180, 0))
 			if bossAnimFinished:
 				bossAnimFinished = false
-				nextState = rollFlip()
+				nextState = rollAttackWater()
 				if (nextState == FLIPWARN):
 					location = rollLocationFlip()
+				elif (nextState == SWEEP):
+					location = MIDRIGHT
 				else:
 					location = rollLocation()
 		BITE: 
-			setHitBox(10, KB_STRONG, Vector3(10, 20, 0))
+			setHitBox(5, KB_WEAK, Vector3(10, 20, 0))
 			if bossAnimFinished:
 				bossAnimFinished = false
 				nextState = IDLE
+		SWEEP: 
+			setHitBox(15, KB_ANGLED_PIERCE, Vector3(5, 30, 0))
+			if bossAnimFinished:
+				bossAnimFinished = false
+				nextState = MOVE
+		JUMP: 
+			setHitBox(10, KB_ANGLED_PIERCE, Vector3(20, 15, 0))
+			if bossAnimFinished:
+				bossAnimFinished = false
+				nextState = MOVE
 		FLIPWARN:
-			setHitBox(20, KB_ANGLED, Vector3(20, 50, 0))
+			setHitBox(10, KB_ANGLED, Vector3(20, 50, 0))
+			if checkForRespawningPlayer():
+				nextState = MOVE
 			if bossAnimFinished:
 				bossAnimFinished = false
 				nextState = FLIP
@@ -202,6 +261,10 @@ func _process(delta):
 			bossAnim.play("under_water")
 		BITE: 
 			bossAnim.play("bite")
+		JUMP: 
+			bossAnim.play("jump")
+		SWEEP: 
+			bossAnim.play("sweep")
 		FLIPWARN:
 			bossAnim.play("flip_warn")
 			if (location == PADLEFT):
@@ -253,11 +316,9 @@ func _process(delta):
 			lookRight = false
 			
 	# mirrors boss if necessary
-	if (lookRight == false):
-		sprite.set_rotation_degrees(Vector3(15, 0, 0))
+	if (lookRight == false) and (state != SWEEP):
 		boss.set_rotation_degrees(Vector3(0, 180, 0))
-	else:
-		sprite.set_rotation_degrees(Vector3(-15, 0, 0))
+	elif (state != SWEEP):
 		boss.set_rotation_degrees(Vector3(0, 0, 0))
 		
 	# test prints
@@ -274,6 +335,8 @@ func _process(delta):
 		state = DEAD
 		defeated = true
 		
+	#sets boss phase
+	phase = findPhase()
 
 
 func _on_cameraTrigger_area_entered(area):
@@ -335,10 +398,11 @@ func _on_hurtbox_area_exited(area):
 
 func _on_playerCheckM_area_entered(area):
 	padMCount += 1
-
+	padMPlayers.append(area.get_parent().get_parent())
 
 func _on_playerCheckM_area_exited(area):
 	padMCount -= 1
+	padMPlayers.erase(area.get_parent().get_parent())
 
 
 func _on_playerCheckL_area_entered(area):

@@ -72,10 +72,11 @@ var hurtAgain = false
 var hurtCount = 0
 var invincible = false
 var invincibleState = false
-var invincibleGetUp = 0 # cannot be it if this value is above 0
+var invincibleGetUp = 0 # cannot be hit if this value is above 0
 var hurtDamage = 0
 var hurtType = 0
 var hurtDir = Vector3.ZERO
+var hurtPierced = false
 
 var lastOnFloorHeight = 0
 var lastOnFloorPos = Vector3.ZERO
@@ -87,7 +88,7 @@ var nearNPCs = 0
 enum printStatesEnum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
 enum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
 enum {UP, DOWN, LEFT, RIGHT, NONE}
-enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP}
+enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP, KB_WEAK_PIERCE, KB_STRONG_PIERCE, KB_ANGLED_PIERCE}
 var oldInput = UP
 var newInput = DOWN
 
@@ -223,6 +224,7 @@ func respawn(dead):
 		state = RISING
 		nextState = RISING
 		hp = hpMax
+		invincibleGetUp = 90
 	else:
 		addHealth(-10)
 		state = HURTRISING
@@ -752,7 +754,7 @@ func _physics_process(delta):
 		elif isInState([BLOCK]) and (counterTimer > 0) and pg.hasCounter:
 			nextState = COUNTER
 			hurtDamage = 0
-		elif isInState([BLOCK, BLOCKHIT]):
+		elif isInState([BLOCK, BLOCKHIT]) and (hurtPierced == false):
 			nextState = BLOCKHIT
 			hurtDamage = 0.25 * hurtDamage
 		elif (hurtType == KB_STRONG) or (hurtType == KB_ANGLED):
@@ -1172,6 +1174,18 @@ func _on_hurtbox_area_entered(area):
 	hurtDamage = attacker.hitDamage
 	hurtType = attacker.hitType
 	hurtDir = attacker.hitDir
+	# sets up piercing damage
+	if (hurtType == KB_WEAK_PIERCE):
+		hurtType = KB_WEAK
+		hurtPierced = true
+	elif (hurtType == KB_STRONG_PIERCE):
+		hurtType = KB_STRONG
+		hurtPierced = true
+	elif (hurtType == KB_ANGLED_PIERCE):
+		hurtType = KB_ANGLED
+		hurtPierced = true
+	else:
+		hurtPierced = false
 	# changes attack to launching if "dead"
 	if (hurtType == KB_WEAK) and (hp <= 0):
 		hurtType = KB_ANGLED
@@ -1186,6 +1200,7 @@ func _on_hurtbox_area_entered(area):
 		newDir = newDir.normalized() * mag
 		hurtDir.x = newDir.x
 		hurtDir.z = newDir.y
+	
 		
 
 func _on_hurtbox_area_exited(area):
