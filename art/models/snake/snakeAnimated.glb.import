@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/snake_boss_riggedsmoothed.glb-c85d2a8b7ce63f8fcc39b44283fb86e6.scn"
+path="res://.import/snakeAnimated.glb-8386163ac641d72cebbc22f7d65e572e.scn"
 
 [deps]
 
-source_file="res://art/models/snake/snake_boss_riggedsmoothed.glb"
-dest_files=[ "res://.import/snake_boss_riggedsmoothed.glb-c85d2a8b7ce63f8fcc39b44283fb86e6.scn" ]
+source_file="res://art/models/snake/snakeAnimated.glb"
+dest_files=[ "res://.import/snakeAnimated.glb-8386163ac641d72cebbc22f7d65e572e.scn" ]
 
 [params]
 

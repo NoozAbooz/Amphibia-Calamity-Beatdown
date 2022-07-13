@@ -37,6 +37,7 @@ var padMPlayers = []
 
 onready var arenaAnim = $"ArenaAnimationPlayer"
 onready var bossAnim  = $"BossAnimationPlayer"
+onready var modelAnim = $"boss/model/snakeAnimated/AnimationPlayer"
 onready var boss = $"boss"
 onready var model = $"boss/model"
 
@@ -247,26 +248,36 @@ func _process(delta):
 		WAIT:
 			bossAnim.play("wait")
 			arenaAnim.play("wait")
+			modelAnim.play("under_water")
 		INTRO:
 			bossAnim.play("intro")
 			arenaAnim.play("intro")
+			modelAnim.play("intro")
 		IDLE:
 			bossAnim.play("idle")
+			modelAnim.play("idle")
 		ENTERWATER:
 			bossAnim.play("enter_water")
+			modelAnim.play("enter_water")
 		EXITWATER:
 			bossAnim.play("exit_water")
+			modelAnim.play("exit_water")
 		MOVE:
 			arenaAnim.play("idle")
 			bossAnim.play("under_water")
+			modelAnim.play("under_water")
 		BITE: 
 			bossAnim.play("bite")
+			modelAnim.play("bite")
 		JUMP: 
 			bossAnim.play("jump")
+			modelAnim.play("jump")
 		SWEEP: 
 			bossAnim.play("sweep")
+			modelAnim.play("sweep")
 		FLIPWARN:
 			bossAnim.play("flip_warn")
+			modelAnim.play("under_water")
 			if (location == PADLEFT):
 				arenaAnim.play("shakeL")
 			elif (location == PADRIGHT):
@@ -275,6 +286,7 @@ func _process(delta):
 				arenaAnim.play("shakeM")
 		FLIP:
 			bossAnim.play("flip")
+			modelAnim.play("flip")
 			if (location == PADLEFT):
 				arenaAnim.play("flipL")
 			elif (location == PADRIGHT):
@@ -284,11 +296,14 @@ func _process(delta):
 		DEAD:
 			bossAnim.play("dead")
 			arenaAnim.play("exit")
+			modelAnim.play("dead")
 		UNLOAD:
 			bossAnim.play("wait")
+			modelAnim.play("under_water")
 		_:
 			bossAnim.play("wait")
 			arenaAnim.play("wait")
+			modelAnim.play("under_water")
 			
 			
 	# positions the boss based on location variable
