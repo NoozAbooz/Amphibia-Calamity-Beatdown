@@ -2553,7 +2553,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 941.492, 5.40997, -23.3498 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 942.706, 4.29881, -25.3947 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -3307,33 +3307,31 @@ transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 5
 flower = true
 
 [node name="lilypad17" parent="lilypads" instance=ExtResource( 5 )]
-transform = Transform( 0.0260637, 0, 0.49932, 0, 0.5, 0, -0.49932, 0, 0.0260637, 870.203, 2.87458, -32.6062 )
+transform = Transform( -0.463402, 0, 0.187773, 0, 0.5, 0, -0.187773, 0, -0.463402, 870.203, 2.87458, -32.6062 )
 
 [node name="lilypad21" parent="lilypads" instance=ExtResource( 5 )]
-transform = Transform( 0.0260637, 0, 0.49932, 0, 0.5, 0, -0.49932, 0, 0.0260637, 918.473, 2.87458, -35.9812 )
+transform = Transform( 0.272232, 0, 0.419392, 0, 0.5, 0, -0.419392, 0, 0.272232, 918.473, 2.87458, -35.9812 )
 
 [node name="lilypad18" parent="lilypads" instance=ExtResource( 5 )]
-transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 877.339, 2.87458, -27.1931 )
+transform = Transform( -0.218059, 0, -0.975935, 0, 1, 0, 0.975935, 0, -0.218059, 877.339, 2.87458, -27.1931 )
 flower = true
 
 [node name="lilypad19" parent="lilypads" instance=ExtResource( 5 )]
-transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 889.654, 2.87458, -24.9867 )
-flower = true
+transform = Transform( -0.330991, 0, 0.943633, 0, 1, 0, -0.943633, 0, -0.330991, 889.654, 2.87458, -24.9867 )
 
 [node name="lilypad22" parent="lilypads" instance=ExtResource( 5 )]
-transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 968.725, 2.87458, -36.6186 )
+transform = Transform( 0.231545, 0, 0.972824, 0, 1, 0, -0.972824, 0, 0.231545, 968.725, 2.87458, -36.6186 )
 flower = true
 
 [node name="lilypad23" parent="lilypads" instance=ExtResource( 5 )]
-transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 977.555, 2.87458, -28.2415 )
-flower = true
+transform = Transform( -0.17468, 0, -0.984625, 0, 1, 0, 0.984625, 0, -0.17468, 977.555, 2.87458, -28.2415 )
 
 [node name="lilypad20" parent="lilypads" instance=ExtResource( 5 )]
-transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 900.252, 2.87458, -30.4675 )
+transform = Transform( 0.810164, 0, -0.586203, 0, 1, 0, 0.586203, 0, 0.810164, 900.252, 2.87458, -30.4675 )
 flower = true
 
 [node name="lilypad24" parent="lilypads" instance=ExtResource( 5 )]
-transform = Transform( 0.0521274, 0, 0.99864, 0, 1, 0, -0.99864, 0, 0.0521274, 909.586, 2.87458, -37.5763 )
+transform = Transform( -0.793428, 0, -0.608664, 0, 1, 0, 0.608664, 0, -0.793428, 909.586, 2.87458, -37.5763 )
 flower = true
 
 [node name="lilypad11" parent="lilypads" instance=ExtResource( 5 )]

@@ -2,7 +2,7 @@ extends Spatial
 
 var cam = null
 var cameraOffset = Vector3(0, 0, 15)
-var cameraOffsetIntro = Vector3(0, 3, 0)
+var cameraOffsetIntro = Vector3(0, 1, 7)
 var vfxScene = preload("res://scenes/vfx.tscn")
 var countDown = 180
 var aggro = false
@@ -160,8 +160,10 @@ func endCutscene():
 	cam.endCutscene()
 func playAndShake():
 	cam.shake(1)
-	soundManager.playMusic(bossMusic)
 	soundManager.playSound("roar")
+	if (state == INTRO):
+		soundManager.playMusic(bossMusic)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -177,7 +179,7 @@ func _process(delta):
 			location = MIDRIGHT
 			if bossAnimFinished:
 				bossAnimFinished = false
-				nextState = IDLE
+				nextState = MOVE
 		IDLE:
 			if bossAnimFinished:
 				bossAnimFinished = false
@@ -206,7 +208,7 @@ func _process(delta):
 				else:
 					location = rollLocation()
 		BITE: 
-			setHitBox(5, KB_WEAK, Vector3(10, 20, 0))
+			setHitBox(5, KB_WEAK, Vector3(0, 0, 0))
 			if bossAnimFinished:
 				bossAnimFinished = false
 				nextState = IDLE
@@ -216,7 +218,7 @@ func _process(delta):
 				bossAnimFinished = false
 				nextState = MOVE
 		JUMP: 
-			setHitBox(10, KB_ANGLED_PIERCE, Vector3(20, 15, 0))
+			setHitBox(15, KB_ANGLED_PIERCE, Vector3(20, 15, 0))
 			if bossAnimFinished:
 				bossAnimFinished = false
 				nextState = MOVE
@@ -322,19 +324,23 @@ func _process(delta):
 			lookRight = false
 		PADLEFT:
 			boss.translation = Vector3(-11, 0, 0)
-			lookRight = true
+			lookRight = false
 		PADMID:
 			boss.translation = Vector3(0, 0, 11)
-			lookRight = true
+			lookRight = false
 		PADRIGHT:
 			boss.translation = Vector3(11, 0, 0)
 			lookRight = false
 			
-	# mirrors boss if necessary
-	if (lookRight == false) and (state != SWEEP):
+	# positions/mirrors boss if necessary
+	if (state == SWEEP) or (state == INTRO):
+		boss.set_rotation_degrees(Vector3(0, -90, 0))
+	elif (lookRight == false):
 		boss.set_rotation_degrees(Vector3(0, 180, 0))
-	elif (state != SWEEP):
+	else:
 		boss.set_rotation_degrees(Vector3(0, 0, 0))
+		
+	
 		
 	# test prints
 	#print("L: " + str(padLCount) + "   M: " + str(padMCount) + "   R: " + str(padRCount))
@@ -349,6 +355,7 @@ func _process(delta):
 		nextState = DEAD
 		state = DEAD
 		defeated = true
+		cam.cutsceneTarget = translation + cameraOffsetIntro + boss.translation + Vector3(0, 2, -2)
 		
 	#sets boss phase
 	phase = findPhase()
