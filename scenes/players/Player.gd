@@ -35,6 +35,7 @@ var deathFloorHeight = -30
 var velocity = Vector3.ZERO
 var speed = speed_walk
 var lookRight = true
+var wallSliding = false
 
 var doubleJumpReady = true
 var mini_jump_boost = 0
@@ -923,7 +924,9 @@ func _physics_process(delta):
 		speed = speed_run
 		
 	# X movement
-	if isInState([WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE]):
+	if (wallSliding):
+		pass
+	elif isInState([WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE]):
 		canMove = true
 		velocity.x = speed * direction.x
 		velocity.z = speed_z * direction.z
@@ -998,6 +1001,24 @@ func _physics_process(delta):
 	velocity = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true, 4, 1.05)
 	if (!isInState([BLOCK, BLOCKHIT, HURTFLOOR])) and (isInWindbox):
 		move_and_slide_with_snap(Vector3(windVect.x, 0, windVect.z), snapVect, Vector3.UP, true, 4, 1.05)
+	
+	# checks if player is sliding up a wall and corrects if necessary
+#	if (is_on_wall() and ((direction.x * velocity.x > 0) or (direction.z * velocity.z > 0)) and (velocity.y > 0)):
+#		for i in range (get_slide_count() - 1):
+#			if (get_slide_collision(i).get_normal().y > 0):
+#				wallSliding = true
+#			else:
+#				wallSliding = false
+#	for i in range (get_slide_count() - 1):
+#		var v1 = Vector2(velocity.x, velocity.z)
+#		var v2 = Vector2(get_slide_collision(i).get_normal().x, get_slide_collision(i).get_normal().z)
+#		if (v1.dot(v2) < -0.1):
+#			wallSliding = true
+#	if (is_on_floor()):
+#		wallSliding = false
+#	if wallSliding and velocity.y > 0:
+#		velocity.y = 0
+#	print(wallSliding)
 	
 	# fall off world
 	if (translation.y <= deathFloorHeight):

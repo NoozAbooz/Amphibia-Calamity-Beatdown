@@ -2553,7 +2553,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 942.706, 4.29881, -25.3947 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6497, 4.74753, 7.06701 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -3437,6 +3437,7 @@ randomContents = false
 foods = 4
 
 [node name="triggers" type="Spatial" parent="."]
+visible = false
 
 [node name="cameraWall" parent="triggers" instance=ExtResource( 46 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -259.29, 16.3664, -37.7732 )
@@ -3565,16 +3566,19 @@ shape = SubResource( 99 )
 
 [node name="ambush" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.145, 0.456877, -2.2731 )
+visible = false
 ambushName = "bestFrondsAmbush1"
 
 [node name="ambush2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -195.555, 11.8572, -47.3836 )
+visible = false
 ambushName = "bestFrondsAmbush2"
 uniqueMusic = "boss1"
 waveForMusicStart = 1
 
 [node name="ambush3" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 633.79, 18.8346, -38.2777 )
+visible = false
 ambushName = "bestFrondsAmbush3"
 
 [node name="watersnake" parent="." instance=ExtResource( 3 )]
