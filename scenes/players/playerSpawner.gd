@@ -21,6 +21,7 @@ var lightScene = preload("res://scenes/downwardLight.tscn")
 
 var player = AnneScene.instance()
 var offset = Vector3.ZERO
+var spawnerLocation = Vector3.ZERO
 
 var nextScene = camScene.instance()
 
@@ -28,7 +29,20 @@ export var hideGUI = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	# moves spawner to appropriate location if in wartwood
+	if (pg.levelNum == 0):
+		match pg.currentStore:
+			0: 
+				spawnerLocation = translation
+			1: #City Hall
+				spawnerLocation = translation
+			2: #Maddie
+				spawnerLocation = Vector3(-382.109, -0.131, -8.907)
+			3: #Felicia
+				spawnerLocation = Vector3(246.903, 1.623, 7.669)
+			_:
+				spawnerLocation = translation
+		translation = spawnerLocation
 
 
 func _process(_delta):

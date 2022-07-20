@@ -22,6 +22,8 @@ func _ready():
 	get_node("lvl0").grab_focus()
 	cam.zoom = Vector2(1,1)
 	loading = false
+	#resets store variable just in case
+	pg.currentStore = 0
 
 func _process(delta):
 	#positions camera and marker

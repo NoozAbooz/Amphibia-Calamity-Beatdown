@@ -31,27 +31,27 @@ animations = [ {
 "name": "wartwood",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "playground",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "bestFronds",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "playground",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "uncheck",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "check",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "uncheck",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -129,7 +129,7 @@ __meta__ = {
 position = Vector2( 266, 818 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 flip_h = true
 

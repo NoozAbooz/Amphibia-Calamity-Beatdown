@@ -18,6 +18,7 @@ func _ready():
 	warpEnt.connect("area_entered", self, "_on_area_entered")
 	# hides markers
 	get_node("markers").hide()
+	warpEnt.get_node("MeshInstance").queue_free()
 	# hide fadeing
 	anim.play("idle")
 	# sets destination

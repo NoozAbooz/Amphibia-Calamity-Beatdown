@@ -19,8 +19,6 @@ const damageBoost  = 0.2
 const coinBoost    = 1
 const dropBoost    = 0.05
 
-# saved flags
-var seenToadstool = false
 
 # attack unlocks
 var hasSpin    = false
@@ -71,6 +69,10 @@ var GOCount = 0
 var dontMove = false
 var inCutscene = false
 
+# wartwood flags
+var seenToadstool = false
+var firstTimeInWartwood = false
+var currentStore = 0 # 0 = none; 1 = city hall; 2 = Maddie; 3 = Felicia
 
 func recalcInfo():
 	# characters

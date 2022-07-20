@@ -1,7 +1,11 @@
 extends Area
 
+export var visibleMesh = false
+
 func _ready():
-	pass # Replace with function body.
+	if (visibleMesh == false):
+		get_node("MeshInstance").queue_free()
+		get_node("MeshInstance2").queue_free()
 
 func _on_cameraWall_area_entered(area):
 	var cam = area.get_parent()
