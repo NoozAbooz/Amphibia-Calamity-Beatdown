@@ -1581,13 +1581,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2541, 0, 43.7226 )
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.00537, 5.35452, -3.53747 )
 
 [node name="warpExit0" parent="warps" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -238.538, 0.393317, -41.7947 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -234.604, 0.393317, -40.3107 )
 
 [node name="warp1" parent="warps" instance=ExtResource( 8 )]
 transform = Transform( 0.999899, 0, -0.0142065, 0, 1, 0, 0.0142065, 0, 0.999899, -215.853, 4.88149, -42.9936 )
 
 [node name="warpExit1" parent="warps" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5125, 0, -16.8321 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5709, 0, -15.8188 )
 warpNum = 1
 
 [node name="warp2" parent="warps" instance=ExtResource( 8 )]
