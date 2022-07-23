@@ -23,10 +23,10 @@ var markerState = READY
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	posDes = get_node("wart").rect_position
 	soundManager.playMusicIfDiff("menu")
 	cam.zoom = Vector2(1,1)
 	loading = false
+	get_node("cam/pockets/totalMoney").text = str(pg.totalMoney)
 	# sets starting positions
 	get_node("wart").grab_focus()
 	posDes = get_node("wart").rect_position + Vector2(get_node("wart").rect_size / 2)
@@ -100,8 +100,8 @@ func _process(delta):
 		cam.position = posDes
 #	cam.position.x = marker.position.x
 #	cam.position.y = marker.position.y
-	cam.zoom.x += 0.09*(zoomDes.x - cam.zoom.x)
-	cam.zoom.y += 0.09*(zoomDes.y - cam.zoom.y)
+	cam.zoom.x += 0.2*(zoomDes.x - cam.zoom.x)
+	cam.zoom.y += 0.2*(zoomDes.y - cam.zoom.y)
 	
 	# "back" Inputs
 	if !infoScreen:
@@ -129,7 +129,7 @@ func _process(delta):
 		phonePosDes = Vector2(0, 0)
 	else:
 		phonePosDes = Vector2(0, 500)
-	phone.position.y += (phonePosDes.y - phone.position.y) * delta * 6
+	phone.position.y += (phonePosDes.y - phone.position.y) * delta * 8
 	# check box for level completion
 	if (pg.levelNum == 0):
 		$cam/phone/checkBox.play("none")
@@ -171,6 +171,7 @@ func _on_wart_focus_entered():
 	pg.levelMusic = "ripple"
 	pg.levelNum = 0
 	$cam/phone/levelName.text = "Wartwood"
+	$cam/pockets/levelName.text = "Wartwood"
 	$cam/phone/levelPic.play("wartwood")
 	
 func _on_play_focus_entered():
@@ -179,6 +180,7 @@ func _on_play_focus_entered():
 	pg.levelMusic = "marcy"
 	pg.levelNum = 1
 	$cam/phone/levelName.text = "Beta Playground"
+	$cam/pockets/levelName.text = "Beta Playground"
 	$cam/phone/levelPic.play("playground")
 
 func _on_lvl1_focus_entered():
@@ -187,6 +189,7 @@ func _on_lvl1_focus_entered():
 	pg.levelMusic = "swamp"
 	pg.levelNum = 2
 	$cam/phone/levelName.text = "Trip to the Lake"
+	$cam/pockets/levelName.text = "Trip to the Lake"
 	$cam/phone/levelPic.play("bestFronds")
 	
 func _on_lvl2_focus_entered():
@@ -194,7 +197,8 @@ func _on_lvl2_focus_entered():
 	pg.levelName = "playground"
 	pg.levelMusic = "swamp"
 	pg.levelNum = 3
-	$cam/phone/levelName.text = "Mountain Pass"
+	$cam/phone/levelName.text = "Valley Ridge"
+	$cam/pockets/levelName.text = "Valley Ridge"
 	$cam/phone/levelPic.play("bestFronds")
 
 

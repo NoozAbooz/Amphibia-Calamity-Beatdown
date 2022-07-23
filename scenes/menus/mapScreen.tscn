@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/mapBG.png" type="Texture" id=2]
@@ -20,6 +20,41 @@
 [ext_resource path="res://art/menus/char_info.png" type="Texture" id=18]
 [ext_resource path="res://art/pickups/coin_icon.png" type="Texture" id=19]
 [ext_resource path="res://themes/Combo_small_desc_text.tres" type="Theme" id=20]
+[ext_resource path="res://art/menus/map icons/tower.png" type="Texture" id=21]
+[ext_resource path="res://art/menus/map icons/statue.png" type="Texture" id=22]
+[ext_resource path="res://art/menus/map icons/farm.png" type="Texture" id=23]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 47, 58 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 21 )
+region = Rect2( 47, 0, 47, 58 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 21 )
+region = Rect2( 94, 0, 47, 58 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 21 )
+region = Rect2( 141, 0, 47, 58 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 21 )
+region = Rect2( 188, 0, 47, 58 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 21 )
+region = Rect2( 235, 0, 47, 58 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -103,6 +138,21 @@ __meta__ = {
 }
 
 [node name="map decorations" type="Node2D" parent="."]
+
+[node name="tower" type="AnimatedSprite" parent="map decorations"]
+position = Vector2( 634, 387 )
+frames = SubResource( 10 )
+frame = 1
+playing = true
+
+[node name="wart1" type="Sprite" parent="map decorations"]
+position = Vector2( 705, 459 )
+texture = ExtResource( 23 )
+
+[node name="wart2" type="Sprite" parent="map decorations"]
+position = Vector2( 734, 463 )
+texture = ExtResource( 22 )
+flip_h = true
 
 [node name="wart" type="TextureButton" parent="."]
 margin_left = 694.0
@@ -368,9 +418,24 @@ __meta__ = {
 position = Vector2( 320, -180 )
 
 [node name="pockets1" type="NinePatchRect" parent="cam/pockets"]
+margin_left = -160.0
+margin_right = 160.0
+margin_bottom = 76.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pockets2" type="NinePatchRect" parent="cam/pockets"]
 margin_left = -640.0
+margin_top = 322.0
 margin_right = 640.0
-margin_bottom = 82.0
+margin_bottom = 398.0
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 18 )
 patch_margin_left = 15
@@ -382,18 +447,31 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="cam/pockets"]
-position = Vector2( -21, 20 )
+position = Vector2( -21, 19 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 19 )
 
 [node name="totalMoney" type="Label" parent="cam/pockets"]
 margin_left = -154.0
-margin_top = 6.0
+margin_top = 5.0
 margin_right = -34.0
-margin_bottom = 35.0
+margin_bottom = 34.0
 theme = ExtResource( 20 )
 text = "9999999"
 align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelName" type="Label" parent="cam/pockets"]
+margin_left = -634.0
+margin_top = 328.0
+margin_right = -6.0
+margin_bottom = 354.0
+theme = ExtResource( 20 )
+text = "A Trip to the Lake"
+align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
