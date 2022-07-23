@@ -262,6 +262,9 @@ __meta__ = {
 [node name="pockets" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="pockets1" type="NinePatchRect" parent="pockets"]
 margin_left = 1020.0

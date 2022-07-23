@@ -1,11 +1,13 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/mapBG.png" type="Texture" id=2]
 [ext_resource path="res://art/menus/map icons/level_button_disabled.png" type="Texture" id=3]
-[ext_resource path="res://art/menus/map icons/fwagon_right.png" type="Texture" id=4]
+[ext_resource path="res://art/menus/map icons/fwagon_idle_1.png" type="Texture" id=4]
 [ext_resource path="res://art/menus/map icons/level_button_focus.png" type="Texture" id=5]
 [ext_resource path="res://art/menus/map icons/level_button_normal.png" type="Texture" id=6]
+[ext_resource path="res://art/menus/map icons/fwagon_left_1.png" type="Texture" id=7]
+[ext_resource path="res://art/menus/map icons/fwagon_up_1.png" type="Texture" id=8]
 [ext_resource path="res://art/menus/map popup/playground.png" type="Texture" id=9]
 [ext_resource path="res://art/menus/map popup/check_empty.png" type="Texture" id=10]
 [ext_resource path="res://art/menus/map popup/wartwood.png" type="Texture" id=11]
@@ -13,13 +15,38 @@
 [ext_resource path="res://art/menus/map popup/check.png" type="Texture" id=13]
 [ext_resource path="res://art/menus/map popup/bestFronds.png" type="Texture" id=14]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=15]
+[ext_resource path="res://art/menus/map icons/fwagon_right_1.png" type="Texture" id=16]
+[ext_resource path="res://art/menus/map icons/fwagon_down_1.png" type="Texture" id=17]
+[ext_resource path="res://art/menus/char_info.png" type="Texture" id=18]
+[ext_resource path="res://art/pickups/coin_icon.png" type="Texture" id=19]
+[ext_resource path="res://themes/Combo_small_desc_text.tres" type="Theme" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "default",
-"speed": 3.0
+"name": "idle",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -74,6 +101,8 @@ texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="map decorations" type="Node2D" parent="."]
 
 [node name="wart" type="TextureButton" parent="."]
 margin_left = 694.0
@@ -270,8 +299,8 @@ __meta__ = {
 [node name="marker" type="AnimatedSprite" parent="."]
 position = Vector2( 266, 818 )
 frames = SubResource( 1 )
+animation = "down"
 playing = true
-flip_h = true
 
 [node name="cam" type="Camera2D" parent="."]
 position = Vector2( 640, 360 )
@@ -331,6 +360,41 @@ focus_previous = NodePath(".")
 focus_mode = 0
 theme = ExtResource( 15 )
 text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pockets" type="Node2D" parent="cam"]
+position = Vector2( 320, -180 )
+
+[node name="pockets1" type="NinePatchRect" parent="cam/pockets"]
+margin_left = -640.0
+margin_right = 640.0
+margin_bottom = 82.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="cam/pockets"]
+position = Vector2( -21, 20 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 19 )
+
+[node name="totalMoney" type="Label" parent="cam/pockets"]
+margin_left = -154.0
+margin_top = 6.0
+margin_right = -34.0
+margin_bottom = 35.0
+theme = ExtResource( 20 )
+text = "9999999"
+align = 2
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

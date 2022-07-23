@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fwagon_right.png-f980923288f17b1c1712c2af35eda48b.stex"
+path="res://.import/tower.png-517e4240b74c1b3f0d3469aec69eb7ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/menus/map icons/fwagon_right.png"
-dest_files=[ "res://.import/fwagon_right.png-f980923288f17b1c1712c2af35eda48b.stex" ]
+source_file="res://art/menus/map icons/tower.png"
+dest_files=[ "res://.import/tower.png-517e4240b74c1b3f0d3469aec69eb7ad.stex" ]
 
 [params]
 

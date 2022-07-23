@@ -30,6 +30,7 @@ func _ready():
 	# sets starting positions
 	get_node("wart").grab_focus()
 	posDes = get_node("wart").rect_position + Vector2(get_node("wart").rect_size / 2)
+	posDes.y += markerOffset
 	marker.position = posDes
 	#resets store variable just in case
 	pg.currentStore = 0
@@ -53,22 +54,43 @@ func _process(delta):
 	#positions marker
 	if (marker.position == posDes):
 		markerState = READY
-	if (marker.position.x == posDes.x):
-		pass
-	elif (abs(marker.position.x - posDes.x) < markerThreshold):
-		marker.position.x = posDes.x
-	elif (marker.position.x > posDes.x):
-		marker.position.x -= markerSpeed * delta
-	else:
-		marker.position.x += markerSpeed * delta
+	# Y movement. Y first so L/R sprite takes priority over U/D
 	if (marker.position.y == posDes.y):
 		pass
 	elif (abs(marker.position.y - posDes.y) < markerThreshold):
 		marker.position.y = posDes.y
 	elif (marker.position.y > posDes.y):
 		marker.position.y -= markerSpeed * delta
+		markerState = UP
 	else:
 		marker.position.y += markerSpeed * delta
+		markerState = DOWN
+	# X movement
+	if (marker.position.x == posDes.x):
+		pass
+	elif (abs(marker.position.x - posDes.x) < markerThreshold):
+		marker.position.x = posDes.x
+	elif (marker.position.x > posDes.x):
+		marker.position.x -= markerSpeed * delta
+		markerState = LEFT
+	else:
+		marker.position.x += markerSpeed * delta
+		markerState = RIGHT
+	
+	# marker animation
+	match markerState:
+		READY:
+			marker.play("idle")
+		UP:
+			marker.play("up")
+		DOWN:
+			marker.play("down")
+		LEFT:
+			marker.play("left")
+		RIGHT:
+			marker.play("right")
+		_:
+			marker.play("idle")
 	
 	#positions camera
 	if (cam.position != posDes):
