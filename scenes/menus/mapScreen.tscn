@@ -1,7 +1,7 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
-[ext_resource path="res://art/menus/mapBG.png" type="Texture" id=2]
+[ext_resource path="res://art/menus/map_open (1).png" type="Texture" id=2]
 [ext_resource path="res://art/menus/map icons/level_button_disabled.png" type="Texture" id=3]
 [ext_resource path="res://art/menus/map icons/fwagon_idle_1.png" type="Texture" id=4]
 [ext_resource path="res://art/menus/map icons/level_button_focus.png" type="Texture" id=5]
@@ -23,6 +23,7 @@
 [ext_resource path="res://art/menus/map icons/tower.png" type="Texture" id=21]
 [ext_resource path="res://art/menus/map icons/statue.png" type="Texture" id=22]
 [ext_resource path="res://art/menus/map icons/farm.png" type="Texture" id=23]
+[ext_resource path="res://art/menus/map bg/map6.png" type="Texture" id=24]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 21 )
@@ -128,14 +129,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="table" type="TextureRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
 rect_scale = Vector2( 0.667, 0.667 )
 texture = ExtResource( 2 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="parchment" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 24 )
 
 [node name="map decorations" type="Node2D" parent="."]
 

@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/menus/mapOpen.gd" type="Script" id=1]
-[ext_resource path="res://art/menus/mapBG.png" type="Texture" id=2]
+[ext_resource path="res://art/menus/map bg/map4.png" type="Texture" id=2]
 [ext_resource path="res://art/menus/map_open (2).png" type="Texture" id=3]
 [ext_resource path="res://art/menus/map_open (6).png" type="Texture" id=4]
 [ext_resource path="res://art/menus/map_open (4).png" type="Texture" id=5]
@@ -19,6 +19,17 @@
 [ext_resource path="res://art/menus/map_open (8).png" type="Texture" id=17]
 [ext_resource path="res://art/menus/map_open (12).png" type="Texture" id=18]
 [ext_resource path="res://art/menus/map_open (14).png" type="Texture" id=19]
+[ext_resource path="res://art/menus/map bg/hand3.png" type="Texture" id=20]
+[ext_resource path="res://art/menus/map bg/hand1.png" type="Texture" id=21]
+[ext_resource path="res://art/menus/map bg/map2.png" type="Texture" id=22]
+[ext_resource path="res://art/menus/map bg/hand4.png" type="Texture" id=23]
+[ext_resource path="res://art/menus/map bg/hand2.png" type="Texture" id=24]
+[ext_resource path="res://art/menus/map bg/hand5.png" type="Texture" id=25]
+[ext_resource path="res://art/menus/map bg/map3.png" type="Texture" id=26]
+[ext_resource path="res://art/menus/map bg/map1.png" type="Texture" id=27]
+[ext_resource path="res://art/menus/map bg/map6.png" type="Texture" id=28]
+[ext_resource path="res://art/menus/map bg/map5.png" type="Texture" id=29]
+[ext_resource path="res://art/menus/map bg/hand_only.png" type="Texture" id=30]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -28,6 +39,102 @@ animations = [ {
 "speed": 15.0
 } ]
 
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 24 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 2 ), ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("map:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 594, 326 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -322, 338 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "default"
+length = 1.41667
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/path = NodePath("map:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.333333, 0.416667 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -676, 366 ), Vector2( -676, 366 ), Vector2( 640, 360 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("map:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667, 1.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("hand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667, 1.25, 1.33333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -500, 338 ), Vector2( 580, 316 ), Vector2( 446, 316 ), Vector2( 255, 316 ), Vector2( 63, 316 ), Vector2( -41, 316 ), Vector2( -195, 316 ), Vector2( -357, 316 ), Vector2( -500, 316 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("hand:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+
 [node name="mapOpen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -36,11 +143,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="table" type="TextureRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
 rect_scale = Vector2( 0.667, 0.667 )
-texture = ExtResource( 2 )
+texture = ExtResource( 11 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -56,9 +164,25 @@ __meta__ = {
 }
 
 [node name="bg" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 640, 360 )
 scale = Vector2( 1.334, 1.334 )
 frames = SubResource( 1 )
 
+[node name="map" type="AnimatedSprite" parent="."]
+position = Vector2( 594, 326 )
+frames = SubResource( 2 )
+frame = 10
+
+[node name="hand" type="AnimatedSprite" parent="."]
+position = Vector2( -322, 338 )
+frames = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/RESET = SubResource( 4 )
+anims/default = SubResource( 5 )
+
 [connection signal="pressed" from="startButton" to="." method="_on_startButton_pressed"]
 [connection signal="animation_finished" from="bg" to="." method="_on_bg_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

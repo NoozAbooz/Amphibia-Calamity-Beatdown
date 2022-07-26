@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Wagon.glb-a7f6c372673178a6fe5c58e01d84fca5.scn"
+path="res://.import/Wagon.glb-d9be90f75add0291034041ad810e1711.scn"
 
 [deps]
 
-source_file="res://art/models/fwagon/Wagon.glb"
-dest_files=[ "res://.import/Wagon.glb-a7f6c372673178a6fe5c58e01d84fca5.scn" ]
+source_file="res://art/models/Fwagon/Wagon.glb"
+dest_files=[ "res://.import/Wagon.glb-d9be90f75add0291034041ad810e1711.scn" ]
 
 [params]
 

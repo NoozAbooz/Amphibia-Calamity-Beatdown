@@ -6,6 +6,7 @@ extends Spatial
 
 var warpEnt = null
 export var warpNum = 0
+export var isVisible = false
 onready var anim = get_node("AnimationPlayer")
 var players = [null, null, null, null]
 var cam = null
@@ -17,8 +18,9 @@ func _ready():
 	# connects to corresponding warp entrance and listens for signal
 	warpEnt.connect("area_entered", self, "_on_area_entered")
 	# hides markers
-	get_node("markers").hide()
-	warpEnt.get_node("MeshInstance").queue_free()
+	if (isVisible == false):
+		get_node("markers").hide()
+		warpEnt.get_node("MeshInstance").queue_free()
 	# hide fadeing
 	anim.play("idle")
 	# sets destination

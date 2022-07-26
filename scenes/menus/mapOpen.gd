@@ -16,4 +16,8 @@ func _on_startButton_pressed():
 	get_tree().change_scene("res://scenes/menus/mapScreen.tscn")
 
 func _on_bg_animation_finished():
+	#get_tree().change_scene("res://scenes/menus/mapScreen.tscn")
+	pass
+
+func _on_AnimationPlayer_animation_finished(anim_name):
 	get_tree().change_scene("res://scenes/menus/mapScreen.tscn")
