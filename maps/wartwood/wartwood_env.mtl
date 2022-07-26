@@ -1,7 +1,7 @@
 # Blender MTL File: 'None'
-# Material Count: 9
+# Material Count: 10
 
-newmtl material.007
+newmtl material.004
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -11,7 +11,7 @@ Ni 1.450000
 d 1.000000
 illum 1
 
-newmtl material_1.007
+newmtl material_1.004
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -22,7 +22,7 @@ d 1.000000
 illum 1
 map_Kd wartwood_draft\\material_1.png
 
-newmtl material_2.006
+newmtl material_2.004
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -33,7 +33,7 @@ d 1.000000
 illum 1
 map_Kd wartwood_draft\\material_2.png
 
-newmtl material_3.007
+newmtl material_3.004
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -44,7 +44,7 @@ d 1.000000
 illum 1
 map_Kd wartwood_draft\\material_3.png
 
-newmtl material_4.007
+newmtl material_4.004
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -55,7 +55,7 @@ d 1.000000
 illum 1
 map_Kd wartwood_draft\\material_4.png
 
-newmtl material_5.007
+newmtl material_5.004
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -66,7 +66,7 @@ d 1.000000
 illum 1
 map_Kd wartwood_draft\\material_5.png
 
-newmtl material_6.007
+newmtl material_6.004
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.000000 0.588235 0.678431
@@ -76,7 +76,7 @@ Ni 1.450000
 d 1.000000
 illum 1
 
-newmtl material_7.007
+newmtl material_7.004
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 0.000000 0.890196
@@ -86,7 +86,7 @@ Ni 1.450000
 d 0.000000
 illum 1
 
-newmtl material_8.007
+newmtl material_8.004
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -96,3 +96,13 @@ Ni 1.450000
 d 1.000000
 illum 1
 map_Kd wartwood_draft\\material_8.png
+
+newmtl material_9.004
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 0.301961
+illum 1
