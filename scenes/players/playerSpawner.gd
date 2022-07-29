@@ -82,7 +82,7 @@ func _process(_delta):
 			_:
 				offset = Vector3.ZERO
 		# initializes player
-		player.initialize(i, (translation + offset))
+		player.initialize(i, (translation + offset), pg.playerCharacter[i])
 		# hides GUI if necessary
 		if (hideGUI):
 			player.get_node("playerInfo").visible = false

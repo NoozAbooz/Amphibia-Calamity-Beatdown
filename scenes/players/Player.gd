@@ -1,8 +1,11 @@
 extends KinematicBody
 
 var vfxScene = preload("res://scenes/vfx.tscn")
+var projScene = preload("res://scenes/players/playerProj.tscn")
 
 var playerNum = 1
+
+var playerChar = "Anne"
 
 var speed_walk = 10 #12
 var speed_run = 18 #24
@@ -111,7 +114,7 @@ var inputBuffTimer = 0
 var inputBuffMax = 8
 
 
-func initialize(num, pos):
+func initialize(num, pos, character):
 	# adds hit box area to appropriate group so enemies can tell hitboxes apart
 	$"zeroPoint/hitbox".add_to_group("player"+str(num))
 	# sets up inputs
@@ -134,8 +137,13 @@ func initialize(num, pos):
 	self.name = "Player" + str(num)
 	# updates lives, hp, damage
 	updateStats()
-	#sets player number
+	#sets player number and char
 	playerNum = num
+	playerChar = character
+	# Positions character to the right
+	lookRight = true
+	sprite.set_rotation_degrees(Vector3(-15, 90, 0))
+	$"zeroPoint".set_rotation_degrees(Vector3(0, 180, 0))
 
 func clearInputBuffer():
 	inputBuffKey = null
@@ -217,6 +225,18 @@ func setHitBox(damage, type, dir, sfx = "hit1"):
 	hitSound = sfx
 	if (lookRight == false):
 		hitDir.x *= -1
+		
+func spawnProj():
+	# sets spawn point
+	var spawnLocation = get_node("zeroPoint/projSpawnPoint").global_transform.origin
+	# sets projectile type
+	var projType = 0
+	if (playerChar == "Marcy"):
+		projType = 1
+	# instances and initializes projectile scene
+	var proj = projScene.instance()
+	get_parent().add_child(proj)
+	proj.initialize(spawnLocation, lookRight, hitDamage, hitType, hitDir, hitSound, projType)
 		
 func respawn(dead):
 	safePos = get_parent().get_node("camera_pivot/Camera").findSpawnPoint(lastOnFloorPos)
@@ -840,46 +860,45 @@ func _physics_process(delta):
 
 		
 	# sets up hitbox stats
-	if   isInState([A_L1]):
-		setHitBox(5, KB_WEAK, Vector3(1, 0, 0))
-	elif isInState([A_L2]):
-		setHitBox(10, KB_WEAK, Vector3(1, 0, 0), "hit2")
-	elif isInState([A_L3]):
-		setHitBox(10, KB_WEAK, Vector3(1, 0, 0))
-	elif isInState([A_H1]):
-		setHitBox(12, KB_STRONG, Vector3(30, 25, 0), "hit3")
-	elif isInState([A_H2]):
-		setHitBox(20, KB_STRONG, Vector3(7, 50, 0), "hit3")
-	elif isInState([A_H3]):
-		if (comboReady):
-			setHitBox(15, KB_ANGLED, Vector3(15, 35, 0), "none")
-		else:
-			setHitBox(2, KB_WEAK, Vector3(1, 0, 0), "hit5")
-	elif isInState([A_AH1]):
-		setHitBox(20, KB_ANGLED, Vector3(40, 10, 0), "hit3")
-	elif isInState([A_AH2]):
-		setHitBox(35, KB_STRONG_RECOIL, Vector3(30, -70, 0), "hit4")
-	elif isInState([A_AH3_HIT]):
-		setHitBox(1, KB_STRONG, Vector3(0, -50, 0), "hit3")
-	elif isInState([A_AH3_LAND]):
-		setHitBox(35, KB_ANGLED, Vector3(5, 50, 0), "hit3")
-	elif isInState([A_AL1]):
-		setHitBox(8, KB_AIR, Vector3(1, 0, 0))
-	elif isInState([A_AL2]):
-		setHitBox(8, KB_AIR, Vector3(1, 0, 0), "hit2")
-	elif isInState([A_AL3]):
-		setHitBox(12, KB_AIR_UP, Vector3(1, 30, 0))	
-	elif isInState([A_SL]):
-		setHitBox(15, KB_STRONG, Vector3(-7, 40, 0), "hit2")
-	elif isInState([A_SH]):
-		setHitBox(20, KB_STRONG_RECOIL, Vector3(30, 25, 0), "hit3")
-	elif isInState([COUNTER]):
-		setHitBox(35, KB_ANGLED, Vector3(5, 40, 0), "hit4")
-	elif isInState([HURTFLOOR]):
-		setHitBox(1, KB_ANGLED, Vector3(5, 15, 0))
-	else:
-		#setHitBox(0, KB_WEAK, Vector3.ZERO)
-		pass
+#	if   isInState([A_L1]):
+#		setHitBox(5, KB_WEAK, Vector3(1, 0, 0))
+#	elif isInState([A_L2]):
+#		setHitBox(10, KB_WEAK, Vector3(1, 0, 0), "hit2")
+#	elif isInState([A_L3]):
+#		setHitBox(10, KB_WEAK, Vector3(1, 0, 0))
+#	elif isInState([A_H1]):
+#		setHitBox(12, KB_STRONG, Vector3(30, 25, 0), "hit3")
+#	elif isInState([A_H2]):
+#		setHitBox(20, KB_STRONG, Vector3(7, 50, 0), "hit3")
+#	elif isInState([A_H3]):
+#		if (comboReady):
+#			setHitBox(15, KB_ANGLED, Vector3(15, 35, 0), "none")
+#		else:
+#			setHitBox(2, KB_WEAK, Vector3(1, 0, 0), "hit5")
+#	elif isInState([A_AH1]):
+#		setHitBox(20, KB_ANGLED, Vector3(40, 10, 0), "hit3")
+#	elif isInState([A_AH2]):
+#		setHitBox(35, KB_STRONG_RECOIL, Vector3(30, -70, 0), "hit4")
+#	elif isInState([A_AH3_HIT]):
+#		setHitBox(1, KB_STRONG, Vector3(0, -50, 0), "hit3")
+#	elif isInState([A_AH3_LAND]):
+#		setHitBox(35, KB_ANGLED, Vector3(5, 50, 0), "hit3")
+#	elif isInState([A_AL1]):
+#		setHitBox(8, KB_AIR, Vector3(1, 0, 0))
+#	elif isInState([A_AL2]):
+#		setHitBox(8, KB_AIR, Vector3(1, 0, 0), "hit2")
+#	elif isInState([A_AL3]):
+#		setHitBox(12, KB_AIR_UP, Vector3(1, 30, 0))	
+#	elif isInState([A_SL]):
+#		setHitBox(15, KB_STRONG, Vector3(-7, 40, 0), "hit2")
+#	elif isInState([A_SH]):
+#		setHitBox(20, KB_STRONG_RECOIL, Vector3(30, 25, 0), "hit3")
+#	elif isInState([COUNTER]):
+#		setHitBox(35, KB_ANGLED, Vector3(5, 40, 0), "hit4")
+#	elif isInState([HURTFLOOR]):
+#		setHitBox(1, KB_ANGLED, Vector3(5, 15, 0))
+#	else:
+#		pass
 	
 	# resets combo flag in non-battle states
 	if isInState([IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, HURT, HURTLAUNCH]):

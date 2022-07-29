@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/wartwood/wartwood_env.obj" type="ArrayMesh" id=2]
@@ -259,6 +259,10 @@ albedo_texture = ExtResource( 53 )
 [sub_resource type="PlaneMesh" id=126]
 material = SubResource( 125 )
 size = Vector2( 2, 5 )
+
+[sub_resource type="PlaneMesh" id=128]
+material = SubResource( 125 )
+size = Vector2( 10, 20 )
 
 [sub_resource type="Animation" id=25]
 resource_name = "attack_heavy"
@@ -1769,6 +1773,45 @@ skeleton = NodePath("../..")
 [node name="treeD6" parent="environment/trees" instance=ExtResource( 46 )]
 transform = Transform( -1.03707, 0, 2.81505, 0, 3, 0, -2.81505, 0, -1.03707, -2.38714, 0, -52.7957 )
 
+[node name="treeA4" parent="environment/trees" instance=ExtResource( 47 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 310.084, 0, -53.9385 )
+
+[node name="treeB8" parent="environment/trees" instance=ExtResource( 48 )]
+transform = Transform( -1.98796, 0, -0.219122, 0, 2, 0, 0.219122, 0, -1.98796, 321.635, 0, -34.5939 )
+
+[node name="treeC4" parent="environment/trees" instance=ExtResource( 49 )]
+transform = Transform( -1.59527, 0, -1.20628, 0, 2, 0, 1.20628, 0, -1.59527, 327.592, 0, -13.9954 )
+
+[node name="treeD9" parent="environment/trees" instance=ExtResource( 46 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 319.922, 0, 4.80143 )
+
+[node name="treeA11" parent="environment/trees" instance=ExtResource( 47 )]
+transform = Transform( -1.70904, 0, 1.03883, 0, 2, 0, -1.03883, 0, -1.70904, 249.887, 0, -55.5743 )
+
+[node name="treeB10" parent="environment/trees" instance=ExtResource( 48 )]
+transform = Transform( -0.882416, 0, -1.79481, 0, 2, 0, 1.79481, 0, -0.882416, 244.335, 0, -25.7996 )
+
+[node name="treeC10" parent="environment/trees" instance=ExtResource( 49 )]
+transform = Transform( -1.59243, 0.283315, -1.17639, 0.0872182, 1.96622, 0.355471, 1.20688, 0.23173, -1.57789, 224.245, 1.87694, -73.1633 )
+
+[node name="treeD12" parent="environment/trees" instance=ExtResource( 46 )]
+transform = Transform( 1.99673, -0.113337, 0.0150096, 0.114327, 1.97945, -0.262146, 0, 0.262575, 1.98269, 204.45, 0.374439, -47.8029 )
+
+[node name="treeA10" parent="environment/trees" instance=ExtResource( 47 )]
+transform = Transform( -1.92025, 0, 2.30492, 0, 3, 0, -2.30492, 0, -1.92025, 340.508, -7.62939e-06, -36.9809 )
+
+[node name="treeB9" parent="environment/trees" instance=ExtResource( 48 )]
+transform = Transform( -0.910203, 0, -2.85859, 0, 3, 0, 2.85859, 0, -0.910203, 309.945, 7.62939e-06, -72.8072 )
+
+[node name="treeC9" parent="environment/trees" instance=ExtResource( 49 )]
+transform = Transform( 2.92184, 0, -0.680311, 0, 3, 0, 0.680311, 0, 2.92184, 328.648, 0, -53.725 )
+
+[node name="treeD11" parent="environment/trees" instance=ExtResource( 46 )]
+transform = Transform( -0.573141, 0, -3.95873, 0, 4, 0, 3.95873, 0, -0.573141, 332.033, 0, -77.7869 )
+
+[node name="treeD10" parent="environment/trees" instance=ExtResource( 46 )]
+transform = Transform( 0.0634497, 0, 1.99899, 0, 2, 0, -1.99899, 0, 0.0634497, 296.92, 0, -56.0805 )
+
 [node name="rocks" type="Spatial" parent="environment"]
 
 [node name="rock" parent="environment/rocks" instance=ExtResource( 30 )]
@@ -1980,11 +2023,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 265.661, -0.988294, -0.197412 
 mesh = SubResource( 119 )
 material/0 = null
 
-[node name="water4" type="MeshInstance" parent="environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9499, -0.988294, -0.197412 )
-mesh = SubResource( 119 )
-material/0 = null
-
 [node name="water2" type="MeshInstance" parent="environment"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -292.602, -0.881956, -63.1003 )
 mesh = SubResource( 120 )
@@ -1993,6 +2031,16 @@ material/0 = null
 [node name="dirtPlot" type="MeshInstance" parent="environment"]
 transform = Transform( 0.306248, -0.0128177, 0.951865, 0.43495, 0.89132, -0.127936, -0.846776, 0.453194, 0.27854, 162.218, 1.92024, -204.858 )
 mesh = SubResource( 126 )
+material/0 = null
+
+[node name="dirtPlot3" type="MeshInstance" parent="environment"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 63.1595, 0.0510511, 17.6618 )
+mesh = SubResource( 128 )
+material/0 = null
+
+[node name="dirtPlot4" type="MeshInstance" parent="environment"]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 301.497, 0.0510511, 57.6801 )
+mesh = SubResource( 128 )
 material/0 = null
 
 [node name="dirtPlot2" type="MeshInstance" parent="environment"]

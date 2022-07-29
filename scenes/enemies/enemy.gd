@@ -519,7 +519,8 @@ func _on_hurtbox_area_entered(area):
 	get_parent().add_child(vfx)
 	vfx.playEffect("hit", 0.5*(translation + attacker.translation))
 	# sets attacker as the target
-	target = attacker
+	if (attacker.playerChar != "proj"):
+		target = attacker
 	# stores damage/knockback variables
 	hurtDamage = attacker.hitDamage
 	hurtType = attacker.hitType
