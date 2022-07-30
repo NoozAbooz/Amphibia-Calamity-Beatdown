@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=2]
+[gd_scene load_steps=180 format=2]
 
 [ext_resource path="res://art/marcy/marcy_icon.png" type="Texture" id=1]
 [ext_resource path="res://art/plantars/sprig_idle.png" type="Texture" id=2]
@@ -7,19 +7,17 @@
 [ext_resource path="res://art/plantars/spring_polly_loud.png" type="Texture" id=5]
 [ext_resource path="res://art/plantars/sprig_block.png" type="Texture" id=6]
 [ext_resource path="res://art/plantars/sprig_hurt.png" type="Texture" id=7]
-[ext_resource path="res://art/marcy/kick.png" type="Texture" id=9]
+[ext_resource path="res://art/plantars/sprig_boom.png" type="Texture" id=8]
+[ext_resource path="res://art/plantars/polly_flail.png" type="Texture" id=9]
 [ext_resource path="res://art/plantars/sprig_run.png" type="Texture" id=10]
 [ext_resource path="res://art/marcy/land.png" type="Texture" id=11]
+[ext_resource path="res://art/plantars/sprig_spin.png" type="Texture" id=12]
 [ext_resource path="res://art/plantars/sprig_sling.png" type="Texture" id=14]
 [ext_resource path="res://scenes/players/Sprighitbox.gd" type="Script" id=15]
 [ext_resource path="res://art/plantars/polly_sing.png" type="Texture" id=19]
-[ext_resource path="res://art/anne/a_ll3.png" type="Texture" id=22]
 [ext_resource path="res://art/plantars/polly_pin_fast.png" type="Texture" id=23]
-[ext_resource path="res://art/anne/a_ll4.png" type="Texture" id=24]
 [ext_resource path="res://art/plantars/sprig_jump.png" type="Texture" id=25]
 [ext_resource path="res://art/plantars/polly_run.png" type="Texture" id=26]
-[ext_resource path="res://art/anne/a_ll1.png" type="Texture" id=27]
-[ext_resource path="res://art/anne/a_ll2.png" type="Texture" id=29]
 [ext_resource path="res://art/plantars/polly_idle.png" type="Texture" id=30]
 [ext_resource path="res://art/plantars/polly_hurt_block.png" type="Texture" id=31]
 [ext_resource path="res://art/plantars/polly_slide.png" type="Texture" id=32]
@@ -224,7 +222,7 @@ resource_name = "attack_H2"
 length = 0.500001
 step = 0.0166667
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -233,19 +231,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "attack_sprig_lick" ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0666668, 0.133333, 0.2, 0.333333, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5 ]
+"values": [ "block_p" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("hitbox/hitboxCollision:disabled")
@@ -281,7 +279,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 10, 25 ) ]
+"values": [ Vector2( 0, 13 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("hitbox/hitboxCollision:translation")
@@ -293,7 +291,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.2, 0.333333 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector3( 0, 4, 0 ), Vector3( 0, 2.25, -1.5 ), Vector3( 0, 4, 0 ) ]
+"values": [ Vector3( 0, 4, 0 ), Vector3( 0, 1, -1.5 ), Vector3( 0, 4, 0 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("..:comboReady")
@@ -342,6 +340,42 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "attack_sprig_boom" ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:offset")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -6, 19 ) ]
 }
 
 [sub_resource type="Animation" id=28]
@@ -1180,7 +1214,7 @@ resource_name = "attack_air_H2"
 length = 0.500001
 step = 0.0166667
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1189,19 +1223,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "counter" ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0666667, 0.133334, 0.2, 0.266667 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1, 1, 1, 1, 1 ]
+"values": [ "attack_sprig_spin" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("hitbox/hitboxCollision:disabled")
@@ -1340,28 +1374,28 @@ tracks/12/keys = {
 resource_name = "attack_air_H3_hit"
 step = 0.0166667
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.0666667, 0.133333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ "attack_air_H3" ]
+"values": [ 2, 3, 5 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0666667, 0.133333 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ "attack_polly_flail" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("hitbox/hitboxCollision:disabled")
@@ -1397,7 +1431,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 15, 26 ) ]
+"values": [ Vector2( 6, 31 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("hitbox/hitboxCollision:translation")
@@ -1459,34 +1493,70 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hurt_air" ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:offset")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 19 ) ]
+}
 
 [sub_resource type="Animation" id=51]
 resource_name = "attack_air_H3_land"
 length = 0.500001
 step = 0.0166667
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.0666667 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ "attack_air_H3" ]
+"values": [ 6, 5 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0666667 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 2, 3 ]
+"values": [ "attack_polly_flail" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("hitbox/hitboxCollision:disabled")
@@ -1510,7 +1580,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.0166667, 0.0833333 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector3( 0.1, 0.1, 0.1 ), Vector3( 20, 6, 26 ), Vector3( 0.1, 0.1, 0.1 ) ]
+"values": [ Vector3( 0.1, 0.1, 0.1 ), Vector3( 20, 6, 30 ), Vector3( 0.1, 0.1, 0.1 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("AnimatedSprite3D:offset")
@@ -1522,7 +1592,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 15, 30 ) ]
+"values": [ Vector2( 6, 31 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("hitbox/hitboxCollision:translation")
@@ -1534,7 +1604,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.0166667, 0.0833333 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector3( 0, 4, 0 ), Vector3( 0, 0.5, 0 ), Vector3( 0, 4, 0 ) ]
+"values": [ Vector3( 0, 4, 0 ), Vector3( 0, 0.5, -1 ), Vector3( 0, 4, 0 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("..:comboReady")
@@ -1584,13 +1654,49 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hurt_floor" ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:offset")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 19 ) ]
+}
 
 [sub_resource type="Animation" id=49]
 resource_name = "attack_air_H3_rise"
 length = 0.500001
 step = 0.0166667
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1599,10 +1705,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "attack_air_H3" ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1611,7 +1717,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ "attack_polly_flail" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("hitbox/hitboxCollision:disabled")
@@ -1647,7 +1753,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 15, 26 ) ]
+"values": [ Vector2( 6, 31 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("hitbox/hitboxCollision:translation")
@@ -1708,6 +1814,42 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hurt" ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:offset")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 19 ) ]
 }
 
 [sub_resource type="Animation" id=183]
@@ -2819,28 +2961,28 @@ resource_name = "counter"
 length = 0.750001
 step = 0.0166667
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.0666667, 0.133333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ "counter" ]
+"values": [ 1, 0, 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:frame")
+tracks/1/path = NodePath("AnimatedSprite3D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0666667, 0.133333, 0.2, 0.266667 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.133333 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 1, 0, 1, 2, 3 ]
+"values": [ "counter", "attack_sprig_spin" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("hitbox/hitboxCollision:disabled")
@@ -4605,16 +4747,6 @@ region = Rect2( 36, 0, 36, 40 )
 atlas = ExtResource( 2 )
 region = Rect2( 72, 0, 36, 40 )
 
-[sub_resource type="AtlasTexture" id=66]
-flags = 17
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 40, 50 )
-
-[sub_resource type="AtlasTexture" id=67]
-flags = 17
-atlas = ExtResource( 9 )
-region = Rect2( 40, 0, 40, 50 )
-
 [sub_resource type="AtlasTexture" id=120]
 flags = 1
 atlas = ExtResource( 25 )
@@ -4971,6 +5103,51 @@ flags = 1
 atlas = ExtResource( 35 )
 region = Rect2( 240, 0, 80, 50 )
 
+[sub_resource type="AtlasTexture" id=198]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 39, 40 )
+
+[sub_resource type="AtlasTexture" id=199]
+flags = 1
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 48, 31 )
+
+[sub_resource type="AtlasTexture" id=200]
+flags = 1
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 120, 64 )
+
+[sub_resource type="AtlasTexture" id=201]
+flags = 1
+atlas = ExtResource( 9 )
+region = Rect2( 120, 0, 120, 64 )
+
+[sub_resource type="AtlasTexture" id=202]
+flags = 1
+atlas = ExtResource( 9 )
+region = Rect2( 240, 0, 120, 64 )
+
+[sub_resource type="AtlasTexture" id=203]
+flags = 1
+atlas = ExtResource( 9 )
+region = Rect2( 360, 0, 120, 64 )
+
+[sub_resource type="AtlasTexture" id=204]
+flags = 1
+atlas = ExtResource( 9 )
+region = Rect2( 480, 0, 120, 64 )
+
+[sub_resource type="AtlasTexture" id=205]
+flags = 1
+atlas = ExtResource( 9 )
+region = Rect2( 600, 0, 120, 64 )
+
+[sub_resource type="AtlasTexture" id=206]
+flags = 1
+atlas = ExtResource( 9 )
+region = Rect2( 720, 0, 120, 64 )
+
 [sub_resource type="SpriteFrames" id=61]
 animations = [ {
 "frames": [ SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ) ],
@@ -5013,20 +5190,10 @@ animations = [ {
 "name": "stand",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 66 ), SubResource( 67 ) ],
-"loop": false,
-"name": "attack_air_H2",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 120 ) ],
 "loop": false,
 "name": "rise",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "attack_air_H3",
-"speed": 5.0
 }, {
 "frames": [ SubResource( 122 ), SubResource( 123 ) ],
 "loop": false,
@@ -5102,6 +5269,21 @@ animations = [ {
 "loop": false,
 "name": "attack_polly_wrench",
 "speed": 0.0
+}, {
+"frames": [ SubResource( 198 ) ],
+"loop": true,
+"name": "attack_sprig_boom",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 199 ) ],
+"loop": true,
+"name": "attack_sprig_spin",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 200 ), SubResource( 201 ), SubResource( 202 ), SubResource( 203 ), SubResource( 204 ), SubResource( 205 ), SubResource( 206 ) ],
+"loop": true,
+"name": "attack_polly_flail",
+"speed": 5.0
 } ]
 
 [sub_resource type="BoxShape" id=15]
@@ -5175,22 +5357,21 @@ anims/walk = SubResource( 7 )
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
 layers = 3
-offset = Vector2( 0, 16 )
+offset = Vector2( 6, 31 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "walk_p"
-frame = 1
+animation = "attack_polly_flail"
+frame = 2
 
 [node name="AnimatedSprite3D_Back" type="AnimatedSprite3D" parent="zeroPoint/AnimatedSprite3D"]
 transform = Transform( 1, -5.32907e-15, -1.42109e-14, 0, 1, 0, 2.13163e-14, 0, 1, -1.88419, 0.00633945, 0.0236592 )
 layers = 3
-offset = Vector2( 22, 18 )
+offset = Vector2( 0, 19 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "attack_sprig_lick"
-frame = 2
+animation = "hurt_air"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
