@@ -331,7 +331,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.133333, 0.166667, 0.2, 0.233334, 0.266667, 0.300001, 0.333334, 0.366667, 0.400001, 0.433334, 0.466668, 0.500001, 0.533334, 0.566668, 0.600001, 0.633335, 0.666668, 0.8 ),
+"times": PoolRealArray( 0, 0.133333, 0.166667, 0.2, 0.233334, 0.266667, 0.300001, 0.333334, 0.366667, 0.400001, 0.433334, 0.466668, 0.500001, 0.533334, 0.566668, 0.600001, 0.633335, 0.666667, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true ]
@@ -343,7 +343,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.133333, 0.2, 0.666668, 0.8 ),
+"times": PoolRealArray( 0, 0.133333, 0.2, 0.666667, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ Vector3( 0.1, 0.1, 0.1 ), Vector3( 6, 10, 10 ), Vector3( 6, 10, 10 ), Vector3( 6, 12, 25 ), Vector3( 0.1, 0.1, 0.1 ) ]
@@ -355,7 +355,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.133333, 0.2, 0.266667, 0.333334, 0.400001, 0.466667, 0.533334, 0.600001, 0.666668, 0.8 ),
+"times": PoolRealArray( 0, 0.133333, 0.2, 0.266667, 0.333334, 0.400001, 0.466667, 0.533334, 0.600001, 0.666667, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ Vector3( 0, 4, 0 ), Vector3( 0, 1.5, -1.75 ), Vector3( 0, 1.5, 1.75 ), Vector3( 0, 1.5, -1.75 ), Vector3( 0, 1.5, 1.75 ), Vector3( 0, 1.5, -1.75 ), Vector3( 0, 1.5, 1.75 ), Vector3( 0, 1.5, -1.75 ), Vector3( 0, 1.5, 1.75 ), Vector3( 0, 1.5, -0.5 ), Vector3( 0, 4, 0 ) ]
@@ -3578,6 +3578,61 @@ animations = [ {
 "name": "stand",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_air_H1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "attack_air_H2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "attack_L1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_air_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "rise",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "attack_air_H3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_air_L1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": false,
+"name": "land",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 30 ) ],
 "loop": false,
 "name": "attack_slide_L",
@@ -3587,11 +3642,6 @@ animations = [ {
 "loop": false,
 "name": "attack_L2",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_H1",
-"speed": 15.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
 "loop": false,
@@ -3603,70 +3653,20 @@ animations = [ {
 "name": "attack_H3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "attack_L1",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "attack_air_H3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 23 ) ],
-"loop": false,
-"name": "attack_air_H2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_air_L3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
-"loop": false,
-"name": "land",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 30 ) ],
 "loop": false,
 "name": "attack_slide_H",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "rise",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "fall",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_air_H1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_air_L1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_H2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_L3",
-"speed": 5.0
 } ]
 
 [sub_resource type="BoxShape" id=15]
 resource_local_to_scene = true
-extents = Vector3( 0.1, 0.1, 0.1 )
+extents = Vector3( 6, 10, 10 )
 
 [sub_resource type="CylinderShape" id=35]
 height = 3.0
@@ -3729,11 +3729,11 @@ anims/walk = SubResource( 7 )
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
 layers = 3
-offset = Vector2( 0, 25 )
+offset = Vector2( 2, 22 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 42 )
-animation = "stand"
+animation = "attack_air_H2"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -3742,9 +3742,8 @@ monitoring = false
 script = ExtResource( 45 )
 
 [node name="hitboxCollision" type="CollisionShape" parent="zeroPoint/hitbox"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 4, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.5, -1 )
 shape = SubResource( 15 )
-disabled = true
 
 [node name="hurtbox" type="Area" parent="zeroPoint"]
 collision_mask = 4580

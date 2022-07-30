@@ -108,7 +108,7 @@ func _on_hurtbox_area_entered(area):
 	# tells attacker that the hit occurred
 	attacker.hitLanded = true
 	# signals attacker to recoil if necessary
-	if (attacker.hitType == attacker.KB_STRONG_RECOIL):
+	if (attacker.playerChar != "proj") and (attacker.hitType == attacker.KB_STRONG_RECOIL):
 		attacker.recoilStart = true
 	# plays animation
 	if (hp > 0):

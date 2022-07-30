@@ -156,7 +156,7 @@ func _on_hurtbox_area_entered(area):
 	# tells attacker that the hit occurred
 	attacker.hitLanded = true
 	# knockback
-	if (attacker.hitType == attacker.KB_STRONG_RECOIL):
+	if (attacker.playerChar != "proj") and (attacker.hitType == attacker.KB_STRONG_RECOIL):
 		attacker.recoilStart = true
 	hp -= 1
 	if (hp <= 0):

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprig_hurt.png-e9d86256512f82ca4aa793cb95fba161.stex"
+path="res://.import/polly_hurt_block.png-b39559d34bd767cd7153c65c12038a8e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/plantars/sprig_hurt.png"
-dest_files=[ "res://.import/sprig_hurt.png-e9d86256512f82ca4aa793cb95fba161.stex" ]
+source_file="res://art/plantars/polly_hurt_block.png"
+dest_files=[ "res://.import/polly_hurt_block.png-b39559d34bd767cd7153c65c12038a8e.stex" ]
 
 [params]
 

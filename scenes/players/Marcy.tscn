@@ -3731,7 +3731,7 @@ animations = [ {
 
 [sub_resource type="BoxShape" id=15]
 resource_local_to_scene = true
-extents = Vector3( 0.1, 0.1, 0.1 )
+extents = Vector3( 6, 12, 25 )
 
 [sub_resource type="CylinderShape" id=35]
 height = 3.0
@@ -3748,6 +3748,7 @@ rings = 1
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_mask = 1030
 script = ExtResource( 39 )
+comboReady = true
 
 [node name="Label" type="Label" parent="."]
 margin_right = 50.0
@@ -3798,7 +3799,8 @@ offset = Vector2( 10, 25 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "attack_H1"
+animation = "attack_H3"
+frame = 1
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -3806,9 +3808,8 @@ collision_mask = 0
 monitoring = false
 
 [node name="hitboxCollision" type="CollisionShape" parent="zeroPoint/hitbox"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 4, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.5, -0.5 )
 shape = SubResource( 15 )
-disabled = true
 
 [node name="hurtbox" type="Area" parent="zeroPoint"]
 collision_mask = 4580
