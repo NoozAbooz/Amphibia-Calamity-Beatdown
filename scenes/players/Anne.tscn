@@ -3666,7 +3666,7 @@ animations = [ {
 
 [sub_resource type="BoxShape" id=15]
 resource_local_to_scene = true
-extents = Vector3( 6, 10, 10 )
+extents = Vector3( 0.1, 0.1, 0.1 )
 
 [sub_resource type="CylinderShape" id=35]
 height = 3.0
@@ -3742,8 +3742,9 @@ monitoring = false
 script = ExtResource( 45 )
 
 [node name="hitboxCollision" type="CollisionShape" parent="zeroPoint/hitbox"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.5, -1 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 4, 0 )
 shape = SubResource( 15 )
+disabled = true
 
 [node name="hurtbox" type="Area" parent="zeroPoint"]
 collision_mask = 4580

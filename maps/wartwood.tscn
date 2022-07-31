@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=115 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/wartwood/wartwood_env.obj" type="ArrayMesh" id=2]
@@ -53,6 +53,7 @@
 [ext_resource path="res://maps/decorations/small plants/mushBlue.tscn" type="PackedScene" id=51]
 [ext_resource path="res://maps/decorations/small plants/plantB.tscn" type="PackedScene" id=52]
 [ext_resource path="res://maps/wartwood/wartwood_draft/material_8.png" type="Texture" id=53]
+[ext_resource path="res://maps/decorations/small plants/plantA.tscn" type="PackedScene" id=54]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -1521,6 +1522,34 @@ transform = Transform( 0.310991, 0, 0.391516, 0, 0.5, 0, -0.391516, 0, 0.310991,
 [node name="cattail11" parent="environment/plants" instance=ExtResource( 24 )]
 transform = Transform( 0.749855, 0, 0.278779, 0, 0.8, 0, -0.278779, 0, 0.749855, -24.714, -1.02695, 35.3471 )
 
+[node name="lilypad13" parent="environment/plants" instance=ExtResource( 10 )]
+transform = Transform( 0.223629, 0, -0.11176, 0, 0.25, 0, 0.11176, 0, 0.223629, 253.651, -0.835981, -30.4517 )
+
+[node name="lilypad15" parent="environment/plants" instance=ExtResource( 10 )]
+transform = Transform( 0.227702, 0, 0.103209, 0, 0.25, 0, -0.103209, 0, 0.227702, 300.236, -0.835981, -9.90037 )
+
+[node name="lilypad14" parent="environment/plants" instance=ExtResource( 10 )]
+transform = Transform( 0.627759, 0, 0.410388, 0, 0.75, 0, -0.410388, 0, 0.627759, 258.22, -0.835981, -31.7519 )
+flower = true
+
+[node name="lilypad16" parent="environment/plants" instance=ExtResource( 10 )]
+transform = Transform( -0.128572, 0, -0.738897, 0, 0.75, 0, 0.738897, 0, -0.128572, 294.68, -0.835981, -33.932 )
+
+[node name="cattail16" parent="environment/plants" instance=ExtResource( 24 )]
+transform = Transform( 0.712278, 0, -0.364225, 0, 0.8, 0, 0.364225, 0, 0.712278, 299.441, -1.02695, -12.7288 )
+
+[node name="cattail17" parent="environment/plants" instance=ExtResource( 24 )]
+transform = Transform( 0.571829, 0, -0.181692, 0, 0.6, 0, 0.181692, 0, 0.571829, 299.096, -1.09487, -15.1847 )
+
+[node name="cattail18" parent="environment/plants" instance=ExtResource( 24 )]
+transform = Transform( 1.18376, 0, 0.196755, 0, 1.2, 0, -0.196755, 0, 1.18376, 304.045, -0.877428, -34.4359 )
+
+[node name="cattail19" parent="environment/plants" instance=ExtResource( 24 )]
+transform = Transform( 0.300384, 0, -0.741464, 0, 0.8, 0, 0.741464, 0, 0.300384, 306.713, -1.09487, -32.1117 )
+
+[node name="cattail20" parent="environment/plants" instance=ExtResource( 24 )]
+transform = Transform( 0.783314, 0, -0.621626, 0, 1, 0, 0.621626, 0, 0.783314, 306.372, -1.09487, -35.4886 )
+
 [node name="cattail9" parent="environment/plants" instance=ExtResource( 24 )]
 transform = Transform( 5.18053, 0, 3.02689, 0, 6, 0, -3.02689, 0, 5.18053, -302.324, -2.928, -84.7035 )
 
@@ -1535,6 +1564,12 @@ transform = Transform( 3.00377, 0, -2.64147, 0, 4, 0, 2.64147, 0, 3.00377, -229.
 
 [node name="cattail14" parent="environment/plants" instance=ExtResource( 24 )]
 transform = Transform( 5.98768, 0, 0.384268, 0, 6, 0, -0.384268, 0, 5.98768, -48.4571, -2.928, -45.1977 )
+
+[node name="PlantA" parent="environment/plants" instance=ExtResource( 54 )]
+transform = Transform( 0.518881, 0, -1.4074, 0, 1.5, 0, 1.4074, 0, 0.518881, 272.847, -1.01432, -29.863 )
+
+[node name="PlantB2" parent="environment/plants" instance=ExtResource( 52 )]
+transform = Transform( 1.81513, 0, -0.839823, 0, 2, 0, 0.839823, 0, 1.81513, 271.736, -1.01432, -33.2302 )
 
 [node name="cattail10" parent="environment/plants" instance=ExtResource( 24 )]
 transform = Transform( 6.78136, 0, -1.73586, 0, 7, 0, 1.73586, 0, 6.78136, -290.908, -1.02695, -79.873 )
@@ -1631,6 +1666,24 @@ transform = Transform( -2.9427, -0.0655037, -0.549456, -0.576132, 0.176575, 2.89
 
 [node name="bush19" parent="environment/plants" instance=ExtResource( 44 )]
 transform = Transform( -2.9427, -0.0655037, -0.549456, -0.576132, 0.176575, 2.89611, -0.0926861, 0.982105, -0.557345, 166.997, 11.0404, -38.7366 )
+
+[node name="bush23" parent="environment/plants" instance=ExtResource( 43 )]
+transform = Transform( 1.92914, 0, -0.527645, 0, 2, 0, 0.527645, 0, 1.92914, 197.329, -1.62125e-05, -48.7928 )
+
+[node name="bush24" parent="environment/plants" instance=ExtResource( 44 )]
+transform = Transform( 0.436304, 0, -1.43514, 0, 1.5, 0, 1.43514, 0, 0.436304, 281.248, -1.62125e-05, -46.8556 )
+
+[node name="mushGreen3" parent="environment/plants" instance=ExtResource( 50 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 248.728, -4.76837e-07, -23.0918 )
+
+[node name="mushPurple5" parent="environment/plants" instance=ExtResource( 35 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 181.395, 2.67857, -66.0869 )
+
+[node name="mushYellow2" parent="environment/plants" instance=ExtResource( 34 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 241.153, 1.85781, -76.1126 )
+
+[node name="bush25" parent="environment/plants" instance=ExtResource( 40 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 238.077, -0.0758753, -80.5477 )
 
 [node name="trees" type="Spatial" parent="environment"]
 
@@ -1882,6 +1935,15 @@ transform = Transform( -1.58687, 0, 2.54595, 0, 3, 0, -2.54595, 0, -1.58687, -28
 
 [node name="rock13" parent="environment/rocks" instance=ExtResource( 31 )]
 transform = Transform( -1.5596, 0, 4.75054, 0, 8, 0, -4.75054, 0, -1.5596, -18.1871, -1.32741, -55.802 )
+
+[node name="rock20" parent="environment/rocks" instance=ExtResource( 31 )]
+transform = Transform( -0.725795, 0, -0.687911, 0, 1, 0, 0.687911, 0, -0.725795, 270.914, -1.30023, -31.2166 )
+
+[node name="rock25" parent="environment/rocks" instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 296.517, -1.32572, -18.9249 )
+
+[node name="rock26" parent="environment/rocks" instance=ExtResource( 33 )]
+transform = Transform( 1.84792, 0, -0.76498, 0, 2, 0, 0.76498, 0, 1.84792, 291.8, -1.1177, -43.513 )
 
 [node name="npcs" type="Spatial" parent="environment"]
 

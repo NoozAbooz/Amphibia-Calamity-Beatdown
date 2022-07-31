@@ -40,7 +40,7 @@ func _process(delta):
 		A_AH1:
 			player.setHitBox(20, KB_ANGLED, Vector3(40, 10, 0), "hit3")
 		A_AH2:
-			player.setHitBox(35, KB_STRONG_RECOIL, Vector3(30, -70, 0), "hit4")
+			player.setHitBox(20, KB_STRONG_RECOIL, Vector3(30, -70, 0), "hit4")
 		A_AH3_HIT:
 			player.setHitBox(1, KB_STRONG, Vector3(0, -50, 0), "hit3")
 		A_AH3_LAND:

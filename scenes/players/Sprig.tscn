@@ -216,6 +216,30 @@ tracks/14/keys = {
 "update": 0,
 "values": [ Vector3( 2.17969e-08, 1.5129, -0.498656 ) ]
 }
+tracks/15/type = "value"
+tracks/15/path = NodePath("shadowMaker:translation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("shadowMakerSmall:translation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -7.63024e-08, 1.5, 1.7456 ) ]
+}
 
 [sub_resource type="Animation" id=26]
 resource_name = "attack_H2"
@@ -376,6 +400,30 @@ tracks/12/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( -6, 19 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
 }
 
 [sub_resource type="Animation" id=28]
@@ -538,6 +586,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
 
 [sub_resource type="Animation" id=14]
 resource_name = "attack_L1"
@@ -698,6 +770,30 @@ tracks/12/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
 }
 
 [sub_resource type="Animation" id=169]
@@ -860,6 +956,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
 
 [sub_resource type="Animation" id=168]
 resource_name = "attack_L3"
@@ -1020,6 +1140,30 @@ tracks/12/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
 }
 
 [sub_resource type="Animation" id=132]
@@ -1208,6 +1352,30 @@ tracks/14/keys = {
 "update": 0,
 "values": [ Vector3( 2.17969e-08, 1.5129, -0.498656 ) ]
 }
+tracks/15/type = "value"
+tracks/15/path = NodePath("shadowMakerSmall:translation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("shadowMaker:translation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=25]
 resource_name = "attack_air_H2"
@@ -1369,6 +1537,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=50]
 resource_name = "attack_air_H3_hit"
@@ -1528,6 +1720,30 @@ tracks/12/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 19 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
 }
 
 [sub_resource type="Animation" id=51]
@@ -1690,6 +1906,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector2( 0, 19 ) ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
 
 [sub_resource type="Animation" id=49]
 resource_name = "attack_air_H3_rise"
@@ -1850,6 +2090,30 @@ tracks/12/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 19 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
 }
 
 [sub_resource type="Animation" id=183]
@@ -2012,6 +2276,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
 
 [sub_resource type="Animation" id=184]
 resource_name = "attack_air_L2"
@@ -2172,6 +2460,30 @@ tracks/12/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
 }
 
 [sub_resource type="Animation" id=185]
@@ -2334,6 +2646,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
 
 [sub_resource type="Animation" id=32]
 resource_name = "attack_slide_H"
@@ -2495,6 +2831,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.05, 0 ) ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=31]
 resource_name = "attack_slide_L"
@@ -2655,6 +3015,30 @@ tracks/12/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.05, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.0666667, 0.733333, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ), Vector3( 0, 1.5, 0 ), Vector3( 0, 1.5, 0 ), Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
 }
 
 [sub_resource type="Animation" id=33]
@@ -2818,6 +3202,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=37]
 resource_name = "block_hit"
@@ -2954,6 +3362,30 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
 }
 
 [sub_resource type="Animation" id=34]
@@ -3116,6 +3548,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("shadowMakerSmall:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("shadowMaker:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=41]
 resource_name = "dead"
@@ -3252,6 +3708,30 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -3391,6 +3871,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=36]
 resource_name = "hurt"
@@ -3527,6 +4031,30 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
 }
 
 [sub_resource type="Animation" id=38]
@@ -3666,6 +4194,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=39]
 resource_name = "hurt_floor"
@@ -3801,6 +4353,30 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -3940,6 +4516,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=30]
 resource_name = "land"
@@ -4077,6 +4677,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=40]
 resource_name = "land_cancel"
@@ -4213,6 +4837,30 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -4352,6 +5000,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "run"
@@ -4490,6 +5162,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "walk"
@@ -4627,6 +5323,30 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("shadowMakerSmall:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 1.746 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("shadowMaker:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.5, 0 ) ]
 }
 
 [sub_resource type="AtlasTexture" id=153]
@@ -5357,21 +6077,20 @@ anims/walk = SubResource( 7 )
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
 layers = 3
-offset = Vector2( 6, 31 )
+offset = Vector2( 0, 20 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "attack_polly_flail"
-frame = 2
+animation = "walk"
 
 [node name="AnimatedSprite3D_Back" type="AnimatedSprite3D" parent="zeroPoint/AnimatedSprite3D"]
 transform = Transform( 1, -5.32907e-15, -1.42109e-14, 0, 1, 0, 2.13163e-14, 0, 1, -1.88419, 0.00633945, 0.0236592 )
 layers = 3
-offset = Vector2( 0, 19 )
+offset = Vector2( 0, 16 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "hurt_air"
+animation = "walk_p"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -5401,8 +6120,8 @@ mesh = SubResource( 2 )
 skeleton = NodePath("../..")
 material/0 = null
 
-[node name="shadowMaker2" type="MeshInstance" parent="zeroPoint"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63024e-08, 1.5, 1.7456 )
+[node name="shadowMakerSmall" type="MeshInstance" parent="zeroPoint"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.746 )
 cast_shadow = 3
 mesh = SubResource( 147 )
 skeleton = NodePath("../..")
