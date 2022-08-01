@@ -1,4 +1,4 @@
-extends Spatial
+extends Area
 
 
 var hitDamage = 0
@@ -54,4 +54,7 @@ func _physics_process(delta):
 
 
 func _on_despawnTimer_timeout():
+	queue_free()
+
+func _on_proj_area_entered(area):
 	queue_free()

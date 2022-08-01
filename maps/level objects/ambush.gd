@@ -49,6 +49,7 @@ func _process(_delta):
 			wave = enemyList.get("wave" + str(waveNumber))
 			if typeof(wave) == TYPE_INT:
 				killsNeeded = wave
+				startingKills = 0
 			else:
 				killsNeeded = len(wave)
 			timer = 0

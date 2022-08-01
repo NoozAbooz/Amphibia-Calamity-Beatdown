@@ -573,6 +573,7 @@ cam_mode={
 3d_physics/layer_11="Player Only Ground"
 3d_physics/layer_12="Enemy Only Ground"
 3d_physics/layer_13="Windboxes"
+3d_physics/layer_14="Projectiles"
 
 [logging]
 

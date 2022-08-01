@@ -1,4 +1,4 @@
-[gd_scene load_steps=168 format=2]
+[gd_scene load_steps=169 format=2]
 
 [ext_resource path="res://maps/best_fronds/env.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://maps/level objects/ambush.tscn" type="PackedScene" id=2]
@@ -52,6 +52,7 @@
 [ext_resource path="res://maps/decorations/rocks/rockTall.tscn" type="PackedScene" id=50]
 [ext_resource path="res://maps/decorations/rocks/rockRound.tscn" type="PackedScene" id=51]
 [ext_resource path="res://art/models/DecorativeTreesMushrooms/Material_012.material" type="Material" id=52]
+[ext_resource path="res://maps/level objects/AmbushKillsReset.tscn" type="PackedScene" id=53]
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
@@ -2949,6 +2950,7 @@ collision_mask = 2050
 script = ExtResource( 9 )
 startRight = true
 ambushEnemy = true
+hp = 5
 
 [node name="Label" type="Label" parent="enemies/greenMantis"]
 visible = false
@@ -3112,6 +3114,14 @@ shape = SubResource( 103 )
 
 [node name="spider" parent="enemies" instance=ExtResource( 35 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 312.68, 0.931422, -13.7036 )
+enemyNum = 2
+
+[node name="spider8" parent="enemies" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.276, -0.622433, -4.01082 )
+enemyNum = 2
+
+[node name="spider9" parent="enemies" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.853, -0.622433, 2.79559 )
 enemyNum = 2
 
 [node name="spider2" parent="enemies" instance=ExtResource( 35 )]
@@ -3564,9 +3574,11 @@ collision_mask = 0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 350.984, 16.3963, -37.8141 )
 shape = SubResource( 99 )
 
+[node name="killsReset" parent="." instance=ExtResource( 53 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 98.3193, 3.42077, 4.65914 )
+
 [node name="ambush" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.145, 0.456877, -2.2731 )
-visible = false
 ambushName = "bestFrondsAmbush1"
 
 [node name="ambush2" parent="." instance=ExtResource( 2 )]
