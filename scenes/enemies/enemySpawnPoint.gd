@@ -1,6 +1,6 @@
 extends Spatial
 
-export(int, "Green Mantis", "Red Mantis", "Spider", "Wasp") var enemyNum
+export(int, "Green Mantis", "Red Mantis", "Spider", "Wasp", "Yellow Mantis", "Black Mantis", "Zapapede", "Robo") var enemyNum
 
 func _ready():
 	pass
@@ -23,6 +23,14 @@ func _on_VisibilityNotifier_camera_entered(camera):
 			var nextEnemy = nme.waspScene.instance()
 			get_parent().add_child(nextEnemy)
 			nextEnemy.initialize(nme.wasp, translation, Vector3.ZERO, false, false, false)
+		4:
+			var nextEnemy = nme.yellowMantisScene.instance()
+			get_parent().add_child(nextEnemy)
+			nextEnemy.initialize(nme.yellowMantis, translation, Vector3.ZERO, false, false, false)
+		5:
+			var nextEnemy = nme.blackMantisScene.instance()
+			get_parent().add_child(nextEnemy)
+			nextEnemy.initialize(nme.blackMantis, translation, Vector3.ZERO, false, false, false)
 		_:
 			var nextEnemy = nme.greenMantisScene.instance()
 			get_parent().add_child(nextEnemy)

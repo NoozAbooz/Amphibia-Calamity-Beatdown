@@ -1,7 +1,7 @@
 [gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://art/enemies/spider.png" type="Texture" id=1]
-[ext_resource path="res://scenes/enemies/enemy.gd" type="Script" id=7]
+[ext_resource path="res://scenes/enemies/enemy_spider.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=25]
 resource_name = "attack_heavy"
@@ -722,9 +722,21 @@ region = Rect2( 136, 0, 34, 26 )
 atlas = ExtResource( 1 )
 region = Rect2( 68, 52, 34, 26 )
 
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 52, 34, 26 )
+
 [sub_resource type="AtlasTexture" id=44]
 atlas = ExtResource( 1 )
 region = Rect2( 34, 52, 34, 26 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 1 )
+region = Rect2( 34, 78, 34, 26 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 78, 34, 26 )
 
 [sub_resource type="AtlasTexture" id=53]
 atlas = ExtResource( 1 )
@@ -746,18 +758,6 @@ region = Rect2( 102, 26, 34, 26 )
 atlas = ExtResource( 1 )
 region = Rect2( 136, 26, 34, 26 )
 
-[sub_resource type="AtlasTexture" id=50]
-atlas = ExtResource( 1 )
-region = Rect2( 34, 78, 34, 26 )
-
-[sub_resource type="AtlasTexture" id=51]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 78, 34, 26 )
-
-[sub_resource type="AtlasTexture" id=52]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 52, 34, 26 )
-
 [sub_resource type="SpriteFrames" id=29]
 animations = [ {
 "frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ) ],
@@ -775,14 +775,14 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 52 ) ],
+"loop": false,
+"name": "hurt_air",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 44 ) ],
 "loop": false,
 "name": "hurt",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ) ],
-"loop": false,
-"name": "walk",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 50 ), SubResource( 51 ) ],
@@ -790,9 +790,9 @@ animations = [ {
 "name": "attack_heavy",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 52 ) ],
+"frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "walk",
 "speed": 5.0
 } ]
 
@@ -821,7 +821,7 @@ height = 3.0
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_layer = 16
 collision_mask = 2050
-script = ExtResource( 7 )
+script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 1184.0

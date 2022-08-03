@@ -20,6 +20,7 @@ export var broke = false
 export var infEnemy = false #if true, enemy does not count towards kills. Used for spawners and summons
 export var startRight = false
 export var ambushEnemy = false # if true, kills count towards ambush kill counts
+export var color = 0 # determines behavior besed on the enemy color (green vs yellow mantis)
 
 export var hp = 100
 
@@ -50,13 +51,13 @@ var target = null
 var targetFound = false
 var aggroReset = false
 var walkTo = Vector3.ZERO
-var targetOffset = 2
-var xAttackRange = 2.25
+var targetOffset = 2.5
+var xAttackRange = 3 #3
 var zAttackRange = 1
 var attackWaitCounter = 0
 var attackResetTime = 70
 var blockWaitCounter = 60
-var blockResetTime = 60
+
 
 var enemyPush = Vector3.ZERO
 
@@ -65,8 +66,8 @@ var windVect = Vector3.ZERO
 #var attackWaitCounter = 1500
 #var attackReady = false
 
-enum {IDLE, WALK, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, A_H, BLOCK, BLOCKHIT, KO, SPAWN}
-enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP}
+enum {IDLE, WALK, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, A_H, BLOCK, BLOCKHIT, KO, SPAWN, A_L, A_P, DODGE}
+enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP, KB_WEAK_PIERCE, KB_STRONG_PIERCE, KB_ANGLED_PIERCE}
 enum {LIGHT, HEAVY, VERYHEAVY}
 
 export var weight = LIGHT
@@ -158,10 +159,11 @@ func attackCounterReady():
 		
 func blockCounterReady():
 	if (blockWaitCounter <= 0):
-		blockWaitCounter = blockResetTime
 		return true
 	else:
 		return false
+func blockCounterReset():
+	blockWaitCounter = rng.rand.randi_range(60, 90)
 		
 func reduce(value, amount):
 	if (abs(value) <= amount):
@@ -171,6 +173,42 @@ func reduce(value, amount):
 	else:
 		value += amount
 	return value
+	
+func rollOffensiveAction():
+	blockCounterReset()
+	match color:
+		0: # Green -------------------------------
+			return A_H
+		1: # Yellow -------------------------------
+#			if (rng.rand.randf() >= 0.666):
+#				return BLOCK
+#			elif (rng.rand.randf() >= 0.5):
+#				return A_H
+#			else:
+#				return A_L
+			return equalOdds([BLOCK, A_H, A_L])
+		2: # Black -------------------------------
+			return equalOdds([DODGE, A_H, A_L])
+		3: # Red -------------------------------
+			return equalOdds([DODGE, A_H, A_L, A_P])
+			
+func rollDefensiveAction():
+	blockCounterReset()
+	match color:
+		0: # Green -------------------------------
+			return equalOdds([BLOCK, A_H])
+		1: # Yellow -------------------------------
+			return equalOdds([BLOCK, A_H, A_L])
+		2: # Black -------------------------------
+			return equalOdds([DODGE, A_L])
+		3: # Red -------------------------------
+			return IDLE
+
+# returns a random object/state in the given array. Each has the same chance of returning.
+func equalOdds(stateArray):
+	var i = rng.rand.randi_range(0, len(stateArray)-1)
+	return stateArray[i]
+	
 
 func _ready():
 	if (startRight):
@@ -214,6 +252,9 @@ func initialize(type, loc, vel = Vector3.ZERO, brk = false, infVis = false, infE
 	oddsDrop = type.oddsD
 	oddsKhao = type.oddsK
 	weakAttacker = type.weakA
+	attackResetTime = type.attackWaitTime
+	color = type.color
+	
 	# puts enemy in waiting "SPAWN" state and picks a random facing direction
 	state = SPAWN
 	nextState = SPAWN
@@ -249,16 +290,22 @@ func _physics_process(delta):
 			if (targetFound == false):
 				nextState = IDLE
 			elif checkInRange(target):
-				nextState = A_H
+				nextState = rollOffensiveAction()
 			else:
 				nextState = WALK
-		HURT:
+		DODGE:
 			if (animFinished):
 				animFinished = false
 				if (rng.rand.randf() >= 0.5):
 					nextState = BLOCK
 				else:
-					nextState = A_H
+					nextState = IDLE
+			else:
+				nextState = DODGE
+		HURT:
+			if (animFinished):
+				animFinished = false
+				nextState = rollDefensiveAction()
 			else:
 				nextState = HURT
 		HURTLAUNCH:
@@ -282,6 +329,14 @@ func _physics_process(delta):
 			else:
 				nextState = HURTFLOOR
 		A_H:
+			if animFinished:
+				nextState = IDLE
+				animFinished = false
+		A_L:
+			if animFinished:
+				nextState = IDLE
+				animFinished = false
+		A_P:
 			if animFinished:
 				nextState = IDLE
 				animFinished = false
@@ -313,12 +368,13 @@ func _physics_process(delta):
 	else:
 		invincibleState = false
 	if (justHurt):
+		blockCounterReset()
 		justHurt = false
 		#print("HIT")
-		if isInState([BLOCK]) and (hurtType == KB_WEAK):
+		if isInState([BLOCK]) and ((hurtType == KB_WEAK) or (weight == VERYHEAVY)):
 			nextState = BLOCKHIT
 			hurtDamage = 0
-		elif isInState([BLOCKHIT]) and (hurtType == KB_WEAK):
+		elif isInState([BLOCKHIT]) and ((hurtType == KB_WEAK) or (weight == VERYHEAVY)):
 			hurtAgain = true
 			nextState = BLOCKHIT
 			hurtDamage = 0
@@ -326,7 +382,7 @@ func _physics_process(delta):
 			pass
 		elif (hurtType == KB_STRONG) or (hurtType == KB_ANGLED):
 			if (weight == LIGHT) or (hp <= 0):
-				nextState = HURTLAUNCH
+				nextState = HURTLAUNCH				
 			elif isInState([HURT]):
 				hurtAgain = true
 				nextState = HURT
@@ -352,18 +408,19 @@ func _physics_process(delta):
 		attackWaitCounter -= 1
 		
 	# blocking delay
-	if (isInState([BLOCK])):
-		blockWaitCounter -= rng.rand.randf()
+	if (isInState([BLOCK, BLOCKHIT])):
+		blockWaitCounter -= 1
 		
 	# sets up hitbox
 	if isInState([A_H]):
-		if weakAttacker:
-			setHitBox(damage, KB_WEAK, Vector3(25, 30, 0))
-		else:
-			setHitBox(damage, KB_STRONG, Vector3(25, 30, 0))
-			
+		setHitBox(damage, KB_STRONG, Vector3(20, 20, 0))
+	elif isInState([A_L]):
+		setHitBox(0.35 * damage, KB_WEAK, Vector3(1, 0, 0))
+	elif isInState([A_P]):
+		setHitBox(1.25 * damage, KB_ANGLED_PIERCE, Vector3(25, 30, 0))
+		
 	# turns on/off enemy only ground for walk off barriers
-	if (isInState([WALK, IDLE])):
+	if (isInState([WALK, IDLE, DODGE])):
 		set_collision_mask_bit(11, true)
 	else:
 		set_collision_mask_bit(11, false)
@@ -390,6 +447,26 @@ func _physics_process(delta):
 			lookRight = true
 		elif (target.translation.x  < translation.x):
 			lookRight = false
+	elif isInState([DODGE]):
+		# determines where the enemy should walk to
+		if (target == null):
+			walkTo = translation
+		else:
+			walkTo = target.translation
+		# sets direction
+		direction.x = translation.x - walkTo.x
+		direction.y = translation.z - walkTo.z
+		direction = direction.normalized()
+		# sets velocity
+		velocity.x = speedWalk * direction.x * 1.2
+		velocity.z = speedWalk * direction.y * 1
+		# sets look direction
+		if (target != null) and (target.translation.x  > translation.x):
+			lookRight = true
+		elif (target != null) and (target.translation.x  < translation.x):
+			lookRight = false
+		else:
+			lookRight = true
 	elif isInState([HURTLAUNCH, HURTRISING, HURTFALLING, SPAWN]):
 		pass
 	else:
@@ -466,6 +543,12 @@ func _physics_process(delta):
 			anim.seek(0)
 	elif isInState([A_H]):
 		anim.play("attack_heavy")
+	elif isInState([A_L]):
+		anim.play("attack_light")
+	elif isInState([A_P]):
+		anim.play("attack_pierce")
+	elif isInState([DODGE]):
+		anim.play("dodge")
 	elif isInState([WALK]):
 		anim.play("walk")
 	elif isInState([KO]):
@@ -483,10 +566,10 @@ func _physics_process(delta):
 		aggroReset = true
 	
 	# labels/prints for testing
-	if (printVals == true) and (target != null):
-		$Label.text = str(state) + "\n" + str(hp) + "\n" + str(targetFound) + "\n" + str(target.translation)
-	elif (printVals == true):
-		$Label.text = str(state) + "\n" + str(hp) + "\n" + str(targetFound) + "\n"
+#	if (printVals == true) and (target != null):
+#		$Label.text = str(state) + "\n" + str(hp) + "\n" + str(targetFound) + "\n" + str(target.translation)
+#	elif (printVals == true):
+#		$Label.text = str(state) + "\n" + str(hp) + "\n" + str(targetFound) + "\n"
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
@@ -554,7 +637,6 @@ func _on_hurtbox_area_entered(area):
 	elif (hurtType == KB_STRONG_RECOIL):
 		hurtType = KB_STRONG
 		attacker.recoilStart = true
-	# changes attack type to strong and signals attacker if hit with a move that has knockback	
 	elif (hurtType == KB_AIR_UP):
 		hurtType = KB_STRONG
 		hurtDir = Vector3(attacker.velocity.x, hurtDir.y, attacker.velocity.z)
@@ -584,6 +666,7 @@ func _on_hurtbox_area_exited(area):
 		return
 	else:
 		invincible = false
+
 
 
 func _on_aggro_area_entered(area):

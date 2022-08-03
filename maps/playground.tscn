@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=2]
+[gd_scene load_steps=128 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://grass.tres" type="Material" id=11]
 [ext_resource path="res://dirt.tres" type="Material" id=12]
 [ext_resource path="res://scenes/bridgeTest.gd" type="Script" id=13]
-[ext_resource path="res://scenes/enemies/redMantis.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/enemies/spawners/waspNest.tscn" type="PackedScene" id=15]
 [ext_resource path="res://maps/level objects/lilypad.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/enemies/bosses/watersnake.tscn" type="PackedScene" id=17]
@@ -22,7 +21,7 @@
 [ext_resource path="res://scenes/enemies/spawners/spiderNest.tscn" type="PackedScene" id=20]
 [ext_resource path="res://maps/decorations/trees/swampTreeA.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/pickups/coin.tscn" type="PackedScene" id=22]
-[ext_resource path="res://scenes/enemies/greenMantis.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/enemies/enemySpawnPoint.tscn" type="PackedScene" id=23]
 [ext_resource path="res://art/enemies/mantis temp/idle (2).png" type="Texture" id=24]
 [ext_resource path="res://art/enemies/mantis temp/idle (5).png" type="Texture" id=25]
 [ext_resource path="res://art/enemies/mantis temp/idle (3).png" type="Texture" id=26]
@@ -1068,19 +1067,19 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 38 ) ],
-"loop": false,
-"name": "hurt_floor",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 31 ) ],
 "loop": false,
 "name": "block",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 36 ), ExtResource( 39 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 38 ) ],
 "loop": false,
-"name": "attack_heavy",
+"name": "hurt_floor",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 40 ) ],
+"loop": false,
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 28 ) ],
@@ -1088,9 +1087,9 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 40 ) ],
+"frames": [ ExtResource( 36 ), ExtResource( 39 ), ExtResource( 30 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "attack_heavy",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 34 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 35 ) ],
@@ -1939,7 +1938,7 @@ editor_only = true
 environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0713, 1.12738, 13.6684 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 161.065, 9.12929, 37.6132 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="."]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 308.311, 10.8205, 20.5694 )
@@ -2049,6 +2048,51 @@ transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 13 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground15"]
+transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
+cast_shadow = 0
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="Ground18" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 160.601, 7.37534, 84.3265 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground18"]
+transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground18"]
+transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
+cast_shadow = 0
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="Ground19" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 160.601, 7.37534, 64.3265 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground19"]
+transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground19"]
+transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
+cast_shadow = 0
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="Ground20" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 159.811, 7.20275, 38.7188 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground20"]
+transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground20"]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
 cast_shadow = 0
 mesh = SubResource( 33 )
@@ -2316,6 +2360,43 @@ material/0 = null
 
 [node name="enemies" type="Spatial" parent="."]
 
+[node name="enemySpawnPoint" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 135.52, 10.8931, 61.727 )
+enemyNum = 4
+
+[node name="enemySpawnPoint2" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 139.662, 10.8931, 58.5696 )
+enemyNum = 4
+
+[node name="enemySpawnPoint3" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 136.072, 10.8931, 57.8621 )
+enemyNum = 4
+
+[node name="enemySpawnPoint4" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.196, 10.8931, 91.872 )
+enemyNum = 5
+
+[node name="enemySpawnPoint5" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 138.338, 10.8931, 88.7147 )
+enemyNum = 5
+
+[node name="enemySpawnPoint6" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.748, 10.8931, 88.0071 )
+enemyNum = 5
+
+[node name="enemySpawnPoint10" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 181.779, 10.8931, 62.8213 )
+
+[node name="enemySpawnPoint11" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 185.921, 10.8931, 59.664 )
+
+[node name="enemySpawnPoint12" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 182.331, 10.8931, 58.9564 )
+
+[node name="enemySpawnPoint13" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 182.629, 10.8931, 90.0978 )
+enemyNum = 1
+
 [node name="Enemy" parent="enemies" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.68452, 18.0686, -39.8601 )
 
@@ -2421,15 +2502,6 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 266.141
 
 [node name="mush5" parent="." instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 86.905, -0.0447415, 33.6712 )
-
-[node name="redMantis" parent="." instance=ExtResource( 14 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.72353, 17.7068, -41.1137 )
-speedWalk = 4
-damage = 15
-maxCoins = 8
-minCoins = 5
-hp = 300
-weight = 2
 
 [node name="spider" parent="." instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 107.955, 10.1186, 17.8906 )
@@ -2613,7 +2685,6 @@ transform = Transform( 0.29775, 0, 0.0366699, 0, 0.3, 0, -0.0366699, 0, 0.29775,
 
 [node name="watersnake" parent="." instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 305.4, 16.0291, 16.8501 )
-hpMax = 350
 
 [node name="goal" parent="." instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 374.246, 18.1743, 21.3355 )
@@ -2892,19 +2963,6 @@ collision_mask = 16
 [node name="CollisionShape2" type="CollisionShape" parent="idle mantis2/enemyPushback"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 shape = SubResource( 67 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 23 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -51.5371, -0.294128, 5.65618 )
-speedWalk = 10
-
-[node name="Enemy5" parent="." instance=ExtResource( 23 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49.356, -0.294128, 7.12379 )
-speedWalk = 10
-
-[node name="Enemy4" parent="." instance=ExtResource( 23 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.4557, -0.294128, 6.66586 )
-speedWalk = 10
-startRight = true
 
 [node name="windbox" parent="." instance=ExtResource( 46 )]
 transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 10, 41.0975, 0.874093, 21.7699 )
