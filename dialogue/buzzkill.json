@@ -1,0 +1,6 @@
+[
+  {"sprite":"Sprig_ask",    "pos":"left",  "move_in":"slide", "move_out":"slide", "text":"Uh... Anne? Do you hear that?"},
+  {"sprite":"Anne_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"I don't hear anything." },
+  {"sprite":"Sprig_normal",  "pos":"left", "move_in":"slide", "move_out":"slide", "text":"That's what I mean! It's eerily quiet all of a sudden. I have a bad feeling about this way."},
+  {"sprite":"Anne_normal", "pos":"right",  "move_in":"slide", "move_out":"slide",  "text":"Come on dude, don't be a buzzkill. What's the worst that could happen?"}
+]

@@ -1,0 +1,5 @@
+[
+  {"sprite":"Anne_ask",    "pos":"left",  "move_in":"slide", "move_out":"none", "text":"Wait, there's nothing behind the waterfall?"},
+  {"sprite":"Anne_ask",    "pos":"left",  "move_in":"still", "move_out":"slide", "text":"But there's always supposed to be treasure hidden behind these!"},
+  {"sprite":"Sprig_normal",  "pos":"right", "move_in":"slide", "move_out":"slide", "text":"Why would frogs hide money behinds waterfalls instead of a bank? That doesn't seem a good financial choice..."},
+]

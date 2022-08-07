@@ -6,6 +6,11 @@ var state = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	
+func playMusic():
+	get_node("pause_theme").play()
+func stopMusic():
+	get_node("pause_theme").stop()
 
 func despawnPlayer(num):
 	pg.playerAlive[num] = false
@@ -25,9 +30,11 @@ func _process(_delta):
 	if (Input.is_action_just_pressed("pause") == true):
 		if (get_tree().paused):
 			get_tree().paused = false
+			stopMusic()
 			soundManager.resumeMusic()
 		else:
 			soundManager.playSound("pause")
+			playMusic()
 			soundManager.pauseMusic()
 			get_tree().paused = true
 			$basicMenu.show()
@@ -41,6 +48,7 @@ func _process(_delta):
 		match state:
 			BASIC:
 				get_tree().paused = false
+				stopMusic()
 				soundManager.resumeMusic()
 			DROP:
 				_on_buttonBack_pressed()
@@ -128,10 +136,13 @@ func _process(_delta):
 
 func _on_buttonResume_pressed():
 	get_tree().paused = false
+	stopMusic()
+	soundManager.resumeMusic()
 
 
 func _on_buttonMap_pressed():
 	get_tree().paused = false
+	stopMusic()
 	pg.backToMapLose()
 
 

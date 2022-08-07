@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=2]
+[gd_scene load_steps=117 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/wartwood/wartwood_env.obj" type="ArrayMesh" id=2]
@@ -54,13 +54,23 @@
 [ext_resource path="res://maps/decorations/small plants/plantB.tscn" type="PackedScene" id=52]
 [ext_resource path="res://maps/wartwood/wartwood_draft/material_8.png" type="Texture" id=53]
 [ext_resource path="res://maps/decorations/small plants/plantA.tscn" type="PackedScene" id=54]
+[ext_resource path="res://maps/sky/sky1.png" type="Texture" id=55]
 
-[sub_resource type="Environment" id=3]
+[sub_resource type="PanoramaSky" id=131]
+panorama = ExtResource( 55 )
+
+[sub_resource type="Environment" id=130]
 background_mode = 1
+background_sky = SubResource( 131 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
-background_energy = 0.0
+background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 0.75
+ambient_light_sky_contribution = 0.0
+fog_color = Color( 0.176471, 0.239216, 0.207843, 1 )
+dof_blur_far_distance = 8192.0
 
 [sub_resource type="ArrayMesh" id=117]
 resource_name = "wartwood_Cylinder004"
@@ -1227,16 +1237,8 @@ height = 3.0
 
 [node name="wartwood" type="Node"]
 
-[node name="editorLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -107.489, 26.2663, -127.654 )
-visible = false
-light_color = Color( 0.454902, 0.533333, 0.337255, 1 )
-light_energy = 0.5
-shadow_enabled = true
-editor_only = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
+environment = SubResource( 130 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000123978, 0.00104904, 10.173 )

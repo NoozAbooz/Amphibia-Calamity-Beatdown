@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://themes/Combo_small_desc_text.tres" type="Theme" id=9]
 [ext_resource path="res://art/menus/charBlock.png" type="Texture" id=10]
 [ext_resource path="res://themes/shop_button.tres" type="Theme" id=11]
+[ext_resource path="res://music/pause_menu.ogg" type="AudioStream" id=12]
 
 [node name="pauseScreen" type="Control"]
 pause_mode = 2
@@ -399,7 +400,7 @@ __meta__ = {
 }
 
 [node name="symbols" type="VBoxContainer" parent="combosMenu/symbolsContainer"]
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 1068.0
 custom_constants/separation = 10
 __meta__ = {
@@ -894,6 +895,11 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="pause_theme" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 12 )
+volume_db = -12.0
 
 [connection signal="pressed" from="basicMenu/buttonResume" to="." method="_on_buttonResume_pressed"]
 [connection signal="pressed" from="basicMenu/buttonMap" to="." method="_on_buttonMap_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://art/models/snake/Material_002.material" type="Material" id=1]
 [ext_resource path="res://scenes/enemies/bosses/watersnake.gd" type="Script" id=2]
@@ -1065,27 +1065,6 @@ tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = PoolRealArray( 0, 1, 0, -1.01092, 0.836874, 0.195326, 1.32915e-20, 2.64716e-21, 0.980738, 1, 1, 1, 0.5, 1, 0, -1.01092, 0.836874, 0.195326, 1.32915e-20, 2.64716e-21, 0.980738, 1, 1, 1 )
 
-[sub_resource type="SpatialMaterial" id=40]
-albedo_color = Color( 0.211765, 0.172549, 0.196078, 1 )
-
-[sub_resource type="CapsuleMesh" id=41]
-material = SubResource( 40 )
-radius = 2.0
-mid_height = 10.0
-
-[sub_resource type="CapsuleMesh" id=42]
-material = SubResource( 40 )
-radius = 2.0
-mid_height = 3.0
-
-[sub_resource type="SpatialMaterial" id=43]
-albedo_color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
-
-[sub_resource type="SphereMesh" id=44]
-material = SubResource( 43 )
-radius = 0.2
-height = 0.4
-
 [sub_resource type="BoxShape" id=16]
 
 [sub_resource type="CylinderShape" id=17]
@@ -1095,6 +1074,16 @@ height = 8.0
 [sub_resource type="CapsuleShape" id=66]
 radius = 3.0
 height = 4.0
+
+[sub_resource type="SpatialMaterial" id=190]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.756863, 0.847059, 0.819608, 0.784314 )
+
+[sub_resource type="SphereMesh" id=191]
+material = SubResource( 190 )
+radial_segments = 6
+rings = 3
 
 [sub_resource type="Animation" id=36]
 resource_name = "exit"
@@ -2338,9 +2327,35 @@ tracks/10/keys = {
 "values": [ Vector2( 1638, 308 ) ]
 }
 
+[sub_resource type="Animation" id=192]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("boss/CPUParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("boss/CPUParticles:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
 [sub_resource type="Animation" id=33]
 resource_name = "bite"
-length = 1.0
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("boss/hitbox/CollisionHit:shape:extents")
@@ -2491,6 +2506,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("boss/CPUParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2, 2.70001 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("boss/CPUParticles:translation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=27]
 resource_name = "enter_water"
@@ -2544,10 +2583,21 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -12, 0 ), Vector3( 0, -15, 0 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("boss/CPUParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.483334 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=29]
 resource_name = "exit_water"
-length = 1.0
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("boss/hitbox/CollisionHit:shape:extents")
@@ -2596,6 +2646,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -12, 0 ), Vector3( 0, -12, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("boss/CPUParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.500001 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=32]
@@ -2706,7 +2768,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=20]
 resource_name = "idle"
-length = 1.0
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("boss/hitbox/CollisionHit:shape:extents")
@@ -2833,6 +2894,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector3( 0, -50, 0 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("boss/CPUParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 3.66667 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
 
 [sub_resource type="Animation" id=46]
 resource_name = "jump"
@@ -2885,6 +2958,30 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( -3, -8, 0 ), Vector3( -3, -8, 0 ), Vector3( -4, -11, 0 ), Vector3( -4, -11, 0 ), Vector3( 0, 2, 0 ), Vector3( 4, 2, 0 ), Vector3( 8.5, 2, 0 ), Vector3( 12.5, 2, 0 ), Vector3( 20, 2, 0 ), Vector3( 0, -50, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("boss/CPUParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.45, 1.85, 2.61667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("boss/CPUParticles:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.83333, 1.85, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 20, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=48]
@@ -2963,6 +3060,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector3( -6, -1, 2.62268e-07 ), Vector3( -6, -1, 2.62268e-07 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("boss/CPUParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.75, 1.5, 3.4, 4.25, 4.86667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("boss/CPUParticles:translation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 4.95, 4.96667 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -7, 0, 0 ), Vector3( -7, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=31]
 resource_name = "under_water"
@@ -3040,6 +3161,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("boss/CPUParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("boss/CPUParticles:translation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=26]
 resource_name = "wait"
@@ -3093,6 +3238,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, -15, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("boss/CPUParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [node name="watersnake" type="Spatial"]
@@ -3295,30 +3452,8 @@ anims/jump = SubResource( 63 )
 anims/sweep = SubResource( 64 )
 anims/under_water = SubResource( 65 )
 
-[node name="body" type="MeshInstance" parent="boss/model"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-visible = false
-mesh = SubResource( 41 )
-material/0 = null
-
-[node name="head" type="MeshInstance" parent="boss/model/body"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 6 )
-mesh = SubResource( 42 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="eye1" type="MeshInstance" parent="boss/model/body/head"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.18635, 2.82063 )
-mesh = SubResource( 44 )
-material/0 = null
-
-[node name="eye2" type="MeshInstance" parent="boss/model/body/head"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.18635, 2.82063 )
-mesh = SubResource( 44 )
-material/0 = null
-
 [node name="hitbox" type="Area" parent="boss" groups=["bosses"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, -6, -1, 2.62268e-07 )
 collision_layer = 32
 monitoring = false
 
@@ -3327,7 +3462,7 @@ shape = SubResource( 16 )
 disabled = true
 
 [node name="hurtbox" type="Area" parent="boss"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
 collision_layer = 0
 collision_mask = 8
 monitorable = false
@@ -3340,8 +3475,24 @@ shape = SubResource( 17 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 8, 0 )
 shape = SubResource( 66 )
 
+[node name="CPUParticles" type="CPUParticles" parent="boss"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+emitting = false
+amount = 12
+lifetime = 0.1
+mesh = SubResource( 191 )
+emission_shape = 5
+emission_ring_radius = 3.0
+emission_ring_inner_radius = 2.0
+emission_ring_height = 1.0
+emission_ring_axis = Vector3( 0, 1, 0 )
+direction = Vector3( 0, 1, 0 )
+spread = 35.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+
 [node name="info" type="Node2D" parent="."]
-position = Vector2( 640, -100 )
+position = Vector2( 640, 0 )
 
 [node name="lifeBar" type="ProgressBar" parent="info"]
 margin_left = -314.0
@@ -3397,6 +3548,7 @@ anims/shakeR = SubResource( 25 )
 anims/wait = SubResource( 37 )
 
 [node name="BossAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 192 )
 anims/bite = SubResource( 33 )
 anims/dead = SubResource( 34 )
 anims/enter_water = SubResource( 27 )

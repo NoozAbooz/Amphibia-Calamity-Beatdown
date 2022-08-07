@@ -51,10 +51,13 @@ func playMusicIfDiff(name):
 		get_node("music/" + name).volume_db = getDefaultVol(name)
 		get_node("music/" + name).play()
 	
-func stopMusic():
-	#get_tree().call_group("groupName", "stop")
+func stopMusic(songName = null):
+	if (songName != null):
+		get_node("music/" + songName).stop()
+		return
 	for song in $"music".get_children():
 		song.stop()
+	return
 		
 # Used for pause screen
 func pauseMusic():

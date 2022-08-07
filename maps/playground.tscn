@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=2]
+[gd_scene load_steps=130 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://grass.tres" type="Material" id=11]
 [ext_resource path="res://dirt.tres" type="Material" id=12]
 [ext_resource path="res://scenes/bridgeTest.gd" type="Script" id=13]
+[ext_resource path="res://maps/sky/sky1.png" type="Texture" id=14]
 [ext_resource path="res://scenes/enemies/spawners/waspNest.tscn" type="PackedScene" id=15]
 [ext_resource path="res://maps/level objects/lilypad.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/enemies/bosses/watersnake.tscn" type="PackedScene" id=17]
@@ -66,12 +67,21 @@
 [ext_resource path="res://maps/decorations/trees/swampTreeC.tscn" type="PackedScene" id=65]
 [ext_resource path="res://maps/level objects/dialogueTrigger.tscn" type="PackedScene" id=66]
 
-[sub_resource type="Environment" id=3]
+[sub_resource type="PanoramaSky" id=129]
+panorama = ExtResource( 14 )
+
+[sub_resource type="Environment" id=130]
 background_mode = 1
+background_sky = SubResource( 129 )
+background_sky_orientation = Basis( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
-background_energy = 0.0
+background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 0.85
+ambient_light_sky_contribution = 0.0
+fog_color = Color( 0.176471, 0.239216, 0.207843, 1 )
+dof_blur_far_distance = 8192.0
 
 [sub_resource type="SpatialMaterial" id=82]
 flags_do_not_receive_shadows = true
@@ -1928,14 +1938,15 @@ tracks/6/keys = {
 
 [node name="playground" type="Node"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 130 )
+
 [node name="editorLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -107.489, 26.2663, -127.654 )
+visible = false
 light_energy = 1.4
 shadow_enabled = true
 editor_only = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 161.065, 9.12929, 37.6132 )
@@ -2365,7 +2376,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 135.52, 10.8931, 61.727 )
 enemyNum = 4
 
 [node name="enemySpawnPoint2" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 139.662, 10.8931, 58.5696 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 139.662, -38.7448, 58.5696 )
 enemyNum = 4
 
 [node name="enemySpawnPoint3" parent="enemies" instance=ExtResource( 23 )]
@@ -2377,7 +2388,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.196, 10.8931, 91.872 )
 enemyNum = 5
 
 [node name="enemySpawnPoint5" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 138.338, 10.8931, 88.7147 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 138.338, -38.7448, 88.7147 )
 enemyNum = 5
 
 [node name="enemySpawnPoint6" parent="enemies" instance=ExtResource( 23 )]
@@ -2385,10 +2396,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.748, 10.8931, 88.0071 )
 enemyNum = 5
 
 [node name="enemySpawnPoint10" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 181.779, 10.8931, 62.8213 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 181.779, -38.7448, 62.8213 )
 
 [node name="enemySpawnPoint11" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 185.921, 10.8931, 59.664 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 185.921, -25.3129, 59.664 )
 
 [node name="enemySpawnPoint12" parent="enemies" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 182.331, 10.8931, 58.9564 )
