@@ -72,7 +72,7 @@ var inCutscene = false
 
 # wartwood flags
 var seenToadstool = false
-var firstTimeInWartwood = false
+var firstTimeInWartwood = true
 var currentStore = 0 # 0 = none; 1 = city hall; 2 = Maddie; 3 = Felicia
 
 func recalcInfo():

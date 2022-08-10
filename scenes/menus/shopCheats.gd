@@ -113,7 +113,7 @@ func refreshShop():
 		charsOn.pressed  = false
 		charsOff.pressed = true
 	
-	#print("easy: " + str(pg.easyMode) + "   |   hard: " + str(pg.hardMode))
+	print("easy: " + str(pg.easyMode) + "   |   hard: " + str(pg.hardMode))
 
 func _on_buttonExit_focus_entered():
 	curButtonDesc = "Return to Wartwood?"

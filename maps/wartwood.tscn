@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=121 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/wartwood/wartwood_env.obj" type="ArrayMesh" id=2]
@@ -55,6 +55,7 @@
 [ext_resource path="res://maps/wartwood/wartwood_draft/material_8.png" type="Texture" id=53]
 [ext_resource path="res://maps/decorations/small plants/plantA.tscn" type="PackedScene" id=54]
 [ext_resource path="res://maps/sky/sky1.png" type="Texture" id=55]
+[ext_resource path="res://maps/wartwood/WartwoodDialogueTrigger.gd" type="Script" id=56]
 
 [sub_resource type="PanoramaSky" id=131]
 panorama = ExtResource( 55 )
@@ -62,9 +63,9 @@ panorama = ExtResource( 55 )
 [sub_resource type="Environment" id=130]
 background_mode = 1
 background_sky = SubResource( 131 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1155,23 +1156,23 @@ region = Rect2( 68, 66, 68, 66 )
 atlas = ExtResource( 5 )
 region = Rect2( 136, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=78]
+[sub_resource type="AtlasTexture" id=140]
 atlas = ExtResource( 5 )
 region = Rect2( 204, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=79]
+[sub_resource type="AtlasTexture" id=141]
 atlas = ExtResource( 5 )
 region = Rect2( 272, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=80]
+[sub_resource type="AtlasTexture" id=142]
 atlas = ExtResource( 5 )
 region = Rect2( 340, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=81]
+[sub_resource type="AtlasTexture" id=143]
 atlas = ExtResource( 5 )
 region = Rect2( 408, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=82]
+[sub_resource type="AtlasTexture" id=144]
 atlas = ExtResource( 5 )
 region = Rect2( 476, 66, 68, 66 )
 
@@ -1207,7 +1208,7 @@ animations = [ {
 "name": "attack_heavy",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ) ],
+"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ) ],
 "loop": false,
 "name": "walk",
 "speed": 5.0
@@ -1234,6 +1235,15 @@ height = 0.1
 [sub_resource type="CylinderShape" id=92]
 resource_local_to_scene = true
 height = 3.0
+
+[sub_resource type="BoxShape" id=208]
+extents = Vector3( 5, 5, 5 )
+
+[sub_resource type="SpatialMaterial" id=207]
+albedo_color = Color( 0.0196078, 0.0196078, 1, 1 )
+
+[sub_resource type="SphereMesh" id=209]
+material = SubResource( 207 )
 
 [node name="wartwood" type="Node"]
 
@@ -2223,6 +2233,25 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -423.478, 0, 0.341694 )
 [node name="cameraWall2" parent="triggers" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1239, 0, 27.0859 )
 
+[node name="WartwoodDialogueTrigger" type="Spatial" parent="triggers"]
+pause_mode = 2
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229789, 2.7617, 10.3381 )
+script = ExtResource( 56 )
+
+[node name="cameraTrigger" type="Area" parent="triggers/WartwoodDialogueTrigger"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="triggers/WartwoodDialogueTrigger/cameraTrigger"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 208 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="triggers/WartwoodDialogueTrigger/cameraTrigger"]
+visible = false
+mesh = SubResource( 209 )
+material/0 = null
+
 [node name="warps" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2541, 0, 43.7226 )
 
@@ -2271,3 +2300,4 @@ transform = Transform( -0.0370275, 0, 0.999315, 0, 1, 0, -0.999315, 0, -0.037027
 [connection signal="area_exited" from="greenMantis/zeroPoint/hurtbox" to="greenMantis" method="_on_hurtbox_area_exited"]
 [connection signal="area_entered" from="greenMantis/aggro" to="greenMantis" method="_on_aggro_area_entered"]
 [connection signal="area_exited" from="greenMantis/aggro" to="greenMantis" method="_on_aggro_area_exited"]
+[connection signal="area_entered" from="triggers/WartwoodDialogueTrigger/cameraTrigger" to="triggers/WartwoodDialogueTrigger" method="_on_cameraTrigger_area_entered"]

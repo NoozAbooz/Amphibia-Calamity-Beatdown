@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
-[ext_resource path="res://art/menus/map_open (1).png" type="Texture" id=2]
+[ext_resource path="res://art/menus/map bg/map_table.png" type="Texture" id=2]
 [ext_resource path="res://art/menus/map icons/level_button_disabled.png" type="Texture" id=3]
 [ext_resource path="res://art/menus/map icons/fwagon_idle_1.png" type="Texture" id=4]
 [ext_resource path="res://art/menus/map icons/level_button_focus.png" type="Texture" id=5]
@@ -59,14 +59,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -87,11 +87,6 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "bestFronds",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "wartwood",
@@ -101,10 +96,20 @@ animations = [ {
 "loop": true,
 "name": "playground",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "bestFronds",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "check",
@@ -113,11 +118,6 @@ animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "uncheck",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "none",
 "speed": 5.0
 } ]
 
@@ -148,7 +148,7 @@ texture = ExtResource( 24 )
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
 position = Vector2( 634, 387 )
 frames = SubResource( 10 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]

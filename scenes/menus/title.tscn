@@ -22,6 +22,9 @@ margin_top = 232.0
 margin_right = 793.0
 margin_bottom = 304.0
 text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="lockButton" type="Button" parent="."]
 margin_left = 569.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://art/anne/run3.png" type="Texture" id=1]
 [ext_resource path="res://scenes/players/Player.gd" type="Script" id=2]
@@ -38,7 +38,7 @@
 [ext_resource path="res://art/anne/hurt_1.png" type="Texture" id=36]
 [ext_resource path="res://art/anne/land.png" type="Texture" id=37]
 [ext_resource path="res://art/anne/land_cancel.png" type="Texture" id=38]
-[ext_resource path="res://art/sasha/sasha_icon.png" type="Texture" id=39]
+[ext_resource path="res://art/menus/faces.png" type="Texture" id=39]
 [ext_resource path="res://themes/lifeBars.tres" type="Theme" id=40]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=41]
 [ext_resource path="res://art/pickups/coin_icon.png" type="Texture" id=42]
@@ -3577,6 +3577,61 @@ animations = [ {
 "name": "stand",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_air_H1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "attack_air_H2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "attack_L1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_air_L3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "rise",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "attack_air_H3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack_H1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack_air_L1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": false,
+"name": "land",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 30 ) ],
 "loop": false,
 "name": "attack_slide_L",
@@ -3586,11 +3641,6 @@ animations = [ {
 "loop": false,
 "name": "attack_L2",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_H1",
-"speed": 15.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
 "loop": false,
@@ -3602,65 +3652,15 @@ animations = [ {
 "name": "attack_H3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "attack_L1",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "attack_air_H3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 23 ) ],
-"loop": false,
-"name": "attack_air_H2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_air_L3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
-"loop": false,
-"name": "land",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 30 ) ],
 "loop": false,
 "name": "attack_slide_H",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "rise",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "fall",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_air_H1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_air_L1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack_H2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "attack_L3",
-"speed": 5.0
 } ]
 
 [sub_resource type="BoxShape" id=15]
@@ -3677,6 +3677,39 @@ height = 1.2
 [sub_resource type="CylinderMesh" id=2]
 height = 0.1
 rings = 1
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 400, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 400, 700, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 400, 350, 400, 350 )
+
+[sub_resource type="SpriteFrames" id=55]
+animations = [ {
+"frames": [ SubResource( 52 ) ],
+"loop": false,
+"name": "idle",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 53 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 54 ) ],
+"loop": false,
+"name": "low",
+"speed": 1.0
+} ]
 
 [node name="Player" type="KinematicBody"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
@@ -3770,10 +3803,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="face" type="Sprite" parent="playerInfo"]
-position = Vector2( 6, -39 )
-scale = Vector2( 0.22, 0.22 )
-texture = ExtResource( 39 )
+[node name="face" type="AnimatedSprite" parent="playerInfo"]
+position = Vector2( -8, -41 )
+scale = Vector2( 0.45, 0.45 )
+frames = SubResource( 55 )
+animation = "idle"
 centered = false
 
 [node name="PanelBG" type="ColorRect" parent="playerInfo"]

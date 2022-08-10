@@ -55,7 +55,9 @@ var LCancelActiveTimer = 0
 var LCancelResetTimer = 0
 
 var counterTimer = 0
+var counterSpamTimer = 0
 var counterMax = 10
+var counterSpamMax = 30
 
 var slideReady = true
 var slideSpeed = 0
@@ -106,6 +108,7 @@ var isInWindbox = false
 
 onready var anim = $"AnimationPlayer"
 onready var sprite = $"zeroPoint/AnimatedSprite3D"
+onready var face = $"playerInfo/face"
 var animFinished = false
 
 #input buffer stuff
@@ -820,8 +823,13 @@ func _physics_process(delta):
 	# Counter mechanic
 	if (counterTimer > 0):
 		counterTimer -= 1
-	if Input.is_action_just_pressed(block_button):
+	if (counterSpamTimer > 0):
+		counterSpamTimer -= 1
+	if (Input.is_action_just_pressed(block_button)) and (counterSpamTimer == 0):
 		counterTimer = counterMax
+		counterSpamTimer = counterSpamMax
+	elif (Input.is_action_just_pressed(block_button)):
+		counterSpamTimer = counterSpamMax
 		
 	# resets animFinished if in looping animation state to prevent bugs
 	if (isInState([IDLE, WALK, RUN, RISING, FALLING, HURTFALLING, HURTRISING, BLOCK])):
@@ -1115,10 +1123,16 @@ func _physics_process(delta):
 		$playerInfo/lifeCounter.text = " "
 	else:
 		$playerInfo/lifeCounter.text = str(lives)
+	if (isInState([HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR])):
+		face.play("hurt")
+	elif (hp <= 0.4 * hpMax):
+		face.play("low")
+	else:
+		face.play("idle")
 	
 	
 	# testing prints
-	#$Label.text = str(printStatesEnum.keys()[state]) + "\n" + str(translation.x)
+	#$Label.text = str(counterSpamTimer) + " - " + str(counterTimer)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

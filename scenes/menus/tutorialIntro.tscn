@@ -1,0 +1,154 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://themes/Early GameBoy.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://themes/shop_button.tres" type="Theme" id=2]
+[ext_resource path="res://scenes/menus/tutorialIntro.gd" type="Script" id=3]
+[ext_resource path="res://art/menus/faces.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "tutIntro"
+length = 1.16667
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnneLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.75, 0.8, 0.85, 0.883333, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -120, 300 ), Vector2( -120, 300 ), Vector2( 540, 300 ), Vector2( 540, 285 ), Vector2( 540, 310 ), Vector2( 540, 295 ), Vector2( 540, 300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnneRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.75, 0.8, 0.85, 0.883333, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1430, 300 ), Vector2( 1430, 300 ), Vector2( 740, 300 ), Vector2( 740, 285 ), Vector2( 740, 310 ), Vector2( 740, 295 ), Vector2( 740, 300 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.733333 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "playSound"
+} ]
+}
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 200, 350 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 200, 0, 200, 350 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 3 ) ],
+"loop": false,
+"name": "left",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": false,
+"name": "right",
+"speed": 0.0
+} ]
+
+[node name="tutorialIntro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="ColorRect" parent="."]
+margin_left = -48.0
+margin_top = -32.0
+margin_right = 1328.0
+margin_bottom = 748.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="."]
+margin_top = 467.0
+margin_right = 1280.0
+margin_bottom = 545.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "tutIntro"
+anims/tutIntro = SubResource( 2 )
+
+[node name="buttons" type="Control" parent="."]
+margin_top = 551.0
+margin_right = 1280.0
+margin_bottom = 696.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yesButton" type="Button" parent="buttons"]
+margin_left = 350.0
+margin_right = 550.0
+margin_bottom = 100.0
+theme = ExtResource( 2 )
+toggle_mode = true
+text = "Sure!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="noButton" type="Button" parent="buttons"]
+margin_left = 730.0
+margin_right = 930.0
+margin_bottom = 100.0
+theme = ExtResource( 2 )
+toggle_mode = true
+text = "Nope"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnneLeft" type="AnimatedSprite" parent="."]
+position = Vector2( 518, 300 )
+frames = SubResource( 5 )
+animation = "left"
+
+[node name="AnneRight" type="AnimatedSprite" parent="."]
+position = Vector2( 763, 300 )
+frames = SubResource( 5 )
+animation = "right"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="buttons/yesButton" to="." method="_on_yesButton_pressed"]
+[connection signal="pressed" from="buttons/noButton" to="." method="_on_noButton_pressed"]

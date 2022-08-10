@@ -15,8 +15,8 @@ func _ready():
 #	pass
 
 func _on_startButton_pressed():
-	#get_tree().change_scene("res://scenes/menus/mapOpen.tscn")
-	tran.loadLevel("res://scenes/menus/mapOpen.tscn")
+	tran.loadLevel("res://scenes/menus/tutorialIntro.tscn")
+	#tran.loadLevel("res://scenes/menus/mapOpen.tscn")
 
 
 func _on_lockButton_toggled(button_pressed):

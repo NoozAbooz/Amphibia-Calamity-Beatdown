@@ -5,7 +5,7 @@ var dialogueScene = preload("res://scenes/menus/dialogueBox.tscn")
 export var dialogueName = "test"
 
 func _ready():
-	pass 
+	pass
 
 func _on_cameraTrigger_area_entered(area):
 	# finds first alive player

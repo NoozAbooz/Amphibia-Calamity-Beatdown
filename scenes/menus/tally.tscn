@@ -114,7 +114,6 @@ custom_fonts/font = SubResource( 3 )
 text = "Total Coppers: XXXXX"
 align = 1
 valign = 1
-percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

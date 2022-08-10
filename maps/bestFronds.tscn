@@ -43,9 +43,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=182]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -2528,11 +2528,11 @@ tracks/6/keys = {
 [sub_resource type="BoxShape" id=206]
 extents = Vector3( 5, 5, 5 )
 
-[sub_resource type="SpatialMaterial" id=207]
+[sub_resource type="SpatialMaterial" id=209]
 albedo_color = Color( 0.0196078, 0.0196078, 1, 1 )
 
 [sub_resource type="SphereMesh" id=208]
-material = SubResource( 207 )
+material = SubResource( 209 )
 
 [sub_resource type="BoxShape" id=132]
 extents = Vector3( 8, 3, 8 )
@@ -2594,6 +2594,7 @@ editor_only = true
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9213, 3.79152, 7.36756 )
+hideGUI = true
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )

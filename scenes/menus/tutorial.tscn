@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/menus/tutorial.gd" type="Script" id=1]
+[ext_resource path="res://art/menus/button_pressed.png" type="Texture" id=2]
+[ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=3]
+[ext_resource path="res://art/menus/char_info.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+length = 100.0
+step = 0.0166667
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.75, 6, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ "Welcome to Amphibia Calamity Beatdown!                        The Amphibia themed fan made beat ‘em up." ],
+"method": "speak"
+}, {
+"args": [ "You can skip this tutorial at any time with \"Enter\", \"Start\", or \"A\"." ],
+"method": "speak"
+}, {
+"args": [ "The game can be played with a keyboard or controller, but a controller works best! (The controller buttons may be a little different if you are not using an Xbox or Logitech controller)" ],
+"method": "speak"
+} ]
+}
+
+[node name="tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="startButton" type="Button" parent="."]
+margin_left = 507.0
+margin_top = 774.0
+margin_right = 765.0
+margin_bottom = 846.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = -48.0
+margin_top = -32.0
+margin_right = 1328.0
+margin_bottom = 748.0
+texture = ExtResource( 2 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="characters" type="Node2D" parent="."]
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+margin_top = 500.0
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 4 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="."]
+margin_left = 50.0
+margin_top = 545.0
+margin_right = 1230.0
+margin_bottom = 715.0
+theme = ExtResource( 3 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/default = SubResource( 1 )
+
+[connection signal="pressed" from="startButton" to="." method="_on_startButton_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

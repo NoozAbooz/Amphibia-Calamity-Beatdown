@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/menus/tallyBlock.gd" type="Script" id=1]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=2]
-[ext_resource path="res://art/results_faces.png" type="Texture" id=3]
+[ext_resource path="res://art/menus/faces.png" type="Texture" id=3]
+[ext_resource path="res://art/menus/char_info.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=12]
 resource_name = "idle"
@@ -90,66 +91,86 @@ tracks/0/keys = {
 "values": [ 1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 0, 200, 230, 200 )
+region = Rect2( 1200, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 460, 200, 230, 200 )
+region = Rect2( 800, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 230, 200, 230, 200 )
+region = Rect2( 0, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 460, 0, 230, 200 )
+region = Rect2( 400, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 230, 200 )
+region = Rect2( 800, 350, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 230, 0, 230, 200 )
+region = Rect2( 400, 350, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 350, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1200, 350, 400, 350 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
+"frames": [ SubResource( 13 ) ],
 "loop": false,
-"name": "AnneD",
+"name": "Sprig",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 2 ) ],
-"loop": false,
-"name": "MarcyD",
-"speed": 0.0
-}, {
-"frames": [ SubResource( 3 ) ],
-"loop": false,
-"name": "SashaD",
-"speed": 0.0
-}, {
-"frames": [ SubResource( 5 ) ],
+"frames": [ SubResource( 14 ) ],
 "loop": false,
 "name": "Marcy",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 15 ) ],
 "loop": false,
 "name": "Anne",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 6 ) ],
+"frames": [ SubResource( 16 ) ],
 "loop": false,
 "name": "Sasha",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 17 ) ],
+"loop": false,
+"name": "MarcyD",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 18 ) ],
+"loop": false,
+"name": "SashaD",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 19 ) ],
+"loop": false,
+"name": "AnneD",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 20 ) ],
+"loop": false,
+"name": "SprigD",
 "speed": 0.0
 } ]
 
@@ -173,14 +194,39 @@ anims/slide3 = SubResource( 11 )
 [node name="bg" type="ColorRect" parent="."]
 margin_right = 320.0
 margin_bottom = 720.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="colorBG" type="ColorRect" parent="bg"]
+margin_left = 6.0
+margin_top = 166.0
+margin_right = 314.0
+margin_bottom = 594.0
+color = Color( 0.290196, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="bg"]
+margin_top = 160.0
+margin_right = 320.0
+margin_bottom = 600.0
+texture = ExtResource( 4 )
+draw_center = false
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="labelLives" type="Label" parent="."]
-margin_top = 409.0
+margin_top = 453.0
 margin_right = 320.0
-margin_bottom = 459.0
+margin_bottom = 503.0
 theme = ExtResource( 2 )
 text = "Lives: XX"
 align = 1
@@ -190,9 +236,9 @@ __meta__ = {
 }
 
 [node name="labelCoins" type="Label" parent="."]
-margin_top = 455.0
+margin_top = 511.0
 margin_right = 320.0
-margin_bottom = 505.0
+margin_bottom = 561.0
 theme = ExtResource( 2 )
 text = "Coppers: XXX"
 align = 1
@@ -202,7 +248,8 @@ __meta__ = {
 }
 
 [node name="faces" type="AnimatedSprite" parent="."]
-position = Vector2( 45, 200 )
+position = Vector2( 0, 180 )
+scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 7 )
 animation = "Anne"
 centered = false

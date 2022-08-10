@@ -5,6 +5,11 @@ var coppers = 0
 #var lives = 0
 onready var faces = get_node("faces")
 
+var colorAnne = Color8(55, 150, 223)
+var colorSasha = Color8(215, 40, 119)
+var colorMarcy = Color8(152, 186, 62)
+var colorSprig = Color8(76, 102, 255)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("AnimationPlayer").play("idle")
@@ -15,6 +20,18 @@ func initialize(character, lives, coins, alive, playerNumber):
 	coppers = coins
 	get_node("labelLives").text = "Lives: " + str(lives)
 	get_node("labelCoins").text = "Coppers: " + str(coppers)
+	# sets panel color
+	match character:
+		"Anne":
+			get_node("bg/colorBG").color = colorAnne
+		"Sasha":
+			get_node("bg/colorBG").color = colorSasha
+		"Marcy":
+			get_node("bg/colorBG").color = colorMarcy
+		"Sprig":
+			get_node("bg/colorBG").color = colorSprig
+		_:
+			get_node("bg/colorBG").color = colorAnne
 	# Corrections if player was defeated
 	if not alive:
 		faces.play(character + "D")

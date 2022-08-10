@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://sounds/hit2.wav" type="AudioStream" id=1]
 [ext_resource path="res://global/soundManager.gd" type="Script" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://sounds/talk.wav" type="AudioStream" id=29]
 [ext_resource path="res://sounds/roar.wav" type="AudioStream" id=30]
 [ext_resource path="res://music/pause_menu.ogg" type="AudioStream" id=31]
+[ext_resource path="res://music/tutorial.ogg" type="AudioStream" id=32]
 
 [node name="soundManager" type="Node"]
 pause_mode = 2
@@ -159,6 +160,11 @@ volume_db = -9.0
 pause_mode = 2
 stream = ExtResource( 23 )
 volume_db = -13.0
+
+[node name="tutorial" type="AudioStreamPlayer" parent="music"]
+pause_mode = 2
+stream = ExtResource( 32 )
+volume_db = -6.0
 
 [node name="go" type="AudioStreamPlayer" parent="music"]
 pause_mode = 2
