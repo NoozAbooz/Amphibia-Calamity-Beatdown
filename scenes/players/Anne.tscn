@@ -3541,7 +3541,7 @@ flags = 19
 atlas = ExtResource( 19 )
 region = Rect2( 190, 0, 38, 49 )
 
-[sub_resource type="SpriteFrames" id=42]
+[sub_resource type="SpriteFrames" id=56]
 animations = [ {
 "frames": [ ExtResource( 34 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 32 ) ],
 "loop": false,
@@ -3599,9 +3599,9 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
-"loop": true,
+"loop": false,
 "name": "attack_L1",
-"speed": 15.0
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 21 ) ],
 "loop": false,
@@ -3765,9 +3765,8 @@ layers = 3
 offset = Vector2( 0, 25 )
 pixel_size = 0.07
 alpha_cut = 1
-frames = SubResource( 42 )
+frames = SubResource( 56 )
 animation = "stand"
-frame = 5
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8

@@ -174,7 +174,7 @@ volume_db = -12.0
 [node name="pause_theme" type="AudioStreamPlayer" parent="music"]
 pause_mode = 2
 stream = ExtResource( 31 )
-volume_db = -10.0
+volume_db = -7.0
 
 [node name="Tween" type="Tween" parent="."]
 

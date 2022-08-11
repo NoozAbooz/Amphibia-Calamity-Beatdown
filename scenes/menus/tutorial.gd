@@ -12,6 +12,7 @@ func _ready():
 
 
 func _process(delta):
+	# Advances text
 	if (messageText != messageNode.text):
 		messageNode.text = messageText
 	if (messageLength > 0) and (messagePercent != 100):
@@ -19,6 +20,10 @@ func _process(delta):
 	if (messagePercent > 100):
 		messagePercent = 100
 	messageNode.percent_visible = (messagePercent* 0.01)
+	# skip
+	if (Input.is_action_just_pressed("pause") == true) or (Input.is_action_just_pressed("k0_enter") == true):
+		tran.loadLevel("res://scenes/menus/mapOpen.tscn")
+	
 
 func speak(dialogue):
 	messagePercent = 0
@@ -27,7 +32,13 @@ func speak(dialogue):
 	
 	
 func _on_startButton_pressed():
-	tran.loadLevel("res://scenes/menus/mapOpen.tscn")
+	pass
+	#tran.loadLevel("res://scenes/menus/mapOpen.tscn")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
+	var nextAnim = int(anim_name) + 1
+	$"AnimationPlayer".play(str(nextAnim))
+	
+func finished():
+	$"AnimationPlayer".stop()
 	tran.loadLevel("res://scenes/menus/mapOpen.tscn")
