@@ -2922,7 +2922,6 @@ position = Vector2( -200, 100 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 106 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="Anne" type="AnimatedSprite" parent="characters"]
@@ -2930,7 +2929,7 @@ position = Vector2( 550, 425 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 49 )
 animation = "run"
-frame = 5
+frame = 1
 playing = true
 offset = Vector2( 0, 1.5 )
 

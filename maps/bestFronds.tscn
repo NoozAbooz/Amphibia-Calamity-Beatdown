@@ -2594,7 +2594,6 @@ editor_only = true
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9213, 3.79152, 7.36756 )
-hideGUI = true
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -2750,6 +2749,14 @@ mesh = SubResource( 203 )
 skeleton = NodePath("")
 material/0 = ExtResource( 10 )
 
+[node name="water10" type="MeshInstance" parent="environment"]
+pause_mode = 1
+transform = Transform( 0.1, 2.98023e-09, 1.3027e-15, 0, -4.37114e-09, 1, 2.98023e-09, -0.1, -4.37114e-08, -96.9453, -2.86986, -58.9331 )
+cast_shadow = 0
+mesh = SubResource( 204 )
+skeleton = NodePath("")
+material/0 = SubResource( 205 )
+
 [node name="water9" type="MeshInstance" parent="environment"]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 815.504, -12.1723, -91.3798 )
 cast_shadow = 0
@@ -2803,6 +2810,25 @@ skeleton = NodePath("")
 material/0 = SubResource( 189 )
 
 [node name="CPUParticles2" type="CPUParticles" parent="environment/water4"]
+transform = Transform( 0.999349, -1.94511e-11, 0.0360864, -1.93925e-11, 1, 1.07544e-09, -0.0360864, -1.07546e-09, 0.999349, 2.8148, -11.2655, -0.065033 )
+amount = 26
+lifetime = 0.15
+mesh = SubResource( 191 )
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 6.5 )
+direction = Vector3( 1, 1, 0 )
+spread = 25.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+
+[node name="water8" type="MeshInstance" parent="environment"]
+transform = Transform( 0.863536, 2.57354e-08, -0.504287, -2.98023e-08, 1, 0, 0.504287, 1.50289e-08, 0.863536, -96.4495, -13.4418, -55.1931 )
+cast_shadow = 0
+mesh = SubResource( 95 )
+skeleton = NodePath("")
+material/0 = SubResource( 189 )
+
+[node name="CPUParticles2" type="CPUParticles" parent="environment/water8"]
 transform = Transform( 0.999349, -1.94511e-11, 0.0360864, -1.93925e-11, 1, 1.07544e-09, -0.0360864, -1.07546e-09, 0.999349, 2.8148, -11.2655, -0.065033 )
 amount = 26
 lifetime = 0.15
@@ -3437,7 +3463,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 375.022
 gravOff = true
 
 [node name="coin20" parent="coins" instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 379.022, 11.9367, -29.4522 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 379.022, 14.5, -29.452 )
 gravOff = true
 
 [node name="coin23" parent="coins" instance=ExtResource( 7 )]
@@ -3445,11 +3471,11 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 370.859
 gravOff = true
 
 [node name="coin21" parent="coins" instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 387.022, 11.291, -29.4522 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 387.022, 12.1158, -29.4522 )
 gravOff = true
 
 [node name="coin22" parent="coins" instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 383.022, 12.4174, -29.4522 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 383.022, 14.5, -29.452 )
 gravOff = true
 
 [node name="coin2" parent="coins" instance=ExtResource( 7 )]
