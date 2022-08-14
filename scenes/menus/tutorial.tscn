@@ -1,7 +1,7 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=99 format=2]
 
 [ext_resource path="res://scenes/menus/tutorial.gd" type="Script" id=1]
-[ext_resource path="res://art/menus/button_pressed.png" type="Texture" id=2]
+[ext_resource path="res://art/menus/backgrounds/training_bg.png" type="Texture" id=2]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=3]
 [ext_resource path="res://art/menus/char_info.png" type="Texture" id=4]
 [ext_resource path="res://art/anne/run5.png" type="Texture" id=5]
@@ -42,6 +42,8 @@
 [ext_resource path="res://art/anne/a_ll2.png" type="Texture" id=40]
 [ext_resource path="res://art/anne/block.png" type="Texture" id=41]
 [ext_resource path="res://art/enemies/green_mantis_full.png" type="Texture" id=42]
+[ext_resource path="res://scenes/menus/tutShadow.gd" type="Script" id=43]
+[ext_resource path="res://art/vfx/shadow.png" type="Texture" id=44]
 
 [sub_resource type="AtlasTexture" id=66]
 atlas = ExtResource( 42 )
@@ -201,11 +203,6 @@ animations = [ {
 "name": "dead",
 "speed": 3.0
 }, {
-"frames": [ null ],
-"loop": true,
-"name": "gone",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 104 ), SubResource( 105 ) ],
 "loop": false,
 "name": "land",
@@ -215,6 +212,11 @@ animations = [ {
 "loop": false,
 "name": "attack_right",
 "speed": 10.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "gone",
+"speed": 5.0
 } ]
 
 [sub_resource type="AtlasTexture" id=43]
@@ -2862,21 +2864,6 @@ tracks/12/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -120 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=120]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("characters/fx:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 526, 427 ) ]
-}
-
 [node name="tutorial" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2901,40 +2888,53 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-margin_left = -48.0
-margin_top = -32.0
-margin_right = 1328.0
-margin_bottom = 748.0
+[node name="NinePatchRect" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 500.0
 texture = ExtResource( 2 )
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
+stretch_mode = 1
+
+[node name="NinePatchRect3" type="ColorRect" parent="."]
+margin_top = 500.0
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0.741176, 0.752941, 0.839216, 1 )
 
 [node name="characters" type="Node2D" parent="."]
+position = Vector2( 0, -80 )
+
+[node name="shadowAnne" type="Sprite" parent="characters"]
+position = Vector2( -152, 495 )
+texture = ExtResource( 44 )
+script = ExtResource( 43 )
+targetName = "Anne"
+
+[node name="shadowBug" type="Sprite" parent="characters"]
+position = Vector2( -152, 495 )
+scale = Vector2( 1.5, 1.25 )
+texture = ExtResource( 44 )
+script = ExtResource( 43 )
+targetName = "mantis"
 
 [node name="mantis" type="AnimatedSprite" parent="characters"]
-position = Vector2( -200, 100 )
+position = Vector2( 1400, 404 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 106 )
-animation = "idle"
+animation = "walk"
+frame = 3
 playing = true
+flip_h = true
 
 [node name="Anne" type="AnimatedSprite" parent="characters"]
-position = Vector2( 550, 425 )
+position = Vector2( -150, 425 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 49 )
-animation = "run"
-frame = 1
+animation = "walk"
+frame = 2
 playing = true
-offset = Vector2( 0, 1.5 )
 
 [node name="fx" type="AnimatedSprite" parent="characters"]
-position = Vector2( 526, 427 )
+position = Vector2( -118, 200 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 50 )
 animation = "hit"
@@ -2942,8 +2942,7 @@ frame = 4
 playing = true
 
 [node name="arrow" type="Sprite" parent="characters"]
-visible = false
-position = Vector2( 1400, 297 )
+position = Vector2( -147, 297 )
 rotation = 1.5708
 scale = Vector2( 3, 3 )
 texture = ExtResource( 38 )
@@ -2990,7 +2989,6 @@ anims/6 = SubResource( 115 )
 anims/7 = SubResource( 113 )
 anims/8 = SubResource( 114 )
 anims/9 = SubResource( 116 )
-anims/RESET = SubResource( 120 )
 
 [connection signal="pressed" from="startButton" to="." method="_on_startButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
