@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/a_ll4.png-4393836f2c85a4433dc27721b51e3fa8.stex"
+path="res://.import/Anne_full.png-5ec43683d3f7ce3caf2884dc0d4a2b90.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/anne/a_ll4.png"
-dest_files=[ "res://.import/a_ll4.png-4393836f2c85a4433dc27721b51e3fa8.stex" ]
+source_file="res://art/anne/Anne_full.png"
+dest_files=[ "res://.import/Anne_full.png-5ec43683d3f7ce3caf2884dc0d4a2b90.stex" ]
 
 [params]
 
@@ -21,9 +21,9 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

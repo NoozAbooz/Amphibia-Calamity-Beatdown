@@ -2190,7 +2190,7 @@ transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819,
 offset = Vector2( 0, 32 )
 pixel_size = 0.07
 frames = SubResource( 29 )
-animation = "walk"
+animation = "attack_heavy"
 
 [node name="hitbox" type="Area" parent="greenMantis/zeroPoint"]
 collision_layer = 32
