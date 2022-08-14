@@ -1880,7 +1880,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 1.05, 0 ) ]
+"values": [ Vector3( 0, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=31]
@@ -2005,7 +2005,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 1.05, 0 ) ]
+"values": [ Vector3( 0, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=33]
@@ -3879,6 +3879,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../zeroPoint")
+autoplay = "idle"
 anims/attack_H1 = SubResource( 18 )
 anims/attack_H2 = SubResource( 26 )
 anims/attack_H3 = SubResource( 28 )

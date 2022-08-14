@@ -48,6 +48,11 @@ func _ready():
 	else:
 		get_node("lvl10").disabled = true
 		get_node("lvl10").set_focus_mode(0)
+	# re-disables level 2 and playground for demo purposes
+		get_node("lvl2").disabled = true
+		get_node("lvl2").set_focus_mode(0)
+		get_node("play").disabled = true
+		get_node("play").set_focus_mode(0)
 		
 
 func _process(delta):

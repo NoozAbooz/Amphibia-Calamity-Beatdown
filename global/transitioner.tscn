@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://global/transitioner.gd" type="Script" id=1]
+[ext_resource path="res://art/plantars/polly_run.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "block"
@@ -29,6 +30,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "loading" ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "fadeWhite"
@@ -56,6 +69,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "empty" ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -87,6 +112,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "empty" ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "slideIn"
@@ -115,6 +152,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "loading" ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -145,6 +194,66 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "empty" ]
+}
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 28, 34 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 28, 0, 28, 34 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 56, 0, 28, 34 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 84, 0, 28, 34 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 112, 0, 28, 34 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 140, 0, 28, 34 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 168, 0, 28, 34 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "loading",
+"speed": 10.0
+} ]
 
 [node name="transitioner" type="Node2D"]
 pause_mode = 2
@@ -156,7 +265,7 @@ margin_top = -900.0
 margin_right = 1997.0
 margin_bottom = 955.0
 rect_rotation = 25.0
-color = Color( 1, 1, 1, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -168,5 +277,13 @@ anims/fadeWhite = SubResource( 5 )
 anims/hide = SubResource( 4 )
 anims/slideIn = SubResource( 2 )
 anims/slideOut = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1180, 620 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 13 )
+animation = "empty"
+frame = -1
+playing = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -75,6 +75,9 @@ var seenToadstool = false
 var firstTimeInWartwood = true
 var currentStore = 0 # 0 = none; 1 = city hall; 2 = Maddie; 3 = Felicia
 
+# debug flags
+var debugCameraAvailable = false
+
 func recalcInfo():
 	# characters
 	availableChars = ["Anne"]

@@ -3069,7 +3069,7 @@ position = Vector2( 435, 404 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 106 )
 animation = "idle"
-frame = 3
+frame = 5
 playing = true
 
 [node name="Anne" type="AnimatedSprite" parent="characters"]

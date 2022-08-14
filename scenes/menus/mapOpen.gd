@@ -13,9 +13,11 @@ func _ready():
 
 func _on_startButton_pressed():
 	get_tree().change_scene("res://scenes/menus/mapScreen.tscn")
+	self.queue_free()
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	get_tree().change_scene("res://scenes/menus/mapScreen.tscn")
+	self.queue_free()
 
 

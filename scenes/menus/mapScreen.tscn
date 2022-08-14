@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/map bg/map_table.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://art/menus/map icons/statue.png" type="Texture" id=22]
 [ext_resource path="res://art/menus/map icons/farm.png" type="Texture" id=23]
 [ext_resource path="res://art/menus/map bg/map6.png" type="Texture" id=24]
+[ext_resource path="res://art/menus/map icons/line.png" type="Texture" id=25]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 21 )
@@ -87,6 +88,11 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "bestFronds",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "wartwood",
@@ -96,20 +102,10 @@ animations = [ {
 "loop": true,
 "name": "playground",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "bestFronds",
-"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "none",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "check",
@@ -118,6 +114,11 @@ animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "uncheck",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "none",
 "speed": 5.0
 } ]
 
@@ -146,25 +147,50 @@ texture = ExtResource( 24 )
 [node name="map decorations" type="Node2D" parent="."]
 
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
-position = Vector2( 634, 387 )
+position = Vector2( 738, 412 )
 frames = SubResource( 10 )
-frame = 5
+frame = 3
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]
-position = Vector2( 705, 459 )
+position = Vector2( 706, 537 )
 texture = ExtResource( 23 )
 
 [node name="wart2" type="Sprite" parent="map decorations"]
-position = Vector2( 734, 463 )
+position = Vector2( 741.5, 540.5 )
 texture = ExtResource( 22 )
 flip_h = true
 
+[node name="Line2D" type="Line2D" parent="map decorations"]
+points = PoolVector2Array( 718, 567, 610, 567 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 25 )
+texture_mode = 1
+joint_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="map decorations"]
+points = PoolVector2Array( 596, 469, 609, 566 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 25 )
+texture_mode = 1
+joint_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="map decorations"]
+position = Vector2( 8, 63 )
+points = PoolVector2Array( 588, 405, 730, 384 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 25 )
+texture_mode = 1
+joint_mode = 2
+
 [node name="wart" type="TextureButton" parent="."]
-margin_left = 694.0
-margin_top = 473.0
-margin_right = 742.0
-margin_bottom = 505.0
+margin_left = 695.0
+margin_top = 550.0
+margin_right = 743.0
+margin_bottom = 582.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -177,10 +203,10 @@ __meta__ = {
 }
 
 [node name="play" type="TextureButton" parent="."]
-margin_left = 694.0
-margin_top = 547.0
-margin_right = 742.0
-margin_bottom = 579.0
+margin_left = 696.0
+margin_top = 767.0
+margin_right = 744.0
+margin_bottom = 799.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -193,10 +219,10 @@ __meta__ = {
 }
 
 [node name="lvl1" type="TextureButton" parent="."]
-margin_left = 611.0
-margin_top = 473.0
-margin_right = 659.0
-margin_bottom = 505.0
+margin_left = 586.0
+margin_top = 550.0
+margin_right = 634.0
+margin_bottom = 582.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -209,10 +235,10 @@ __meta__ = {
 }
 
 [node name="lvl2" type="TextureButton" parent="."]
-margin_left = 611.0
-margin_top = 404.0
-margin_right = 659.0
-margin_bottom = 436.0
+margin_left = 572.0
+margin_top = 452.0
+margin_right = 620.0
+margin_bottom = 484.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -225,10 +251,10 @@ __meta__ = {
 }
 
 [node name="lvl3" type="TextureButton" parent="."]
-margin_left = 472.0
-margin_top = 445.0
-margin_right = 520.0
-margin_bottom = 477.0
+margin_left = 715.0
+margin_top = 430.0
+margin_right = 763.0
+margin_bottom = 462.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -241,10 +267,10 @@ __meta__ = {
 }
 
 [node name="lvl4" type="TextureButton" parent="."]
-margin_left = 472.0
-margin_top = 466.0
-margin_right = 520.0
-margin_bottom = 498.0
+margin_left = 447.0
+margin_top = 801.0
+margin_right = 495.0
+margin_bottom = 833.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -257,10 +283,10 @@ __meta__ = {
 }
 
 [node name="lvl5" type="TextureButton" parent="."]
-margin_left = 426.0
-margin_top = 463.0
-margin_right = 474.0
-margin_bottom = 495.0
+margin_left = 401.0
+margin_top = 798.0
+margin_right = 449.0
+margin_bottom = 830.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -273,10 +299,10 @@ __meta__ = {
 }
 
 [node name="lvl6" type="TextureButton" parent="."]
-margin_left = 507.0
-margin_top = 443.0
-margin_right = 555.0
-margin_bottom = 475.0
+margin_left = 482.0
+margin_top = 778.0
+margin_right = 530.0
+margin_bottom = 810.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -289,10 +315,10 @@ __meta__ = {
 }
 
 [node name="lvl7" type="TextureButton" parent="."]
-margin_left = 427.0
-margin_top = 443.0
-margin_right = 475.0
-margin_bottom = 475.0
+margin_left = 402.0
+margin_top = 778.0
+margin_right = 450.0
+margin_bottom = 810.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -305,10 +331,10 @@ __meta__ = {
 }
 
 [node name="lvl8" type="TextureButton" parent="."]
-margin_left = 513.0
-margin_top = 418.0
-margin_right = 561.0
-margin_bottom = 450.0
+margin_left = 488.0
+margin_top = 753.0
+margin_right = 536.0
+margin_bottom = 785.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -321,10 +347,10 @@ __meta__ = {
 }
 
 [node name="lvl9" type="TextureButton" parent="."]
-margin_left = 436.0
-margin_top = 422.0
-margin_right = 484.0
-margin_bottom = 454.0
+margin_left = 411.0
+margin_top = 757.0
+margin_right = 459.0
+margin_bottom = 789.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -337,10 +363,10 @@ __meta__ = {
 }
 
 [node name="lvl10" type="TextureButton" parent="."]
-margin_left = 476.0
-margin_top = 424.0
-margin_right = 524.0
-margin_bottom = 456.0
+margin_left = 451.0
+margin_top = 759.0
+margin_right = 499.0
+margin_bottom = 791.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )

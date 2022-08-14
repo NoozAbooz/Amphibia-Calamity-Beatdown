@@ -127,7 +127,7 @@ func _ready():
 	
 func _process(_delta):
 	# Debug mode activate/deactivate
-	if ((Input.is_action_just_pressed("cam_mode") == true)):
+	if ((Input.is_action_just_pressed("cam_mode") == true)) and (pg.debugCameraAvailable):
 		if debugMode:
 			debugMode = false
 			print("Camera Freed")

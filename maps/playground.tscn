@@ -4506,7 +4506,7 @@ shadow_enabled = true
 editor_only = true
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6693, -0.662457, -2.19832 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 390.95, 17.5236, 14.9604 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="."]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 308.311, 10.8205, 20.5694 )
