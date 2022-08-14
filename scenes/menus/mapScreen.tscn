@@ -149,7 +149,7 @@ texture = ExtResource( 24 )
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
 position = Vector2( 738, 412 )
 frames = SubResource( 10 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]

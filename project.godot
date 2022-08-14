@@ -113,6 +113,7 @@ _global_script_class_icons={
 config/name="Amphibia: Calamity Beatdown"
 run/main_scene="res://scenes/menus/title.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://calamity_beatdown_icon.ico"
 
 [audio]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=163 format=2]
+[gd_scene load_steps=168 format=2]
 
 [ext_resource path="res://maps/best_fronds/trip_to_lake_vis.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://maps/level objects/ambush.tscn" type="PackedScene" id=2]
@@ -43,9 +43,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=182]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, 3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, 180, 0 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -345,6 +345,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true, false ]
 }
+
+[sub_resource type="SpatialMaterial" id=210]
+albedo_color = Color( 0.533333, 0.427451, 0.282353, 1 )
+
+[sub_resource type="CubeMesh" id=211]
+material = SubResource( 210 )
+size = Vector3( 10, 1, 5 )
+
+[sub_resource type="BoxShape" id=212]
+extents = Vector3( 5, 0.5, 2.5 )
+
+[sub_resource type="CubeMesh" id=213]
+material = SubResource( 210 )
+size = Vector3( 38, 1, 5 )
+
+[sub_resource type="BoxShape" id=214]
+extents = Vector3( 19, 0.5, 2.5 )
 
 [sub_resource type="CapsuleShape" id=135]
 radius = 2.0
@@ -2934,6 +2951,30 @@ anims/float = SubResource( 148 )
 [node name="rock" parent="environment" instance=ExtResource( 51 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 94.3187, 11.2721, -91.0679 )
 
+[node name="bridge" type="StaticBody" parent="environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 110.484, -0.652922, -67.131 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="MeshInstance" type="MeshInstance" parent="environment/bridge"]
+mesh = SubResource( 211 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="environment/bridge"]
+shape = SubResource( 212 )
+
+[node name="bridge2" type="StaticBody" parent="environment"]
+transform = Transform( 0.987066, -0.160312, 0, 0.160312, 0.987066, 0, 0, 0, 1, 413.076, 12.7312, -106.241 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="MeshInstance" type="MeshInstance" parent="environment/bridge2"]
+mesh = SubResource( 213 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="environment/bridge2"]
+shape = SubResource( 214 )
+
 [node name="decorations" type="Spatial" parent="."]
 
 [node name="swampTreeC" type="StaticBody" parent="decorations"]
@@ -3241,7 +3282,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 shape = SubResource( 170 )
 
 [node name="greenMantis3" type="KinematicBody" parent="enemies"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 228.116, 0.0230803, -8.8883 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 238.4, 0.0230803, -8.38062 )
 collision_layer = 16
 collision_mask = 2050
 script = ExtResource( 9 )
@@ -3489,7 +3530,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 203.166, -1.3558, 1.79605 )
 flower = true
 
 [node name="lilypad3" parent="lilypads" instance=ExtResource( 5 )]
-transform = Transform( 0.828041, 0, -0.560668, 0, 1, 0, 0.560668, 0, 0.828041, 246.936, -1.35581, -2.59925 )
+transform = Transform( 0.828041, 0, -0.560668, 0, 1, 0, 0.560668, 0, 0.828041, 246.936, -1.35581, -2.32965 )
 flower = true
 
 [node name="lilypad4" parent="lilypads" instance=ExtResource( 5 )]
@@ -3651,6 +3692,7 @@ randomContents = false
 foods = 4
 
 [node name="triggers" type="Spatial" parent="."]
+visible = false
 
 [node name="dialogueTrigger" parent="triggers" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -216.292, 15.5183, -45.075 )

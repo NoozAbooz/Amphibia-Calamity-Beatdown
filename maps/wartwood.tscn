@@ -65,9 +65,9 @@ panorama = ExtResource( 55 )
 [sub_resource type="Environment" id=130]
 background_mode = 1
 background_sky = SubResource( 131 )
-background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, 3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, 180, 0 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1663,7 +1663,7 @@ transform = Transform( -0.984865, 0, -0.173321, 0, 1, 0, 0.173321, 0, -0.984865,
 transform = Transform( -0.984865, 0, -0.173321, 0, 1, 0, 0.173321, 0, -0.984865, 18.6188, -7.62939e-06, 30.7918 )
 
 [node name="bush20" parent="environment/plants" instance=ExtResource( 40 )]
-transform = Transform( -1.94425, -0.136526, -0.190625, -0.319517, 0.980748, 0.112299, 0.343247, 0.139622, -0.975218, 176.967, 3.80078, -79.5201 )
+transform = Transform( 3.6677, 0.210574, 0.769843, -0.639033, 1.9615, 0.224597, -1.46275, -0.328928, 1.83218, 185.689, 3.80078, -76.368 )
 
 [node name="bush18" parent="environment/plants" instance=ExtResource( 40 )]
 transform = Transform( -1.38999, 0, 0.563851, 0, 1.5, 0, -0.563851, 0, -1.38999, 18.7031, 0, -69.8455 )
@@ -2264,12 +2264,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229789, 2.7617, 10.3381 )
 script = ExtResource( 56 )
 
 [node name="cameraTrigger" type="Area" parent="triggers/WartwoodDialogueTrigger"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="triggers/WartwoodDialogueTrigger/cameraTrigger"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 208 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="triggers/WartwoodDialogueTrigger/cameraTrigger"]
