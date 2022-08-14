@@ -3695,7 +3695,7 @@ foods = 4
 visible = false
 
 [node name="dialogueTrigger" parent="triggers" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -216.292, 15.5183, -45.075 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -215.613, 15.9224, -43.3591 )
 dialogueName = "buzzkill"
 
 [node name="dialogueTrigger2" type="Spatial" parent="triggers"]

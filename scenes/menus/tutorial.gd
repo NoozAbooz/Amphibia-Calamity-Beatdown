@@ -21,7 +21,7 @@ func _process(delta):
 		messagePercent = 100
 	messageNode.percent_visible = (messagePercent* 0.01)
 	# skips
-	if (Input.is_action_just_pressed("pause") == true) or (Input.is_action_just_pressed("k0_enter") == true):
+	if (Input.is_action_just_pressed("pause") == true):
 		tran.loadLevel("res://scenes/menus/mapOpen.tscn")
 	if (Input.is_action_just_pressed("ui_accept") == true):
 		var animationNum = get_node("AnimationPlayer").current_animation

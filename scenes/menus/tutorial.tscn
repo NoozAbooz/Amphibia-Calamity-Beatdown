@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://scenes/menus/tutorial.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/backgrounds/training_bg.png" type="Texture" id=2]
@@ -304,10 +304,6 @@ region = Rect2( 624, 128, 104, 64 )
 atlas = ExtResource( 5 )
 region = Rect2( 728, 128, 104, 64 )
 
-[sub_resource type="AtlasTexture" id=150]
-atlas = ExtResource( 5 )
-region = Rect2( 624, 320, 104, 64 )
-
 [sub_resource type="AtlasTexture" id=151]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 128, 104, 64 )
@@ -388,6 +384,10 @@ region = Rect2( 312, 192, 104, 64 )
 atlas = ExtResource( 5 )
 region = Rect2( 728, 0, 104, 64 )
 
+[sub_resource type="AtlasTexture" id=150]
+atlas = ExtResource( 5 )
+region = Rect2( 624, 320, 104, 64 )
+
 [sub_resource type="AtlasTexture" id=171]
 atlas = ExtResource( 5 )
 region = Rect2( 104, 384, 104, 64 )
@@ -434,11 +434,6 @@ animations = [ {
 "name": "attack_H2",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 150 ) ],
-"loop": false,
-"name": "attack_air_H2",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ) ],
 "loop": false,
 "name": "attack_L1",
@@ -474,6 +469,11 @@ animations = [ {
 "name": "fall",
 "speed": 15.0
 }, {
+"frames": [ SubResource( 150 ) ],
+"loop": false,
+"name": "attack_air_H2",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 171 ) ],
 "loop": true,
 "name": "land_c",
@@ -488,9 +488,9 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="Animation" id=1]
-resource_name = "0"
-length = 27.0
+[sub_resource type="Animation" id=177]
+resource_name = "-1"
+length = 10.0
 step = 0.0166667
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -499,19 +499,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.75, 7, 12.25, 21.998 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ "Welcome to Amphibia Calamity Beatdown!                        The Amphibia themed fan made beat ‘em up." ],
-"method": "speak"
-}, {
-"args": [ "You can skip this tutorial at any time with \"Enter\" or \"Start\"." ],
-"method": "speak"
-}, {
 "args": [ "The game can be played with a keyboard or controller, but a controller works best! (The controller buttons may be a little different if you are not using an Xbox or Logitech controller)" ],
-"method": "speak"
-}, {
-"args": [ "Here’s our hero Anne now! Better late than never." ],
 "method": "speak"
 } ]
 }
@@ -534,10 +525,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 21.998 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ false ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("characters/Anne:position")
@@ -546,10 +537,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 21.998, 24 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -150, 425 ), Vector2( -150, 425 ), Vector2( 640, 425 ) ]
+"values": [ Vector2( -150, 425 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("characters/fx:position")
@@ -582,10 +573,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 21.998, 24 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "walk", "walk", "stand" ]
+"values": [ "walk" ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("characters/arrow:position")
@@ -594,10 +585,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 21.998, 24.004 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -147, 297 ), Vector2( -147, 297 ), Vector2( 640, 297 ) ]
+"values": [ Vector2( -147, 297 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("characters/arrow:visible")
@@ -606,7 +597,496 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 21.998 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("characters/mantis:offset")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("characters/mantis:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1400, 404 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("characters/mantis:animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "walk" ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("characters/mantis:flip_h")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=178]
+resource_name = "-2"
+length = 6.0
+step = 0.0166667
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "You can skip this tutorial at any time with \"Start\" (ESC on keyboard) or jump ahead with \"A\" (SPACE on keyboard)." ],
+"method": "speak"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("characters/Anne:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0, -7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("characters/Anne:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("characters/Anne:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -150, 425 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("characters/fx:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -118, 200 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("characters/fx:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("characters/Anne:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "walk" ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("characters/arrow:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -147, 297 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("characters/arrow:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("characters/mantis:offset")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("characters/mantis:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1400, 404 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("characters/mantis:animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "walk" ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("characters/mantis:flip_h")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=179]
+resource_name = "-3"
+length = 7.00001
+step = 0.0166667
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.75 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Welcome to Amphibia Calamity Beatdown!                        The Amphibia themed fan made beat ‘em up." ],
+"method": "speak"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("characters/Anne:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0, -7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("characters/Anne:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("characters/Anne:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -150, 425 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("characters/fx:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -118, 200 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("characters/fx:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("characters/Anne:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "walk" ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("characters/arrow:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -147, 297 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("characters/arrow:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("characters/mantis:offset")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("characters/mantis:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1400, 404 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("characters/mantis:animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "walk" ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("characters/mantis:flip_h")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "0"
+length = 5.0
+step = 0.0166667
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Here’s our hero Anne now! Better late than never." ],
+"method": "speak"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("characters/Anne:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0, -7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("characters/Anne:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("characters/Anne:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.006 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -150, 425 ), Vector2( 640, 425 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("characters/fx:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -118, 200 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("characters/fx:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("characters/Anne:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2.006 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "walk", "stand" ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("characters/arrow:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2.006 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -147, 297 ), Vector2( 640, 297 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("characters/arrow:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -2410,7 +2890,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ "Perform a heavy attack with \"Y\" (H key). These are slower, but hit harder. Some can even cut through an enemy’s block!" ],
+"args": [ "Perform a heavy attack with \"Y\" (K key). These are slower, but hit harder. Some can even cut through an enemy’s block!" ],
 "method": "speak"
 } ]
 }
@@ -3065,24 +3545,24 @@ script = ExtResource( 43 )
 targetName = "mantis"
 
 [node name="mantis" type="AnimatedSprite" parent="characters"]
-position = Vector2( 435, 404 )
+position = Vector2( 1458, 150 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 106 )
-animation = "idle"
-frame = 5
+animation = "hurt_air"
 playing = true
-
-[node name="Anne" type="AnimatedSprite" parent="characters"]
-position = Vector2( 550, 200 )
-scale = Vector2( 3, 3 )
-frames = SubResource( 49 )
-animation = "fall"
-playing = true
-offset = Vector2( 0, 4.9998 )
 flip_h = true
 
+[node name="Anne" type="AnimatedSprite" parent="characters"]
+position = Vector2( 640, 425 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 49 )
+animation = "stand"
+frame = 3
+playing = true
+offset = Vector2( 0, -7 )
+
 [node name="fx" type="AnimatedSprite" parent="characters"]
-position = Vector2( 526, 427 )
+position = Vector2( 731, 429 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 50 )
 animation = "hit"
@@ -3121,7 +3601,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "0"
+autoplay = "-3"
+anims/-1 = SubResource( 177 )
+anims/-2 = SubResource( 178 )
+anims/-3 = SubResource( 179 )
 anims/0 = SubResource( 1 )
 anims/1 = SubResource( 108 )
 anims/10 = SubResource( 117 )
