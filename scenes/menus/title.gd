@@ -1,5 +1,7 @@
 extends Control
 
+var loading = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	soundManager.playMusicIfDiff("menu")
@@ -8,6 +10,7 @@ func _ready():
 	$lockButton.pressed = false
 	_on_hitboxButton_toggled(false)
 	$hitboxButton.pressed = false
+	loading = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,8 +18,10 @@ func _ready():
 #	pass
 
 func _on_startButton_pressed():
-	tran.loadLevel("res://scenes/menus/tutorialIntro.tscn")
-	#tran.loadLevel("res://scenes/menus/mapOpen.tscn")
+	if not loading:
+		tran.loadLevel("res://scenes/menus/tutorialIntro.tscn")
+		loading = true
+	
 
 
 func _on_lockButton_toggled(button_pressed):
@@ -44,7 +49,7 @@ func _on_lockButton_toggled(button_pressed):
 		pg.hasDJ      = false
 		pg.hasCounter = false
 		
-	print("Unlocks changed!")
+	#print("Unlocks changed!")
 
 func _on_hitboxButton_toggled(button_pressed):
 	if (button_pressed):
@@ -55,4 +60,4 @@ func _on_hitboxButton_toggled(button_pressed):
 		$hitboxButton/Label.text = "Enable Hitboxes"
 		get_tree().set_debug_collisions_hint(false)
 		
-	print("hitboxes changed!")
+	#print("hitboxes changed!")

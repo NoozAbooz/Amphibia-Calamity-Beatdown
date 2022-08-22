@@ -50,6 +50,8 @@ func movePlayers():
 		# resets player state
 		player.state = player.IDLE
 		player.nextState = player.IDLE
+		# grants 2 sec of invincibility
+		player.invincibleGetUp = 120
 		# Determines player position
 		match i:
 			0:

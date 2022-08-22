@@ -43,9 +43,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=182]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1619,30 +1619,6 @@ region = Rect2( 68, 330, 68, 66 )
 atlas = ExtResource( 8 )
 region = Rect2( 0, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=83]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=84]
-atlas = ExtResource( 8 )
-region = Rect2( 68, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=85]
-atlas = ExtResource( 8 )
-region = Rect2( 136, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=86]
-atlas = ExtResource( 8 )
-region = Rect2( 204, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=87]
-atlas = ExtResource( 8 )
-region = Rect2( 272, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=88]
-atlas = ExtResource( 8 )
-region = Rect2( 340, 132, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 66, 68, 66 )
@@ -1675,6 +1651,30 @@ region = Rect2( 408, 66, 68, 66 )
 atlas = ExtResource( 8 )
 region = Rect2( 476, 66, 68, 66 )
 
+[sub_resource type="AtlasTexture" id=83]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=84]
+atlas = ExtResource( 8 )
+region = Rect2( 68, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=85]
+atlas = ExtResource( 8 )
+region = Rect2( 136, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=86]
+atlas = ExtResource( 8 )
+region = Rect2( 204, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=87]
+atlas = ExtResource( 8 )
+region = Rect2( 272, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=88]
+atlas = ExtResource( 8 )
+region = Rect2( 340, 132, 68, 66 )
+
 [sub_resource type="SpriteFrames" id=167]
 animations = [ {
 "frames": [ SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ) ],
@@ -1702,14 +1702,14 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
-"loop": false,
-"name": "attack_heavy",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 165 ), SubResource( 166 ), SubResource( 81 ), SubResource( 82 ) ],
 "loop": false,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
+"loop": false,
+"name": "attack_heavy",
 "speed": 5.0
 } ]
 
@@ -2610,7 +2610,7 @@ shadow_enabled = true
 editor_only = true
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9213, 3.79152, 7.36756 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9227, 3.81452, 7.09953 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -2872,7 +2872,7 @@ transform = Transform( 0.911963, 0, -0.410273, 0, 1, 0, 0.410273, 0, 0.911963, 9
 shape = SubResource( 196 )
 
 [node name="movingLily" type="KinematicBody" parent="environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 305, 5, -79.264 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 319.7, 8.463, -102 )
 collision_layer = 1024
 collision_mask = 0
 
@@ -2885,10 +2885,10 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="environment/movingLily"]
 transform = Transform( 0.428651, 0, -0.90347, 0, 1, 0, 0.90347, 0, 0.428651, 0, -0.216287, 0 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="environment/movingLily"]
 autoplay = "float"
+playback_process_mode = 0
 anims/float = SubResource( 126 )
 
 [node name="movingLily4" type="KinematicBody" parent="environment"]
@@ -2908,10 +2908,11 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="environment/movingLily4"]
 autoplay = "float"
+playback_process_mode = 0
 anims/float = SubResource( 152 )
 
 [node name="movingLily2" type="KinematicBody" parent="environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 499.665, 15.0142, -117.414 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 499.665, 15.0142, -118.81 )
 collision_layer = 1024
 collision_mask = 0
 
@@ -2927,10 +2928,11 @@ shape = SubResource( 146 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="environment/movingLily2"]
 autoplay = "float"
+playback_process_mode = 0
 anims/float = SubResource( 147 )
 
 [node name="movingLily3" type="KinematicBody" parent="environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 515.665, 15.014, -103.635 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 515.665, 15.014, -99.4241 )
 collision_layer = 1024
 collision_mask = 0
 
@@ -2946,6 +2948,7 @@ shape = SubResource( 146 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="environment/movingLily3"]
 autoplay = "float"
+playback_process_mode = 0
 anims/float = SubResource( 148 )
 
 [node name="rock" parent="environment" instance=ExtResource( 51 )]

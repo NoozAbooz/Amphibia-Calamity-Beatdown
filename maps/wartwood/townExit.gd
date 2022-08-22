@@ -7,4 +7,5 @@ func _ready():
 		get_node("MeshInstance").queue_free()
 
 func _on_exit_area_entered(area):
+	queue_free()
 	pg.backToMapLose()

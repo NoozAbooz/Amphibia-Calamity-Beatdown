@@ -217,6 +217,7 @@ func _on_buttonItem3_focus_entered():
 	
 
 func _on_buttonExit_focus_entered():
+	curItem.desc = "Return to Wartwood?"
 	get_node("NinePatchRect/description").text = "Return to Wartwood?"
 
 func _on_buttonExit_pressed():

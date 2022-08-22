@@ -6,6 +6,8 @@ var oldDB = 0
 var songList = []
 var dBList = []
 
+var alreadyStopped = false # a flag to insure that ending a tween and starting a new song both don't stop()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# stores default volumes for music
@@ -45,6 +47,7 @@ func playMusic(name):
 	
 func playMusicIfDiff(name):
 	if (get_node("music/" + name).is_playing()):
+		tweenMusic.stop_all()
 		get_node("music/" + name).volume_db = getDefaultVol(name)
 	else:
 		stopMusic()
@@ -52,6 +55,8 @@ func playMusicIfDiff(name):
 		get_node("music/" + name).play()
 	
 func stopMusic(songName = null):
+	#print("Stop")
+	alreadyStopped = true
 	if (songName != null):
 		get_node("music/" + songName).stop()
 		return
@@ -70,11 +75,13 @@ func resumeMusic():
 func FadeOutSong(name):
 	var song = get_node("music/" + name)
 	oldDB = song.volume_db
-	tweenMusic.interpolate_property(song, "volume_db", oldDB, -40, 1.0)
+	tweenMusic.interpolate_property(song, "volume_db", oldDB, (oldDB - 40), 2.0)
 	tweenMusic.start()
+	alreadyStopped = false
+	#print("tweenStart")
 
 func _on_Tween_completed(object, _key):
-	object.volume_db = oldDB
-	object.stop()
-	#print("reset")
+	#print("tweenEnd")
+	if not alreadyStopped:
+		object.stop()
 	

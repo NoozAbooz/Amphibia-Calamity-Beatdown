@@ -6,6 +6,10 @@ var nextOpen = 0
 
 var loading = false
 
+# a flag that exists so controllers that count as 2 inputs (Newer XBox) don't 
+# create two character blocks and thus two characters
+var DoublesCheckReady = true 
+
 func findNextSlot():
 	nextOpen = 0
 	for i in range(0, pg.playerActive.size()):
@@ -26,9 +30,14 @@ func _ready():
 	#$mapButton.grab_focus()
 
 func createBlock(playerNumber, inp):
+	if (DoublesCheckReady == false):
+		return
 	var block = charBlockScene.instance()
 	add_child(block)
 	block.initialize(playerNumber, inp)
+	DoublesCheckReady = false
+	get_node("noDoublesTimer").start()
+	#print(DoublesCheckReady)
 
 func _process(_delta):
 	# prevents more actions if a new scene is being loaded
@@ -68,3 +77,7 @@ func goToStage():
 func goBack():
 	loading = true
 	tran.loadLevel("res://scenes/menus/mapScreen.tscn")
+
+
+func _on_noDoublesTimer_timeout():
+	DoublesCheckReady = true

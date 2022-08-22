@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://art/enemies/red_mantis_full.png" type="Texture" id=1]
 [ext_resource path="res://scenes/enemies/enemy.gd" type="Script" id=2]
@@ -184,7 +184,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id=108]
 resource_name = "attack_pierce"
-length = 1.5
+length = 1.63334
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
@@ -193,10 +193,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.400001, 0.5, 0.7, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+"values": [ 0, 1, 2, 9, 2, 3, 4, 5, 6, 7, 8 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:animation")
@@ -229,7 +229,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.816667, 0.9 ),
+"times": PoolRealArray( 0, 0.916667, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -241,7 +241,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.816667, 0.9 ),
+"times": PoolRealArray( 0, 0.916667, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ Vector3( 1, 1, 1 ), Vector3( 14, 10, 12 ), Vector3( 1, 1, 1 ) ]
@@ -253,7 +253,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.816667, 0.9 ),
+"times": PoolRealArray( 0, 0.916667, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ Vector3( 0, 4, 0 ), Vector3( 0, 1.5, -1.2 ), Vector3( 0, 4, 0 ) ]
@@ -1196,6 +1196,36 @@ flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 0, 504, 75, 84 )
 
+[sub_resource type="AtlasTexture" id=150]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 0, 252, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=151]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 75, 252, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=152]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 150, 252, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=153]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 225, 252, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=154]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 300, 252, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=155]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 375, 252, 75, 84 )
+
 [sub_resource type="AtlasTexture" id=128]
 flags = 1
 atlas = ExtResource( 1 )
@@ -1235,6 +1265,41 @@ region = Rect2( 450, 84, 75, 84 )
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 525, 84, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=156]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 0, 420, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=157]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 75, 420, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=158]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 150, 420, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=159]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 225, 420, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=160]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 300, 420, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=161]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 375, 420, 75, 84 )
+
+[sub_resource type="AtlasTexture" id=162]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 450, 420, 75, 84 )
 
 [sub_resource type="AtlasTexture" id=136]
 flags = 1
@@ -1311,70 +1376,10 @@ flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 525, 252, 75, 84 )
 
-[sub_resource type="AtlasTexture" id=150]
+[sub_resource type="AtlasTexture" id=169]
 flags = 1
 atlas = ExtResource( 1 )
-region = Rect2( 0, 252, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=151]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 75, 252, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=152]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 150, 252, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=153]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 225, 252, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=154]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 300, 252, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=155]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 375, 252, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=156]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 0, 420, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=157]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 75, 420, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=158]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 150, 420, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=159]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 225, 420, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=160]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 300, 420, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=161]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 375, 420, 75, 84 )
-
-[sub_resource type="AtlasTexture" id=162]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 450, 420, 75, 84 )
+region = Rect2( 300, 504, 75, 84 )
 
 [sub_resource type="SpriteFrames" id=163]
 animations = [ {
@@ -1403,9 +1408,19 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ) ],
+"loop": false,
+"name": "attack_left",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ) ],
 "loop": false,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ) ],
+"loop": false,
+"name": "dodge",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ) ],
@@ -1413,19 +1428,9 @@ animations = [ {
 "name": "attack_right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 166 ) ],
+"frames": [ SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 166 ), SubResource( 169 ) ],
 "loop": false,
 "name": "attack_bite",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ) ],
-"loop": false,
-"name": "attack_left",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ) ],
-"loop": false,
-"name": "dodge",
 "speed": 5.0
 } ]
 
@@ -1453,7 +1458,7 @@ height = 12.0
 resource_local_to_scene = true
 height = 3.0
 
-[node name="greenMantis" type="KinematicBody"]
+[node name="redMantis" type="KinematicBody"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_layer = 16
 collision_mask = 2050
@@ -1496,7 +1501,7 @@ transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819,
 offset = Vector2( 0, 41 )
 pixel_size = 0.07
 frames = SubResource( 163 )
-animation = "hurt"
+animation = "attack_bite"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 32

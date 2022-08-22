@@ -113,12 +113,12 @@ __meta__ = {
 }
 
 [node name="map" type="AnimatedSprite" parent="."]
-position = Vector2( 640, 360 )
+position = Vector2( -676, 366 )
 frames = SubResource( 2 )
 frame = 10
 
 [node name="hand" type="AnimatedSprite" parent="."]
-position = Vector2( -500, 316 )
+position = Vector2( -500, 338 )
 frames = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

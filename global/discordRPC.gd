@@ -7,7 +7,7 @@ func _ready() -> void:
 	add_child(discord)
 	discord.connect("rpc_ready", self, "_on_discord_ready")
 	discord.establish_connection(application_id)
-	print("test")
+	#print("test")
 
 
 func _on_discord_ready(user: Dictionary) -> void:

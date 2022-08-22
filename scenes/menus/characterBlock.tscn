@@ -14,6 +14,14 @@ region = Rect2( 1830, 0, 305, 730 )
 atlas = ExtResource( 3 )
 region = Rect2( 2135, 0, 305, 730 )
 
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 2440, 0, 305, 730 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 3 )
+region = Rect2( 2745, 0, 305, 730 )
+
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
 region = Rect2( 610, 0, 305, 730 )
@@ -21,14 +29,6 @@ region = Rect2( 610, 0, 305, 730 )
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 3 )
 region = Rect2( 915, 0, 305, 730 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
-region = Rect2( 1220, 0, 305, 730 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 3 )
-region = Rect2( 1525, 0, 305, 730 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
@@ -38,19 +38,24 @@ region = Rect2( 0, 0, 305, 730 )
 atlas = ExtResource( 3 )
 region = Rect2( 305, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 3 )
-region = Rect2( 2440, 0, 305, 730 )
+region = Rect2( 1220, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
-region = Rect2( 2745, 0, 305, 730 )
+region = Rect2( 1525, 0, 305, 730 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ SubResource( 13 ), SubResource( 14 ) ],
 "loop": false,
 "name": "Sprig",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ) ],
+"loop": false,
+"name": "Maggie",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -63,19 +68,14 @@ animations = [ {
 "name": "Sasha",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 9 ), SubResource( 10 ) ],
-"loop": false,
-"name": "Marcy",
-"speed": 0.0
-}, {
 "frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": false,
 "name": "Anne",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": false,
-"name": "Maggie",
+"name": "Marcy",
 "speed": 0.0
 } ]
 
@@ -161,6 +161,7 @@ __meta__ = {
 }
 
 [node name="bg" type="ColorRect" parent="."]
+visible = false
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 315.0

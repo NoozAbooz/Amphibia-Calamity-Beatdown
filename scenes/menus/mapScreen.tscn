@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/map bg/map_table.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://art/menus/map icons/farm.png" type="Texture" id=23]
 [ext_resource path="res://art/menus/map bg/map6.png" type="Texture" id=24]
 [ext_resource path="res://art/menus/map icons/line.png" type="Texture" id=25]
+[ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=26]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 21 )
@@ -85,6 +86,24 @@ animations = [ {
 "name": "down",
 "speed": 5.0
 } ]
+
+[sub_resource type="Animation" id=11]
+resource_name = "point"
+length = 0.666667
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.333333, 0.666667 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -10, 0 ), Vector2( 0, 0 ), Vector2( -10, 0 ) ]
+}
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -149,7 +168,6 @@ texture = ExtResource( 24 )
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
 position = Vector2( 738, 412 )
 frames = SubResource( 10 )
-frame = 4
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]
@@ -383,6 +401,16 @@ position = Vector2( 266, 818 )
 frames = SubResource( 1 )
 animation = "down"
 playing = true
+
+[node name="arrow" type="Sprite" parent="."]
+position = Vector2( 719, 529 )
+rotation = 1.5708
+texture = ExtResource( 26 )
+offset = Vector2( -0.307691, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="arrow"]
+autoplay = "point"
+anims/point = SubResource( 11 )
 
 [node name="cam" type="Camera2D" parent="."]
 position = Vector2( 640, 360 )

@@ -225,6 +225,7 @@ func _on_buttonItem4_focus_entered():
 	refreshShop()
 
 func _on_buttonExit_focus_entered():
+	curItem.desc = "Return to Wartwood?"
 	get_node("NinePatchRect/description").text = "Return to Wartwood?"
 
 func _on_buttonExit_pressed():

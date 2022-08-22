@@ -119,3 +119,9 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="noDoublesTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="noDoublesTimer" to="." method="_on_noDoublesTimer_timeout"]

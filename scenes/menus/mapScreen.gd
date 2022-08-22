@@ -53,7 +53,12 @@ func _ready():
 		get_node("lvl2").set_focus_mode(0)
 		get_node("play").disabled = true
 		get_node("play").set_focus_mode(0)
-		
+	# removes arrow if been to wartwood
+	if (pg.firstTimeInWartwood == false):
+		$"arrow".hide()
+		$"arrow".queue_free()
+	else:
+		$"arrow".show()
 
 func _process(delta):
 	#positions marker

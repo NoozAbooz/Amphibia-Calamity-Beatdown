@@ -659,8 +659,8 @@ func _physics_process(delta):
 				clearInputBuffer()
 				speed = speed_walk
 				nextState = JUMP
-			elif (comboReady) and (hitLanded) and checkWalkJust() and (direction != Vector3.ZERO):
-				nextState = WALK
+#			elif (comboReady) and (hitLanded) and checkWalkJust() and (direction != Vector3.ZERO):
+#				nextState = WALK
 			elif (is_on_floor() == false):
 				nextState = FALLING
 			elif animFinished:
@@ -853,7 +853,8 @@ func _physics_process(delta):
 
 	
 	# mirror character if necessary
-	if(state == WALK or state == RUN or state == DJUMP) and (direction != Vector3.ZERO):
+	#if(state == WALK or state == RUN or state == DJUMP) and (direction != Vector3.ZERO):
+	if(isInState([WALK, RUN, JUMP, DJUMP])) and (direction != Vector3.ZERO):
 		#$"zeroPoint".look_at(translation + Vector3(direction.x, 0, 0), Vector3.UP)
 		if (direction.x > 0):
 			lookRight = true

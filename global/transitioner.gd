@@ -33,14 +33,16 @@ func endLevel():
 	
 func goto_scene(path): # Game requests to switch to this scene.
 	var root = get_tree().get_root()
+	
 	current_scene = root.get_child(root.get_child_count() -1)
+	current_scene.queue_free() # Get rid of the old scene.
+	yield(current_scene, "tree_exited") # waits for old scene to be unloaded
+	
 	
 	loader = ResourceLoader.load_interactive(path)
 	if loader == null: # Check for errors.
 		return
 	set_process(true)
-
-	current_scene.queue_free() # Get rid of the old scene.
 
 	# Start your "loading..." animation.
 	get_node("AnimationPlayer").play("block")

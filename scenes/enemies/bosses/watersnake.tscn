@@ -2530,6 +2530,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("boss/model/snakeAnimated/Armature/Skeleton/body:mesh:surface_1/material:albedo_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=27]
 resource_name = "enter_water"
@@ -2983,6 +2995,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 20, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("boss/model/snakeAnimated/Armature/Skeleton/body:mesh:surface_1/material:albedo_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.6, 0.766668 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.843137, 0, 0.0980392, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=48]
 resource_name = "sweep"
@@ -3083,6 +3107,18 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -7, 0, 0 ), Vector3( -7, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("boss/model/snakeAnimated/Armature/Skeleton/body:mesh:surface_1/material:albedo_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2.13334, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.843137, 0, 0.0980392, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=31]
@@ -3185,6 +3221,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("boss/model/snakeAnimated/Armature/Skeleton/body:mesh:surface_1/material:albedo_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=26]
 resource_name = "wait"
@@ -3250,6 +3298,18 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("boss/model/snakeAnimated/Armature/Skeleton/body:mesh:surface_1/material:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="watersnake" type="Spatial"]
@@ -3453,16 +3513,17 @@ anims/sweep = SubResource( 64 )
 anims/under_water = SubResource( 65 )
 
 [node name="hitbox" type="Area" parent="boss" groups=["bosses"]]
-transform = Transform( 0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, -6, -1, 2.62268e-07 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 32
 monitoring = false
 
 [node name="CollisionHit" type="CollisionShape" parent="boss/hitbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0 )
 shape = SubResource( 16 )
 disabled = true
 
 [node name="hurtbox" type="Area" parent="boss"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
 collision_layer = 0
 collision_mask = 8
 monitorable = false
@@ -3476,7 +3537,6 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 8, 0
 shape = SubResource( 66 )
 
 [node name="CPUParticles" type="CPUParticles" parent="boss"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 emitting = false
 amount = 12
 lifetime = 0.1
@@ -3548,6 +3608,7 @@ anims/shakeR = SubResource( 25 )
 anims/wait = SubResource( 37 )
 
 [node name="BossAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "wait"
 anims/RESET = SubResource( 192 )
 anims/bite = SubResource( 33 )
 anims/dead = SubResource( 34 )

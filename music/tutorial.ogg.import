@@ -12,4 +12,4 @@ dest_files=[ "res://.import/tutorial.ogg-476da67d908a8ed136dbf03173f5edd3.oggstr
 [params]
 
 loop=true
-loop_offset=2.885
+loop_offset=0

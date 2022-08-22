@@ -42,6 +42,7 @@ func _process(_delta):
 			$verifyMenu.hide()
 			$optionsMenu.hide()
 			$basicMenu/buttonResume.grab_focus()
+			raise()
 			state = BASIC
 	# "back" button
 	if (get_tree().paused) and (Input.is_action_just_pressed("ui_cancel") == true):
