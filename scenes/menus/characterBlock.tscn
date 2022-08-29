@@ -6,13 +6,13 @@
 [ext_resource path="res://art/menus/charBlock.png" type="Texture" id=5]
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=8]
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 3 )
-region = Rect2( 1830, 0, 305, 730 )
+region = Rect2( 1220, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
-region = Rect2( 2135, 0, 305, 730 )
+region = Rect2( 1525, 0, 305, 730 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 3 )
@@ -22,14 +22,6 @@ region = Rect2( 2440, 0, 305, 730 )
 atlas = ExtResource( 3 )
 region = Rect2( 2745, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 3 )
-region = Rect2( 610, 0, 305, 730 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 3 )
-region = Rect2( 915, 0, 305, 730 )
-
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 305, 730 )
@@ -38,19 +30,27 @@ region = Rect2( 0, 0, 305, 730 )
 atlas = ExtResource( 3 )
 region = Rect2( 305, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 3 )
-region = Rect2( 1220, 0, 305, 730 )
+region = Rect2( 1830, 0, 305, 730 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 3 )
-region = Rect2( 1525, 0, 305, 730 )
+region = Rect2( 2135, 0, 305, 730 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 610, 0, 305, 730 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 915, 0, 305, 730 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": false,
-"name": "Sprig",
+"name": "Marcy",
 "speed": 0.0
 }, {
 "frames": [ SubResource( 15 ), SubResource( 16 ) ],
@@ -58,24 +58,24 @@ animations = [ {
 "name": "Maggie",
 "speed": 0.0
 }, {
-"frames": [  ],
-"loop": false,
-"name": "Banne",
-"speed": 0.0
-}, {
-"frames": [ SubResource( 11 ), SubResource( 12 ) ],
-"loop": false,
-"name": "Sasha",
-"speed": 0.0
-}, {
 "frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": false,
 "name": "Anne",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 9 ), SubResource( 10 ) ],
+"frames": [  ],
 "loop": false,
-"name": "Marcy",
+"name": "Banne",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ) ],
+"loop": false,
+"name": "Sprig",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ) ],
+"loop": false,
+"name": "Sasha",
 "speed": 0.0
 } ]
 

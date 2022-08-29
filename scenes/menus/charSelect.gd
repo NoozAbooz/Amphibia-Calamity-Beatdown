@@ -9,6 +9,14 @@ var loading = false
 # a flag that exists so controllers that count as 2 inputs (Newer XBox) don't 
 # create two character blocks and thus two characters
 var DoublesCheckReady = true 
+# flags that exists so controllers that count as 2 inputs (Newer XBox) don't 
+# create another character block when selecting the character
+var justPicked = false 
+var DoublesPickReady = true 
+
+# checks if a player just dropped out so the game doesn;t imediately start if someone pushes back
+var noRecentDropOuts = true
+
 
 func findNextSlot():
 	nextOpen = 0
@@ -44,22 +52,31 @@ func _process(_delta):
 	if loading:
 		return
 	# jumps to level if all ready
-	if (pg.playerReady == [true, true, true, true]) and (pg.playerActive != [false, false, false, false]):
+	if (pg.playerReady == [true, true, true, true]) and (pg.playerActive != [false, false, false, false]) and noRecentDropOuts:
 		goToStage()
 		return
-	#adds controler players (keyboard players in function below)
-	findNextSlot()
-	if (Input.is_action_just_pressed("k0_enter") == true) and (pg.playerInput.has("k0") == false) and (nextOpen <= 3):
-		createBlock(nextOpen, "k0")
-	findNextSlot()
-	if (Input.is_action_just_pressed("0_enter") == true) and (pg.playerInput.has("0") == false) and (nextOpen <= 3):
-		createBlock(nextOpen, "0")
-	findNextSlot()
-	if (Input.is_action_just_pressed("1_enter") == true) and (pg.playerInput.has("1") == false) and (nextOpen <= 3):
-		createBlock(nextOpen, "1")
-	findNextSlot()
-	if (Input.is_action_just_pressed("2_enter") == true) and (pg.playerInput.has("2") == false) and (nextOpen <= 3):
-		createBlock(nextOpen, "2")
+		
+	# checks if any character blocks have been selected
+	if justPicked:
+		DoublesPickReady = false
+		justPicked = false
+		get_node("justPickedTimer").start()
+	
+	if DoublesPickReady: # makes sure a controller didn't just select a character (to prevent xbox issues)
+		#adds players
+		findNextSlot()
+		if (Input.is_action_just_pressed("k0_enter") == true) and (pg.playerInput.has("k0") == false) and (nextOpen <= 3):
+			createBlock(nextOpen, "k0")
+		findNextSlot()
+		if (Input.is_action_just_pressed("0_enter") == true) and (pg.playerInput.has("0") == false) and (nextOpen <= 3):
+			createBlock(nextOpen, "0")
+		findNextSlot()
+		if (Input.is_action_just_pressed("1_enter") == true) and (pg.playerInput.has("1") == false) and (nextOpen <= 3):
+			createBlock(nextOpen, "1")
+		findNextSlot()
+		if (Input.is_action_just_pressed("2_enter") == true) and (pg.playerInput.has("2") == false) and (nextOpen <= 3):
+			createBlock(nextOpen, "2")
+			
 	# returns to map if back is pressed by k0 or 0 and they are not picking a character
 	if (pg.playerInput.has("k0") == false) and (Input.is_action_just_pressed("k0_leave") == true):
 		goBack()
@@ -81,3 +98,14 @@ func goBack():
 
 func _on_noDoublesTimer_timeout():
 	DoublesCheckReady = true
+
+
+func _on_justPickedTimer_timeout():
+	DoublesPickReady = true 
+
+func resetPlayerLeftTimer():
+	get_node("playerLeftTimer").start()
+	noRecentDropOuts = false
+
+func _on_playerLeftTimer_timeout():
+	noRecentDropOuts = true

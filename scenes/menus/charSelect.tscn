@@ -121,7 +121,20 @@ __meta__ = {
 }
 
 [node name="noDoublesTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.05
+one_shot = true
+autostart = true
+
+[node name="justPickedTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
+[node name="playerLeftTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 autostart = true
 
 [connection signal="timeout" from="noDoublesTimer" to="." method="_on_noDoublesTimer_timeout"]
+[connection signal="timeout" from="justPickedTimer" to="." method="_on_justPickedTimer_timeout"]
+[connection signal="timeout" from="playerLeftTimer" to="." method="_on_playerLeftTimer_timeout"]

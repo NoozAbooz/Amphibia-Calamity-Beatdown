@@ -1,7 +1,7 @@
 # Blender MTL File: 'None'
 # Material Count: 2
 
-newmtl Color_H03.005
+newmtl Color_H03
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.196078 0.450980 0.509804

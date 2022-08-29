@@ -107,6 +107,7 @@ func _process(_delta):
 	if (Input.is_action_just_pressed(playerInput + "_enter") == true):
 		if (ready == false):
 			ready = true
+			get_parent().justPicked = true
 			$AnimationPlayer.play("bounce")
 			#$AnimationPlayer.play("light")
 			soundManager.playSound("1up")
@@ -160,4 +161,5 @@ func _on_buttonRemove_pressed():
 	readyTimer = 200 # so the player ready flag doesn;t reset to false before unloading
 	ready = true
 	pg.playerReady[playerNumber] = true
+	get_parent().resetPlayerLeftTimer()
 	queue_free()
