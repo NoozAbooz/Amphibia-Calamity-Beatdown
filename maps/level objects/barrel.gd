@@ -171,5 +171,5 @@ func _on_hurtbox_area_entered(area):
 	soundManager.playSound(attacker.hitSound)
 
 
-func _on_bottomCheck_area_entered(area):
+func _on_bottomCheck_area_entered(_area):
 	dead()

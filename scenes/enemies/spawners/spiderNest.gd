@@ -116,6 +116,7 @@ func _on_hurtbox_area_entered(area):
 	else:
 		animDamage.play("dead")
 		active = false
+		dead = true
 	# plays sfx
 	soundManager.playSound(attacker.hitSound)
 	# makes enemy unhittable until it leaves a hitbox
@@ -146,7 +147,7 @@ func _on_spawnDelay_timeout():
 		spawn()
 
 
-func _on_aggro_area_entered(area):
+func _on_aggro_area_entered(_area):
 	active = true
 
 
@@ -164,6 +165,8 @@ func _on_AnimationPlayerSpawn_animation_finished(anim_name):
 
 
 func _on_aggro_area_exited(area):
+	if dead:
+		return
 	active = false
 	# turns off the collision and re-activates it after a short time to re-check is a player is still in range
 	# done this way to account for multiple players

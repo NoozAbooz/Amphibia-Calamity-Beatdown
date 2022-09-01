@@ -5,7 +5,7 @@ export(int, "Green Mantis", "Red Mantis", "Spider", "Wasp", "Yellow Mantis", "Bl
 func _ready():
 	pass
 
-func _on_VisibilityNotifier_camera_entered(camera):
+func _on_VisibilityNotifier_camera_entered(_camera):
 	match enemyNum:
 		0:
 			var nextEnemy = nme.greenMantisScene.instance()
