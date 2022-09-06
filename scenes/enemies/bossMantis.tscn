@@ -1670,6 +1670,7 @@ visible = false
 offset = Vector2( 0, 120 )
 pixel_size = 0.05
 frames = SubResource( 172 )
+frame = 1
 playing = true
 
 [node name="hitbox" type="Area" parent="zeroPoint"]

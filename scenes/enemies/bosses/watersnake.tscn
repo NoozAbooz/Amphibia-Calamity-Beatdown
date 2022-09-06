@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://art/models/snake/Material_002.material" type="Material" id=1]
 [ext_resource path="res://scenes/enemies/bosses/watersnake.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://themes/bossBars.tres" type="Theme" id=5]
 [ext_resource path="res://art/menus/hp_bar.png" type="Texture" id=6]
 [ext_resource path="res://art/menus/title cards/water_snake.png" type="Texture" id=7]
+[ext_resource path="res://art/vfx/warn.png" type="Texture" id=8]
 [ext_resource path="res://art/models/LilyPads/Lilypad2.material" type="Material" id=11]
 
 [sub_resource type="BoxShape" id=5]
@@ -47,6 +48,22 @@ surfaces/0 = {
 
 [sub_resource type="BoxShape" id=19]
 extents = Vector3( 6, 3, 6 )
+
+[sub_resource type="AtlasTexture" id=171]
+atlas = ExtResource( 8 )
+region = Rect2( 34, 0, 34, 30 )
+
+[sub_resource type="AtlasTexture" id=170]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 34, 30 )
+
+[sub_resource type="SpriteFrames" id=193]
+animations = [ {
+"frames": [ SubResource( 171 ), SubResource( 170 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
 
 [sub_resource type="ArrayMesh" id=49]
 resource_name = "snakeAnimated_Cylinder"
@@ -2542,6 +2559,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("boss/arrow:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("boss/arrow:offset")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 120 ) ]
+}
 
 [sub_resource type="Animation" id=27]
 resource_name = "enter_water"
@@ -3000,12 +3041,36 @@ tracks/6/path = NodePath("boss/model/snakeAnimated/Armature/Skeleton/body:mesh:s
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/keys = {
 "times": PoolRealArray( 0, 0.6, 0.766668 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.843137, 0, 0.0980392, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("boss/arrow:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.366667, 1.45 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("boss/arrow:offset")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.366667, 1.45 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 120 ), Vector2( 0, 50 ), Vector2( 0, 50 ) ]
 }
 
 [sub_resource type="Animation" id=48]
@@ -3113,12 +3178,36 @@ tracks/8/path = NodePath("boss/model/snakeAnimated/Armature/Skeleton/body:mesh:s
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
-tracks/8/enabled = true
+tracks/8/enabled = false
 tracks/8/keys = {
 "times": PoolRealArray( 0, 2.13334, 2.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.843137, 0, 0.0980392, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("boss/arrow:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.58333, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("boss/arrow:offset")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 35 ), Vector2( 0, 35 ) ]
 }
 
 [sub_resource type="Animation" id=31]
@@ -3233,6 +3322,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("boss/arrow:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("boss/arrow:offset")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 120 ) ]
+}
 
 [sub_resource type="Animation" id=26]
 resource_name = "wait"
@@ -3310,6 +3423,30 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("boss/arrow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("boss/arrow:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 120 ) ]
 }
 
 [node name="watersnake" type="Spatial"]
@@ -3399,6 +3536,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 shape = SubResource( 19 )
 
 [node name="boss" type="Spatial" parent="."]
+
+[node name="arrow" type="AnimatedSprite3D" parent="boss"]
+offset = Vector2( 0, 65 )
+pixel_size = 0.1
+billboard = 1
+frames = SubResource( 193 )
+frame = 1
+playing = true
 
 [node name="model" type="Spatial" parent="boss"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
@@ -3513,17 +3658,16 @@ anims/sweep = SubResource( 64 )
 anims/under_water = SubResource( 65 )
 
 [node name="hitbox" type="Area" parent="boss" groups=["bosses"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.469498, 0, 0.882934, 0, 1, 0, -0.882934, 0, 0.469498, -6, -1, 2.62268e-07 )
 collision_layer = 32
 monitoring = false
 
 [node name="CollisionHit" type="CollisionShape" parent="boss/hitbox"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0 )
 shape = SubResource( 16 )
 disabled = true
 
 [node name="hurtbox" type="Area" parent="boss"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -8, 0 )
 collision_layer = 0
 collision_mask = 8
 monitorable = false
