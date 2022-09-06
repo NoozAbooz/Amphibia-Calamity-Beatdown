@@ -1,4 +1,4 @@
-[gd_scene load_steps=184 format=2]
+[gd_scene load_steps=197 format=2]
 
 [ext_resource path="res://art/menus/faces.png" type="Texture" id=1]
 [ext_resource path="res://art/plantars/sprig_idle.png" type="Texture" id=2]
@@ -243,7 +243,7 @@ tracks/16/keys = {
 
 [sub_resource type="Animation" id=26]
 resource_name = "attack_H2"
-length = 0.500001
+length = 0.533334
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite3D:frame")
@@ -315,7 +315,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.2, 0.333333 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector3( 0, 4, 0 ), Vector3( 0, 1, -1.5 ), Vector3( 0, 4, 0 ) ]
+"values": [ Vector3( 0, 4, 0 ), Vector3( 0, 1, -2.25 ), Vector3( 0, 4, 0 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("..:comboReady")
@@ -372,10 +372,10 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333334, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("AnimatedSprite3D/AnimatedSprite3D_Back:animation")
@@ -399,7 +399,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -6, 19 ) ]
+"values": [ Vector2( 26, 27 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("shadowMakerSmall:translation")
@@ -1379,7 +1379,7 @@ tracks/16/keys = {
 
 [sub_resource type="Animation" id=25]
 resource_name = "attack_air_H2"
-length = 0.500001
+length = 0.600001
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite3D:frame")
@@ -1388,10 +1388,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 0, 2, 4, 5, 6, 7 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite3D:animation")
@@ -1412,7 +1412,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.133333, 0.266667 ),
+"times": PoolRealArray( 0, 0.0666667, 0.266667 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -1424,7 +1424,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.133333, 0.266667 ),
+"times": PoolRealArray( 0, 0.0666667, 0.266667 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ Vector3( 0.1, 0.1, 0.1 ), Vector3( 8, 10, 20 ), Vector3( 0.1, 0.1, 0.1 ) ]
@@ -1439,7 +1439,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 20 ) ]
+"values": [ Vector2( 0, 18 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("hitbox/hitboxCollision:translation")
@@ -1448,7 +1448,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.133333, 0.266667 ),
+"times": PoolRealArray( 0, 0.0666667, 0.266667 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ Vector3( 0, 4, 0 ), Vector3( 0, 1, 0 ), Vector3( 0, 4, 0 ) ]
@@ -5703,10 +5703,45 @@ region = Rect2( 630, 0, 90, 40 )
 atlas = ExtResource( 34 )
 region = Rect2( 720, 0, 90, 40 )
 
-[sub_resource type="AtlasTexture" id=199]
+[sub_resource type="AtlasTexture" id=211]
 flags = 1
 atlas = ExtResource( 12 )
-region = Rect2( 0, 0, 48, 31 )
+region = Rect2( 560, 0, 80, 40 )
+
+[sub_resource type="AtlasTexture" id=212]
+flags = 1
+atlas = ExtResource( 12 )
+region = Rect2( 480, 0, 80, 40 )
+
+[sub_resource type="AtlasTexture" id=213]
+flags = 1
+atlas = ExtResource( 12 )
+region = Rect2( 400, 0, 80, 40 )
+
+[sub_resource type="AtlasTexture" id=214]
+flags = 1
+atlas = ExtResource( 12 )
+region = Rect2( 320, 0, 80, 40 )
+
+[sub_resource type="AtlasTexture" id=215]
+flags = 1
+atlas = ExtResource( 12 )
+region = Rect2( 240, 0, 80, 40 )
+
+[sub_resource type="AtlasTexture" id=216]
+flags = 1
+atlas = ExtResource( 12 )
+region = Rect2( 160, 0, 80, 40 )
+
+[sub_resource type="AtlasTexture" id=218]
+flags = 1
+atlas = ExtResource( 12 )
+region = Rect2( 80, 0, 80, 40 )
+
+[sub_resource type="AtlasTexture" id=219]
+flags = 1
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 80, 40 )
 
 [sub_resource type="AtlasTexture" id=151]
 flags = 1
@@ -5828,10 +5863,40 @@ flags = 1
 atlas = ExtResource( 35 )
 region = Rect2( 240, 0, 80, 50 )
 
-[sub_resource type="AtlasTexture" id=198]
+[sub_resource type="AtlasTexture" id=220]
 flags = 1
 atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 39, 40 )
+region = Rect2( 0, 0, 100, 56 )
+
+[sub_resource type="AtlasTexture" id=221]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 100, 0, 100, 56 )
+
+[sub_resource type="AtlasTexture" id=222]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 200, 0, 100, 56 )
+
+[sub_resource type="AtlasTexture" id=223]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 300, 0, 100, 56 )
+
+[sub_resource type="AtlasTexture" id=224]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 400, 0, 100, 56 )
+
+[sub_resource type="AtlasTexture" id=225]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 500, 0, 100, 56 )
+
+[sub_resource type="AtlasTexture" id=226]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 600, 0, 100, 56 )
 
 [sub_resource type="AtlasTexture" id=200]
 flags = 1
@@ -5970,8 +6035,8 @@ animations = [ {
 "name": "attack_sprig_lick",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 199 ) ],
-"loop": true,
+"frames": [ SubResource( 211 ), SubResource( 212 ), SubResource( 213 ), SubResource( 214 ), SubResource( 215 ), SubResource( 216 ), SubResource( 218 ), SubResource( 219 ) ],
+"loop": false,
 "name": "attack_sprig_spin",
 "speed": 5.0
 }, {
@@ -5995,8 +6060,8 @@ animations = [ {
 "name": "attack_polly_wrench",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 198 ) ],
-"loop": true,
+"frames": [ SubResource( 220 ), SubResource( 221 ), SubResource( 222 ), SubResource( 223 ), SubResource( 224 ), SubResource( 225 ), SubResource( 226 ) ],
+"loop": false,
 "name": "attack_sprig_boom",
 "speed": 5.0
 }, {
@@ -6064,6 +6129,7 @@ animations = [ {
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_mask = 1030
 script = ExtResource( 3 )
+comboReady = true
 
 [node name="Label" type="Label" parent="."]
 margin_right = 50.0
@@ -6111,20 +6177,21 @@ anims/walk = SubResource( 7 )
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
 layers = 3
-offset = Vector2( 0, 20 )
+offset = Vector2( -12, 21 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "walk"
+animation = "attack_loud"
+frame = 11
 
 [node name="AnimatedSprite3D_Back" type="AnimatedSprite3D" parent="zeroPoint/AnimatedSprite3D"]
 transform = Transform( 1, -5.32907e-15, -1.42109e-14, 0, 1, 0, 2.13163e-14, 0, 1, -1.88419, 0.00633945, 0.0236592 )
 layers = 3
-offset = Vector2( 0, 16 )
+offset = Vector2( 0, -3000 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "walk_p"
+animation = "stand"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -6148,14 +6215,14 @@ shape = SubResource( 35 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17969e-08, 1.5129, -0.498656 )
 
 [node name="shadowMaker" type="MeshInstance" parent="zeroPoint"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.746 )
 cast_shadow = 3
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
 material/0 = null
 
 [node name="shadowMakerSmall" type="MeshInstance" parent="zeroPoint"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.746 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 cast_shadow = 3
 mesh = SubResource( 147 )
 skeleton = NodePath("../..")
