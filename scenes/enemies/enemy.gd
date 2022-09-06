@@ -66,7 +66,7 @@ var windVect = Vector3.ZERO
 #var attackWaitCounter = 1500
 #var attackReady = false
 
-enum {IDLE, WALK, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, A_H, BLOCK, BLOCKHIT, KO, SPAWN, A_L, A_P, DODGE}
+enum {IDLE, WALK, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, A_H, BLOCK, BLOCKHIT, KO, SPAWN, A_L, A_P, DODGE, THINK}
 enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP, KB_WEAK_PIERCE, KB_STRONG_PIERCE, KB_ANGLED_PIERCE}
 enum {LIGHT, HEAVY, VERYHEAVY}
 
@@ -180,12 +180,6 @@ func rollOffensiveAction():
 		0: # Green -------------------------------
 			return A_H
 		1: # Yellow -------------------------------
-#			if (rng.rand.randf() >= 0.666):
-#				return BLOCK
-#			elif (rng.rand.randf() >= 0.5):
-#				return A_H
-#			else:
-#				return A_L
 			return equalOdds([BLOCK, A_H, A_L])
 		2: # Black -------------------------------
 			return equalOdds([DODGE, A_H, A_L])
