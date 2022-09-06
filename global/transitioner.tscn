@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://global/transitioner.gd" type="Script" id=1]
-[ext_resource path="res://art/plantars/polly_run.png" type="Texture" id=2]
+[ext_resource path="res://art/loading.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "block"
@@ -37,10 +37,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 1,
-"values": [ "loading" ]
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -165,6 +165,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ "loading" ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "showIcon"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "slideOut"
@@ -207,40 +221,101 @@ tracks/2/keys = {
 "values": [ "empty" ]
 }
 
-[sub_resource type="AtlasTexture" id=6]
-flags = 1
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 28, 34 )
+region = Rect2( 0, 128, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=7]
-flags = 1
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 28, 0, 28, 34 )
+region = Rect2( 64, 128, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=8]
-flags = 1
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
-region = Rect2( 56, 0, 28, 34 )
+region = Rect2( 128, 128, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=9]
-flags = 1
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
-region = Rect2( 84, 0, 28, 34 )
+region = Rect2( 192, 128, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=10]
-flags = 1
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 2 )
-region = Rect2( 112, 0, 28, 34 )
+region = Rect2( 256, 128, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=11]
-flags = 1
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 2 )
-region = Rect2( 140, 0, 28, 34 )
+region = Rect2( 320, 128, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=12]
-flags = 1
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 2 )
-region = Rect2( 168, 0, 28, 34 )
+region = Rect2( 384, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 0, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
@@ -249,10 +324,20 @@ animations = [ {
 "name": "empty",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": true,
-"name": "loading",
-"speed": 10.0
+"name": "loading2",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "loading3",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
+"loop": true,
+"name": "loading1",
+"speed": 15.0
 } ]
 
 [node name="transitioner" type="Node2D"]
@@ -279,7 +364,7 @@ anims/slideIn = SubResource( 2 )
 anims/slideOut = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 1180, 620 )
+position = Vector2( 1160, 600 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 13 )
 animation = "empty"

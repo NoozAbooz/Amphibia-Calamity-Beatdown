@@ -2,6 +2,8 @@ extends Control
 
 var loading = false
 
+var buttonsReady = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +13,7 @@ func _ready():
 	
 func _process(_delta):
 	# skips
-	if (Input.is_action_just_pressed("pause") == true) or (Input.is_action_just_pressed("ui_accept") == true):
+	if ((Input.is_action_just_pressed("pause") == true) or (Input.is_action_just_pressed("ui_accept") == true)) and (buttonsReady == false):
 		_on_AnimationPlayer_animation_finished("default")
 	
 func playSound():
@@ -22,6 +24,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	$"label".text = "Would you like to watch the tutorial?"
 	$"buttons/noButton".grab_focus()
 	$"AnimationPlayer".play("idle")
+	buttonsReady = true
 
 func _on_yesButton_pressed():
 	if not loading:

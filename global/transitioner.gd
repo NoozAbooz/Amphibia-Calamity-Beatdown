@@ -48,6 +48,10 @@ func goto_scene(path): # Game requests to switch to this scene.
 	get_node("AnimationPlayer").play("block")
 
 	#wait_frames = 1
+	
+func showIcon():
+	get_node("AnimatedSprite").play("loading" + str(rng.rand.randi_range(1, 3)))
+	
 
 func _process(time):
 	if loader == null:

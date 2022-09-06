@@ -5027,7 +5027,7 @@ tracks/12/keys = {
 
 [sub_resource type="Animation" id=17]
 resource_name = "run"
-length = 0.266667
+length = 0.333334
 loop = true
 step = 0.0166667
 tracks/0/type = "value"
@@ -5049,7 +5049,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333 ),
+"times": PoolRealArray( 0, 0.05, 0.0666667, 0.116667, 0.166667, 0.216667, 0.233333, 0.283333 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
@@ -5121,10 +5121,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.0333333, 0.0666668, 0.1, 0.133334, 0.166667, 0.2, 0.233333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 0, 6 ]
+"values": [ 0, 1, 2, 3, 4, 5, 0 ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("hitbox/hitboxCollision:translation")
@@ -5189,7 +5189,7 @@ tracks/12/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "walk"
-length = 0.533333
+length = 0.466668
 loop = true
 step = 0.0166667
 tracks/0/type = "value"
@@ -5211,7 +5211,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667 ),
+"times": PoolRealArray( 0, 0.0666667, 0.1, 0.166667, 0.233333, 0.3, 0.333333, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
@@ -5283,7 +5283,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.0666667, 0.133334, 0.2, 0.266667, 0.333334, 0.400001, 0.466667 ),
+"times": PoolRealArray( 0, 0.0666667, 0.1, 0.166667, 0.233333, 0.3, 0.366667, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 0, 6 ]
@@ -5495,6 +5495,16 @@ flags = 1
 atlas = ExtResource( 26 )
 region = Rect2( 196, 0, 28, 34 )
 
+[sub_resource type="AtlasTexture" id=124]
+flags = 1
+atlas = ExtResource( 25 )
+region = Rect2( 42, 0, 42, 42 )
+
+[sub_resource type="AtlasTexture" id=120]
+flags = 1
+atlas = ExtResource( 25 )
+region = Rect2( 0, 0, 42, 42 )
+
 [sub_resource type="AtlasTexture" id=73]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 36, 40 )
@@ -5507,11 +5517,6 @@ region = Rect2( 36, 0, 36, 40 )
 atlas = ExtResource( 2 )
 region = Rect2( 72, 0, 36, 40 )
 
-[sub_resource type="AtlasTexture" id=120]
-flags = 1
-atlas = ExtResource( 25 )
-region = Rect2( 0, 0, 42, 42 )
-
 [sub_resource type="AtlasTexture" id=122]
 flags = 1
 atlas = ExtResource( 25 )
@@ -5521,11 +5526,6 @@ region = Rect2( 84, 0, 42, 42 )
 flags = 1
 atlas = ExtResource( 25 )
 region = Rect2( 126, 0, 42, 42 )
-
-[sub_resource type="AtlasTexture" id=124]
-flags = 1
-atlas = ExtResource( 25 )
-region = Rect2( 42, 0, 42, 42 )
 
 [sub_resource type="AtlasTexture" id=100]
 atlas = ExtResource( 19 )
@@ -5910,15 +5910,10 @@ animations = [ {
 "name": "walk_p",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 73 ), SubResource( 74 ), SubResource( 73 ), SubResource( 75 ) ],
+"frames": [ SubResource( 124 ) ],
 "loop": false,
-"name": "stand",
+"name": "fall",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "attack_slide_L",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": false,
@@ -5930,15 +5925,20 @@ animations = [ {
 "name": "rise",
 "speed": 15.0
 }, {
+"frames": [ SubResource( 73 ), SubResource( 74 ), SubResource( 73 ), SubResource( 75 ) ],
+"loop": false,
+"name": "stand",
+"speed": 15.0
+}, {
 "frames": [ SubResource( 122 ), SubResource( 123 ) ],
 "loop": false,
 "name": "land",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 124 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": false,
-"name": "fall",
-"speed": 15.0
+"name": "attack_slide_L",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ) ],
 "loop": false,
@@ -6025,7 +6025,7 @@ rings = 1
 
 [sub_resource type="CapsuleShape" id=5]
 resource_local_to_scene = true
-height = 0.01
+height = 1.2
 
 [sub_resource type="AtlasTexture" id=207]
 flags = 4
@@ -6111,20 +6111,20 @@ anims/walk = SubResource( 7 )
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
 layers = 3
-offset = Vector2( 0, 16 )
+offset = Vector2( 0, 20 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "slide"
+animation = "walk"
 
 [node name="AnimatedSprite3D_Back" type="AnimatedSprite3D" parent="zeroPoint/AnimatedSprite3D"]
 transform = Transform( 1, -5.32907e-15, -1.42109e-14, 0, 1, 0, 2.13163e-14, 0, 1, -1.88419, 0.00633945, 0.0236592 )
 layers = 3
-offset = Vector2( 0, 13 )
+offset = Vector2( 0, 16 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "slide_p"
+animation = "walk_p"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -6162,7 +6162,7 @@ skeleton = NodePath("../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.05, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.6, 0 )
 shape = SubResource( 5 )
 
 [node name="playerInfo" type="Control" parent="."]
