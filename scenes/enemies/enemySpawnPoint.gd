@@ -2,10 +2,15 @@ extends Spatial
 
 export(int, "Green Mantis", "Red Mantis", "Spider", "Wasp", "Yellow Mantis", "Black Mantis", "Zapapede", "Robo") var enemyNum
 
+var triggered = false
+
 func _ready():
 	pass
 
 func _on_VisibilityNotifier_camera_entered(_camera):
+	if (triggered):
+		return
+	triggered = true
 	match enemyNum:
 		0:
 			var nextEnemy = nme.greenMantisScene.instance()

@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://art/npcs/sheriff.png" type="Texture" id=1]
+[ext_resource path="res://art/npcs/frog1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/npcs/npc.gd" type="Script" id=2]
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=3]
 
@@ -12,33 +12,45 @@ height = 0.1
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 48, 50 )
+region = Rect2( 0, 0, 26, 36 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
-region = Rect2( 48, 0, 48, 50 )
+region = Rect2( 26, 0, 26, 36 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 48, 50 )
+region = Rect2( 52, 0, 26, 36 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 1 )
-region = Rect2( 144, 0, 48, 50 )
+region = Rect2( 78, 0, 26, 36 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 1 )
-region = Rect2( 192, 0, 48, 50 )
+region = Rect2( 104, 0, 26, 36 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 1 )
-region = Rect2( 240, 0, 48, 50 )
+region = Rect2( 130, 0, 26, 36 )
 
-[sub_resource type="SpriteFrames" id=17]
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 156, 0, 26, 36 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
+region = Rect2( 182, 0, 26, 36 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 1 )
+region = Rect2( 208, 0, 26, 36 )
+
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
-"name": "default",
+"name": "idle",
 "speed": 5.0
 } ]
 
@@ -50,9 +62,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="sheriff" type="Spatial"]
+[node name="frog1" type="Spatial"]
 script = ExtResource( 2 )
-hasDialogue = false
 
 [node name="talkZone" type="Area" parent="."]
 collision_layer = 0
@@ -69,9 +80,11 @@ material/0 = null
 
 [node name="character" type="AnimatedSprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0 )
-offset = Vector2( 0, 24 )
+offset = Vector2( 0, 17 )
 pixel_size = 0.07
-frames = SubResource( 17 )
+frames = SubResource( 7 )
+animation = "idle"
+frame = 6
 playing = true
 
 [node name="bubble" type="AnimatedSprite3D" parent="."]

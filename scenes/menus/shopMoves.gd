@@ -2,10 +2,11 @@ extends Control
 
 var dialogueScene = preload("res://scenes/menus/dialogueBox.tscn")
 
-onready var main = get_node("main")
+#onready var main = get_node("main")
 onready var conf = get_node("confirm")
 
 var boughtSomething = false
+var talking = true
 
 var state = "main"
 
@@ -44,6 +45,9 @@ func _ready():
 		COST3 = 0
 		COST4 = 0
 		
+	# total money count
+	get_node("pockets/totalMoney").text = str(pg.totalMoney)
+		
 	# available items
 	item0 = item.new()
 	item0.num = 0
@@ -80,18 +84,18 @@ func _ready():
 	item4.desc = "Knock enemies back and deal more damage with this heavier version of the slide attack."
 	item4.dialogue = "fel_tackle"
 	
-	refreshShop()
-	
 	# plays music for shop
 	soundManager.playMusic("map")
 	
-	# hides confirmation menu for now
+	# hides menus for now
 	get_node("confirm").hide()
+	get_node("main").hide()
 	
 	# intro dialogue
 	playDialogue("fel_enter")
 	
-	get_node("main/buttonExit").grab_focus()
+	#switchToMain()
+	#get_node("main/buttonExit").grab_focus()
 	
 func switchToConfirm():
 	state = "confirm"
@@ -122,8 +126,8 @@ func buyItem(item):
 			pg.hasSlide = true
 		_:
 			pass
+	get_node("confirm").hide()
 	playDialogue(item.dialogue)
-	switchToMain()
 	
 func refreshShop():
 	# changes description at bottom of screen
@@ -237,6 +241,7 @@ func _on_buttonExit_pressed():
 	playDialogue("fel_exit")
 	
 func playDialogue(dialogueName):
+	get_node("main").hide()
 	# finds first alive player
 	var playerName = "Anne"
 	for i in range(0, 4):
@@ -246,6 +251,9 @@ func playDialogue(dialogueName):
 	var newDialogue = dialogueScene.instance()
 	self.add_child(newDialogue)
 	newDialogue.initialize(dialogueName, playerName)
+	# flag for re-enabling main menu
+	if (dialogueName != "fel_exit"):
+		talking = true
 
 
 func _on_buttonYes_pressed():
@@ -268,6 +276,10 @@ func _process(delta):
 		# removed to players don't spam b durring cutscene and leave
 		if (state == "confirm"):
 			_on_buttonNo_pressed()
+	# displays main menu after dirft dialogue
+	if (talking):
+		switchToMain()
+		talking = false
 
 
 func _on_Timer_timeout():

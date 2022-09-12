@@ -4725,10 +4725,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0166667 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 1 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("hitbox/hitboxCollision:disabled")
@@ -4797,10 +4797,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.0166667 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 6, 7 ]
+"values": [ 7 ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("hitbox/hitboxCollision:translation")
@@ -6129,7 +6129,6 @@ animations = [ {
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_mask = 1030
 script = ExtResource( 3 )
-comboReady = true
 
 [node name="Label" type="Label" parent="."]
 margin_right = 50.0
@@ -6177,21 +6176,22 @@ anims/walk = SubResource( 7 )
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
 layers = 3
-offset = Vector2( -12, 21 )
+offset = Vector2( 0, 20 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "attack_loud"
-frame = 11
+animation = "land"
+frame = 1
 
 [node name="AnimatedSprite3D_Back" type="AnimatedSprite3D" parent="zeroPoint/AnimatedSprite3D"]
 transform = Transform( 1, -5.32907e-15, -1.42109e-14, 0, 1, 0, 2.13163e-14, 0, 1, -1.88419, 0.00633945, 0.0236592 )
 layers = 3
-offset = Vector2( 0, -3000 )
+offset = Vector2( 0, 16 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "stand"
+animation = "walk_p"
+frame = 7
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -6215,14 +6215,14 @@ shape = SubResource( 35 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17969e-08, 1.5129, -0.498656 )
 
 [node name="shadowMaker" type="MeshInstance" parent="zeroPoint"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.746 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 cast_shadow = 3
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
 material/0 = null
 
 [node name="shadowMakerSmall" type="MeshInstance" parent="zeroPoint"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.746 )
 cast_shadow = 3
 mesh = SubResource( 147 )
 skeleton = NodePath("../..")

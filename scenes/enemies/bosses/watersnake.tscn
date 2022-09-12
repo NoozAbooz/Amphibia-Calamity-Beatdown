@@ -3542,7 +3542,6 @@ offset = Vector2( 0, 65 )
 pixel_size = 0.1
 billboard = 1
 frames = SubResource( 193 )
-frame = 1
 playing = true
 
 [node name="model" type="Spatial" parent="boss"]

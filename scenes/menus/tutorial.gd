@@ -38,7 +38,7 @@ func _on_startButton_pressed():
 	#tran.loadLevel("res://scenes/menus/mapOpen.tscn")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if (anim_name == "15"):
+	if (anim_name == "16"):
 		finished()
 	else:
 		var nextAnim = int(anim_name) + 1

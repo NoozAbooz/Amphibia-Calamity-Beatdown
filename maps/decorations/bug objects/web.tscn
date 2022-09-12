@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/models/SpiderSpawners/SpiderSpawner2.material" type="Material" id=1]
+
+[sub_resource type="ArrayMesh" id=1]
+resource_name = "SpiderSpawners_Plane038"
+surfaces/0 = {
+"aabb": AABB( -1, -1.21072e-08, -1, 2, 1.00121e-05, 2.00001 ),
+"array_data": PoolByteArray( 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 127, 127, 63, 147, 56, 237, 59, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 127, 127, 63, 247, 59, 237, 59, 150, 41, 73, 191, 240, 255, 79, 178, 0, 0, 128, 191, 0, 127, 127, 63, 147, 56, 147, 56, 150, 41, 73, 63, 16, 0, 80, 50, 0, 0, 128, 191, 0, 127, 127, 63, 247, 59, 147, 56 ),
+"array_index_data": PoolByteArray( 0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[node name="web" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null

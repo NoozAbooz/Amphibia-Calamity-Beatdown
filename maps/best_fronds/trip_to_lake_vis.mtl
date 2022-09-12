@@ -1,7 +1,7 @@
 # Blender MTL File: 'None'
 # Material Count: 6
 
-newmtl Color_D02.006
+newmtl Color_D02
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -12,7 +12,7 @@ d 1.000000
 illum 1
 map_Kd trip_to_lake_vis\\Color_D02.png
 
-newmtl Color_D08.006
+newmtl Color_D08
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -23,7 +23,7 @@ d 1.000000
 illum 1
 map_Kd trip_to_lake_vis\\Color_D08.png
 
-newmtl Color_M05.006
+newmtl Color_M05
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -34,7 +34,7 @@ d 1.000000
 illum 1
 map_Kd trip_to_lake_vis\\Color_M05.png
 
-newmtl material_1.006
+newmtl material_1
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -45,7 +45,7 @@ d 1.000000
 illum 1
 map_Kd trip_to_lake_vis\\material_1.png
 
-newmtl material_2.006
+newmtl material_2
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -56,7 +56,7 @@ d 1.000000
 illum 1
 map_Kd trip_to_lake_vis\\material_2.png
 
-newmtl material_3.006
+newmtl material_3
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.000000 0.000000 0.000000
