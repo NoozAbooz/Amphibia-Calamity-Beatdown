@@ -3538,7 +3538,8 @@ shape = SubResource( 19 )
 [node name="boss" type="Spatial" parent="."]
 
 [node name="arrow" type="AnimatedSprite3D" parent="boss"]
-offset = Vector2( 0, 65 )
+visible = false
+offset = Vector2( 0, 120 )
 pixel_size = 0.1
 billboard = 1
 frames = SubResource( 193 )
@@ -3657,7 +3658,7 @@ anims/sweep = SubResource( 64 )
 anims/under_water = SubResource( 65 )
 
 [node name="hitbox" type="Area" parent="boss" groups=["bosses"]]
-transform = Transform( 0.469498, 0, 0.882934, 0, 1, 0, -0.882934, 0, 0.469498, -6, -1, 2.62268e-07 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 32
 monitoring = false
 
@@ -3666,7 +3667,7 @@ shape = SubResource( 16 )
 disabled = true
 
 [node name="hurtbox" type="Area" parent="boss"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -8, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
 collision_layer = 0
 collision_mask = 8
 monitorable = false
@@ -3695,7 +3696,7 @@ gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 
 [node name="info" type="Node2D" parent="."]
-position = Vector2( 640, 0 )
+position = Vector2( 640, 3.30128e-05 )
 
 [node name="lifeBar" type="ProgressBar" parent="info"]
 margin_left = -314.0

@@ -425,6 +425,8 @@ func _physics_process(delta):
 	# X movement
 	if isInState([WALK]):
 		# determines where the enemy should walk to (which side of the player
+		# IF YOU GET AN ERROR HERE WHEN SPAWNING ENEMIES,
+		# VERIFY THE LEVEL NODE'S NAME IS CORRECT!
 		if (translation > target.translation):
 			walkTo = target.translation + Vector3(targetOffset, 0, 0)
 		else:

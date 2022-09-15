@@ -89,6 +89,13 @@ func exitAmbush():
 	queue_free()
 
 func _on_cameraTrigger_area_entered(area):
+	cam = area.get_parent()
+	# ignores if camera is set to not trigger (cutscenes with moving cam)
+	if (cam.canTriggerAmbush == false):
+		print("ignored")
+		return
+	else:
+		print ("ambush triggered!")
 	# loads the chosen wave/enemy list (a .gd file)
 	enemyList = load("res://maps/ambushes/" + ambushName + ".gd").new()
 	#enemyList = load("res://maps/ambushes/" + str(ambushName) + ".gd")
@@ -98,7 +105,6 @@ func _on_cameraTrigger_area_entered(area):
 	totalWaves = enemyList.get("numWaves")
 	waveNumber = 0
 	# Camera positioning
-	cam = area.get_parent()
 	cam.inAmbush = true
 	cam.ambushTarget = translation + Vector3(0, 0, 10)
 	cam.ambushSpawnPoint = translation + Vector3(0, 5, 0)

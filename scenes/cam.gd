@@ -38,6 +38,7 @@ var cutsceneTarget = Vector3.ZERO
 var oldTarget = Vector3.ZERO
 var ambushSpawnPoint = Vector3.ZERO
 var returning = false
+var canTriggerAmbush = true
 
 var onLeftWall  = false
 var onRightWall = false
@@ -61,7 +62,7 @@ func checkRespawnPoint():
 		return false
 		
 func findSpawnPoint(loc):
-	if (inAmbush):
+	if (inAmbush or inCutscene):
 		return ambushSpawnPoint
 	var pivotPoint = get_parent().get_node("spawnFinder/pivot")
 	var rays = get_parent().get_node("spawnFinder/pivot/rays")
@@ -104,6 +105,7 @@ func startCutscene():
 	disableBarriers(true)
 	pg.dontMove = true
 	inCutscene = true
+	canTriggerAmbush = false
 	oldTarget.x = actX
 	oldTarget.y = actY
 	oldTarget.z = actZ
@@ -115,6 +117,7 @@ func reEnablePlay():
 	pg.dontMove = false
 	returning = false
 	inCutscene = false
+	canTriggerAmbush = true
 	
 # camera shake
 func shake(sec):

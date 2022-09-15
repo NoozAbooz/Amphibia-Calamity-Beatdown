@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://sounds/hit2.wav" type="AudioStream" id=1]
 [ext_resource path="res://global/soundManager.gd" type="Script" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://music/l1.ogg" type="AudioStream" id=28]
 [ext_resource path="res://sounds/talk.wav" type="AudioStream" id=29]
 [ext_resource path="res://sounds/roar.wav" type="AudioStream" id=30]
+[ext_resource path="res://music/nbd.ogg" type="AudioStream" id=31]
 [ext_resource path="res://music/tutorial.ogg" type="AudioStream" id=32]
 
 [sub_resource type="AudioStreamOGGVorbis" id=1]
@@ -134,6 +135,11 @@ volume_db = -6.0
 pause_mode = 2
 stream = ExtResource( 27 )
 volume_db = -15.0
+
+[node name="nbd" type="AudioStreamPlayer" parent="music"]
+pause_mode = 2
+stream = ExtResource( 31 )
+volume_db = -12.0
 
 [node name="swamp" type="AudioStreamPlayer" parent="music"]
 pause_mode = 2

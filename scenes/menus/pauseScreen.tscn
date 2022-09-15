@@ -42,6 +42,7 @@ __meta__ = {
 }
 
 [node name="basicMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -163,7 +164,6 @@ __meta__ = {
 }
 
 [node name="combosMenu" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -253,7 +253,7 @@ margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Spin Attack"
+text = "Area Attack"
 align = 2
 valign = 1
 
@@ -408,12 +408,12 @@ __meta__ = {
 }
 
 [node name="HSeparator3" type="HSeparator" parent="combosMenu/symbolsContainer/symbols"]
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 4.0
 
 [node name="sym1" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 14.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 74.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -443,7 +443,7 @@ stretch_mode = 4
 
 [node name="sym2" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 84.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 144.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -465,7 +465,7 @@ stretch_mode = 4
 
 [node name="sym3" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 154.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 214.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -495,7 +495,7 @@ stretch_mode = 4
 
 [node name="symSpin" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 224.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -533,7 +533,7 @@ stretch_mode = 4
 
 [node name="sym7" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 294.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 354.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -555,7 +555,7 @@ stretch_mode = 4
 
 [node name="symTackle" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 364.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -577,7 +577,7 @@ stretch_mode = 4
 
 [node name="sym4" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 434.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 494.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -615,7 +615,7 @@ stretch_mode = 4
 
 [node name="sym6" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 504.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 564.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -645,7 +645,7 @@ stretch_mode = 4
 
 [node name="sym8" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 574.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 634.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -686,7 +686,7 @@ stretch_mode = 4
 
 [node name="symAirSpin" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 644.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 704.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -740,7 +740,7 @@ stretch_mode = 4
 
 [node name="sym9" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 714.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 774.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -770,7 +770,7 @@ stretch_mode = 4
 
 [node name="sym5" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 784.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 844.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -787,7 +787,7 @@ stretch_mode = 4
 
 [node name="symCounter" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 854.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 914.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -801,7 +801,7 @@ stretch_mode = 4
 
 [node name="Label8" type="Label" parent="combosMenu/symbolsContainer/symbols/symCounter"]
 margin_left = 64.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
@@ -811,7 +811,7 @@ valign = 1
 
 [node name="sym10" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 924.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 984.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -825,7 +825,7 @@ stretch_mode = 4
 
 [node name="Label8" type="Label" parent="combosMenu/symbolsContainer/symbols/sym10"]
 margin_left = 64.0
-margin_right = 441.0
+margin_right = 392.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
@@ -836,7 +836,7 @@ valign = 1
 
 [node name="sym11" type="HBoxContainer" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 994.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 1054.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
@@ -850,7 +850,7 @@ stretch_mode = 4
 
 [node name="Label8" type="Label" parent="combosMenu/symbolsContainer/symbols/sym11"]
 margin_left = 64.0
-margin_right = 427.0
+margin_right = 384.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
@@ -861,7 +861,7 @@ valign = 1
 
 [node name="HSeparator4" type="HSeparator" parent="combosMenu/symbolsContainer/symbols"]
 margin_top = 1064.0
-margin_right = 471.0
+margin_right = 424.0
 margin_bottom = 1068.0
 __meta__ = {
 "_edit_use_anchors_": false

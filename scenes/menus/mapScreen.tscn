@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/map bg/map_table.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://art/menus/map bg/map6.png" type="Texture" id=24]
 [ext_resource path="res://art/menus/map icons/line.png" type="Texture" id=25]
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=26]
+[ext_resource path="res://art/menus/map popup/bestFrondsHard.png" type="Texture" id=27]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 21 )
@@ -61,14 +62,19 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
-"name": "left",
+"name": "down",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -80,11 +86,6 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 2.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=11]
@@ -107,32 +108,37 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "bestFronds",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "wartwood",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "bestFronds",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "playground",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "bestFrondsHard",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "check",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "uncheck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "check",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -168,6 +174,7 @@ texture = ExtResource( 24 )
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
 position = Vector2( 738, 412 )
 frames = SubResource( 10 )
+frame = 3
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]
@@ -435,7 +442,7 @@ __meta__ = {
 [node name="levelPic" type="AnimatedSprite" parent="cam/phone"]
 position = Vector2( -150, 0 )
 frames = SubResource( 2 )
-animation = "bestFronds"
+animation = "bestFrondsHard"
 
 [node name="levelName" type="Label" parent="cam/phone"]
 margin_left = 56.0

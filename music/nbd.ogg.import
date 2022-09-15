@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/nbd.ogg-e738cea6a07147434c89f2fec2440d9f.oggstr"
+
+[deps]
+
+source_file="res://music/nbd.ogg"
+dest_files=[ "res://.import/nbd.ogg-e738cea6a07147434c89f2fec2440d9f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=1.448
