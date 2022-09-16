@@ -6,6 +6,7 @@ onready var main = get_node("main")
 onready var conf = get_node("confirm")
 
 var boughtSomething = false
+var talking = true
 
 var state = "main"
 
@@ -36,6 +37,11 @@ var item3 = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	talking = true
+	
+	#hides menu for intro
+	main.hide()
 	
 	# unlimied money code
 	if (pg.unlimitedMoney):
@@ -70,7 +76,7 @@ func _ready():
 	item3.num = 3
 	item3.title = "Luck Upgrade"
 	item3.cost = COST3
-	item3.desc = "Increases odds of enemies and barrels dropping better items."
+	item3.desc = "Increases odds of enemies and barrels dropping better items and more coppers."
 	item3.dialogue = "mad_luck"
 	
 	refreshShop()
@@ -84,7 +90,7 @@ func _ready():
 	# intro dialogue
 	playDialogue("mad_enter")
 	
-	get_node("main/buttonExit").grab_focus()
+	#get_node("main/buttonExit").grab_focus()
 	
 func switchToConfirm():
 	state = "confirm"
@@ -101,6 +107,8 @@ func switchToMain():
 	refreshShop()
 	
 func buyItem(item):
+	get_node("confirm").hide()
+	get_node("main").hide()
 	pg.spend(item.cost)
 	match item.num:
 		0:
@@ -114,11 +122,13 @@ func buyItem(item):
 		_:
 			pass
 	playDialogue(item.dialogue)
-	switchToMain()
 	
 func refreshShop():
 	# changes description at bottom of screen
-	get_node("NinePatchRect/description").text = curItem.desc
+	if get_node("main/buttonExit").has_focus():
+		get_node("NinePatchRect/description").text = "Return to Wartwood?"
+	else:
+		get_node("NinePatchRect/description").text = curItem.desc
 	
 	# updates total
 	get_node("pockets/totalMoney").text = str(pg.totalMoney)
@@ -217,7 +227,7 @@ func _on_buttonItem3_focus_entered():
 	
 
 func _on_buttonExit_focus_entered():
-	curItem.desc = "Return to Wartwood?"
+	#curItem.desc = "Return to Wartwood?"
 	get_node("NinePatchRect/description").text = "Return to Wartwood?"
 
 func _on_buttonExit_pressed():
@@ -229,6 +239,7 @@ func _on_buttonExit_pressed():
 	playDialogue("mad_exit")
 	
 func playDialogue(dialogueName):
+	main.hide()
 	# finds first alive player
 	var playerName = "Anne"
 	for i in range(0, 4):
@@ -238,6 +249,9 @@ func playDialogue(dialogueName):
 	var newDialogue = dialogueScene.instance()
 	self.add_child(newDialogue)
 	newDialogue.initialize(dialogueName, playerName)
+	# flag for re-enabling main menu
+	if (dialogueName != "mad_exit"):
+		talking = true
 
 
 func _on_buttonYes_pressed():
@@ -259,6 +273,10 @@ func _process(delta):
 		# removed to players don't spam b durring cutscene and leave
 		if (state == "confirm"):
 			_on_buttonNo_pressed()
+	# displays main menu after dialogue
+	if (talking):
+		switchToMain()
+		talking = false
 
 
 func _on_Timer_timeout():

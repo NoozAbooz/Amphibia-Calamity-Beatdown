@@ -1,8 +1,3 @@
 [
-  {"sprite":"[PC]_ask",    "pos":"left",  "move_in":"slide", "move_out":"slide", "text":"Got anything that'll make blocking work better. I still get hurt even when blocking a hit. Total rip off!" },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"I know just what you ladies need. A proper counter attack!" },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"Press the block button just before an enemy strikes you to perform a counter." },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"With this, you wont take any damage, and you get a free hit off on any surrounding enemies." },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"slide", "text":"As they say, the best defense is a good offense." },
-  {"sprite":"[PC]_normal", "pos":"left",  "move_in":"slide", "move_out":"slide", "text":"I think you got that backwards." }
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"(number of lives upgrade description)" }
 ]

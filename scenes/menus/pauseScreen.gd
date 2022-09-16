@@ -1,11 +1,27 @@
 extends Control
 
 enum {BASIC, DROP, VERIFY, OPTIONS, COMBOS}
+enum {ANNE, SPRIG, SASHA, MARCY, MAGGIE}
 var state = 0
+
+var chars = [ANNE, SPRIG]
+var charState = ANNE
+var charStateIndex = 0
+var charPrev = SPRIG
+
+onready var namesNode = $combosMenu/namesContainer/namesAnne
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	chars = [ANNE, SPRIG]
+	if pg.hasSasha or pg.allCharsMode:
+		chars.append(SASHA)
+	if pg.hasMarcy or pg.allCharsMode:
+		chars.append(MARCY)
+	if pg.hasMaggie:
+		chars.append(MAGGIE)
+	
 	
 func playMusic():
 	get_node("pause_theme").play()
@@ -99,40 +115,72 @@ func _process(_delta):
 			$verifyMenu.hide()
 			$optionsMenu.hide()
 			$combosMenu.show()
+			# sets names and face depending on character if selection changed
+			if (charState != charPrev):
+				$combosMenu/namesContainer/namesAnne.hide()
+				$combosMenu/namesContainer/namesSprig.hide()
+				$combosMenu/namesContainer/namesSasha.hide()
+				$combosMenu/namesContainer/namesMarcy.hide()
+				$combosMenu/namesContainer/namesMaggie.hide()
+				match charState:
+					ANNE:
+						namesNode = $combosMenu/namesContainer/namesAnne
+					SPRIG:
+						namesNode = $combosMenu/namesContainer/namesSprig
+					MARCY:
+						namesNode = $combosMenu/namesContainer/namesMarcy
+					SASHA:
+						namesNode = $combosMenu/namesContainer/namesSasha
+					MAGGIE:
+						namesNode = $combosMenu/namesContainer/namesMaggie
+					_:
+						namesNode = $combosMenu/namesContainer/namesAnne
+				namesNode.show()
+				charPrev = charState
+				$combosMenu/face.play(str(charState))
 			# scrolling
 			if Input.is_action_pressed("ui_up"):
-				$combosMenu/namesContainer.scroll_vertical -= 6
 				$combosMenu/symbolsContainer.scroll_vertical -= 6
 			if Input.is_action_pressed("ui_down"):
-				$combosMenu/namesContainer.scroll_vertical += 6
 				$combosMenu/symbolsContainer.scroll_vertical += 6
-			if $combosMenu/namesContainer.scroll_vertical != $combosMenu/symbolsContainer.scroll_vertical:
-				$combosMenu/namesContainer.scroll_vertical = $combosMenu/symbolsContainer.scroll_vertical
+			if namesNode.scroll_vertical != $combosMenu/symbolsContainer.scroll_vertical:
+				namesNode.scroll_vertical = $combosMenu/symbolsContainer.scroll_vertical
 			# add/remove unlockable moves
 			if pg.hasSpin:
-				$combosMenu/namesContainer/names/nameSpin.show()
+				namesNode.get_node("names/nameSpin").show()
 				$combosMenu/symbolsContainer/symbols/symSpin.show()
 			else:
-				$combosMenu/namesContainer/names/nameSpin.hide()
+				namesNode.get_node("names/nameSpin").hide()
 				$combosMenu/symbolsContainer/symbols/symSpin.hide()
 			if pg.hasAirSpin:
-				$combosMenu/namesContainer/names/nameAirSpin.show()
+				namesNode.get_node("names/nameAirSpin").show()
 				$combosMenu/symbolsContainer/symbols/symAirSpin.show()
 			else:
-				$combosMenu/namesContainer/names/nameAirSpin.hide()
+				namesNode.get_node("names/nameAirSpin").hide()
 				$combosMenu/symbolsContainer/symbols/symAirSpin.hide()
 			if pg.hasSlide:
-				$combosMenu/namesContainer/names/nameTackle.show()
+				namesNode.get_node("names/nameTackle").show()
 				$combosMenu/symbolsContainer/symbols/symTackle.show()
 			else:
-				$combosMenu/namesContainer/names/nameTackle.hide()
+				namesNode.get_node("names/nameTackle").hide()
 				$combosMenu/symbolsContainer/symbols/symTackle.hide()
 			if pg.hasCounter:
-				$combosMenu/namesContainer/names/nameCounter.show()
+				namesNode.get_node("names/nameCounter").show()
 				$combosMenu/symbolsContainer/symbols/symCounter.show()
 			else:
-				$combosMenu/namesContainer/names/nameCounter.hide()
+				namesNode.get_node("names/nameCounter").hide()
 				$combosMenu/symbolsContainer/symbols/symCounter.hide()
+			# character selection inputs
+			if (get_tree().paused) and (Input.is_action_just_pressed("ui_right") == true):
+				charStateIndex += 1
+				if (charStateIndex >= len(chars)):
+					charStateIndex = 0
+				charState = chars[charStateIndex]
+			if (get_tree().paused) and (Input.is_action_just_pressed("ui_left") == true):
+				charStateIndex -= 1
+				if (charStateIndex < 0 ):
+					charStateIndex = (len(chars) - 1)
+				charState = chars[charStateIndex]
 
 
 func _on_buttonResume_pressed():
@@ -180,5 +228,8 @@ func _on_buttonP4_pressed():
 
 func _on_buttonCombo_pressed():
 	state = COMBOS
+	charState = ANNE
+	charPrev = SPRIG
+	$combosMenu/face.play(str(0))
 	$combosMenu/buttonBack.grab_focus()
 

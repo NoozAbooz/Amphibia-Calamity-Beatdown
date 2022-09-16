@@ -1,6 +1,3 @@
 [
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"So you want to know how to deal with foes on all sides? I know just the thing!" },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"After a normal 3-hit combo, perform a strong attack to unleash the spin attack." },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"Any enemy caught in it will be hit multiple times and launched away by the final hit!" },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"slide", "text":"Be careful of those stronger  ones who can't be stunned though! The attack will leave you helpless against them." },
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"(luck upgrade description)" }
 ]

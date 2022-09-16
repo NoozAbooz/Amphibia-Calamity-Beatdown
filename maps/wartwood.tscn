@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=2]
+[gd_scene load_steps=130 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/wartwood/wartwood_env.obj" type="ArrayMesh" id=2]
@@ -61,6 +61,7 @@
 [ext_resource path="res://scenes/npcs/sheriff.tscn" type="PackedScene" id=59]
 [ext_resource path="res://scenes/npcs/frog1.tscn" type="PackedScene" id=60]
 [ext_resource path="res://scenes/npcs/frog2.tscn" type="PackedScene" id=61]
+[ext_resource path="res://scenes/npcs/frog3.tscn" type="PackedScene" id=62]
 
 [sub_resource type="PanoramaSky" id=131]
 panorama = ExtResource( 55 )
@@ -68,9 +69,9 @@ panorama = ExtResource( 55 )
 [sub_resource type="Environment" id=130]
 background_mode = 1
 background_sky = SubResource( 131 )
-background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, 3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, 180, 0 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1143,10 +1144,6 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 5 )
 region = Rect2( 136, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=89]
-atlas = ExtResource( 5 )
-region = Rect2( 68, 330, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=74]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 330, 68, 66 )
@@ -1182,6 +1179,10 @@ region = Rect2( 408, 66, 68, 66 )
 [sub_resource type="AtlasTexture" id=144]
 atlas = ExtResource( 5 )
 region = Rect2( 476, 66, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 5 )
+region = Rect2( 68, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 5 )
@@ -1224,11 +1225,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 89 ) ],
-"loop": false,
-"name": "hurt_air",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 74 ) ],
 "loop": false,
 "name": "hurt",
@@ -1237,6 +1233,11 @@ animations = [ {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ) ],
 "loop": false,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 89 ) ],
+"loop": false,
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
@@ -1999,10 +2000,12 @@ dialogueName = "wally_boom"
 startLeft = true
 
 [node name="maddie2" parent="environment/npcs" instance=ExtResource( 37 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -368.944, 0.00803649, -5.23803 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -364.666, 0.00803697, -4.02148 )
+dialogueName = "mad_outside_where_to_go"
 
 [node name="nelly" parent="environment/npcs" instance=ExtResource( 39 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 275.352, -0.00033474, 26.2978 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 278.446, -0.00033474, 27.0831 )
+dialogueName = "dummy"
 startLeft = true
 
 [node name="sadie" parent="environment/npcs" instance=ExtResource( 38 )]
@@ -2016,6 +2019,7 @@ dialogueName = "teashop"
 [node name="sheriff" parent="environment/npcs" instance=ExtResource( 59 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -419.882, 4.76837e-07, 0.471163 )
 hasDialogue = true
+dialogueName = "roadblock"
 
 [node name="frog1" parent="environment/npcs" instance=ExtResource( 60 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -314.894, 0, -8.65018 )
@@ -2027,13 +2031,20 @@ hasDialogue = false
 startLeft = true
 
 [node name="frog2" parent="environment/npcs" instance=ExtResource( 61 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1245, 0, -19.0007 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.878, -1.52588e-05, -5.65453 )
 hasDialogue = false
+startLeft = true
 
 [node name="frog3" parent="environment/npcs" instance=ExtResource( 61 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -388.613, 0, 18.2968 )
 hasDialogue = false
 startLeft = true
+
+[node name="frog5" parent="environment/npcs" instance=ExtResource( 62 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0316, -4.76837e-07, -18.435 )
+
+[node name="frog6" parent="environment/npcs" instance=ExtResource( 62 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 261.71, -1.00136e-05, -9.01597 )
 
 [node name="ground" type="StaticBody" parent="environment"]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, 0 )

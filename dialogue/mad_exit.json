@@ -1,4 +1,3 @@
 [
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Thanks for stopping by!" },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"slide",  "text":"And don't forget, there's a list of combos and techniques in the pause menu!" }
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"(maddie exit)" }
 ]

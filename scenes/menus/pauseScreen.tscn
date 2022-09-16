@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
@@ -12,6 +12,61 @@
 [ext_resource path="res://art/menus/charBlock.png" type="Texture" id=10]
 [ext_resource path="res://themes/shop_button.tres" type="Theme" id=11]
 [ext_resource path="res://music/pause_menu.ogg" type="AudioStream" id=12]
+[ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=13]
+[ext_resource path="res://art/menus/faces.png" type="Texture" id=14]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 400, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1200, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1600, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 800, 0, 400, 350 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": false,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": false,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": false,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": false,
+"name": "4",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": false,
+"name": "3",
+"speed": 5.0
+} ]
 
 [node name="pauseScreen" type="Control"]
 pause_mode = 2
@@ -191,7 +246,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="namesContainer" type="ScrollContainer" parent="combosMenu"]
+[node name="namesContainer" type="Control" parent="combosMenu"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="namesAnne" type="ScrollContainer" parent="combosMenu/namesContainer"]
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0
@@ -201,7 +260,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="names" type="VBoxContainer" parent="combosMenu/namesContainer"]
+[node name="names" type="VBoxContainer" parent="combosMenu/namesContainer/namesAnne"]
 margin_right = 444.0
 margin_bottom = 1068.0
 custom_constants/separation = 10
@@ -209,11 +268,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSeparator" type="HSeparator" parent="combosMenu/namesContainer/names"]
+[node name="HSeparator" type="HSeparator" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_right = 444.0
 margin_bottom = 4.0
 
-[node name="Label" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 14.0
 margin_right = 444.0
 margin_bottom = 74.0
@@ -224,7 +283,7 @@ text = "3 hit combo"
 align = 2
 valign = 1
 
-[node name="Label2" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label2" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 84.0
 margin_right = 444.0
 margin_bottom = 144.0
@@ -235,7 +294,7 @@ text = "Uppercut"
 align = 2
 valign = 1
 
-[node name="Label3" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label3" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 154.0
 margin_right = 444.0
 margin_bottom = 214.0
@@ -246,40 +305,40 @@ text = "Mega Punch"
 align = 2
 valign = 1
 
-[node name="nameSpin" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="nameSpin" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 224.0
 margin_right = 444.0
 margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Area Attack"
+text = "Spin Attack"
 align = 2
 valign = 1
 
-[node name="Label7" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label7" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 294.0
 margin_right = 444.0
 margin_bottom = 354.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Slide"
+text = "Backhand Slide"
 align = 2
 valign = 1
 
-[node name="nameTackle" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="nameTackle" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 364.0
 margin_right = 444.0
 margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Tackle"
+text = "Running Slice"
 align = 2
 valign = 1
 
-[node name="Label4" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label4" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 434.0
 margin_right = 444.0
 margin_bottom = 494.0
@@ -290,7 +349,7 @@ text = "3 hit air combo"
 align = 2
 valign = 1
 
-[node name="Label6" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label6" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 504.0
 margin_right = 444.0
 margin_bottom = 564.0
@@ -301,7 +360,7 @@ text = "Aerial Mega Punch"
 align = 2
 valign = 1
 
-[node name="Label8" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label8" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 574.0
 margin_right = 444.0
 margin_bottom = 634.0
@@ -312,7 +371,7 @@ text = "Spike Combo"
 align = 2
 valign = 1
 
-[node name="nameAirSpin" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="nameAirSpin" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 644.0
 margin_right = 444.0
 margin_bottom = 704.0
@@ -323,7 +382,7 @@ text = "Shell Breaker"
 align = 2
 valign = 1
 
-[node name="Label9" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label9" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 714.0
 margin_right = 444.0
 margin_bottom = 774.0
@@ -337,7 +396,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label5" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label5" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 784.0
 margin_right = 444.0
 margin_bottom = 844.0
@@ -351,7 +410,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="nameCounter" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="nameCounter" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 854.0
 margin_right = 444.0
 margin_bottom = 914.0
@@ -362,7 +421,7 @@ text = "Counter"
 align = 2
 valign = 1
 
-[node name="Label10" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label10" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 924.0
 margin_right = 444.0
 margin_bottom = 984.0
@@ -373,7 +432,7 @@ text = " Hard Landing Cancel"
 align = 2
 valign = 1
 
-[node name="Label11" type="Label" parent="combosMenu/namesContainer/names"]
+[node name="Label11" type="Label" parent="combosMenu/namesContainer/namesAnne/names"]
 margin_top = 994.0
 margin_right = 444.0
 margin_bottom = 1054.0
@@ -384,7 +443,799 @@ text = "Tech"
 align = 2
 valign = 1
 
-[node name="HSeparator2" type="HSeparator" parent="combosMenu/namesContainer/names"]
+[node name="HSeparator2" type="HSeparator" parent="combosMenu/namesContainer/namesAnne/names"]
+margin_top = 1064.0
+margin_right = 444.0
+margin_bottom = 1068.0
+
+[node name="namesSprig" type="ScrollContainer" parent="combosMenu/namesContainer"]
+margin_left = 167.0
+margin_top = 116.0
+margin_right = 1310.0
+margin_bottom = 578.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="names" type="VBoxContainer" parent="combosMenu/namesContainer/namesSprig"]
+margin_right = 444.0
+margin_bottom = 1068.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_right = 444.0
+margin_bottom = 4.0
+
+[node name="Label" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 14.0
+margin_right = 444.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit combo"
+align = 2
+valign = 1
+
+[node name="Label2" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 84.0
+margin_right = 444.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Boomshroom"
+align = 2
+valign = 1
+
+[node name="Label3" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 154.0
+margin_right = 444.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Slingshot"
+align = 2
+valign = 1
+
+[node name="nameSpin" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 224.0
+margin_right = 444.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Duet"
+align = 2
+valign = 1
+
+[node name="Label7" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 294.0
+margin_right = 444.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spindash"
+align = 2
+valign = 1
+
+[node name="nameTackle" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 364.0
+margin_right = 444.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tackle"
+align = 2
+valign = 1
+
+[node name="Label4" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 434.0
+margin_right = 444.0
+margin_bottom = 494.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit air combo"
+align = 2
+valign = 1
+
+[node name="Label6" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 504.0
+margin_right = 444.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Aerial Slingshot"
+align = 2
+valign = 1
+
+[node name="Label8" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 574.0
+margin_right = 444.0
+margin_bottom = 634.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tongue Spin Combo"
+align = 2
+valign = 1
+
+[node name="nameAirSpin" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 644.0
+margin_right = 444.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Flail Slam"
+align = 2
+valign = 1
+
+[node name="Label9" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 714.0
+margin_right = 444.0
+margin_bottom = 774.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tongue Spin"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 784.0
+margin_right = 444.0
+margin_bottom = 844.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Block"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nameCounter" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 854.0
+margin_right = 444.0
+margin_bottom = 914.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Counter"
+align = 2
+valign = 1
+
+[node name="Label10" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 924.0
+margin_right = 444.0
+margin_bottom = 984.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = " Hard Landing Cancel"
+align = 2
+valign = 1
+
+[node name="Label11" type="Label" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 994.0
+margin_right = 444.0
+margin_bottom = 1054.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tech"
+align = 2
+valign = 1
+
+[node name="HSeparator2" type="HSeparator" parent="combosMenu/namesContainer/namesSprig/names"]
+margin_top = 1064.0
+margin_right = 444.0
+margin_bottom = 1068.0
+
+[node name="namesMarcy" type="ScrollContainer" parent="combosMenu/namesContainer"]
+margin_left = 167.0
+margin_top = 116.0
+margin_right = 1310.0
+margin_bottom = 578.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="names" type="VBoxContainer" parent="combosMenu/namesContainer/namesMarcy"]
+margin_right = 444.0
+margin_bottom = 1068.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_right = 444.0
+margin_bottom = 4.0
+
+[node name="Label" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 14.0
+margin_right = 444.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit combo"
+align = 2
+valign = 1
+
+[node name="Label2" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 84.0
+margin_right = 444.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Uppercut"
+align = 2
+valign = 1
+
+[node name="Label3" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 154.0
+margin_right = 444.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Mega Punch"
+align = 2
+valign = 1
+
+[node name="nameSpin" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 224.0
+margin_right = 444.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spin Attack"
+align = 2
+valign = 1
+
+[node name="Label7" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 294.0
+margin_right = 444.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Slide"
+align = 2
+valign = 1
+
+[node name="nameTackle" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 364.0
+margin_right = 444.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tackle"
+align = 2
+valign = 1
+
+[node name="Label4" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 434.0
+margin_right = 444.0
+margin_bottom = 494.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit air combo"
+align = 2
+valign = 1
+
+[node name="Label6" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 504.0
+margin_right = 444.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Aerial Mega Punch"
+align = 2
+valign = 1
+
+[node name="Label8" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 574.0
+margin_right = 444.0
+margin_bottom = 634.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spike Combo"
+align = 2
+valign = 1
+
+[node name="nameAirSpin" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 644.0
+margin_right = 444.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Shell Breaker"
+align = 2
+valign = 1
+
+[node name="Label9" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 714.0
+margin_right = 444.0
+margin_bottom = 774.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spike"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 784.0
+margin_right = 444.0
+margin_bottom = 844.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Block"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nameCounter" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 854.0
+margin_right = 444.0
+margin_bottom = 914.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Counter"
+align = 2
+valign = 1
+
+[node name="Label10" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 924.0
+margin_right = 444.0
+margin_bottom = 984.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = " Hard Landing Cancel"
+align = 2
+valign = 1
+
+[node name="Label11" type="Label" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 994.0
+margin_right = 444.0
+margin_bottom = 1054.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tech"
+align = 2
+valign = 1
+
+[node name="HSeparator2" type="HSeparator" parent="combosMenu/namesContainer/namesMarcy/names"]
+margin_top = 1064.0
+margin_right = 444.0
+margin_bottom = 1068.0
+
+[node name="namesSasha" type="ScrollContainer" parent="combosMenu/namesContainer"]
+margin_left = 167.0
+margin_top = 116.0
+margin_right = 1310.0
+margin_bottom = 578.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="names" type="VBoxContainer" parent="combosMenu/namesContainer/namesSasha"]
+margin_right = 444.0
+margin_bottom = 1068.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_right = 444.0
+margin_bottom = 4.0
+
+[node name="Label" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 14.0
+margin_right = 444.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit combo"
+align = 2
+valign = 1
+
+[node name="Label2" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 84.0
+margin_right = 444.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Uppercut"
+align = 2
+valign = 1
+
+[node name="Label3" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 154.0
+margin_right = 444.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Mega Punch"
+align = 2
+valign = 1
+
+[node name="nameSpin" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 224.0
+margin_right = 444.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spin Attack"
+align = 2
+valign = 1
+
+[node name="Label7" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 294.0
+margin_right = 444.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Slide"
+align = 2
+valign = 1
+
+[node name="nameTackle" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 364.0
+margin_right = 444.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tackle"
+align = 2
+valign = 1
+
+[node name="Label4" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 434.0
+margin_right = 444.0
+margin_bottom = 494.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit air combo"
+align = 2
+valign = 1
+
+[node name="Label6" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 504.0
+margin_right = 444.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Aerial Mega Punch"
+align = 2
+valign = 1
+
+[node name="Label8" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 574.0
+margin_right = 444.0
+margin_bottom = 634.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spike Combo"
+align = 2
+valign = 1
+
+[node name="nameAirSpin" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 644.0
+margin_right = 444.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Shell Breaker"
+align = 2
+valign = 1
+
+[node name="Label9" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 714.0
+margin_right = 444.0
+margin_bottom = 774.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spike"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 784.0
+margin_right = 444.0
+margin_bottom = 844.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Block"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nameCounter" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 854.0
+margin_right = 444.0
+margin_bottom = 914.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Counter"
+align = 2
+valign = 1
+
+[node name="Label10" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 924.0
+margin_right = 444.0
+margin_bottom = 984.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = " Hard Landing Cancel"
+align = 2
+valign = 1
+
+[node name="Label11" type="Label" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 994.0
+margin_right = 444.0
+margin_bottom = 1054.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tech"
+align = 2
+valign = 1
+
+[node name="HSeparator2" type="HSeparator" parent="combosMenu/namesContainer/namesSasha/names"]
+margin_top = 1064.0
+margin_right = 444.0
+margin_bottom = 1068.0
+
+[node name="namesMaggie" type="ScrollContainer" parent="combosMenu/namesContainer"]
+margin_left = 167.0
+margin_top = 116.0
+margin_right = 1310.0
+margin_bottom = 578.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="names" type="VBoxContainer" parent="combosMenu/namesContainer/namesMaggie"]
+margin_right = 444.0
+margin_bottom = 1068.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_right = 444.0
+margin_bottom = 4.0
+
+[node name="Label" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 14.0
+margin_right = 444.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit combo"
+align = 2
+valign = 1
+
+[node name="Label2" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 84.0
+margin_right = 444.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Uppercut"
+align = 2
+valign = 1
+
+[node name="Label3" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 154.0
+margin_right = 444.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Mega Punch"
+align = 2
+valign = 1
+
+[node name="nameSpin" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 224.0
+margin_right = 444.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spin Attack"
+align = 2
+valign = 1
+
+[node name="Label7" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 294.0
+margin_right = 444.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Slide"
+align = 2
+valign = 1
+
+[node name="nameTackle" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 364.0
+margin_right = 444.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tackle"
+align = 2
+valign = 1
+
+[node name="Label4" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 434.0
+margin_right = 444.0
+margin_bottom = 494.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit air combo"
+align = 2
+valign = 1
+
+[node name="Label6" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 504.0
+margin_right = 444.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Aerial Mega Punch"
+align = 2
+valign = 1
+
+[node name="Label8" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 574.0
+margin_right = 444.0
+margin_bottom = 634.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spike Combo"
+align = 2
+valign = 1
+
+[node name="nameAirSpin" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 644.0
+margin_right = 444.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Shell Breaker"
+align = 2
+valign = 1
+
+[node name="Label9" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 714.0
+margin_right = 444.0
+margin_bottom = 774.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spike"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 784.0
+margin_right = 444.0
+margin_bottom = 844.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Block"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nameCounter" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 854.0
+margin_right = 444.0
+margin_bottom = 914.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Counter"
+align = 2
+valign = 1
+
+[node name="Label10" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 924.0
+margin_right = 444.0
+margin_bottom = 984.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = " Hard Landing Cancel"
+align = 2
+valign = 1
+
+[node name="Label11" type="Label" parent="combosMenu/namesContainer/namesMaggie/names"]
+margin_top = 994.0
+margin_right = 444.0
+margin_bottom = 1054.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tech"
+align = 2
+valign = 1
+
+[node name="HSeparator2" type="HSeparator" parent="combosMenu/namesContainer/namesMaggie/names"]
 margin_top = 1064.0
 margin_right = 444.0
 margin_bottom = 1068.0
@@ -880,6 +1731,21 @@ patch_margin_bottom = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="face" type="AnimatedSprite" parent="combosMenu"]
+position = Vector2( 1047, 155 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 6 )
+animation = "0"
+
+[node name="arrowL" type="Sprite" parent="combosMenu"]
+position = Vector2( 1099, 155 )
+texture = ExtResource( 13 )
+
+[node name="arrowR" type="Sprite" parent="combosMenu"]
+position = Vector2( 995, 155 )
+texture = ExtResource( 13 )
+flip_h = true
 
 [node name="verifyMenu" type="Control" parent="."]
 visible = false

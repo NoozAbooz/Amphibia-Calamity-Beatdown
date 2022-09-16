@@ -2,7 +2,7 @@ extends Control
 
 var dialogueScene = preload("res://scenes/menus/dialogueBox.tscn")
 
-onready var main = get_node("main")
+#onready var main = get_node("main")
 
 # buttons
 onready var easy = $main/diff/easy
@@ -26,6 +26,8 @@ var loading = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	$main.hide()
 	
 	refreshShop()
 	
@@ -54,14 +56,15 @@ func _ready():
 	charsOn.connect("pressed", self, "_on_button_pressed", ["charsOn"])
 	charsOff.connect("pressed", self, "_on_button_pressed", ["charsOff"])
 	
+	
 	# intro dialogue
 	if (pg.seenToadstool):
-		playDialogue("fel_enter")
+		playDialogue("city_hall_repeat")
 	else:
-		playDialogue("hoppop_school")
+		playDialogue("city_hall")
 		pg.seenToadstool = true
 	
-	get_node("main/buttonExit").grab_focus()
+	#get_node("main/buttonExit").grab_focus()
 	
 func refreshShop():
 	# changes description at bottom of screen
@@ -113,7 +116,7 @@ func refreshShop():
 		charsOn.pressed  = false
 		charsOff.pressed = true
 	
-	print("easy: " + str(pg.easyMode) + "   |   hard: " + str(pg.hardMode))
+	#print("easy: " + str(pg.easyMode) + "   |   hard: " + str(pg.hardMode))
 
 func _on_buttonExit_focus_entered():
 	curButtonDesc = "Return to Wartwood?"
@@ -122,10 +125,12 @@ func _on_buttonExit_focus_entered():
 func _on_buttonExit_pressed():
 	if (loading):
 		return
-	# sets timer (timer is paused durring dialogue
 	loading = true
+	$main.hide()
+	# sets timer (timer is paused durring dialogue
+	
 	get_node("Timer").start()
-	playDialogue("fel_exit")
+	playDialogue("city_hall_exit")
 	
 func playDialogue(dialogueName):
 	# finds first alive player
@@ -138,9 +143,10 @@ func playDialogue(dialogueName):
 	self.add_child(newDialogue)
 	newDialogue.initialize(dialogueName, playerName)
 
-# handles "back" button presses
-#func _process(delta):
-#	pass
+func _process(delta):
+	if ($main.visible == false) and (loading == false):
+		$main.show()
+		get_node("main/buttonExit").grab_focus()
 
 func _on_Timer_timeout():
 	tran.loadLevel("res://maps/wartwood.tscn")

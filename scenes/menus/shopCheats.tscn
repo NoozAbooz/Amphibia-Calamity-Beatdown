@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/menus/shopCheats.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/char_info.png" type="Texture" id=2]
+[ext_resource path="res://art/menus/backgrounds/city_hall_bg.png" type="Texture" id=3]
 [ext_resource path="res://themes/shop_button.tres" type="Theme" id=4]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=10]
 
@@ -9,6 +10,14 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 570.0
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,7 +41,6 @@ margin_top = 30.0
 margin_right = 1250.0
 margin_bottom = 123.0
 theme = ExtResource( 10 )
-text = "What new move can I teach you today?"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,7 +1,3 @@
 [
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Ah, the double jump! \n\nExcellent choice." },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"slide",  "text":"To perform it, just try jumping again while in midair." },
-  {"sprite":"[PC]_ask",    "pos":"left",  "move_in":"slide", "move_out":"slide",  "text":"...It's really that simple?" },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Indeed it is! The double jump will make platforming and dodging much easier, and it'll help you with those air combos." },
-  {"sprite":"Fel_normal",  "pos":"right", "move_in":"still", "move_out":"slide", "text":"And there may be a few secrets hidden that you can only find using this technique, so keep those eyes peeled!" },
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"(damage upgrade description)" }
 ]

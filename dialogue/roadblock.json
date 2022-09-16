@@ -1,0 +1,4 @@
+[
+  {"sprite":"none", "pos":"left",  "move_in":"slide", "move_out":"none", "text":"Sorry kids, due to the sudden appearance of a few flaming locust tornadoes, the road to the town outskirts is closed."},
+  {"sprite":"none", "pos":"left",  "move_in":"still", "move_out":"slide", "text":"Come on back later. Say when the full game is released."}
+]

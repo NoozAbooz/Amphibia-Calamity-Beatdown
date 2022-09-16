@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/menus/shopUpgrades.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/char_info.png" type="Texture" id=2]
@@ -8,18 +8,19 @@
 [ext_resource path="res://art/menus/upgrade_counter_1.png" type="Texture" id=6]
 [ext_resource path="res://art/menus/upgrade_counter_2.png" type="Texture" id=7]
 [ext_resource path="res://art/menus/upgrade_counter_3.png" type="Texture" id=8]
+[ext_resource path="res://art/menus/backgrounds/maddies_shop_bg.png" type="Texture" id=9]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": false,
 "name": "0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": false,
-"name": "3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -27,9 +28,9 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": false,
-"name": "2",
+"name": "3",
 "speed": 5.0
 } ]
 
@@ -37,6 +38,14 @@ animations = [ {
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 570.0
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

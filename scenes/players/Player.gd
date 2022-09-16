@@ -726,7 +726,7 @@ func _physics_process(delta):
 				nextState = HURTFALLING
 		HURTFLOOR:
 			#randf ( )
-			if (hp <= 0) and (LCancel) and (rng.rand.randf() <= 0.666):
+			if (hp <= 0) and (LCancel) and (rng.rand.randf() <= 0.75):
 				nextState = LANDC
 				state = LANDC
 				soundManager.playSound("counter")
@@ -1047,6 +1047,10 @@ func _physics_process(delta):
 #	if wallSliding and velocity.y > 0:
 #		velocity.y = 0
 #	print(wallSliding)
+
+	# clears input buffer if near NPCs to prevent attacking when exiting zone
+	if (nearNPCs > 0):
+		clearInputBuffer()
 	
 	# fall off world
 	if (translation.y <= deathFloorHeight):

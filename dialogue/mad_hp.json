@@ -1,6 +1,3 @@
 [
-  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"One vitality potion coming up!" },
-  {"sprite":"[PC]_normal",  "pos":"left", "move_in":"slide", "move_out":"slide",  "text":"...UGH! This stuff tastes like swamp water!" },
-  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Not much I can do about that."},
-  {"sprite":"Mad_normal",  "pos":"right", "move_in":"still", "move_out":"slide",  "text":"The effects should kick in right away."}
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"(hp upgrade description)" }
 ]
