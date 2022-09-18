@@ -2042,9 +2042,11 @@ startLeft = true
 
 [node name="frog5" parent="environment/npcs" instance=ExtResource( 62 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0316, -4.76837e-07, -18.435 )
+hasDialogue = false
 
 [node name="frog6" parent="environment/npcs" instance=ExtResource( 62 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 261.71, -1.00136e-05, -9.01597 )
+hasDialogue = false
 
 [node name="ground" type="StaticBody" parent="environment"]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, 0 )

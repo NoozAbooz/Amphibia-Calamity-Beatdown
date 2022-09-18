@@ -338,6 +338,11 @@ animations = [ {
 "loop": true,
 "name": "loading1",
 "speed": 15.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "loading",
+"speed": 5.0
 } ]
 
 [node name="transitioner" type="Node2D"]
@@ -367,7 +372,7 @@ anims/slideOut = SubResource( 3 )
 position = Vector2( 1160, 600 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 13 )
-animation = "empty"
+animation = "loading"
 frame = -1
 playing = true
 

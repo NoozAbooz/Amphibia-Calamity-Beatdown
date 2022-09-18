@@ -1,6 +1,6 @@
 [
   {"sprite":"[PC]_ask",    "pos":"left",  "move_in":"slide", "move_out":"slide", "text":"Whoa! Nelly! Is that mantis your pet. Isn't that, like, a little dangerous?"},
   {"sprite":"Nelly_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"You mean old Maurice? Don't worry, he's friendly." },
-  {"sprite":"Nelly_normal",  "pos":"right", "move_in":"still", "move_out":"none", "text":"Ivy's mom tamed him and gave him some weird goop from Loggle that made his shell super tough! Now we use him as a training dummy in her martial arts classes."},
+  {"sprite":"Nelly_normal",  "pos":"right", "move_in":"still", "move_out":"none", "text":"Ivy's mom tamed him and gave him some weird goop from Loggle that made his shell super tough! Now we use him as a training dummy in her classes."},
   {"sprite":"Nelly_normal", "pos":"right",  "move_in":"still", "move_out":"slide",  "text":"Give it a try! He's totally harmless."}
 ]
