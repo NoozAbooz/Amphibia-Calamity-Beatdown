@@ -1,13 +1,11 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/map bg/map_table.png" type="Texture" id=2]
 [ext_resource path="res://art/menus/map icons/level_button_disabled.png" type="Texture" id=3]
-[ext_resource path="res://art/menus/map icons/fwagon_idle_1.png" type="Texture" id=4]
+[ext_resource path="res://art/menus/map icons/fwagon.png" type="Texture" id=4]
 [ext_resource path="res://art/menus/map icons/level_button_focus.png" type="Texture" id=5]
 [ext_resource path="res://art/menus/map icons/level_button_normal.png" type="Texture" id=6]
-[ext_resource path="res://art/menus/map icons/fwagon_left_1.png" type="Texture" id=7]
-[ext_resource path="res://art/menus/map icons/fwagon_up_1.png" type="Texture" id=8]
 [ext_resource path="res://art/menus/map popup/playground.png" type="Texture" id=9]
 [ext_resource path="res://art/menus/map popup/check_empty.png" type="Texture" id=10]
 [ext_resource path="res://art/menus/map popup/wartwood.png" type="Texture" id=11]
@@ -15,8 +13,6 @@
 [ext_resource path="res://art/menus/map popup/check.png" type="Texture" id=13]
 [ext_resource path="res://art/menus/map popup/bestFronds.png" type="Texture" id=14]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=15]
-[ext_resource path="res://art/menus/map icons/fwagon_right_1.png" type="Texture" id=16]
-[ext_resource path="res://art/menus/map icons/fwagon_down_1.png" type="Texture" id=17]
 [ext_resource path="res://art/menus/char_info.png" type="Texture" id=18]
 [ext_resource path="res://art/pickups/coin_icon.png" type="Texture" id=19]
 [ext_resource path="res://themes/Combo_small_desc_text.tres" type="Theme" id=20]
@@ -60,32 +56,112 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 4 )
+region = Rect2( 120, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 4 )
+region = Rect2( 240, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 360, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
+region = Rect2( 480, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 4 )
+region = Rect2( 600, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 4 )
+region = Rect2( 120, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 4 )
+region = Rect2( 240, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 4 )
+region = Rect2( 360, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 4 )
+region = Rect2( 480, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 4 )
+region = Rect2( 600, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 120, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 4 )
+region = Rect2( 120, 120, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 4 )
+region = Rect2( 240, 120, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 4 )
+region = Rect2( 360, 120, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 4 )
+region = Rect2( 120, 0, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 4 )
+region = Rect2( 240, 0, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 4 )
+region = Rect2( 360, 0, 120, 40 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
 "name": "idle",
 "speed": 2.0
+}, {
+"frames": [ SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=11]
@@ -108,24 +184,24 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "wartwood",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "bestFronds",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "playground",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "wartwood",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "bestFrondsHard",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "bestFronds",
 "speed": 5.0
 } ]
 
@@ -172,9 +248,9 @@ texture = ExtResource( 24 )
 [node name="map decorations" type="Node2D" parent="."]
 
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
-position = Vector2( 738, 412 )
+position = Vector2( 812.5, 419 )
 frames = SubResource( 10 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]
@@ -195,7 +271,7 @@ texture_mode = 1
 joint_mode = 2
 
 [node name="Line2D2" type="Line2D" parent="map decorations"]
-points = PoolVector2Array( 596, 469, 609, 566 )
+points = PoolVector2Array( 609, 422, 609, 566 )
 width = 3.0
 default_color = Color( 1, 1, 1, 1 )
 texture = ExtResource( 25 )
@@ -204,7 +280,7 @@ joint_mode = 2
 
 [node name="Line2D3" type="Line2D" parent="map decorations"]
 position = Vector2( 8, 63 )
-points = PoolVector2Array( 588, 405, 730, 384 )
+points = PoolVector2Array( 605, 357, 805, 391 )
 width = 3.0
 default_color = Color( 1, 1, 1, 1 )
 texture = ExtResource( 25 )
@@ -216,6 +292,9 @@ margin_left = 695.0
 margin_top = 550.0
 margin_right = 743.0
 margin_bottom = 582.0
+focus_neighbour_left = NodePath("../lvl1")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -248,6 +327,8 @@ margin_left = 586.0
 margin_top = 550.0
 margin_right = 634.0
 margin_bottom = 582.0
+focus_neighbour_top = NodePath("../lvl2")
+focus_neighbour_right = NodePath("../wart")
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -260,10 +341,14 @@ __meta__ = {
 }
 
 [node name="lvl2" type="TextureButton" parent="."]
-margin_left = 572.0
-margin_top = 452.0
-margin_right = 620.0
-margin_bottom = 484.0
+margin_left = 585.0
+margin_top = 405.0
+margin_right = 633.0
+margin_bottom = 437.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath("../lvl3")
+focus_neighbour_bottom = NodePath("../lvl1")
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -276,10 +361,10 @@ __meta__ = {
 }
 
 [node name="lvl3" type="TextureButton" parent="."]
-margin_left = 715.0
-margin_top = 430.0
-margin_right = 763.0
-margin_bottom = 462.0
+margin_left = 789.5
+margin_top = 437.0
+margin_right = 837.5
+margin_bottom = 469.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -406,7 +491,8 @@ __meta__ = {
 [node name="marker" type="AnimatedSprite" parent="."]
 position = Vector2( 266, 818 )
 frames = SubResource( 1 )
-animation = "down"
+animation = "idle"
+frame = 1
 playing = true
 
 [node name="arrow" type="Sprite" parent="."]

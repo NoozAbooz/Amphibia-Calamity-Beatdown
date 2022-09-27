@@ -56,9 +56,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=217]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.152941, 0.152941, 0.180392, 1 )
 background_energy = 2.48
 ambient_light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
@@ -779,7 +779,7 @@ shadow_enabled = true
 editor_only = true
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.966, 4.04945, 3.36112 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6937, 3.81006, 1.60787 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -1101,28 +1101,16 @@ enemyNum = 3
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 490.797, 14.685, -25.0279 )
 enemyNum = 3
 
-[node name="wasp6" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 633.372, 20.8368, -42.0657 )
-enemyNum = 3
-
-[node name="wasp8" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 634.953, 20.8368, -38.0878 )
-enemyNum = 3
-
-[node name="wasp7" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 634.707, 20.8368, -34.9987 )
-enemyNum = 3
-
 [node name="wasp9" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 647.948, 20.8368, -44.5305 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 672.383, 20.8368, -46.9745 )
 enemyNum = 3
 
 [node name="wasp10" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 649.53, 20.8368, -40.5526 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 673.965, 20.8368, -42.9966 )
 enemyNum = 3
 
 [node name="wasp11" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 649.284, 20.8368, -37.4636 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 673.719, 20.8368, -39.9076 )
 enemyNum = 3
 
 [node name="mantis4" parent="enemies" instance=ExtResource( 35 )]
@@ -1543,23 +1531,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 272.058, -1.28431, -3.90224 )
 visible = false
 ambushName = "challengeAmbush2"
 
-[node name="modelZero" type="Spatial" parent="."]
-transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 134.145, 6.45688, -7.2731 )
-
-[node name="nest" type="MeshInstance" parent="modelZero"]
-transform = Transform( 1.06066, 0.918558, -0.53033, -1.13247e-07, -0.75, -1.29904, -1.06066, 0.918559, -0.53033, -0.579343, 0.573954, -0.509499 )
-mesh = ExtResource( 8 )
-material/0 = null
-
 [node name="ambushFinal" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -195.555, 11.8572, -47.3836 )
 visible = false
-ambushName = "ChallengeAmbush4"
+ambushName = "challengeAmbush4"
 
 [node name="ambush3" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 415.805, 12.1668, -23.0955 )
 visible = false
-ambushName = "ChallengeAmbush3"
+ambushName = "challengeAmbush3"
+
+[node name="ambush4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 633.756, 16.8847, -40.4342 )
+visible = false
+ambushName = "challengeAmbush5"
 
 [node name="goal" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -156.563, 12.9106, -47.0129 )
@@ -2268,6 +2253,22 @@ transform = Transform( 1, 0, 0, 0, 0.405221, 0.914219, 0, -0.914219, 0.405221, -
 light_energy = 2.0
 spot_range = 29.005
 spot_angle = 32.2365
+
+[node name="modelZero" type="Spatial" parent="decorations"]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 134.145, 6.45688, -7.2731 )
+
+[node name="nest" type="MeshInstance" parent="decorations/modelZero"]
+transform = Transform( 1.06066, 0.918558, -0.53033, -1.13247e-07, -0.75, -1.29904, -1.06066, 0.918559, -0.53033, -0.579343, 0.573954, -0.509499 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="modelZero2" type="Spatial" parent="decorations"]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 631.589, 20.8059, -49.6561 )
+
+[node name="nest" type="MeshInstance" parent="decorations/modelZero2"]
+transform = Transform( 1.06066, 0.918558, -0.53033, -1.13247e-07, -0.75, -1.29904, -1.06066, 0.918559, -0.53033, -0.579343, 0.573954, -0.509499 )
+mesh = ExtResource( 8 )
+material/0 = null
 
 [node name="switches" type="Spatial" parent="."]
 
