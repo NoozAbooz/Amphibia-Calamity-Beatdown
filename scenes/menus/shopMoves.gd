@@ -236,6 +236,7 @@ func _on_buttonExit_pressed():
 	if (loading):
 		return
 	# sets timer (timer is paused durring dialogue
+	get_node("NinePatchRect/description").text = ""
 	loading = true
 	get_node("Timer").start()
 	playDialogue("fel_exit")

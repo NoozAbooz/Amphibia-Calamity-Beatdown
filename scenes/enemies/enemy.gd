@@ -209,6 +209,12 @@ func _ready():
 		lookRight = true
 	else:
 		lookRight = false
+	# makes arrow invisible if the enemy has one
+	if get_node_or_null("zeroPoint/AnimatedSprite3D/arrow") != null:
+		if pg.hardMode:
+			get_node("zeroPoint/AnimatedSprite3D/arrow").play("invis")
+		else:
+			get_node("zeroPoint/AnimatedSprite3D/arrow").play("default")
 
 #func initialize(loc, vel, spd, dam, hlth, wgt, maxC, minC, oddsD = 0.1, oddsK = 0.2, brk = false, weakA = false, infVision = false):
 #	translation = loc

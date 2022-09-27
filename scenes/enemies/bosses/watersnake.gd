@@ -29,6 +29,7 @@ var arenaAnimFinished = false
 var bossAnimFinished = false
 var location = MIDLEFT
 var biteCount = 0
+var safeAttackCount = 0
 
 var padLCount = 0
 var padMCount = 0
@@ -116,24 +117,35 @@ func findPhase():
 		return 2
 
 func rollAttackWater():
+	#print(safeAttackCount)
+	if (safeAttackCount >= 2):
+		safeAttackCount = 0
+		return EXITWATER
 	match phase:
 		0:
 			if ((rng.rand.randf() <= 0.25)):
+				safeAttackCount += 1
 				return FLIPWARN
 		1:
 			if ((rng.rand.randf() <= 0.35)):
 				if ((rng.rand.randf() <= 0.3)):
+					safeAttackCount += 1
 					return FLIPWARN
 				else:
+					safeAttackCount += 1
 					return SWEEP
 		2:
 			if ((rng.rand.randf() <= 0.4)):
 				if ((rng.rand.randf() <= 0.5)):
+					safeAttackCount += 1
 					return FLIPWARN
 				else:
+					safeAttackCount += 1
 					return SWEEP
 		_:
+			safeAttackCount = 0
 			return EXITWATER
+	safeAttackCount = 0
 	return EXITWATER
 
 func inRange():
@@ -152,6 +164,10 @@ func _ready():
 	nextState = WAIT
 	hp = hpMax
 	$"info/lifeBar".max_value = hpMax
+	if pg.hardMode:
+		get_node("boss/arrow").play("invis")
+	else:
+		get_node("boss/arrow").play("default")
 
 # animation controlled functions
 func startCutscene():

@@ -63,6 +63,11 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 10.0
+}, {
+"frames": [ null ],
+"loop": false,
+"name": "invis",
+"speed": 5.0
 } ]
 
 [sub_resource type="ArrayMesh" id=49]
@@ -2370,6 +2375,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("boss/arrow:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=33]
 resource_name = "bite"
@@ -2818,6 +2835,42 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector3( 0, -50, 0 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("boss/arrow:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("boss/arrow:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 40 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("boss/arrow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=20]
 resource_name = "idle"
@@ -3072,6 +3125,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Vector2( 0, 120 ), Vector2( 0, 50 ), Vector2( 0, 50 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("boss/arrow:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=48]
 resource_name = "sweep"
@@ -3192,7 +3257,7 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 1.58333, 2.3 ),
+"times": PoolRealArray( 0, 1.5, 2.56667 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -3208,6 +3273,18 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Vector2( 0, 35 ), Vector2( 0, 35 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("boss/arrow:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1.5, 2.1 ),
+"transitions": PoolRealArray( 0.5, -2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -5.42802e-05, 13.6812, 8.85588e-05 ), Vector3( -9.10678, 2.99232, 14.8578 ) ]
 }
 
 [sub_resource type="Animation" id=31]
@@ -3539,10 +3616,11 @@ shape = SubResource( 19 )
 
 [node name="arrow" type="AnimatedSprite3D" parent="boss"]
 visible = false
-offset = Vector2( 0, 120 )
+offset = Vector2( 0, 40 )
 pixel_size = 0.1
 billboard = 1
 frames = SubResource( 193 )
+animation = "invis"
 playing = true
 
 [node name="model" type="Spatial" parent="boss"]
@@ -3658,16 +3736,17 @@ anims/sweep = SubResource( 64 )
 anims/under_water = SubResource( 65 )
 
 [node name="hitbox" type="Area" parent="boss" groups=["bosses"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.826874, 0, 0.562386, 0, 1, 0, -0.562386, 0, 0.826874, -6, -1, 2.62268e-07 )
 collision_layer = 32
 monitoring = false
 
 [node name="CollisionHit" type="CollisionShape" parent="boss/hitbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0 )
 shape = SubResource( 16 )
 disabled = true
 
 [node name="hurtbox" type="Area" parent="boss"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
 collision_layer = 0
 collision_mask = 8
 monitorable = false
@@ -3696,7 +3775,7 @@ gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 
 [node name="info" type="Node2D" parent="."]
-position = Vector2( 640, 3.30128e-05 )
+position = Vector2( 640, 1.53855 )
 
 [node name="lifeBar" type="ProgressBar" parent="info"]
 margin_left = -314.0

@@ -37,7 +37,7 @@ func _ready():
 	# signals from buttons
 	easy.connect("focus_entered", self, "_on_button_focus_entered", ["Makes players deal more damage and take less damage."])
 	normal.connect("focus_entered", self, "_on_button_focus_entered", ["Makes players deal and receive regular damage."])
-	hard.connect("focus_entered", self, "_on_button_focus_entered", ["Makes players receive double damage."])
+	hard.connect("focus_entered", self, "_on_button_focus_entered", ["Makes players receive double damage and removes warning arrow for unblockable hits."])
 	easy.connect("pressed", self, "_on_button_pressed", ["easy"])
 	normal.connect("pressed", self, "_on_button_pressed", ["normal"])
 	hard.connect("pressed", self, "_on_button_pressed", ["hard"])
@@ -127,6 +127,7 @@ func _on_buttonExit_pressed():
 		return
 	loading = true
 	$main.hide()
+	get_node("NinePatchRect/description").text = ""
 	# sets timer (timer is paused durring dialogue
 	
 	get_node("Timer").start()

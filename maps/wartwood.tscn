@@ -69,9 +69,9 @@ panorama = ExtResource( 55 )
 [sub_resource type="Environment" id=130]
 background_mode = 1
 background_sky = SubResource( 131 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1144,6 +1144,10 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 5 )
 region = Rect2( 136, 330, 68, 66 )
 
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 5 )
+region = Rect2( 68, 330, 68, 66 )
+
 [sub_resource type="AtlasTexture" id=74]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 330, 68, 66 )
@@ -1179,10 +1183,6 @@ region = Rect2( 408, 66, 68, 66 )
 [sub_resource type="AtlasTexture" id=144]
 atlas = ExtResource( 5 )
 region = Rect2( 476, 66, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=89]
-atlas = ExtResource( 5 )
-region = Rect2( 68, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 5 )
@@ -1225,6 +1225,11 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 89 ) ],
+"loop": false,
+"name": "hurt_air",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 74 ) ],
 "loop": false,
 "name": "hurt",
@@ -1233,11 +1238,6 @@ animations = [ {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ) ],
 "loop": false,
 "name": "walk",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 89 ) ],
-"loop": false,
-"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
@@ -2197,7 +2197,7 @@ mesh = SubResource( 126 )
 material/0 = null
 
 [node name="shopTrigger" parent="." instance=ExtResource( 29 )]
-transform = Transform( 0.995621, 0, 0.0934827, 0, 1, 0, -0.0934827, 0, 0.995621, 235.495, -12.8375, -1.85139 )
+transform = Transform( 0.995621, 0, 0.0934827, 0, 1, 0, -0.0934827, 0, 0.995621, 235.495, -0.780132, -1.85139 )
 shopRespawnLocation = 3
 
 [node name="shopTrigger2" parent="." instance=ExtResource( 29 )]

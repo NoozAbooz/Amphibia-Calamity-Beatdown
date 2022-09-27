@@ -234,6 +234,7 @@ func _on_buttonExit_pressed():
 	if (loading):
 		return
 	# sets timer (timer is paused during dialogue)
+	get_node("NinePatchRect/description").text = ""
 	get_node("Timer").start()
 	loading = true
 	playDialogue("mad_exit")

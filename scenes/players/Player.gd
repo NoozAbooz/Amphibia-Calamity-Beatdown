@@ -7,9 +7,9 @@ var playerNum = 1
 
 var playerChar = "Anne"
 
-var speed_walk = 10 #12
-var speed_run = 18 #24
-var speed_z = 10 #8
+var speed_walk = 10 #10
+var speed_run = 18 #18
+var speed_z = 13 #10
 var force_jump = 36.0 #42
 var force_jump_double = 30.0 #42
 var force_jump_AH3 = 30
@@ -659,6 +659,9 @@ func _physics_process(delta):
 				clearInputBuffer()
 				speed = speed_walk
 				nextState = JUMP
+			elif (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button):
+				clearInputBuffer()
+				nextState = A_L1
 #			elif (comboReady) and (hitLanded) and checkWalkJust() and (direction != Vector3.ZERO):
 #				nextState = WALK
 			elif (is_on_floor() == false):
@@ -988,14 +991,14 @@ func _physics_process(delta):
 		slideReady = true
 	if (slideReady) and isInState([A_SL, A_SH]):
 		slideReady = false
-		slideSpeed = speed_run * 2.0
+		slideSpeed = speed_run * 2.0 #2.0
 		slideDir.x = direction.x
 		slideDir.y = direction.z
 	elif isInState([A_SL, A_SH]):
 		velocity.x = slideSpeed * slideDir.x
 		velocity.z = slideSpeed * (float(speed_z) / float(speed_run)) * slideDir.y
 		if (slideSpeed > 0):
-			slideSpeed -= 1.5
+			slideSpeed -= 1.25 # 1.5
 		if (slideSpeed < 0):
 			slideSpeed = 0
 	
