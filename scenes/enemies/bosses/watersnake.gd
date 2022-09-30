@@ -56,7 +56,7 @@ func setHitBox(attackDamage, type, dir):
 func rollAttackPad():
 	if not inRange():
 		return ENTERWATER
-	elif (biteCount == 3):
+	elif (biteCount >= 2):
 		return JUMP
 	match phase:
 		0:
