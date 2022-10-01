@@ -1,20 +1,17 @@
 [remap]
 
 importer="wavefront_obj"
+importer_version=1
 type="Mesh"
-path="res://.import/wartwood_env.obj-b5e2ed5c08eb155b559c83caa2b14186.mesh"
+uid="uid://cnihkhn3bi771"
+valid=false
 
 [deps]
 
-files=[ "res://.import/wartwood_env.obj-b5e2ed5c08eb155b559c83caa2b14186.mesh" ]
-
 source_file="res://maps/wartwood/wartwood_env.obj"
-dest_files=[ "res://.import/wartwood_env.obj-b5e2ed5c08eb155b559c83caa2b14186.mesh", "res://.import/wartwood_env.obj-b5e2ed5c08eb155b559c83caa2b14186.mesh" ]
-
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3( 1, 1, 1 )
-offset_mesh=Vector3( 0, 0, 0 )
-octahedral_compression=true
-optimize_mesh_flags=4286
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

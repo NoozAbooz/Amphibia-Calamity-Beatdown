@@ -1,15 +1,17 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/stats.ogg-e0bfbbdf109f42253c337868b6af17d6.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://btgg0vl1luaq7"
+valid=false
 
 [deps]
 
 source_file="res://music/stats.ogg"
-dest_files=[ "res://.import/stats.ogg-e0bfbbdf109f42253c337868b6af17d6.oggstr" ]
-
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
