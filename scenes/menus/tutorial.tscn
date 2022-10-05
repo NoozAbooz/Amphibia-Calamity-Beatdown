@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=2]
+[gd_scene load_steps=128 format=2]
 
 [ext_resource path="res://scenes/menus/tutorial.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/backgrounds/training_bg.png" type="Texture" id=2]
@@ -534,6 +534,19 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="SpriteFrames" id=198]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "hide",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 38 ), null ],
+"loop": true,
+"name": "blink",
+"speed": 3.0
+} ]
+
 [sub_resource type="Animation" id=177]
 resource_name = "-1"
 length = 10.0
@@ -862,7 +875,7 @@ tracks/12/keys = {
 
 [sub_resource type="Animation" id=179]
 resource_name = "-3"
-length = 7.00001
+length = 2.0
 step = 0.0166667
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -1526,7 +1539,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ "If an enemy is about to attack you, press \"R\" or \"B\" (O/P/J key) to block. This will cancel out most of the damage and prevent you from getting hit away!" ],
+"args": [ "If an enemy is about to attack you, press \"R\" or \"B\"   (O or P or J key) to block. This will cancel out most of the damage and prevent you from getting hit away!" ],
 "method": "speak"
 } ]
 }
@@ -2039,7 +2052,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ "If you are knocked to the ground with 0 health, you lose a life! Lose all your lives and it’s game over." ],
+"args": [ "If you are knocked to the ground with zero health, you lose a life! Lose all your lives and it’s game over." ],
 "method": "speak"
 } ]
 }
@@ -2531,7 +2544,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ "Double tap left or right to run, or just hold \"L\"   (Q/F key). " ],
+"args": [ "Double tap left or right to run, or just hold \"L\"       (Q or F key). " ],
 "method": "speak"
 } ]
 }
@@ -3790,24 +3803,26 @@ script = ExtResource( 43 )
 targetName = "mantis"
 
 [node name="mantis" type="AnimatedSprite" parent="characters"]
-position = Vector2( 350, 404 )
+position = Vector2( 1400, 404 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 106 )
-animation = "hurt_floor"
+animation = "walk"
+frame = 2
 playing = true
+flip_h = true
 
 [node name="Anne" type="AnimatedSprite" parent="characters"]
-position = Vector2( 640, 425 )
+position = Vector2( 942.941, 425 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 49 )
-animation = "run"
-frame = 1
+animation = "walk"
+frame = 7
 playing = true
 offset = Vector2( 0, -7 )
 flip_h = true
 
 [node name="fx" type="AnimatedSprite" parent="characters"]
-position = Vector2( 551, 433 )
+position = Vector2( -118, 200 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 50 )
 animation = "hit"
@@ -3816,7 +3831,7 @@ playing = true
 
 [node name="arrow" type="Sprite" parent="characters"]
 visible = false
-position = Vector2( 1400, 297 )
+position = Vector2( -147, 297 )
 rotation = 1.5708
 scale = Vector2( 3, 3 )
 texture = ExtResource( 38 )
@@ -3852,6 +3867,13 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="arrowContinue" type="AnimatedSprite" parent="."]
+position = Vector2( 1248, 680 )
+frames = SubResource( 198 )
+animation = "blink"
+frame = 1
+playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "-3"
