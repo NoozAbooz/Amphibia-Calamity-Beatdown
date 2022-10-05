@@ -3807,7 +3807,6 @@ position = Vector2( 1400, 404 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 106 )
 animation = "walk"
-frame = 2
 playing = true
 flip_h = true
 
@@ -3816,7 +3815,6 @@ position = Vector2( 942.941, 425 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 49 )
 animation = "walk"
-frame = 7
 playing = true
 offset = Vector2( 0, -7 )
 flip_h = true
@@ -3872,7 +3870,6 @@ __meta__ = {
 position = Vector2( 1248, 680 )
 frames = SubResource( 198 )
 animation = "blink"
-frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

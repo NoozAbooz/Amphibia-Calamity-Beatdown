@@ -1,5 +1,6 @@
 [
   {"sprite":"none",    "pos":"left",  "move_in":"still", "move_out":"none", "text":"Thanks for trying out Amphibia: Calamity Beatdown! Keep an eye out for updates in the future."},
   {"sprite":"none",    "pos":"left",  "move_in":"still", "move_out":"none", "text":"But if you still want more, this stage features a harder remix of the first stage, and even some game mechanics and enemies from future levels."},
+  {"sprite":"none",    "pos":"left",  "move_in":"still", "move_out":"none", "text":"I even gave you two unlockable attacks free of charge to help you through it. Check out the combo list in the pause menu for more details."},
   {"sprite":"none",    "pos":"left",  "move_in":"still", "move_out":"none", "text":"Good luck! And thanks again for playing our game!"}
 ]

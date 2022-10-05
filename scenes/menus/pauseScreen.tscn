@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
@@ -14,11 +14,7 @@
 [ext_resource path="res://music/pause_menu.ogg" type="AudioStream" id=12]
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=13]
 [ext_resource path="res://art/menus/faces.png" type="Texture" id=14]
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 400, 0, 400, 350 )
+[ext_resource path="res://themes/playerPanelTextAlt.tres" type="Theme" id=15]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -30,23 +26,23 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1200, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 1600, 0, 400, 350 )
-
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 800, 0, 400, 350 )
 
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1600, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 400, 0, 400, 350 )
+
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": false,
-"name": "2",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 2 ) ],
 "loop": false,
 "name": "0",
@@ -57,14 +53,19 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 5 ) ],
+"loop": false,
+"name": "3",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 4 ) ],
 "loop": false,
 "name": "4",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ) ],
+"frames": [ SubResource( 1 ) ],
 "loop": false,
-"name": "3",
+"name": "2",
 "speed": 5.0
 } ]
 
@@ -311,7 +312,7 @@ margin_right = 444.0
 margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Spin Attack"
 align = 2
 valign = 1
@@ -333,7 +334,7 @@ margin_right = 444.0
 margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Running Slice"
 align = 2
 valign = 1
@@ -377,7 +378,7 @@ margin_right = 444.0
 margin_bottom = 704.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Shell Breaker"
 align = 2
 valign = 1
@@ -416,7 +417,7 @@ margin_right = 444.0
 margin_bottom = 914.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Counter"
 align = 2
 valign = 1
@@ -509,7 +510,7 @@ margin_right = 444.0
 margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Duet"
 align = 2
 valign = 1
@@ -531,7 +532,7 @@ margin_right = 444.0
 margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Tackle"
 align = 2
 valign = 1
@@ -575,7 +576,7 @@ margin_right = 444.0
 margin_bottom = 704.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Flail Slam"
 align = 2
 valign = 1
@@ -614,7 +615,7 @@ margin_right = 444.0
 margin_bottom = 914.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Counter"
 align = 2
 valign = 1
@@ -707,7 +708,7 @@ margin_right = 444.0
 margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Spin Attack"
 align = 2
 valign = 1
@@ -729,7 +730,7 @@ margin_right = 444.0
 margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Tackle"
 align = 2
 valign = 1
@@ -773,7 +774,7 @@ margin_right = 444.0
 margin_bottom = 704.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Shell Breaker"
 align = 2
 valign = 1
@@ -812,7 +813,7 @@ margin_right = 444.0
 margin_bottom = 914.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Counter"
 align = 2
 valign = 1
@@ -905,7 +906,7 @@ margin_right = 444.0
 margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Spin Attack"
 align = 2
 valign = 1
@@ -927,7 +928,7 @@ margin_right = 444.0
 margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Tackle"
 align = 2
 valign = 1
@@ -971,7 +972,7 @@ margin_right = 444.0
 margin_bottom = 704.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Shell Breaker"
 align = 2
 valign = 1
@@ -1010,7 +1011,7 @@ margin_right = 444.0
 margin_bottom = 914.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Counter"
 align = 2
 valign = 1
@@ -1103,7 +1104,7 @@ margin_right = 444.0
 margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Spin Attack"
 align = 2
 valign = 1
@@ -1125,7 +1126,7 @@ margin_right = 444.0
 margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Tackle"
 align = 2
 valign = 1
@@ -1169,7 +1170,7 @@ margin_right = 444.0
 margin_bottom = 704.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Shell Breaker"
 align = 2
 valign = 1
@@ -1208,7 +1209,7 @@ margin_right = 444.0
 margin_bottom = 914.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 15 )
 text = "Counter"
 align = 2
 valign = 1

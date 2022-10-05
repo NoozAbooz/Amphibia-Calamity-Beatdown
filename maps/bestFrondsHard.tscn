@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=118 format=2]
 
 [ext_resource path="res://maps/best_fronds/trip_to_lake_vis.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://maps/level objects/ambush.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://maps/water_shader.tres" type="Shader" id=12]
 [ext_resource path="res://maps/water_shader_fall.tres" type="Shader" id=13]
 [ext_resource path="res://scenes/switch.tscn" type="PackedScene" id=14]
+[ext_resource path="res://maps/bestFrondsHard.gd" type="Script" id=15]
 [ext_resource path="res://maps/decorations/small plants/mushYellow.tscn" type="PackedScene" id=16]
 [ext_resource path="res://maps/decorations/small plants/mushPurple.tscn" type="PackedScene" id=17]
 [ext_resource path="res://maps/decorations/trees/swampTreeD.tscn" type="PackedScene" id=18]
@@ -56,9 +57,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=217]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, 3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, 180, 0 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.152941, 0.152941, 0.180392, 1 )
 background_energy = 2.48
 ambient_light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
@@ -767,6 +768,7 @@ size = Vector3( 38, 1, 10 )
 extents = Vector3( 19, 0.5, 5 )
 
 [node name="bestFrondsHard" type="Node"]
+script = ExtResource( 15 )
 
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
 environment = SubResource( 217 )
