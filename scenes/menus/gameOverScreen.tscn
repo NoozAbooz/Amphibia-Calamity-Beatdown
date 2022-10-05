@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=1]
+[ext_resource path="res://themes/shop_button.tres" type="Theme" id=1]
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=2]
 [ext_resource path="res://scenes/menus/gameOverScreen.gd" type="Script" id=3]
 
