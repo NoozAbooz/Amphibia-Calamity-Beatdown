@@ -242,7 +242,11 @@ func spawnProj():
 	proj.initialize(spawnLocation, lookRight, hitDamage, hitType, hitDir, hitSound, projType)
 		
 func respawn(dead):
-	safePos = get_parent().get_node("camera_pivot/Camera").findSpawnPoint(lastOnFloorPos)
+	var cam = get_parent().get_node("camera_pivot/Camera")
+	if (pg.countPlayers() >= 2):
+		safePos = cam.findSpawnPoint(get_parent().get_node("camera_pivot").translation + Vector3(0, 0, -1 * cam.offsetZ))
+	else:
+		safePos = cam.findSpawnPoint(lastOnFloorPos)
 	if (dead):
 		lives -= 1
 		state = RISING

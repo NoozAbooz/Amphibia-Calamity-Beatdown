@@ -71,7 +71,7 @@ func findSpawnPoint(loc):
 	var loopCount = 0
 	# positions spawn finder on the last spot the player tounched the ground
 	get_parent().get_node("spawnFinder").global_transform.origin = loc + Vector3(0, 75, 0)
-	print("SpawnFinder: " + str(get_parent().get_node("spawnFinder").global_transform.origin))
+	#print("SpawnFinder: " + str(get_parent().get_node("spawnFinder").global_transform.origin))
 	# zeros the seeker position
 	pivotPoint.rotation_degrees = Vector3.ZERO
 	rays.translation = Vector3.ZERO
@@ -85,7 +85,7 @@ func findSpawnPoint(loc):
 		rays.translation.x = dist
 		pivotPoint.rotation_degrees.y = angle 
 		if (loopCount >= 30000):
-			print("not found! - " + str(dist) + " - " + str(angle))
+			#print("not found! - " + str(dist) + " - " + str(angle))
 			return Vector3(0, 5, 0)
 	# saves found position as spawnPoint
 	var spawnPoint = get_parent().get_node("spawnFinder/pivot/rays").global_transform.origin
