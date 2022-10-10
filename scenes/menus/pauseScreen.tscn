@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
@@ -15,31 +15,32 @@
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=13]
 [ext_resource path="res://art/menus/faces.png" type="Texture" id=14]
 [ext_resource path="res://themes/playerPanelTextAlt.tres" type="Theme" id=15]
+[ext_resource path="res://art/menus/char_info_empty.png" type="Texture" id=16]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 14 )
-region = Rect2( 1200, 0, 400, 350 )
+region = Rect2( 400, 0, 400, 350 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 800, 0, 400, 350 )
 
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1200, 0, 400, 350 )
+
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1600, 0, 400, 350 )
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 400, 0, 400, 350 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -48,9 +49,9 @@ animations = [ {
 "name": "0",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
+"frames": [ SubResource( 1 ) ],
 "loop": false,
-"name": "1",
+"name": "2",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ) ],
@@ -58,14 +59,14 @@ animations = [ {
 "name": "3",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 3 ) ],
+"loop": false,
+"name": "1",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 4 ) ],
 "loop": false,
 "name": "4",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 1 ) ],
-"loop": false,
-"name": "2",
 "speed": 5.0
 } ]
 
@@ -81,7 +82,7 @@ __meta__ = {
 [node name="dark" type="ColorRect" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
-color = Color( 0, 0, 0, 0.392157 )
+color = Color( 0, 0, 0, 0.588235 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -98,7 +99,6 @@ __meta__ = {
 }
 
 [node name="basicMenu" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -117,10 +117,10 @@ __meta__ = {
 
 [node name="buttonMap" type="Button" parent="basicMenu"]
 margin_left = 320.0
-margin_top = 500.0
+margin_top = 600.0
 margin_right = 960.0
-margin_bottom = 560.0
-focus_neighbour_top = NodePath("../buttonDrop")
+margin_bottom = 660.0
+focus_neighbour_top = NodePath("../buttonPos")
 focus_neighbour_bottom = NodePath(".")
 theme = ExtResource( 11 )
 text = "Back to Map"
@@ -134,9 +134,22 @@ margin_top = 400.0
 margin_right = 960.0
 margin_bottom = 460.0
 focus_neighbour_top = NodePath("../buttonCombo")
-focus_neighbour_bottom = NodePath("../buttonMap")
+focus_neighbour_bottom = NodePath("../buttonPos")
 theme = ExtResource( 11 )
 text = "Drop Player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonPos" type="Button" parent="basicMenu"]
+margin_left = 320.0
+margin_top = 500.0
+margin_right = 960.0
+margin_bottom = 560.0
+focus_neighbour_top = NodePath("../buttonDrop")
+focus_neighbour_bottom = NodePath("../buttonMap")
+theme = ExtResource( 11 )
+text = "Re-Position Player"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -219,7 +232,121 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="posMenu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1240.0
+margin_bottom = -680.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dark2" type="ColorRect" parent="posMenu"]
+margin_left = 248.0
+margin_top = 138.0
+margin_right = 1032.0
+margin_bottom = 262.0
+color = Color( 0.270588, 0.270588, 0.270588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonBack" type="Button" parent="posMenu"]
+margin_left = 320.0
+margin_top = 600.0
+margin_right = 960.0
+margin_bottom = 660.0
+theme = ExtResource( 11 )
+text = "Nevermind!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonAllPos" type="Button" parent="posMenu"]
+margin_left = 320.0
+margin_top = 440.0
+margin_right = 960.0
+margin_bottom = 500.0
+theme = ExtResource( 11 )
+text = "All PLayers"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonP1Pos" type="Button" parent="posMenu"]
+margin_left = 290.0
+margin_top = 310.0
+margin_right = 390.0
+margin_bottom = 410.0
+theme = ExtResource( 11 )
+text = " P1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonP2Pos" type="Button" parent="posMenu"]
+margin_left = 490.0
+margin_top = 310.0
+margin_right = 590.0
+margin_bottom = 410.0
+theme = ExtResource( 11 )
+text = " P2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonP3Pos" type="Button" parent="posMenu"]
+margin_left = 690.0
+margin_top = 310.0
+margin_right = 790.0
+margin_bottom = 410.0
+theme = ExtResource( 11 )
+text = " P3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonP4Pos" type="Button" parent="posMenu"]
+margin_left = 890.0
+margin_top = 310.0
+margin_right = 990.0
+margin_bottom = 410.0
+theme = ExtResource( 11 )
+text = " P4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="posMenu"]
+margin_left = 240.0
+margin_top = 130.0
+margin_right = 1040.0
+margin_bottom = 270.0
+texture = ExtResource( 16 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="posMenu"]
+margin_left = 240.0
+margin_top = 140.0
+margin_right = 1040.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "If a player is stuck off screen, press one of these buttons to warp them back on camera."
+align = 1
+valign = 1
+autowrap = true
+
 [node name="combosMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -1757,6 +1884,7 @@ __meta__ = {
 }
 
 [node name="optionsMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -1771,10 +1899,17 @@ volume_db = -12.0
 [connection signal="pressed" from="basicMenu/buttonResume" to="." method="_on_buttonResume_pressed"]
 [connection signal="pressed" from="basicMenu/buttonMap" to="." method="_on_buttonMap_pressed"]
 [connection signal="pressed" from="basicMenu/buttonDrop" to="." method="_on_buttonDrop_pressed"]
+[connection signal="pressed" from="basicMenu/buttonPos" to="." method="_on_buttonPos_pressed"]
 [connection signal="pressed" from="basicMenu/buttonCombo" to="." method="_on_buttonCombo_pressed"]
 [connection signal="pressed" from="dropMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
 [connection signal="pressed" from="dropMenu/buttonP1" to="." method="_on_buttonP1_pressed"]
 [connection signal="pressed" from="dropMenu/buttonP2" to="." method="_on_buttonP2_pressed"]
 [connection signal="pressed" from="dropMenu/buttonP3" to="." method="_on_buttonP3_pressed"]
 [connection signal="pressed" from="dropMenu/buttonP4" to="." method="_on_buttonP4_pressed"]
+[connection signal="pressed" from="posMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
+[connection signal="pressed" from="posMenu/buttonAllPos" to="." method="_on_buttonAllPos_pressed"]
+[connection signal="pressed" from="posMenu/buttonP1Pos" to="." method="_on_buttonP1Pos_pressed"]
+[connection signal="pressed" from="posMenu/buttonP2Pos" to="." method="_on_buttonP2Pos_pressed"]
+[connection signal="pressed" from="posMenu/buttonP3Pos" to="." method="_on_buttonP3Pos_pressed"]
+[connection signal="pressed" from="posMenu/buttonP4Pos" to="." method="_on_buttonP4Pos_pressed"]
 [connection signal="pressed" from="combosMenu/buttonBack" to="." method="_on_buttonBack_pressed"]

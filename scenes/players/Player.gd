@@ -241,6 +241,14 @@ func spawnProj():
 	get_parent().add_child(proj)
 	proj.initialize(spawnLocation, lookRight, hitDamage, hitType, hitDir, hitSound, projType)
 		
+func fixPlayerPos():
+	var cam = get_parent().get_node("camera_pivot/Camera")
+	safePos = cam.findSpawnPoint(get_parent().get_node("camera_pivot").translation + Vector3(0, 0, -1 * cam.offsetZ))
+	translation = safePos + Vector3(0, 5, 0)
+	velocity = Vector3.ZERO + Vector3(0, 15, 0)
+	state = RISING
+	nextState = RISING
+
 func respawn(dead):
 	var cam = get_parent().get_node("camera_pivot/Camera")
 	if (pg.countPlayers() >= 2):
@@ -1142,6 +1150,10 @@ func _physics_process(delta):
 	else:
 		face.play("idle")
 	
+	# re-positions character if global flag is set
+	if pg.playerFixPos[playerNum]:
+		fixPlayerPos()
+		pg.playerFixPos[playerNum] = false
 	
 	# testing prints
 	#$Label.text = str(counterSpamTimer) + " - " + str(counterTimer)

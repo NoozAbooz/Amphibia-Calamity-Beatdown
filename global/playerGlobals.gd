@@ -37,6 +37,7 @@ var playerCharacter = ["Anne", "Anne", "Anne", "Anne"]
 var playerLives = [0, 0, 0, 0]
 var playerCoins = [0, 0, 0, 0]
 var numPlayers = 1
+var playerFixPos = [false, false, false, false]
 
 # cheats
 var unlimitedLives = false

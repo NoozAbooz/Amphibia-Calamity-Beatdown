@@ -1,6 +1,6 @@
 extends Control
 
-enum {BASIC, DROP, VERIFY, OPTIONS, COMBOS}
+enum {BASIC, DROP, VERIFY, OPTIONS, COMBOS, POS}
 enum {ANNE, SPRIG, SASHA, MARCY, MAGGIE}
 var state = 0
 
@@ -39,6 +39,15 @@ func showDropButtons():
 		else:
 			get_node("dropMenu/buttonP" + str(i+1)).disabled = true
 
+func showPosButtons():
+	for i in range(0, pg.playerAlive.size()):
+		if pg.playerAlive[i]:
+			get_node("posMenu/buttonP" + str(i+1) + "Pos").disabled = false
+		else:
+			get_node("posMenu/buttonP" + str(i+1) + "Pos").disabled = true
+
+
+
 func _process(_delta):
 	if (pg.inCutscene):
 		return
@@ -69,6 +78,8 @@ func _process(_delta):
 				soundManager.resumeMusic()
 			DROP:
 				_on_buttonBack_pressed()
+			POS:
+				_on_buttonBack_pressed()
 			COMBOS:
 				_on_buttonBack_pressed()
 				
@@ -82,6 +93,7 @@ func _process(_delta):
 			$labelMain.text = "PAUSED"
 			$basicMenu.show()
 			$dropMenu.hide()
+			$posMenu.hide()
 			$verifyMenu.hide()
 			$optionsMenu.hide()
 			$combosMenu.hide()
@@ -93,25 +105,38 @@ func _process(_delta):
 			$labelMain.text = "DROP WHICH PLAYER"
 			$basicMenu.hide()
 			$dropMenu.show()
+			$posMenu.hide()
 			$verifyMenu.hide()
 			$optionsMenu.hide()
 			$combosMenu.hide()
 			showDropButtons()
+		POS:
+			$labelMain.text = "WARP WHICH PLAYER"
+			$basicMenu.hide()
+			$dropMenu.hide()
+			$posMenu.show()
+			$verifyMenu.hide()
+			$optionsMenu.hide()
+			$combosMenu.hide()
+			showPosButtons()
 		VERIFY:
 			$basicMenu.hide()
 			$dropMenu.hide()
+			$posMenu.hide()
 			$verifyMenu.show()
 			$optionsMenu.hide()
 			$combosMenu.hide()
 		OPTIONS:
 			$basicMenu.hide()
 			$dropMenu.hide()
+			$posMenu.hide()
 			$verifyMenu.hide()
 			$optionsMenu.show()
 			$combosMenu.hide()
 		COMBOS:
 			$basicMenu.hide()
 			$dropMenu.hide()
+			$posMenu.hide()
 			$verifyMenu.hide()
 			$optionsMenu.hide()
 			$combosMenu.show()
@@ -233,3 +258,44 @@ func _on_buttonCombo_pressed():
 	$combosMenu/face.play(str(0))
 	$combosMenu/buttonBack.grab_focus()
 
+func _on_buttonPos_pressed():
+	state = POS
+	$posMenu/buttonBack.grab_focus()
+
+
+func _on_buttonP1Pos_pressed():
+	pg.playerFixPos[0] = true
+	get_tree().paused = false
+	stopMusic()
+	soundManager.resumeMusic()
+
+
+func _on_buttonP2Pos_pressed():
+	pg.playerFixPos[1] = true
+	get_tree().paused = false
+	stopMusic()
+	soundManager.resumeMusic()
+
+
+func _on_buttonP3Pos_pressed():
+	pg.playerFixPos[2] = true
+	get_tree().paused = false
+	stopMusic()
+	soundManager.resumeMusic()
+
+
+func _on_buttonP4Pos_pressed():
+	pg.playerFixPos[3] = true
+	get_tree().paused = false
+	stopMusic()
+	soundManager.resumeMusic()
+
+
+func _on_buttonAllPos_pressed():
+	pg.playerFixPos[0] = true
+	pg.playerFixPos[1] = true
+	pg.playerFixPos[2] = true
+	pg.playerFixPos[3] = true
+	get_tree().paused = false
+	stopMusic()
+	soundManager.resumeMusic()

@@ -29,6 +29,9 @@ export var hideGUI = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# resets reposition player flags
+	for i in range(0, 4):
+		pg.playerFixPos[i] = false
 	# moves spawner to appropriate location if in wartwood
 	if (pg.levelNum == 0):
 		match pg.currentStore:
