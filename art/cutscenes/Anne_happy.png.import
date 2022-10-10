@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/anne_mouth_open.png-72c77c18126d51c71b31817f95c4e354.stex"
+path="res://.import/Anne_happy.png-6e0c18e0eedc7869125f8c39de689209.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cutscenes/anne_mouth_open.png"
-dest_files=[ "res://.import/anne_mouth_open.png-72c77c18126d51c71b31817f95c4e354.stex" ]
+source_file="res://art/cutscenes/Anne_happy.png"
+dest_files=[ "res://.import/Anne_happy.png-6e0c18e0eedc7869125f8c39de689209.stex" ]
 
 [params]
 

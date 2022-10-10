@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/anne_mouth_closed.png-3791d40195cc2e01eaf2e99c65204026.stex"
+path="res://.import/Hoppop_ask.png-0b3b338e935637b58e98639230069435.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cutscenes/anne_mouth_closed.png"
-dest_files=[ "res://.import/anne_mouth_closed.png-3791d40195cc2e01eaf2e99c65204026.stex" ]
+source_file="res://art/cutscenes/Hoppop_ask.png"
+dest_files=[ "res://.import/Hoppop_ask.png-0b3b338e935637b58e98639230069435.stex" ]
 
 [params]
 

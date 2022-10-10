@@ -1,6 +1,6 @@
 [
-  {"sprite":"HP_mad",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"[PC]!\n\nWhat in frog's name have you done to the schoolhouse!?" },
+  {"sprite":"Hoppop_mad",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"[PC]!\n\nWhat in frog's name have you done to the schoolhouse!?" },
   {"sprite":"[PC]_ask",  "pos":"left", "move_in":"slide", "move_out":"slide", "text":"Why is it whenever something is wrong, you think it's my fault?" },
-  {"sprite":"HP_ask", "pos":"right",  "move_in":"slide", "move_out":"slide",  "text":"Well... it usually is."},
+  {"sprite":"Hoppop_ask", "pos":"right",  "move_in":"slide", "move_out":"slide",  "text":"Well... it usually is."},
   {"sprite":"[PC]_normal", "pos":"left",  "move_in":"slide", "move_out":"slide", "text":"Fair point."}
 ]

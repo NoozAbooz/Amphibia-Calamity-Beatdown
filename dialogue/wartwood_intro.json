@@ -1,8 +1,8 @@
 [
   {"sprite":"Anne_normal",   "pos":"left",  "move_in":"slide", "move_out":"none",  "text":"Ah, good old Wartwood. No better place to stock up before an adventure."},
   {"sprite":"Anne_normal",   "pos":"left",  "move_in":"still", "move_out":"slide", "text":"OK fam, where to first?"},
-  {"sprite":"Polly_normal",  "pos":"right", "move_in":"slide", "move_out":"slide", "text":"Ivy's mom said she'd teach us some kick butt martal arts moves over at her teashop!"},
-  {"sprite":"Sprig_normal",  "pos":"left", "move_in":"slide", "move_out":"slide", "text":"Or we could get some upgrade potions from Maddie over at the west end of town."},
+  {"sprite":"Polly_happy",  "pos":"right", "move_in":"slide", "move_out":"slide", "text":"Ivy's mom said she'd teach us some kick butt martal arts moves over at her teashop!"},
+  {"sprite":"Sprig_happy",  "pos":"left", "move_in":"slide", "move_out":"slide", "text":"Or we could get some upgrade potions from Maddie over at the west end of town."},
   {"sprite":"Hoppop_normal", "pos":"right", "move_in":"slide", "move_out":"slide", "text":"The mayor mentioned something about \"difficulty options\" and \"Cheats\" and meeting him in City Hall before we go."},
-  {"sprite":"Anne_normal",   "pos":"left", "move_in":"slide", "move_out":"slide", "text":"Alright! Let’s get to it!"}
+  {"sprite":"Anne_happy",   "pos":"left", "move_in":"slide", "move_out":"slide", "text":"Alright! Let’s get to it!"}
 ]
