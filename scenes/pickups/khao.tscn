@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/pickups/health.gd" type="Script" id=1]
-[ext_resource path="res://art/pickups/fullHeal.png" type="Texture" id=2]
+[ext_resource path="res://art/pickups/food_khao.png" type="Texture" id=2]
 
 [sub_resource type="CylinderMesh" id=4]
 top_radius = 0.5
@@ -14,12 +14,13 @@ radius = 0.5
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
-"loop": true,
+"loop": false,
 "name": "default",
 "speed": 5.0
 } ]
 
 [sub_resource type="CylinderShape" id=3]
+radius = 0.6
 height = 1.0
 
 [node name="khao" type="KinematicBody"]
@@ -39,8 +40,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0.477396, 0 )
+transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
+offset = Vector2( 0, 10 )
 flip_h = true
+pixel_size = 0.07
 frames = SubResource( 5 )
 
 [node name="hurtbox" type="Area" parent="." groups=["healthBig"]]
@@ -51,3 +54,9 @@ monitoring = false
 [node name="CollisionShape2" type="CollisionShape" parent="hurtbox"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

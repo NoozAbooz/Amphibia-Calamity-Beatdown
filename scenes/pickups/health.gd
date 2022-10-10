@@ -8,15 +8,15 @@ var settled = false
 export var value = 1
 export var gravOff = false
 
+export var look = "jerky"
+
 var deathFloorHeight = -30
 
 #var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	#rng.randomize()
-	#initialize()
+	$hurtbox/CollisionShape2.disabled = true
 
 func initialize(spawnLocation, val = 1):
 	value = val
@@ -25,14 +25,17 @@ func initialize(spawnLocation, val = 1):
 	bounceForce = velocity.y * 0.75
 	velocity.x = rng.rand.randf_range(3, 7)
 	velocity = velocity.rotated(Vector3.UP, rng.rand.randf_range(0, 6.28))
-	get_node("AnimatedSprite3D").play()
-	value = val
-	# sets random spin direction for coins
-#	if self.is_in_group("coins"):
-#		if (rng.rand.randf() > 0.5):
-#			self.get_node("AnimatedSprite3D").flip_h = true
-#		else:
-#			self.get_node("AnimatedSprite3D").flip_h = false
+	if $hurtbox.is_in_group("healthSmall"):
+		match rng.rand.randi_range(0, 3):
+			0:
+				look = "jerky"
+			1:
+				look = "slush"
+			2:
+				look = "knat"
+			_:
+				look = "jerky"
+		$AnimatedSprite3D.play(look)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -58,3 +61,7 @@ func _process(delta):
 	# fall off world
 	if (translation.y <= deathFloorHeight):
 		queue_free()
+
+
+func _on_Timer_timeout():
+	$hurtbox/CollisionShape2.disabled = false

@@ -57,9 +57,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=217]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.152941, 0.152941, 0.180392, 1 )
 background_energy = 2.48
 ambient_light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
@@ -1406,6 +1406,14 @@ randomContents = false
 coppers = 1
 foods = 4
 bigFoods = 4
+
+[node name="barrelOpen4" parent="barrels" instance=ExtResource( 43 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29.6623, 3.87672, 1.77659 )
+hp = 10
+randomContents = false
+coppers = 4
+foods = 8
+bigFoods = 2
 
 [node name="barrelOpen7" parent="barrels" instance=ExtResource( 43 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 845.668, 3.79874, -34.7636 )

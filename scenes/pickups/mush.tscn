@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/pickups/health.gd" type="Script" id=1]
-[ext_resource path="res://art/pickups/jerky.png" type="Texture" id=3]
+[ext_resource path="res://art/pickups/food_jerky.png" type="Texture" id=2]
+[ext_resource path="res://art/pickups/food_slush.png" type="Texture" id=3]
+[ext_resource path="res://art/pickups/food_knat.png" type="Texture" id=4]
 
 [sub_resource type="CylinderMesh" id=4]
 top_radius = 0.5
@@ -13,13 +15,24 @@ radius = 0.5
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "jerky",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "default",
+"loop": false,
+"name": "slush",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "knat",
 "speed": 5.0
 } ]
 
 [sub_resource type="CylinderShape" id=3]
+radius = 0.6
 height = 1.0
 
 [node name="mush" type="KinematicBody"]
@@ -39,10 +52,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0.932836, 0 )
+transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
+offset = Vector2( 0, 10 )
 flip_h = true
-pixel_size = 0.011
+pixel_size = 0.07
 frames = SubResource( 2 )
+animation = "slush"
 
 [node name="hurtbox" type="Area" parent="." groups=["healthSmall"]]
 collision_layer = 256
@@ -52,3 +67,10 @@ monitoring = false
 [node name="CollisionShape2" type="CollisionShape" parent="hurtbox"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 shape = SubResource( 3 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

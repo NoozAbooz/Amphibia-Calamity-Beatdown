@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fwagon_left_1.png-745d3d69978d01387645e540c05a36ee.stex"
+path="res://.import/food_khao.png-dd9801e8a696c4fc705281fbbc7783f5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/menus/map icons/fwagon_left_1.png"
-dest_files=[ "res://.import/fwagon_left_1.png-745d3d69978d01387645e540c05a36ee.stex" ]
+source_file="res://art/pickups/food_khao.png"
+dest_files=[ "res://.import/food_khao.png-dd9801e8a696c4fc705281fbbc7783f5.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
