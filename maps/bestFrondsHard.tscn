@@ -1407,14 +1407,6 @@ coppers = 1
 foods = 4
 bigFoods = 4
 
-[node name="barrelOpen4" parent="barrels" instance=ExtResource( 43 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29.6623, 3.87672, 1.77659 )
-hp = 10
-randomContents = false
-coppers = 4
-foods = 8
-bigFoods = 2
-
 [node name="barrelOpen7" parent="barrels" instance=ExtResource( 43 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 845.668, 3.79874, -34.7636 )
 randomContents = false

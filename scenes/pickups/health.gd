@@ -17,6 +17,8 @@ var deathFloorHeight = -30
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$hurtbox/CollisionShape2.disabled = true
+	if $hurtbox.is_in_group("healthSmall"):
+		$AnimatedSprite3D.play(look)
 
 func initialize(spawnLocation, val = 1):
 	value = val
