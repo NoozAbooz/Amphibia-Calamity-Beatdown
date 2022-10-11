@@ -6,6 +6,7 @@ onready var blackMantisScene = preload("res://scenes/enemies/blackMantis.tscn")
 onready var redMantisScene = preload("res://scenes/enemies/bossMantis.tscn")
 onready var spiderScene = preload("res://scenes/enemies/spider.tscn")
 onready var waspScene = preload("res://scenes/enemies/wasp.tscn")
+onready var zapapedeScene = preload("res://scenes/enemies/zapapede.tscn")
 
 # stores common enemy stats
 class stats:
@@ -41,6 +42,7 @@ var blackMantis
 var redMantis
 var spider
 var wasp
+var zapapede
 
 
 # Called when the node enters the scene tree for the first time.
@@ -128,6 +130,20 @@ func _ready():
 	wasp.weakA = false
 	wasp.attackWaitTime = 70
 	wasp.color = 0
+	
+	# zapapede Enemy Stats
+	zapapede = stats.new()
+	zapapede.spd = 4
+	zapapede.dam = 5
+	zapapede.hlth = 100
+	zapapede.wgt = 0
+	zapapede.maxC  = 2
+	zapapede.minC  = 1
+	zapapede.oddsD = 0.33
+	zapapede.oddsK = 0.2
+	zapapede.weakA = false
+	zapapede.attackWaitTime = 30
+	zapapede.color = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

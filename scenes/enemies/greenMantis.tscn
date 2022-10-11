@@ -1182,30 +1182,6 @@ region = Rect2( 408, 66, 68, 66 )
 atlas = ExtResource( 1 )
 region = Rect2( 476, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=83]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=84]
-atlas = ExtResource( 1 )
-region = Rect2( 68, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=85]
-atlas = ExtResource( 1 )
-region = Rect2( 136, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=86]
-atlas = ExtResource( 1 )
-region = Rect2( 204, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=87]
-atlas = ExtResource( 1 )
-region = Rect2( 272, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=88]
-atlas = ExtResource( 1 )
-region = Rect2( 340, 132, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=91]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 198, 68, 66 )
@@ -1229,6 +1205,30 @@ region = Rect2( 272, 198, 68, 66 )
 [sub_resource type="AtlasTexture" id=96]
 atlas = ExtResource( 1 )
 region = Rect2( 340, 198, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=83]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=84]
+atlas = ExtResource( 1 )
+region = Rect2( 68, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=85]
+atlas = ExtResource( 1 )
+region = Rect2( 136, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=86]
+atlas = ExtResource( 1 )
+region = Rect2( 204, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=87]
+atlas = ExtResource( 1 )
+region = Rect2( 272, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=88]
+atlas = ExtResource( 1 )
+region = Rect2( 340, 132, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=99]
 atlas = ExtResource( 1 )
@@ -1290,9 +1290,9 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
-"loop": false,
-"name": "attack_right",
+"frames": [ SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ) ],
+"loop": true,
+"name": "attack_left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -1300,9 +1300,9 @@ animations = [ {
 "name": "attack_bite",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ) ],
-"loop": true,
-"name": "attack_left",
+"frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
+"loop": false,
+"name": "attack_right",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ) ],

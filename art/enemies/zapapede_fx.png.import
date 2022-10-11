@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mantis_stand.png-73bc51fd11a38bfdbed93219a242cd35.stex"
+path="res://.import/zapapede_fx.png-dc0c3f931976b7bd1f0a1fbc396f0643.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/enemies/mantis_stand.png"
-dest_files=[ "res://.import/mantis_stand.png-73bc51fd11a38bfdbed93219a242cd35.stex" ]
+source_file="res://art/enemies/zapapede_fx.png"
+dest_files=[ "res://.import/zapapede_fx.png-dc0c3f931976b7bd1f0a1fbc396f0643.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

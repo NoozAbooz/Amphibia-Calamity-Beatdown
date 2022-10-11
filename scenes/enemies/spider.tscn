@@ -730,14 +730,6 @@ region = Rect2( 0, 52, 34, 26 )
 atlas = ExtResource( 1 )
 region = Rect2( 34, 52, 34, 26 )
 
-[sub_resource type="AtlasTexture" id=50]
-atlas = ExtResource( 1 )
-region = Rect2( 34, 78, 34, 26 )
-
-[sub_resource type="AtlasTexture" id=51]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 78, 34, 26 )
-
 [sub_resource type="AtlasTexture" id=53]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 26, 34, 26 )
@@ -757,6 +749,14 @@ region = Rect2( 102, 26, 34, 26 )
 [sub_resource type="AtlasTexture" id=57]
 atlas = ExtResource( 1 )
 region = Rect2( 136, 26, 34, 26 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 1 )
+region = Rect2( 34, 78, 34, 26 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 78, 34, 26 )
 
 [sub_resource type="SpriteFrames" id=29]
 animations = [ {
@@ -785,14 +785,14 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 50 ), SubResource( 51 ) ],
-"loop": false,
-"name": "attack_heavy",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ) ],
 "loop": false,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 50 ), SubResource( 51 ) ],
+"loop": false,
+"name": "attack_heavy",
 "speed": 5.0
 } ]
 

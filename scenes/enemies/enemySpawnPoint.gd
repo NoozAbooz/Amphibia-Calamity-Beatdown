@@ -36,6 +36,10 @@ func _on_VisibilityNotifier_camera_entered(_camera):
 			var nextEnemy = nme.blackMantisScene.instance()
 			get_parent().add_child(nextEnemy)
 			nextEnemy.initialize(nme.blackMantis, translation, Vector3.ZERO, false, false, false)
+		6:
+			var nextEnemy = nme.zapapedeScene.instance()
+			get_parent().add_child(nextEnemy)
+			nextEnemy.initialize(nme.zapapede, translation, Vector3.ZERO, false, false, false)
 		_:
 			var nextEnemy = nme.greenMantisScene.instance()
 			get_parent().add_child(nextEnemy)
