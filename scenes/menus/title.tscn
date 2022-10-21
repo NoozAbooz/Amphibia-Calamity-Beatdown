@@ -29,11 +29,10 @@ __meta__ = {
 }
 
 [node name="lockButton" type="Button" parent="."]
-visible = false
-margin_left = 569.0
-margin_top = 471.0
-margin_right = 755.0
-margin_bottom = 519.0
+margin_left = 81.0
+margin_top = 184.0
+margin_right = 257.0
+margin_bottom = 233.0
 toggle_mode = true
 clip_text = true
 

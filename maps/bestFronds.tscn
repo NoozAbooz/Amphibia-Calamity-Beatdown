@@ -1214,14 +1214,6 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 8 )
 region = Rect2( 136, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=89]
-atlas = ExtResource( 8 )
-region = Rect2( 68, 330, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=74]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 330, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 66, 68, 66 )
@@ -1253,6 +1245,14 @@ region = Rect2( 408, 66, 68, 66 )
 [sub_resource type="AtlasTexture" id=82]
 atlas = ExtResource( 8 )
 region = Rect2( 476, 66, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 330, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 8 )
+region = Rect2( 68, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 8 )
@@ -1295,9 +1295,9 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 89 ) ],
+"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 165 ), SubResource( 166 ), SubResource( 81 ), SubResource( 82 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "walk",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 74 ) ],
@@ -1305,9 +1305,9 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 165 ), SubResource( 166 ), SubResource( 81 ), SubResource( 82 ) ],
+"frames": [ SubResource( 89 ) ],
 "loop": false,
-"name": "walk",
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
@@ -3232,6 +3232,18 @@ enemyNum = 2
 
 [node name="spiderNest" parent="enemies" instance=ExtResource( 36 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 282.124, 13.4658, -27.8501 )
+
+[node name="enemySpawnPoint57" parent="enemies" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.0917, 7.0288, 1.75046 )
+enemyNum = 6
+
+[node name="enemySpawnPoint58" parent="enemies" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0217, 7.0288, -2.0356 )
+enemyNum = 6
+
+[node name="enemySpawnPoint59" parent="enemies" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8806, 7.0288, 4.1088 )
+enemyNum = 6
 
 [node name="coins" type="Spatial" parent="."]
 

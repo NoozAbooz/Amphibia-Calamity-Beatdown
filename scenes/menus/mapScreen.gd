@@ -51,8 +51,8 @@ func _ready():
 	# re-disables level 2/3 and playground for demo purposes
 		#get_node("lvl2").disabled = true
 		#get_node("lvl2").set_focus_mode(0)
-		#get_node("play").disabled = true
-		#get_node("play").set_focus_mode(0)
+		get_node("play").disabled = true
+		get_node("play").set_focus_mode(0)
 		get_node("lvl3").disabled = true
 		get_node("lvl3").set_focus_mode(0)
 	# removes arrow if been to wartwood

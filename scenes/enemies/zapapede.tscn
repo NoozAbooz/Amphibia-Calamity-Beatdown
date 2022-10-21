@@ -8,7 +8,6 @@
 
 [sub_resource type="Animation" id=106]
 resource_name = "attack"
-length = 1.0
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:frame")
@@ -922,14 +921,6 @@ region = Rect2( 184, 0, 46, 30 )
 atlas = ExtResource( 4 )
 region = Rect2( 92, 60, 46, 30 )
 
-[sub_resource type="AtlasTexture" id=149]
-atlas = ExtResource( 4 )
-region = Rect2( 46, 60, 46, 30 )
-
-[sub_resource type="AtlasTexture" id=150]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 60, 46, 30 )
-
 [sub_resource type="AtlasTexture" id=140]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 30, 46, 30 )
@@ -961,6 +952,14 @@ region = Rect2( 276, 30, 46, 30 )
 [sub_resource type="AtlasTexture" id=147]
 atlas = ExtResource( 4 )
 region = Rect2( 322, 30, 46, 30 )
+
+[sub_resource type="AtlasTexture" id=150]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 60, 46, 30 )
+
+[sub_resource type="AtlasTexture" id=149]
+atlas = ExtResource( 4 )
+region = Rect2( 46, 60, 46, 30 )
 
 [sub_resource type="AtlasTexture" id=151]
 atlas = ExtResource( 4 )
@@ -1010,9 +1009,9 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 149 ) ],
+"frames": [ SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "walk",
 "speed": 0.0
 }, {
 "frames": [ SubResource( 150 ) ],
@@ -1020,9 +1019,9 @@ animations = [ {
 "name": "hurt",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ) ],
+"frames": [ SubResource( 149 ) ],
 "loop": false,
-"name": "walk",
+"name": "hurt_air",
 "speed": 0.0
 }, {
 "frames": [ SubResource( 151 ), SubResource( 152 ) ],
@@ -1087,16 +1086,6 @@ flags = 2
 atlas = ExtResource( 1 )
 region = Rect2( 92, 60, 46, 30 )
 
-[sub_resource type="AtlasTexture" id=166]
-flags = 2
-atlas = ExtResource( 1 )
-region = Rect2( 46, 60, 46, 30 )
-
-[sub_resource type="AtlasTexture" id=167]
-flags = 2
-atlas = ExtResource( 1 )
-region = Rect2( 0, 60, 46, 30 )
-
 [sub_resource type="AtlasTexture" id=168]
 flags = 2
 atlas = ExtResource( 1 )
@@ -1136,6 +1125,16 @@ region = Rect2( 276, 30, 46, 30 )
 flags = 2
 atlas = ExtResource( 1 )
 region = Rect2( 322, 30, 46, 30 )
+
+[sub_resource type="AtlasTexture" id=167]
+flags = 2
+atlas = ExtResource( 1 )
+region = Rect2( 0, 60, 46, 30 )
+
+[sub_resource type="AtlasTexture" id=166]
+flags = 2
+atlas = ExtResource( 1 )
+region = Rect2( 46, 60, 46, 30 )
 
 [sub_resource type="AtlasTexture" id=176]
 flags = 2
@@ -1184,9 +1183,9 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 166 ) ],
+"frames": [ SubResource( 168 ), SubResource( 169 ), SubResource( 197 ), SubResource( 198 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "walk",
 "speed": 0.0
 }, {
 "frames": [ SubResource( 167 ) ],
@@ -1194,9 +1193,9 @@ animations = [ {
 "name": "hurt",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 168 ), SubResource( 169 ), SubResource( 197 ), SubResource( 198 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ) ],
+"frames": [ SubResource( 166 ) ],
 "loop": false,
-"name": "walk",
+"name": "hurt_air",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -1273,10 +1272,11 @@ anims/zap = SubResource( 187 )
 [node name="AnimatedSprite3DZap" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0.1, 0, 0 )
 offset = Vector2( 0, 16 )
+modulate = Color( 1, 1, 1, 0.941176 )
 pixel_size = 0.07
 frames = SubResource( 123 )
 animation = "air"
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
