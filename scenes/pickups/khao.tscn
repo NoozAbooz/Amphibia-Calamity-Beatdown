@@ -9,7 +9,7 @@ bottom_radius = 0.5
 height = 0.1
 
 [sub_resource type="SphereShape" id=1]
-radius = 0.5
+radius = 0.8
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -20,7 +20,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CylinderShape" id=3]
-radius = 0.6
+radius = 0.8
 height = 1.0
 
 [node name="khao" type="KinematicBody"]
@@ -36,12 +36,12 @@ mesh = SubResource( 4 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
-offset = Vector2( 0, 10 )
+offset = Vector2( 0, 14 )
 flip_h = true
 pixel_size = 0.07
 frames = SubResource( 5 )

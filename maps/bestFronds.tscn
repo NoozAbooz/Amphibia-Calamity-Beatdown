@@ -1,4 +1,4 @@
-[gd_scene load_steps=185 format=2]
+[gd_scene load_steps=184 format=2]
 
 [ext_resource path="res://maps/best_fronds/trip_to_lake_vis.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://maps/level objects/ambush.tscn" type="PackedScene" id=2]
@@ -54,6 +54,7 @@
 [ext_resource path="res://art/models/DecorativeTreesMushrooms/Material_012.material" type="Material" id=52]
 [ext_resource path="res://maps/level objects/AmbushKillsReset.tscn" type="PackedScene" id=53]
 [ext_resource path="res://maps/decorations/small plants/mushPink.tscn" type="PackedScene" id=54]
+[ext_resource path="res://maps/decorations/dock.tscn" type="PackedScene" id=55]
 
 [sub_resource type="PanoramaSky" id=181]
 panorama = ExtResource( 11 )
@@ -360,13 +361,6 @@ tracks/1/keys = {
 
 [sub_resource type="SpatialMaterial" id=210]
 albedo_color = Color( 0.533333, 0.427451, 0.282353, 1 )
-
-[sub_resource type="CubeMesh" id=211]
-material = SubResource( 210 )
-size = Vector3( 10, 1, 5 )
-
-[sub_resource type="BoxShape" id=212]
-extents = Vector3( 5, 0.5, 2.5 )
 
 [sub_resource type="CubeMesh" id=213]
 material = SubResource( 210 )
@@ -2955,17 +2949,10 @@ anims/float = SubResource( 148 )
 [node name="rock" parent="environment" instance=ExtResource( 51 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 94.3187, 11.2721, -91.0679 )
 
-[node name="bridge" type="StaticBody" parent="environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 110.484, -0.652922, -67.131 )
+[node name="dock" parent="environment" instance=ExtResource( 55 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 110.279, -0.550454, -67.1845 )
 collision_layer = 2
 collision_mask = 0
-
-[node name="MeshInstance" type="MeshInstance" parent="environment/bridge"]
-mesh = SubResource( 211 )
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="environment/bridge"]
-shape = SubResource( 212 )
 
 [node name="bridge2" type="StaticBody" parent="environment"]
 transform = Transform( 0.987066, -0.160312, 0, 0.160312, 0.987066, 0, 0, 0, 1, 413.076, 12.7312, -106.241 )
@@ -3232,18 +3219,6 @@ enemyNum = 2
 
 [node name="spiderNest" parent="enemies" instance=ExtResource( 36 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 282.124, 13.4658, -27.8501 )
-
-[node name="enemySpawnPoint57" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.0917, 7.0288, 1.75046 )
-enemyNum = 6
-
-[node name="enemySpawnPoint58" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0217, 7.0288, -2.0356 )
-enemyNum = 6
-
-[node name="enemySpawnPoint59" parent="enemies" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8806, 7.0288, 4.1088 )
-enemyNum = 6
 
 [node name="coins" type="Spatial" parent="."]
 
