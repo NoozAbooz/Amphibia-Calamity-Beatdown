@@ -14,7 +14,7 @@ var tallyBlockScene = preload("res://scenes/menus/tallyBlock.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim.play("intro")
-	soundManager.playMusic("stats")
+	soundManager.playMusicIfDiff("stats")
 	
 func _process(_delta):
 	totalCoins.text = "Total Coppers: " + str(pg.totalMoney)

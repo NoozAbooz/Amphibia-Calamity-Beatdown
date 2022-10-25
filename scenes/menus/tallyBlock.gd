@@ -31,7 +31,7 @@ func initialize(character, lives, coins, alive, playerNumber):
 		"Sprig":
 			get_node("bg/colorBG").color = colorSprig
 		_:
-			get_node("bg/colorBG").color = colorAnne
+			get_node("bg/colorBG").color = Color8(10, 10, 10)
 	# Corrections if player was defeated
 	if not alive:
 		faces.play(character + "D")

@@ -1208,6 +1208,14 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 8 )
 region = Rect2( 136, 330, 68, 66 )
 
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 330, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 8 )
+region = Rect2( 68, 330, 68, 66 )
+
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 66, 68, 66 )
@@ -1239,14 +1247,6 @@ region = Rect2( 408, 66, 68, 66 )
 [sub_resource type="AtlasTexture" id=82]
 atlas = ExtResource( 8 )
 region = Rect2( 476, 66, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=74]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 330, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=89]
-atlas = ExtResource( 8 )
-region = Rect2( 68, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 8 )
@@ -1289,11 +1289,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 165 ), SubResource( 166 ), SubResource( 81 ), SubResource( 82 ) ],
-"loop": false,
-"name": "walk",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 74 ) ],
 "loop": false,
 "name": "hurt",
@@ -1302,6 +1297,11 @@ animations = [ {
 "frames": [ SubResource( 89 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 165 ), SubResource( 166 ), SubResource( 81 ), SubResource( 82 ) ],
+"loop": false,
+"name": "walk",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
@@ -2618,8 +2618,17 @@ light_energy = 0.7
 shadow_enabled = true
 editor_only = true
 
+[node name="coin2" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 998.781, 3.805, -19.3349 )
+value = 56
+
+[node name="coin" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1014.89, 3.805, -22.0404 )
+value = 32
+
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6874, 3.79477, 2.23831 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 997.927, 4.05253, -27.863 )
+hideGUI = true
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -3720,7 +3729,7 @@ ambushName = "bestFrondsAmbush3"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 942.506, 2.89046, -36.576 )
 
 [node name="goal" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1008.46, 7.10856, -27.1588 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1008.46, 3.78113, -27.1588 )
 
 [node name="decorations" type="Spatial" parent="."]
 
