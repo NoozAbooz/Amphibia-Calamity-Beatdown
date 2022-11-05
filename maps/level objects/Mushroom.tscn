@@ -2,7 +2,6 @@
 
 [ext_resource path="res://maps/level objects/Mushroom.gd" type="Script" id=1]
 
-
 [sub_resource type="CylinderShape" id=6]
 radius = 0.263668
 height = 15.0

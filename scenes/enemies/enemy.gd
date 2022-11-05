@@ -493,7 +493,7 @@ func _physics_process(delta):
 	
 	# barrier pushback / bounceback
 	if isInState([HURTLAUNCH, HURTRISING, HURTFALLING]):
-		if onRightWall and (velocity.x > 0) and ambushEnemy:
+		if (onRightWall and (velocity.x > 0) and ambushEnemy):
 			velocity = Vector3(-25, 15, 0)
 		elif onLeftWall and (velocity.x < 0) and ambushEnemy:
 			velocity = Vector3(25, 15, 0)

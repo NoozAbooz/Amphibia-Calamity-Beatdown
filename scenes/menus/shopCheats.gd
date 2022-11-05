@@ -32,7 +32,7 @@ func _ready():
 	refreshShop()
 	
 	# plays music for shop
-	soundManager.playMusic("map")
+	soundManager.playMusic("shop")
 	
 	# signals from buttons
 	easy.connect("focus_entered", self, "_on_button_focus_entered", ["Makes players deal more damage and take less damage."])

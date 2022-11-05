@@ -3,7 +3,7 @@
 [ext_resource path="res://art/enemies/black_mantis_full.png" type="Texture" id=1]
 [ext_resource path="res://scenes/enemies/enemy.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=237]
 resource_name = "attack_heavy"
 length = 0.933335
 step = 0.0166667
@@ -92,7 +92,7 @@ tracks/6/keys = {
 "values": [ 0.07 ]
 }
 
-[sub_resource type="Animation" id=90]
+[sub_resource type="Animation" id=238]
 resource_name = "attack_light"
 length = 1.16667
 step = 0.0166667
@@ -270,7 +270,7 @@ tracks/6/keys = {
 "values": [ 0.07 ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=239]
 resource_name = "block"
 length = 0.166667
 loop = true
@@ -360,7 +360,7 @@ tracks/6/keys = {
 "values": [ 0.07 ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=240]
 resource_name = "block_hit"
 length = 0.416667
 step = 0.0166667
@@ -449,7 +449,7 @@ tracks/6/keys = {
 "values": [ 0.07 ]
 }
 
-[sub_resource type="Animation" id=60]
+[sub_resource type="Animation" id=241]
 resource_name = "dead"
 length = 2.0
 step = 0.0166667
@@ -639,7 +639,7 @@ tracks/7/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=242]
 resource_name = "hurt"
 length = 0.416667
 step = 0.0166667
@@ -728,7 +728,7 @@ tracks/6/keys = {
 "values": [ 0.07 ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=243]
 resource_name = "hurt_air"
 length = 0.166667
 loop = true
@@ -818,7 +818,7 @@ tracks/6/keys = {
 "values": [ 0.07 ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=244]
 resource_name = "hurt_floor"
 step = 0.0166667
 tracks/0/type = "value"
@@ -906,7 +906,7 @@ tracks/6/keys = {
 "values": [ 0.07 ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=245]
 resource_name = "idle"
 length = 0.600001
 loop = true
@@ -1008,7 +1008,7 @@ tracks/7/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=246]
 resource_name = "walk"
 length = 0.800002
 loop = true
@@ -1140,32 +1140,62 @@ flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 340, 0, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=105]
+[sub_resource type="AtlasTexture" id=247]
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 204, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=106]
+[sub_resource type="AtlasTexture" id=248]
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 136, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=107]
+[sub_resource type="AtlasTexture" id=249]
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 68, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=108]
+[sub_resource type="AtlasTexture" id=250]
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 0, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=109]
+[sub_resource type="AtlasTexture" id=123]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 0, 198, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=124]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 68, 198, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=251]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 136, 198, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=252]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 204, 198, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=253]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 272, 198, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=254]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 340, 198, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=255]
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 0, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=110]
+[sub_resource type="AtlasTexture" id=256]
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 68, 66, 68, 66 )
@@ -1200,77 +1230,17 @@ flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 476, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=117]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 0, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=118]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 68, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=119]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 136, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=120]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 204, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=121]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 272, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=122]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 340, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=123]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 0, 198, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=124]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 68, 198, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=125]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 136, 198, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=126]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 204, 198, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=127]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 272, 198, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=128]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 340, 198, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=129]
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 0, 264, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=130]
+[sub_resource type="AtlasTexture" id=257]
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 68, 264, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=131]
+[sub_resource type="AtlasTexture" id=258]
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 136, 264, 68, 66 )
@@ -1295,6 +1265,36 @@ flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 408, 264, 68, 66 )
 
+[sub_resource type="AtlasTexture" id=259]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 0, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=118]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 68, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=260]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 136, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=261]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 204, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=121]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 272, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=122]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 340, 132, 68, 66 )
+
 [sub_resource type="SpriteFrames" id=136]
 animations = [ {
 "frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ) ],
@@ -1302,34 +1302,24 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 105 ) ],
+"frames": [ SubResource( 247 ) ],
 "loop": false,
 "name": "block",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 106 ) ],
+"frames": [ SubResource( 248 ) ],
 "loop": false,
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 107 ) ],
+"frames": [ SubResource( 249 ) ],
 "loop": false,
 "name": "hurt_air",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 108 ) ],
+"frames": [ SubResource( 250 ) ],
 "loop": false,
 "name": "hurt",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ) ],
-"loop": false,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ) ],
-"loop": false,
-"name": "attack_right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -1337,29 +1327,39 @@ animations = [ {
 "name": "attack_bite",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ) ],
+"frames": [ SubResource( 123 ), SubResource( 124 ), SubResource( 251 ), SubResource( 252 ), SubResource( 253 ), SubResource( 254 ) ],
 "loop": true,
 "name": "attack_left",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ) ],
+"frames": [ SubResource( 255 ), SubResource( 256 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ) ],
+"loop": false,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 129 ), SubResource( 257 ), SubResource( 258 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ) ],
 "loop": true,
 "name": "dodge",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 259 ), SubResource( 118 ), SubResource( 260 ), SubResource( 261 ), SubResource( 121 ), SubResource( 122 ) ],
+"loop": false,
+"name": "attack_right",
 "speed": 5.0
 } ]
 
 [sub_resource type="BoxShape" id=38]
 resource_local_to_scene = true
 
-[sub_resource type="CylinderShape" id=63]
+[sub_resource type="CylinderShape" id=263]
 radius = 1.5
 height = 3.0
 
-[sub_resource type="CapsuleShape" id=64]
+[sub_resource type="CapsuleShape" id=264]
 radius = 1.5
 height = 0.5
 
-[sub_resource type="CylinderMesh" id=65]
+[sub_resource type="CylinderMesh" id=265]
 top_radius = 1.5
 bottom_radius = 1.5
 height = 0.1
@@ -1390,18 +1390,18 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/attack_heavy = SubResource( 25 )
-anims/attack_light = SubResource( 90 )
+anims/attack_heavy = SubResource( 237 )
+anims/attack_light = SubResource( 238 )
 anims/attack_pierce = SubResource( 97 )
-anims/block = SubResource( 31 )
-anims/block_hit = SubResource( 32 )
-anims/dead = SubResource( 60 )
+anims/block = SubResource( 239 )
+anims/block_hit = SubResource( 240 )
+anims/dead = SubResource( 241 )
 anims/dodge = SubResource( 98 )
-anims/hurt = SubResource( 26 )
-anims/hurt_air = SubResource( 27 )
-anims/hurt_floor = SubResource( 28 )
-anims/idle = SubResource( 30 )
-anims/walk = SubResource( 36 )
+anims/hurt = SubResource( 242 )
+anims/hurt_air = SubResource( 243 )
+anims/hurt_floor = SubResource( 244 )
+anims/idle = SubResource( 245 )
+anims/walk = SubResource( 246 )
 
 [node name="zeroPoint" type="Spatial" parent="."]
 
@@ -1430,17 +1430,17 @@ monitorable = false
 
 [node name="hurtboxCollision" type="CollisionShape" parent="zeroPoint/hurtbox"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 63 )
+shape = SubResource( 263 )
 disabled = true
 
 [node name="CollisionShapeGround" type="CollisionShape" parent="."]
 transform = Transform( 0.965926, -1.48943e-09, -0.258819, -0.258819, -1.13133e-08, -0.965926, -1.48943e-09, 1, -1.13133e-08, 0.22, 1.714, 0 )
-shape = SubResource( 64 )
+shape = SubResource( 264 )
 
 [node name="shadowMaker" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 cast_shadow = 3
-mesh = SubResource( 65 )
+mesh = SubResource( 265 )
 material/0 = null
 
 [node name="aggro" type="Area" parent="."]

@@ -82,7 +82,7 @@ func _ready():
 	refreshShop()
 	
 	# plays music for shop
-	soundManager.playMusic("map")
+	soundManager.playMusic("shop")
 	
 	# hides confirmation menu for now
 	get_node("confirm").hide()

@@ -15,6 +15,11 @@ radius = 0.8
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "jerky",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": false,
 "name": "knat",
@@ -23,11 +28,6 @@ animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": false,
 "name": "slush",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": false,
-"name": "jerky",
 "speed": 5.0
 } ]
 
@@ -53,11 +53,11 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
-offset = Vector2( 0, 14 )
+offset = Vector2( 0, 13 )
 flip_h = true
 pixel_size = 0.07
 frames = SubResource( 2 )
-animation = "jerky"
+animation = "slush"
 
 [node name="hurtbox" type="Area" parent="." groups=["healthSmall"]]
 collision_layer = 256

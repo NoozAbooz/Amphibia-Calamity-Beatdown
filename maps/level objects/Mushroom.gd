@@ -4,9 +4,7 @@ export var bounceHeight = 65
 
 onready var anim = $"AnimationPlayer"
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(int, "Green Mantis", "Red Mantis", "Spider", "Wasp", "Yellow Mantis", "Black Mantis", "Zapapede", "Robo") var mushColor
 
 
 # Called when the node enters the scene tree for the first time.

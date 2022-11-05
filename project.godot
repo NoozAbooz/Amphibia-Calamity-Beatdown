@@ -666,6 +666,7 @@ cam_back={
 3d_physics/layer_12="Enemy Only Ground"
 3d_physics/layer_13="Windboxes"
 3d_physics/layer_14="Projectiles"
+3d_physics/layer_15="Enemy Only Barrier"
 
 [logging]
 

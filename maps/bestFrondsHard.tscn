@@ -28,7 +28,7 @@
 [ext_resource path="res://maps/decorations/mushPurpleBig.tscn" type="PackedScene" id=26]
 [ext_resource path="res://maps/wartwood/mush_house_3.tscn" type="PackedScene" id=27]
 [ext_resource path="res://maps/decorations/small plants/mushOrange.tscn" type="PackedScene" id=28]
-[ext_resource path="res://maps/decorations/bug objects/spider_nest_dec.tscn" type="PackedScene" id=29]
+[ext_resource path="res://maps/decorations/bug objects/spiderNestDec.tscn" type="PackedScene" id=29]
 [ext_resource path="res://maps/decorations/bug objects/web.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=31]
 [ext_resource path="res://maps/decorations/small plants/plantA.tscn" type="PackedScene" id=32]

@@ -85,7 +85,7 @@ func _ready():
 	item4.dialogue = "fel_tackle"
 	
 	# plays music for shop
-	soundManager.playMusic("map")
+	soundManager.playMusic("shop")
 	
 	# hides menus for now
 	get_node("confirm").hide()

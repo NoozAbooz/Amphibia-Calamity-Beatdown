@@ -190,11 +190,6 @@ animations = [ {
 "name": "wartwood",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
-"name": "bestFrondsHard",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "bestFronds",
@@ -204,18 +199,23 @@ animations = [ {
 "loop": true,
 "name": "playground",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "bestFrondsHard",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "check",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "uncheck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "check",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -251,7 +251,7 @@ texture = ExtResource( 24 )
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
 position = Vector2( 812.5, 419 )
 frames = SubResource( 10 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]
