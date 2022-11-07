@@ -29,29 +29,49 @@ animations = [ {
 "name": "Marcy_happy",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": false,
-"name": "Fel_normal",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": false,
-"name": "Wally_ask",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "Mad_normal",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Marcy_ask",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 15 ) ],
+"loop": false,
+"name": "Anne_happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": false,
+"name": "Hoppop_mad",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": false,
 "name": "Wally_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "Polly_happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "Hoppop_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Sprig_happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Sprig_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "Wally_ask",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -69,14 +89,14 @@ animations = [ {
 "name": "Anne_ask",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": false,
-"name": "Anne_happy",
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Sprig_normal",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": false,
-"name": "Polly_happy",
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Mad_normal",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -84,28 +104,8 @@ animations = [ {
 "name": "Hoppop_ask",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": false,
-"name": "Hoppop_mad",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": false,
-"name": "Hoppop_normal",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "Sprig_normal",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "Sprig_happy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "Sprig_ask",
+"name": "Fel_normal",
 "speed": 5.0
 } ]

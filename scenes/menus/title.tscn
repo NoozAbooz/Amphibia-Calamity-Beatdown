@@ -29,7 +29,6 @@ __meta__ = {
 }
 
 [node name="lockButton" type="Button" parent="."]
-visible = false
 margin_left = 81.0
 margin_top = 184.0
 margin_right = 257.0

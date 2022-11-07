@@ -560,6 +560,11 @@ transform = Transform( -1, -3.24371e-08, -3.24371e-08, 3.24371e-08, -1.19209e-07
 mesh = SubResource( 21 )
 material/0 = null
 
+[node name="logo2" type="MeshInstance" parent="stump"]
+transform = Transform( -1, -3.66866e-07, -1.50996e-07, -1.83433e-07, 2, -7.54976e-08, 1.50996e-07, -1.50995e-07, -1, -0.29697, 1.74608, 1.63263 )
+mesh = SubResource( 21 )
+material/0 = null
+
 [node name="Sphere" type="MeshInstance" parent="stump"]
 transform = Transform( -1, -3.25698e-08, -3.25698e-08, 3.25698e-08, -1.19209e-07, -1, 3.25698e-08, -1, 1.78814e-07, 3.15448, 3.1331, 1.24709 )
 mesh = SubResource( 22 )

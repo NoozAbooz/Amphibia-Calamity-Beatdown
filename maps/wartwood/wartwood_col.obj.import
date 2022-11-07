@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/wartwood_col.obj-2a53262b0451200df10aae2789739309.mesh"
+
+[deps]
+
+files=[ "res://.import/wartwood_col.obj-2a53262b0451200df10aae2789739309.mesh" ]
+
+source_file="res://maps/wartwood/wartwood_col.obj"
+dest_files=[ "res://.import/wartwood_col.obj-2a53262b0451200df10aae2789739309.mesh", "res://.import/wartwood_col.obj-2a53262b0451200df10aae2789739309.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
