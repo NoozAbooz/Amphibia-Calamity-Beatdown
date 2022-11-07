@@ -3826,7 +3826,7 @@ height = 3.0
 
 [sub_resource type="CapsuleShape" id=5]
 resource_local_to_scene = true
-height = 0.01
+height = 1.2
 
 [sub_resource type="CylinderMesh" id=2]
 height = 0.1
@@ -3869,7 +3869,6 @@ animations = [ {
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_mask = 1030
 script = ExtResource( 2 )
-comboReady = true
 
 [node name="Label" type="Label" parent="."]
 margin_right = 50.0
@@ -3921,8 +3920,7 @@ offset = Vector2( 0, 31 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 56 )
-animation = "attack_slide_L"
-frame = 2
+animation = "attack_L1"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -3945,7 +3943,7 @@ shape = SubResource( 35 )
 [node name="projSpawnPoint" type="Spatial" parent="zeroPoint"]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.6, 0 )
 shape = SubResource( 5 )
 
 [node name="shadowMaker" type="MeshInstance" parent="."]

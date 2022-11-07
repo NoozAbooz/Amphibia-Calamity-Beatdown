@@ -54,7 +54,7 @@ var levelNum = 0
 
 # playable characters
 var hasMarcy  = false
-var hasSasha  = false
+var hasSasha  = true
 var hasSprig = true
 var hasMaggie = false
 var availableChars = ["Anne"]
