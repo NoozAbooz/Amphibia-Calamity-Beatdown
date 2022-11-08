@@ -229,7 +229,7 @@ func setHitBox(damage, type, dir, sfx = "hit1"):
 	if (lookRight == false):
 		hitDir.x *= -1
 		
-func spawnProj():
+func spawnProj(projVel = Vector3.ZERO, projAng = 0):
 	# sets spawn point
 	var spawnLocation = get_node("zeroPoint/projSpawnPoint").global_transform.origin
 	# sets projectile type
@@ -239,7 +239,7 @@ func spawnProj():
 	# instances and initializes projectile scene
 	var proj = projScene.instance()
 	get_parent().add_child(proj)
-	proj.initialize(spawnLocation, lookRight, hitDamage, hitType, hitDir, hitSound, projType)
+	proj.initialize(spawnLocation, lookRight, hitDamage, hitType, hitDir, hitSound, projType, projVel, projAng)
 		
 func fixPlayerPos():
 	var cam = get_parent().get_node("camera_pivot/Camera")

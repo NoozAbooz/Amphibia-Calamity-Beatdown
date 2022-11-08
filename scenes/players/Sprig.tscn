@@ -6180,16 +6180,17 @@ offset = Vector2( 0, 20 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "walk"
+animation = "attack_sling"
+frame = 2
 
 [node name="AnimatedSprite3D_Back" type="AnimatedSprite3D" parent="zeroPoint/AnimatedSprite3D"]
 transform = Transform( 1, -5.32907e-15, -1.42109e-14, 0, 1, 0, 2.13163e-14, 0, 1, -1.88419, 0.00633945, 0.0236592 )
 layers = 3
-offset = Vector2( 0, 16 )
+offset = Vector2( 0, 13 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 61 )
-animation = "walk_p"
+animation = "stand_p"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -6220,7 +6221,7 @@ skeleton = NodePath("../..")
 material/0 = null
 
 [node name="shadowMakerSmall" type="MeshInstance" parent="zeroPoint"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.746 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63024e-08, 1.5, 1.7456 )
 cast_shadow = 3
 mesh = SubResource( 147 )
 skeleton = NodePath("../..")

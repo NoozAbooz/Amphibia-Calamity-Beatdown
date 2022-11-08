@@ -53,7 +53,7 @@ var levelMusic = "ripple"
 var levelNum = 0
 
 # playable characters
-var hasMarcy  = false
+var hasMarcy  = true
 var hasSasha  = true
 var hasSprig = true
 var hasMaggie = false

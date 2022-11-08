@@ -16,6 +16,9 @@ var hitLanded = false
 
 var playerChar = "proj"
 
+enum {GRAV, NOGRAV}
+var physType = GRAV
+
 onready var sprite = get_node("zeroPoint/AnimatedSprite3D")
 
 
@@ -24,21 +27,43 @@ func _ready():
 	pass # Replace with function body.
 
 
-func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0):
-	# flips sprite if necessary and sets starting velocity
-	if (lookRight == false):
-		sprite.flip_h = true
-		velocity = Vector3(-30, 10, 0)
-	else:
-		sprite.flip_h = false
-		velocity = Vector3(30, 10, 0)
+func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, projVel = Vector3.ZERO, projAng = 0):
+	# determines type of physics
+	physType = projType
+	
 	match projType:
 		0:
 			sprite.play("rock")
+			physType = GRAV
+			# flips sprite if necessary and sets starting velocity
+			if (lookRight == false):
+				sprite.flip_h = true
+				velocity = Vector3(-30, 10, 0)
+			else:
+				sprite.flip_h = false
+				velocity = Vector3(30, 10, 0)
 		1:
+			physType = NOGRAV
 			sprite.play("arrow")
+			# flips sprite if necessary and sets starting velocity
+			if (lookRight == false):
+				sprite.flip_h = false
+				projVel.x *= -1
+				projAng = -1 * projAng
+			else:
+				sprite.flip_h = true
+			sprite.rotation_degrees.z = -1 * projAng
+			velocity = projVel.rotated(Vector3(0, 0, 1), deg2rad(projAng))
 		_:
 			sprite.play("rock")
+			physType = GRAV
+			# flips sprite if necessary and sets starting velocity
+			if (lookRight == false):
+				sprite.flip_h = true
+				velocity = Vector3(-30, 10, 0)
+			else:
+				sprite.flip_h = false
+				velocity = Vector3(30, 10, 0)
 	# sets projective values
 	hitDamage = damage
 	hitType = type
@@ -48,10 +73,13 @@ func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0):
 		
 func _physics_process(delta):
 	# exerts gravity
-	velocity.y -= force_grav * delta
+	if (physType == GRAV):
+		velocity.y -= force_grav * delta
 	# moves the object based on velocity vector
 	translation += velocity * delta
-
+	# despawns after hit
+	if hitLanded and (physType == NOGRAV):
+		queue_free()
 
 func _on_despawnTimer_timeout():
 	queue_free()

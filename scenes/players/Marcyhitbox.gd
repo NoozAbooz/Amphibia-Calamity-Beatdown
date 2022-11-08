@@ -14,16 +14,16 @@ func _process(delta):
 	match player.state:
 		
 		A_L1:
-			player.setHitBox(5, KB_WEAK, Vector3(1, 0, 0))
+			player.setHitBox(7, KB_WEAK, Vector3(1, 0, 0))
 		A_L2:
-			player.setHitBox(10, KB_WEAK, Vector3(1, 0, 0), "hit2")
+			player.setHitBox(6, KB_WEAK, Vector3(1, 0, 0), "hit2")
 		A_L3:
-			player.setHitBox(10, KB_WEAK, Vector3(1, 0, 0))
+			player.setHitBox(5, KB_WEAK, Vector3(1, 0, 0))
 			
 		A_H1:
 			player.setHitBox(12, KB_STRONG, Vector3(30, 25, 0), "hit3")
 		A_H2:
-			player.setHitBox(20, KB_STRONG, Vector3(7, 50, 0), "hit3")
+			player.setHitBox(4, KB_STRONG, Vector3(8, 26, 0), "hit3")
 		A_H3:
 			if (player.comboReady):
 				player.setHitBox(15, KB_ANGLED, Vector3(15, 35, 0), "none")
@@ -31,11 +31,11 @@ func _process(delta):
 				player.setHitBox(2, KB_WEAK, Vector3(1, 0, 0), "hit5")
 		
 		A_AL1:
-			player.setHitBox(8, KB_AIR, Vector3(1, 0, 0))
+			player.setHitBox(7, KB_WEAK, Vector3(1, 0, 0))
 		A_AL2:
-			player.setHitBox(8, KB_AIR, Vector3(1, 0, 0), "hit2")
+			player.setHitBox(6, KB_WEAK, Vector3(1, 0, 0), "hit2")
 		A_AL3:
-			player.setHitBox(12, KB_AIR_UP, Vector3(1, 30, 0))
+			player.setHitBox(5, KB_WEAK, Vector3(1, 0, 0))
 			
 		A_AH1:
 			player.setHitBox(20, KB_ANGLED, Vector3(40, 10, 0), "hit3")
