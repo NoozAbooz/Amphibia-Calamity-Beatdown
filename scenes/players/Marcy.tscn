@@ -980,7 +980,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id=25]
 resource_name = "attack_air_H2"
-length = 0.500001
+length = 1.0
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite3D:frame")
@@ -1101,6 +1101,35 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1.6, 0 ) ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("..")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.0666667, 0.0833333, 0.116667, 0.15, 0.183334, 0.216667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "forceRecoil"
+}, {
+"args": [ Vector3( 25, 0, 2 ), -45.0 ],
+"method": "spawnProj"
+}, {
+"args": [ Vector3( 25, 0, -2 ), -45.0 ],
+"method": "spawnProj"
+}, {
+"args": [ Vector3( 25, 0, 0 ), -40.0 ],
+"method": "spawnProj"
+}, {
+"args": [ Vector3( 25, 0, 2 ), -35.0 ],
+"method": "spawnProj"
+}, {
+"args": [ Vector3( 25, 0, -2 ), -35.0 ],
+"method": "spawnProj"
+} ]
 }
 
 [sub_resource type="Animation" id=50]
@@ -1548,7 +1577,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.116667 ),
+"times": PoolRealArray( 0, 0.0833333 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -1572,7 +1601,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.116667 ),
+"times": PoolRealArray( 0, 0.0833333 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -1608,10 +1637,13 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.05, 0.0666667 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [ Vector3( 25, 0, 0 ) ],
+"args": [  ],
+"method": "forceMiniJump"
+}, {
+"args": [ Vector3( 25, 0, 0 ), -15.0 ],
 "method": "spawnProj"
 } ]
 }
@@ -1699,7 +1731,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.116667 ),
+"times": PoolRealArray( 0, 0.0833333 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -1723,7 +1755,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.116667 ),
+"times": PoolRealArray( 0, 0.0833333 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -1759,10 +1791,13 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.05, 0.0666667 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [ Vector3( 25, 0, 0 ) ],
+"args": [  ],
+"method": "forceMiniJump"
+}, {
+"args": [ Vector3( 25, 0, 0 ), -25.0 ],
 "method": "spawnProj"
 } ]
 }
@@ -1838,7 +1873,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.133333 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -1862,7 +1897,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.133333 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -1898,10 +1933,13 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.05, 0.0666667 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [ Vector3( 25, 0, 0 ) ],
+"args": [  ],
+"method": "forceMiniJump"
+}, {
+"args": [ Vector3( 25, 0, 0 ), -35.0 ],
 "method": "spawnProj"
 } ]
 }
@@ -3935,7 +3973,7 @@ animations = [ {
 
 [sub_resource type="BoxShape" id=15]
 resource_local_to_scene = true
-extents = Vector3( 0.1, 0.1, 0.1 )
+extents = Vector3( 6, 12, 14 )
 
 [sub_resource type="CylinderShape" id=35]
 height = 3.0
@@ -3985,6 +4023,8 @@ animations = [ {
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_mask = 1030
 script = ExtResource( 39 )
+comboReady = true
+hitLanded = true
 
 [node name="Label" type="Label" parent="."]
 margin_right = 50.0
@@ -4036,8 +4076,7 @@ offset = Vector2( 0, 31 )
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 129 )
-animation = "attack_H3"
-frame = 2
+animation = "attack_L1"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 8
@@ -4046,7 +4085,7 @@ monitoring = false
 script = ExtResource( 4 )
 
 [node name="hitboxCollision" type="CollisionShape" parent="zeroPoint/hitbox"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 4, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2, -1.6 )
 shape = SubResource( 15 )
 disabled = true
 

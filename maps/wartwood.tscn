@@ -1887,6 +1887,7 @@ numLily = 0
 
 [node name="grass5" parent="environment/plants" instance=ExtResource( 69 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 261.233, 0.0479174, 20.7249 )
+visible = false
 xRange = 26
 zRange = 15
 radius = 28

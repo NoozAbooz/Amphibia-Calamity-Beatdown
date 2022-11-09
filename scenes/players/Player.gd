@@ -240,6 +240,13 @@ func spawnProj(projVel = Vector3.ZERO, projAng = 0):
 	var proj = projScene.instance()
 	get_parent().add_child(proj)
 	proj.initialize(spawnLocation, lookRight, hitDamage, hitType, hitDir, hitSound, projType, projVel, projAng)
+
+func forceRecoil():
+	recoilStart = true
+	
+func forceMiniJump():
+	if (velocity.y <= 20):
+		mini_jump_boost = 15
 		
 func fixPlayerPos():
 	var cam = get_parent().get_node("camera_pivot/Camera")

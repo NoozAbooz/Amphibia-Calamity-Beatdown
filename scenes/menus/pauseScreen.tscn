@@ -27,11 +27,6 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 400, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 800, 0, 400, 350 )
-
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 14 )
@@ -41,6 +36,11 @@ region = Rect2( 1200, 0, 400, 350 )
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1600, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 800, 0, 400, 350 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -54,11 +54,6 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ) ],
-"loop": false,
-"name": "3",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 3 ) ],
 "loop": false,
 "name": "1",
@@ -67,6 +62,11 @@ animations = [ {
 "frames": [ SubResource( 4 ) ],
 "loop": false,
 "name": "4",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": false,
+"name": "3",
 "speed": 5.0
 } ]
 
@@ -82,7 +82,7 @@ __meta__ = {
 [node name="dark" type="ColorRect" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
-color = Color( 0, 0, 0, 0.588235 )
+color = Color( 0, 0, 0, 0.745098 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -99,6 +99,7 @@ __meta__ = {
 }
 
 [node name="basicMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -346,7 +347,6 @@ valign = 1
 autowrap = true
 
 [node name="combosMenu" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -379,6 +379,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="namesAnne" type="ScrollContainer" parent="combosMenu/namesContainer"]
+visible = false
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0
@@ -577,6 +578,7 @@ margin_right = 444.0
 margin_bottom = 1068.0
 
 [node name="namesSprig" type="ScrollContainer" parent="combosMenu/namesContainer"]
+visible = false
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0
@@ -803,7 +805,7 @@ margin_bottom = 74.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "3 hit combo"
+text = "Triple Bolt Shot"
 align = 2
 valign = 1
 
@@ -814,7 +816,7 @@ margin_bottom = 144.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Uppercut"
+text = "Rising Arrows"
 align = 2
 valign = 1
 
@@ -825,7 +827,7 @@ margin_bottom = 214.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Mega Punch"
+text = "Trip Kick"
 align = 2
 valign = 1
 
@@ -836,7 +838,7 @@ margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 15 )
-text = "Spin Attack"
+text = "Flammable Cape"
 align = 2
 valign = 1
 
@@ -858,7 +860,7 @@ margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 15 )
-text = "Tackle"
+text = "Crossbow Jab"
 align = 2
 valign = 1
 
@@ -869,7 +871,7 @@ margin_bottom = 494.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "3 hit air combo"
+text = "Triple Bolt Shot"
 align = 2
 valign = 1
 
@@ -891,7 +893,7 @@ margin_bottom = 634.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Spike Combo"
+text = "Arrow Rain"
 align = 2
 valign = 1
 
@@ -913,7 +915,7 @@ margin_bottom = 774.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Spike"
+text = "Fast Arrow Rain"
 align = 2
 valign = 1
 __meta__ = {
@@ -973,6 +975,7 @@ margin_right = 444.0
 margin_bottom = 1068.0
 
 [node name="namesSasha" type="ScrollContainer" parent="combosMenu/namesContainer"]
+visible = false
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0
@@ -1171,6 +1174,7 @@ margin_right = 444.0
 margin_bottom = 1068.0
 
 [node name="namesMaggie" type="ScrollContainer" parent="combosMenu/namesContainer"]
+visible = false
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0
