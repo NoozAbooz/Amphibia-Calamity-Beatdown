@@ -67,7 +67,7 @@ var windVect = Vector3.ZERO
 #var attackReady = false
 
 enum {IDLE, WALK, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, A_H, BLOCK, BLOCKHIT, KO, SPAWN}
-enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP}
+enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP, KB_WEAK_PIERCE, KB_STRONG_PIERCE, KB_ANGLED_PIERCE}
 enum {LIGHT, HEAVY, VERYHEAVY}
 
 export var weight = LIGHT
@@ -332,7 +332,7 @@ func _physics_process(delta):
 			hurtDamage = 0
 		elif (weight == VERYHEAVY) and (hp >= 0):
 			pass
-		elif (hurtType == KB_STRONG) or (hurtType == KB_ANGLED):
+		elif (hurtType == KB_STRONG) or (hurtType == KB_ANGLED) or (hurtType == KB_ANGLED_PIERCE):
 			if (weight == LIGHT) or (hp <= 0):
 				nextState = HURTLAUNCH
 			elif isInState([HURT]):
@@ -537,7 +537,7 @@ func _on_hurtbox_area_entered(area):
 	attacker.hitLanded = true
 	# changes knockback values depending on the type and situation (type should end up as either weak or strong):
 	# changes x-z knokback angle to be away from player if an angled attack
-	if (hurtType == KB_ANGLED):
+	if (hurtType == KB_ANGLED) or (hurtType == KB_ANGLED_PIERCE):
 		var mag = abs(attacker.hitDir.x)
 		var ve = Vector2(translation.x, translation.z)
 		var vp = Vector2(attacker.translation.x, attacker.translation.z)

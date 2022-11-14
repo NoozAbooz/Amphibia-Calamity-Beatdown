@@ -380,7 +380,7 @@ func _physics_process(delta):
 			hurtDamage = 0
 		elif (weight == VERYHEAVY) and (hp >= 0):
 			pass
-		elif (hurtType == KB_STRONG) or (hurtType == KB_ANGLED):
+		elif (hurtType == KB_STRONG) or (hurtType == KB_ANGLED) or (hurtType == KB_ANGLED_PIERCE):
 			if (weight == LIGHT) or (hp <= 0):
 				nextState = HURTLAUNCH				
 			elif isInState([HURT]):
@@ -402,7 +402,7 @@ func _physics_process(delta):
 		animFinished = false
 
 	# attack delay counter
-	if (isInState([A_H])):
+	if (isInState([A_H, A_L, A_P])):
 		attackWaitCounter = attackResetTime
 	elif (attackWaitCounter > 0):
 		attackWaitCounter -= 1
@@ -614,7 +614,7 @@ func _on_hurtbox_area_entered(area):
 	attacker.hitLanded = true
 	# changes knockback values depending on the type and situation (type should end up as either weak or strong):
 	# changes x-z knokback angle to be away from player if an angled attack
-	if (hurtType == KB_ANGLED):
+	if (hurtType == KB_ANGLED) or (hurtType == KB_ANGLED_PIERCE):
 		var mag = abs(attacker.hitDir.x)
 		var ve = Vector2(translation.x, translation.z)
 		var vp = Vector2(attacker.translation.x, attacker.translation.z)

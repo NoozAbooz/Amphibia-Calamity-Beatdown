@@ -1150,15 +1150,40 @@ flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 136, 330, 68, 66 )
 
+[sub_resource type="AtlasTexture" id=117]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 0, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=118]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 68, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=119]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 136, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=120]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 204, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=121]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 272, 132, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=122]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 340, 132, 68, 66 )
+
 [sub_resource type="AtlasTexture" id=107]
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 68, 330, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=108]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 0, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=109]
 flags = 1
@@ -1200,35 +1225,10 @@ flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 476, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=117]
+[sub_resource type="AtlasTexture" id=108]
 flags = 1
 atlas = ExtResource( 1 )
-region = Rect2( 0, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=118]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 68, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=119]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 136, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=120]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 204, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=121]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 272, 132, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=122]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 340, 132, 68, 66 )
+region = Rect2( 0, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=123]
 flags = 1
@@ -1312,21 +1312,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 107 ) ],
-"loop": false,
-"name": "hurt_air",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 108 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ) ],
-"loop": false,
-"name": "walk",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ) ],
 "loop": false,
 "name": "attack_right",
@@ -1335,6 +1320,21 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "attack_bite",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 107 ) ],
+"loop": false,
+"name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ) ],
+"loop": false,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 108 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ) ],
@@ -1411,6 +1411,7 @@ offset = Vector2( 0, 32 )
 pixel_size = 0.07
 frames = SubResource( 136 )
 animation = "attack_right"
+frame = 5
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 32
@@ -1431,7 +1432,6 @@ monitorable = false
 [node name="hurtboxCollision" type="CollisionShape" parent="zeroPoint/hurtbox"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 63 )
-disabled = true
 
 [node name="CollisionShapeGround" type="CollisionShape" parent="."]
 transform = Transform( 0.965926, -1.48943e-09, -0.258819, -0.258819, -1.13133e-08, -0.965926, -1.48943e-09, 1, -1.13133e-08, 0.22, 1.714, 0 )

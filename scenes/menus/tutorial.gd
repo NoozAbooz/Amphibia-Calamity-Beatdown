@@ -9,6 +9,8 @@ var animationNum = -3
 
 var skippable = false
 
+var loading = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("startButton").grab_focus()
@@ -63,5 +65,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 #		$"AnimationPlayer".play(str(nextAnim))
 	
 func finished():
-	$"AnimationPlayer".stop()
-	tran.loadLevel("res://scenes/menus/mapOpen.tscn")
+	if not loading:
+		loading = true
+		$"AnimationPlayer".stop()
+		tran.loadLevel("res://scenes/menus/mapOpen.tscn")
+	else:
+		pass

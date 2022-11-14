@@ -50,9 +50,9 @@ panorama = ExtResource( 14 )
 [sub_resource type="Environment" id=130]
 background_mode = 1
 background_sky = SubResource( 129 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1075,9 +1075,9 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 9 )
 region = Rect2( 136, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=74]
+[sub_resource type="AtlasTexture" id=89]
 atlas = ExtResource( 9 )
-region = Rect2( 0, 330, 68, 66 )
+region = Rect2( 68, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 9 )
@@ -1111,9 +1111,9 @@ region = Rect2( 408, 66, 68, 66 )
 atlas = ExtResource( 9 )
 region = Rect2( 476, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=89]
+[sub_resource type="AtlasTexture" id=74]
 atlas = ExtResource( 9 )
-region = Rect2( 68, 330, 68, 66 )
+region = Rect2( 0, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 9 )
@@ -1156,9 +1156,9 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 74 ) ],
+"frames": [ SubResource( 89 ) ],
 "loop": false,
-"name": "hurt",
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ) ],
@@ -1166,9 +1166,9 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 89 ) ],
+"frames": [ SubResource( 74 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
@@ -3262,67 +3262,79 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13632, 0.0430202, -2.49613 )
 enemyNum = 6
 
 [node name="enemySpawnPoint8" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106.758, 11.4739, 16.3194 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.943, 14.6423, 15.7435 )
 enemyNum = 2
 
 [node name="enemySpawnPoint9" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.835, 11.4739, 12.9944 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 122.02, 14.6423, 12.4185 )
 enemyNum = 2
 
 [node name="enemySpawnPoint14" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.327, 11.4739, 16.4168 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 121.512, 14.6423, 15.8409 )
 enemyNum = 2
 
 [node name="enemySpawnPoint15" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 112.405, 11.4739, 13.0918 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 124.59, 14.6423, 12.5159 )
 enemyNum = 2
 
 [node name="enemySpawnPoint16" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 101.164, 11.4739, 17.279 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 113.349, 14.6423, 16.7031 )
 enemyNum = 2
 
 [node name="enemySpawnPoint17" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.242, 11.4739, 13.954 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 116.427, 14.6423, 13.3781 )
 enemyNum = 2
 
+[node name="enemySpawnPoint60" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.3514, 10.4527, 24.9883 )
+enemyNum = 7
+
+[node name="enemySpawnPoint61" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84.0555, 10.4527, 23.3677 )
+enemyNum = 7
+
+[node name="enemySpawnPoint62" parent="enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81.2962, 10.4527, 22.9843 )
+enemyNum = 7
+
 [node name="enemySpawnPoint18" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 103.734, 11.4739, 17.3764 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.919, 14.6423, 16.8005 )
 enemyNum = 2
 
 [node name="enemySpawnPoint19" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106.812, 11.4739, 14.0515 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.997, 14.6423, 13.4756 )
 enemyNum = 2
 
 [node name="enemySpawnPoint20" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 108.704, 11.4739, 18.5414 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 120.889, 14.6423, 17.9655 )
 enemyNum = 2
 
 [node name="enemySpawnPoint21" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 111.781, 11.4739, 15.2164 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.966, 14.6423, 14.6405 )
 enemyNum = 2
 
 [node name="enemySpawnPoint22" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 111.274, 11.4739, 18.6388 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.459, 14.6423, 18.0629 )
 enemyNum = 2
 
 [node name="enemySpawnPoint23" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 114.351, 11.4739, 15.3139 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126.536, 14.6423, 14.738 )
 enemyNum = 2
 
 [node name="enemySpawnPoint24" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106.504, 11.4739, 24.8748 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.689, 14.6423, 24.2989 )
 enemyNum = 2
 
 [node name="enemySpawnPoint25" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.581, 11.4739, 21.5498 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 121.766, 14.6423, 20.9739 )
 enemyNum = 2
 
 [node name="enemySpawnPoint26" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.074, 11.4739, 24.9722 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 121.259, 14.6423, 24.3963 )
 enemyNum = 2
 
 [node name="enemySpawnPoint27" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 112.151, 11.4739, 21.6473 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 124.336, 14.6423, 21.0714 )
 enemyNum = 2
 
 [node name="enemySpawnPoint2" parent="enemies" instance=ExtResource( 23 )]
@@ -3962,7 +3974,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.3871, 9.52951, 8.9466 )
 preset = 4
 
 [node name="dialogueTrigger" parent="." instance=ExtResource( 66 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 87.7815, 9.45799, 23.3454 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 204.963, 9.45799, 23.3454 )
 
 [connection signal="animation_finished" from="switch2/bridge/AnimationPlayer" to="switch2/bridge" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="enemies/greenMantis/AnimationPlayer" to="enemies/greenMantis" method="_on_AnimationPlayer_animation_finished"]

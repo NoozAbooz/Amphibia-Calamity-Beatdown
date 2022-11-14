@@ -5,21 +5,24 @@ var coinScene = preload("res://scenes/pickups/coin.tscn")
 var khaoScene = preload("res://scenes/pickups/khao.tscn")
 var mushScene = preload("res://scenes/pickups/mush.tscn")
 
-export var speedWalk = 6
-export var damage = 5
+export var speedWalk = 8
+export var damage = 10
+
+export var weakAttacker = false
 
 export var printVals = false
 
-export var maxCoins = 5
-export var minCoins = 2
-export var oddsDrop = 0.10 # 0.10
-export var oddsKhao = 0.20 
+export var maxCoins = 0
+export var minCoins = 0
+export var oddsDrop = 0
+export var oddsKhao = 0 
 export var broke = false
 export var infEnemy = false #if true, enemy does not count towards kills. Used for spawners and summons
 export var startRight = false
 export var ambushEnemy = false # if true, kills count towards ambush kill counts
+export var color = 0 # determines behavior besed on the enemy color (green vs yellow mantis)
 
-export var hp = 100
+export var hp = 1
 
 var velocity = Vector3.ZERO
 var velocityG = Vector3.ZERO
@@ -35,6 +38,11 @@ var hitDamage = 0
 var hitType = 0
 var hitDir = Vector3.ZERO
 
+# prevents enemies hit by friendly fire from targetting the robot
+var playerChar = "proj" 
+var hitLanded = false
+var hitSound = "hit4"
+
 var justHurt = false
 var invincible = false
 var hurtAgain = false
@@ -43,47 +51,40 @@ var hurtType = 0
 var hurtDir = Vector3.ZERO
 var invincibleState = false
 var deathFloorHeight = -30
+var uppercutted = false
+var sliding = false
+var slideDir = Vector2.ZERO
 
 var target = null
 var targetFound = false
 var aggroReset = false
 var walkTo = Vector3.ZERO
-var targetOffset = 2
-var xAttackRange = 2.5 #3
-var zAttackRange = 2.5
+var targetOffset = 2.5
+var xAttackRange = 5 #3
+var zAttackRange = 1.5
 var attackWaitCounter = 0
 var attackResetTime = 70
 var blockWaitCounter = 60
 
-var chillCounter = 60
-var chargeCounter = 60
-var zapCounter = 60
 
 var enemyPush = Vector3.ZERO
 
 var windVect = Vector3.ZERO
 
-var flashColorDark  = Color(36, 1, 2)
-var flashColorLight = Color(255, 255, 255)
+#var attackWaitCounter = 1500
+#var attackReady = false
 
-enum {IDLE, WALK, CHILL, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, CHARGE, ATTACK, KO, SPAWN, BLOCK, BLOCKHIT}
+enum {IDLE, WALK, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, A_H, BLOCK, BLOCKHIT, KO, SPAWN, A_L, A_P, DODGE, THINK}
 enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP, KB_WEAK_PIERCE, KB_STRONG_PIERCE, KB_ANGLED_PIERCE}
-enum {CHARGING, WARN1, WARN2, ZAP}
+enum {LIGHT, HEAVY, VERYHEAVY}
+
+export var weight = LIGHT
 
 var state = IDLE
 var nextState = IDLE
 
-var zapState = CHARGING
-var nextZapState = CHARGING
-
-enum {LIGHT, HEAVY, VERYHEAVY}
-var weight = LIGHT
-
 onready var anim = $"AnimationPlayer"
-onready var animElec = $"AnimationPlayerElec"
 onready var sprite = $"zeroPoint/AnimatedSprite3D"
-onready var spriteOutline = $"zeroPoint/AnimatedSprite3DFlash"
-onready var spriteZap = $"zeroPoint/AnimatedSprite3DZap"
 var animFinished = false
 
 var onRightWall = false
@@ -103,6 +104,20 @@ func setHitBox(attackDamage, type, dir):
 	if (lookRight == false):
 		hitDir.x *= -1
 		
+func startSlide():
+	sliding = true
+func stopSlide():
+	sliding = false
+func setSlideTarget():
+	var slideTargetLoc = null
+	if (target == null):
+		slideTargetLoc = translation
+	else:
+		slideTargetLoc = target.translation
+	slideDir.x = slideTargetLoc.x - translation.x 
+	slideDir.y = slideTargetLoc.z - translation.z 
+	slideDir = slideDir.normalized()
+
 func despawn():
 	# Adds 1 to kill counter
 	if (infEnemy == false):
@@ -152,7 +167,7 @@ func despawn():
 	
 func checkInRange(targetPlayer):
 	if (targetPlayer != null):
-		if(abs(targetPlayer.translation.x - translation.x) <= xAttackRange) and (abs(targetPlayer.translation.z - translation.z) <= zAttackRange):
+		if(abs(targetPlayer.translation.x - translation.x) <= xAttackRange) and (abs(targetPlayer.translation.z - translation.z) <=zAttackRange):
 			return true
 		else:
 			return false
@@ -171,14 +186,6 @@ func blockCounterReady():
 		return false
 func blockCounterReset():
 	blockWaitCounter = rng.rand.randi_range(60, 90)
-	
-func chillCounterReady():
-	if (chillCounter <= 0):
-		return true
-	else:
-		return false
-func chillCounterReset():
-	chillCounter = rng.rand.randi_range(60, 180)
 		
 func reduce(value, amount):
 	if (abs(value) <= amount):
@@ -190,31 +197,26 @@ func reduce(value, amount):
 	return value
 	
 func rollOffensiveAction():
-	return CHARGE
-
+	blockCounterReset()
+	match color:
+		0: # standard -------------------------------
+			return equalOdds([BLOCK, A_H, A_L])
+		_:
+			return equalOdds([BLOCK, A_H, A_L])
+			
 func rollDefensiveAction():
-	chillCounterReset()
-	return equalOdds([CHILL, IDLE])
-
-func rollGetupAction():
-	chillCounterReset()
-	return equalOdds([CHARGE, CHILL, IDLE])
+	blockCounterReset()
+	match color:
+		0: # standard -------------------------------
+			return equalOdds([BLOCK, A_H, A_L])
+		_:
+			return equalOdds([BLOCK, A_H, A_L])
 
 # returns a random object/state in the given array. Each has the same chance of returning.
 func equalOdds(stateArray):
 	var i = rng.rand.randi_range(0, len(stateArray)-1)
 	return stateArray[i]
 	
-func rollChargeTime():
-	chargeCounter = rng.rand.randi_range(120, 360)
-	
-func warnZap():
-	zapState = WARN2
-	nextZapState = WARN2
-	
-func forceZap():
-	zapState = ZAP
-	nextZapState = ZAP
 
 func _ready():
 	if (startRight):
@@ -258,11 +260,14 @@ func initialize(type, loc, vel = Vector3.ZERO, brk = false, infVis = false, infE
 	speedWalk = type.spd
 	damage = type.dam
 	hp = type.hlth
+	weight = type.wgt
 	maxCoins = type.maxC
 	minCoins = type.minC
 	oddsDrop = type.oddsD
 	oddsKhao = type.oddsK
+	weakAttacker = type.weakA
 	attackResetTime = type.attackWaitTime
+	color = type.color
 	
 	# puts enemy in waiting "SPAWN" state and picks a random facing direction
 	state = SPAWN
@@ -295,11 +300,6 @@ func _physics_process(delta):
 				nextState = WALK
 			else:
 				nextState = IDLE
-		CHILL:
-			if chillCounterReady():
-				nextState = IDLE
-			else:
-				nextState = CHILL
 		WALK:
 			if (targetFound == false):
 				nextState = IDLE
@@ -307,6 +307,15 @@ func _physics_process(delta):
 				nextState = rollOffensiveAction()
 			else:
 				nextState = WALK
+#		DODGE:
+#			if (animFinished):
+#				animFinished = false
+#				if (rng.rand.randf() >= 0.5):
+#					nextState = BLOCK
+#				else:
+#					nextState = IDLE
+#			else:
+#				nextState = DODGE
 		HURT:
 			if (animFinished):
 				animFinished = false
@@ -330,19 +339,35 @@ func _physics_process(delta):
 				nextState = KO
 			elif (animFinished):
 				animFinished = false
-				nextState = rollGetupAction()
+				nextState = IDLE
 			else:
 				nextState = HURTFLOOR
-		CHARGE:
+		A_H:
 			if animFinished:
-				nextState = ATTACK
+				nextState = IDLE
+				animFinished = false
+		A_L:
+			if animFinished:
+				nextState = IDLE
+				animFinished = false
+#		A_P:
+#			if animFinished:
+#				nextState = IDLE
+#				animFinished = false
+		BLOCK:
+			if (blockCounterReady()):
+				if checkInRange(target):
+					nextState = A_H
+				else:
+					nextState = IDLE
+			else:
+				nextState = BLOCK
+		BLOCKHIT:
+			if (animFinished):
+				nextState = BLOCK
 				animFinished = false
 			else:
-				nextState = CHARGE
-		ATTACK:
-			if animFinished:
-				nextState = rollDefensiveAction()
-				animFinished = false
+				nextState = BLOCKHIT
 		KO:
 			nextState = KO
 			if (animFinished):
@@ -369,9 +394,9 @@ func _physics_process(delta):
 			hurtDamage = 0
 		elif (weight == VERYHEAVY) and (hp >= 0):
 			pass
-		elif (hurtType == KB_STRONG) or (hurtType == KB_ANGLED):
+		elif (hurtType == KB_STRONG) or (hurtType == KB_ANGLED) or (hurtType == KB_ANGLED_PIERCE):
 			if (weight == LIGHT) or (hp <= 0):
-				nextState = HURTLAUNCH				
+				nextState = HURTLAUNCH
 			elif isInState([HURT]):
 				hurtAgain = true
 				nextState = HURT
@@ -387,37 +412,29 @@ func _physics_process(delta):
 	state = nextState
 	
 	# resets animFinished if in looping animation state to prevent bugs
-	if (isInState([IDLE, HURTFALLING, HURTRISING])):
+	if (isInState([IDLE, HURTFALLING, HURTRISING, BLOCK])):
 		animFinished = false
 
 	# attack delay counter
-	if (isInState([ATTACK])):
+	if (isInState([A_H, A_L])):
 		attackWaitCounter = attackResetTime
 	elif (attackWaitCounter > 0):
 		attackWaitCounter -= 1
 		
-	# just chilling
-	if (isInState([CHILL])):
-		chillCounter -= 1
-	
-	# auto attack charging
-	if isInState([KO]):
-		zapState = CHARGING
-		chargeCounter = 999
-	elif (zapState == CHARGING):
-		chargeCounter -= 1
-		if (chargeCounter <= 0):
-			zapState = WARN1
-			
+	# blocking delay
+	if (isInState([BLOCK, BLOCKHIT])):
+		blockWaitCounter -= 1
 		
 	# sets up hitbox
-	if isInState([CHARGE, ATTACK]):
-		setHitBox(damage, KB_WEAK_PIERCE, Vector3(25, 30, 0))
-	else:
-		setHitBox(3 * damage, KB_ANGLED_PIERCE, Vector3(20, 20, 0))
+	if isInState([A_H]):
+		setHitBox(damage, KB_ANGLED, Vector3(5, 35, 0))
+	elif isInState([A_L]):
+		setHitBox(0.75 * damage, KB_STRONG, Vector3(15, 20, 0))
+	elif isInState([KO]):
+		setHitBox(2 * damage, KB_ANGLED_PIERCE, Vector3(5, 40, 0))
 		
 	# turns on/off enemy only ground for walk off barriers
-	if (isInState([WALK, IDLE])):
+	if (isInState([WALK, IDLE, DODGE])):
 		set_collision_mask_bit(11, true)
 	else:
 		set_collision_mask_bit(11, false)
@@ -430,10 +447,10 @@ func _physics_process(delta):
 		# determines where the enemy should walk to (which side of the player
 		# IF YOU GET AN ERROR HERE WHEN SPAWNING ENEMIES,
 		# VERIFY THE LEVEL NODE'S NAME IS CORRECT!
-		if (translation.z > target.translation.z):
-			walkTo = target.translation + Vector3(0, 0, targetOffset)
+		if (translation > target.translation):
+			walkTo = target.translation + Vector3(targetOffset, 0, 0)
 		else:
-			walkTo = target.translation - Vector3(0, 0, targetOffset)
+			walkTo = target.translation - Vector3(targetOffset, 0, 0)
 		# sets direction
 		direction.x = walkTo.x - translation.x
 		direction.y = walkTo.z - translation.z
@@ -446,6 +463,11 @@ func _physics_process(delta):
 			lookRight = true
 		elif (target.translation.x  < translation.x):
 			lookRight = false
+	elif isInState([A_H]) and sliding:
+		# target/direction is set in setSlideTarget()
+		# sets velocity
+		velocity.x = speedWalk * slideDir.x * 3
+		velocity.z = speedWalk * slideDir.y * 3
 	elif isInState([HURTLAUNCH, HURTRISING, HURTFALLING, SPAWN]):
 		pass
 	else:
@@ -470,7 +492,7 @@ func _physics_process(delta):
 	
 	# barrier pushback / bounceback
 	if isInState([HURTLAUNCH, HURTRISING, HURTFALLING]):
-		if onRightWall and (velocity.x > 0) and ambushEnemy:
+		if (onRightWall and (velocity.x > 0) and ambushEnemy):
 			velocity = Vector3(-25, 15, 0)
 		elif onLeftWall and (velocity.x < 0) and ambushEnemy:
 			velocity = Vector3(25, 15, 0)
@@ -493,20 +515,19 @@ func _physics_process(delta):
 	# mirror enemy if necessary
 	if (lookRight == true):
 		sprite.set_rotation_degrees(Vector3(-15, 90, 0))
-		spriteOutline.set_rotation_degrees(Vector3(-15, 90, 0))
-		spriteZap.set_rotation_degrees(Vector3(-15, 90, 0))
-		spriteZap.translation.x = -0.1
 		$"zeroPoint".set_rotation_degrees(Vector3(0, 180, 0))
 	else:
 		sprite.set_rotation_degrees(Vector3(15, 90, 0))
-		spriteOutline.set_rotation_degrees(Vector3(15, 90, 0))
-		spriteZap.set_rotation_degrees(Vector3(15, 90, 0))
-		spriteZap.translation.x = 0.1
 		$"zeroPoint".set_rotation_degrees(Vector3(0, 0, 0))
 	
+	# special uppercut hit pose
+	if isInState([HURTLAUNCH]) and (velocity.y >= 35):
+		uppercutted = true
+	elif (velocity.y <= 5):
+		uppercutted = false
 	
 	# animations
-	if isInState([IDLE, SPAWN, CHILL]):
+	if isInState([IDLE, SPAWN]):
 		anim.play("idle")
 	elif isInState([HURT]):
 		anim.play("hurt")
@@ -514,30 +535,33 @@ func _physics_process(delta):
 			hurtAgain = false
 			anim.seek(0)
 	elif isInState([HURTRISING]):
-		anim.play("hurt_air")
+		if uppercutted:
+			anim.play("hurt_air_up")
+		else:
+			anim.play("hurt_air")
 	elif isInState([HURTFALLING]):
 		anim.play("hurt_air")
 	elif isInState([HURTFLOOR]):
 		anim.play("hurt_floor")
-	elif isInState([CHARGE]):
-		anim.play("charge")
-	elif isInState([ATTACK]):
-		anim.play("attack")
+	elif isInState([BLOCK]):
+		anim.play("block")
+	elif isInState([BLOCKHIT]):
+		anim.play("block_hit")
+		if (hurtAgain):
+			hurtAgain = false
+			anim.seek(0)
+	elif isInState([A_H]):
+		anim.play("attack_heavy")
+	elif isInState([A_L]):
+		anim.play("attack_light")
+	elif isInState([A_P]):
+		anim.play("attack_pierce")
+	elif isInState([DODGE]):
+		anim.play("dodge")
 	elif isInState([WALK]):
 		anim.play("walk")
 	elif isInState([KO]):
 		anim.play("dead")
-		
-	match zapState:
-		CHARGING:
-			animElec.play("dark")
-		WARN1:
-			animElec.play("flash_slow")
-		WARN2:
-			animElec.play("flash_fast")
-		ZAP:
-			animElec.play("zap")
-		
 	
 	# fall off world
 	if (translation.y <= deathFloorHeight):
@@ -597,7 +621,7 @@ func _on_hurtbox_area_entered(area):
 	attacker.hitLanded = true
 	# changes knockback values depending on the type and situation (type should end up as either weak or strong):
 	# changes x-z knokback angle to be away from player if an angled attack
-	if (hurtType == KB_ANGLED):
+	if (hurtType == KB_ANGLED) or (hurtType == KB_ANGLED_PIERCE):
 		var mag = abs(attacker.hitDir.x)
 		var ve = Vector2(translation.x, translation.z)
 		var vp = Vector2(attacker.translation.x, attacker.translation.z)
@@ -665,17 +689,3 @@ func _on_aggro_area_exited(area):
 		target = null
 		get_node("aggro/CollisionShape").disabled = true
 
-
-
-func _on_AnimationPlayerElec_animation_finished(anim_name):
-	match anim_name:
-		"dark":
-			pass
-		"flash_slow":
-			zapState = WARN2
-		"flash_fast":
-			zapState = ZAP
-		"zap":
-			rollChargeTime()
-			zapState = CHARGING
-			
