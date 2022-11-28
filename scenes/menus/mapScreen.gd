@@ -186,7 +186,7 @@ func _on_playButton_pressed():
 func _on_wart_focus_entered():
 	fucusOnButton(get_node("wart"))
 	pg.levelName = "wartwood"
-	pg.levelMusic = "ripple"
+	pg.levelMusic = "wart"
 	pg.levelNum = 0
 	$cam/phone/levelName.text = "Wartwood"
 	$cam/pockets/levelName.text = "Wartwood"

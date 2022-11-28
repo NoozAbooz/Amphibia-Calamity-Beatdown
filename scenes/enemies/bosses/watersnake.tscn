@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://art/models/snake/Material_002.material" type="Material" id=1]
 [ext_resource path="res://scenes/enemies/bosses/watersnake.gd" type="Script" id=2]
@@ -2349,45 +2349,6 @@ tracks/10/keys = {
 "values": [ Vector2( 1638, 308 ) ]
 }
 
-[sub_resource type="Animation" id=192]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("boss/CPUParticles:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("boss/CPUParticles:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("boss/arrow:translation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
-}
-
 [sub_resource type="Animation" id=33]
 resource_name = "bite"
 step = 0.0166667
@@ -3475,7 +3436,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, -15, 0 ) ]
+"values": [ Vector3( 0, -150, 0 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("boss/CPUParticles:emitting")
@@ -3616,7 +3577,7 @@ shape = SubResource( 19 )
 
 [node name="arrow" type="AnimatedSprite3D" parent="boss"]
 visible = false
-offset = Vector2( 0, 40 )
+offset = Vector2( 0, 120 )
 pixel_size = 0.1
 billboard = 1
 frames = SubResource( 193 )
@@ -3736,7 +3697,7 @@ anims/sweep = SubResource( 64 )
 anims/under_water = SubResource( 65 )
 
 [node name="hitbox" type="Area" parent="boss" groups=["bosses"]]
-transform = Transform( 0.826874, 0, 0.562386, 0, 1, 0, -0.562386, 0, 0.826874, -6, -1, 2.62268e-07 )
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
 collision_layer = 32
 monitoring = false
 
@@ -3746,7 +3707,7 @@ shape = SubResource( 16 )
 disabled = true
 
 [node name="hurtbox" type="Area" parent="boss"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -150, 0 )
 collision_layer = 0
 collision_mask = 8
 monitorable = false
@@ -3775,7 +3736,7 @@ gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 
 [node name="info" type="Node2D" parent="."]
-position = Vector2( 640, 1.53855 )
+position = Vector2( 640, -100 )
 
 [node name="lifeBar" type="ProgressBar" parent="info"]
 margin_left = -314.0
@@ -3832,7 +3793,6 @@ anims/wait = SubResource( 37 )
 
 [node name="BossAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "wait"
-anims/RESET = SubResource( 192 )
 anims/bite = SubResource( 33 )
 anims/dead = SubResource( 34 )
 anims/enter_water = SubResource( 27 )

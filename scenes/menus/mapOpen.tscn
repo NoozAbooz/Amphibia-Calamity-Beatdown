@@ -1,8 +1,15 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/menus/mapOpen.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/map bg/map4.png" type="Texture" id=2]
 [ext_resource path="res://art/menus/map bg/map_table.png" type="Texture" id=3]
+[ext_resource path="res://art/menus/map bg/map_contents.png" type="Texture" id=4]
+[ext_resource path="res://art/menus/map bg/mask3.png" type="Texture" id=5]
+[ext_resource path="res://art/menus/map bg/mask4.png" type="Texture" id=6]
+[ext_resource path="res://art/menus/map bg/mask2.png" type="Texture" id=7]
+[ext_resource path="res://art/menus/map bg/mask1.png" type="Texture" id=8]
+[ext_resource path="res://art/menus/map bg/mask5.png" type="Texture" id=9]
+[ext_resource path="res://art/menus/map bg/mask0.png" type="Texture" id=10]
 [ext_resource path="res://art/menus/map bg/hand3.png" type="Texture" id=20]
 [ext_resource path="res://art/menus/map bg/hand1.png" type="Texture" id=21]
 [ext_resource path="res://art/menus/map bg/map2.png" type="Texture" id=22]
@@ -83,6 +90,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 0.0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("mask:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667, 1.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), null ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("map_contents:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [node name="mapOpen" type="Control"]
 anchor_right = 1.0
@@ -93,6 +124,7 @@ __meta__ = {
 }
 
 [node name="table" type="TextureRect" parent="."]
+light_mask = 0
 margin_right = 1920.0
 margin_bottom = 1080.0
 rect_scale = Vector2( 0.667, 0.667 )
@@ -113,17 +145,29 @@ __meta__ = {
 }
 
 [node name="map" type="AnimatedSprite" parent="."]
+light_mask = 0
 position = Vector2( -676, 366 )
 frames = SubResource( 2 )
-frame = 10
+frame = 1
 
 [node name="hand" type="AnimatedSprite" parent="."]
+light_mask = 0
 position = Vector2( -500, 338 )
 frames = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
 anims/default = SubResource( 5 )
+
+[node name="map_contents" type="Sprite" parent="."]
+visible = false
+position = Vector2( 641, 371 )
+texture = ExtResource( 4 )
+
+[node name="mask" type="Light2D" parent="."]
+texture = ExtResource( 10 )
+offset = Vector2( 640, 360 )
+mode = 3
 
 [connection signal="pressed" from="startButton" to="." method="_on_startButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

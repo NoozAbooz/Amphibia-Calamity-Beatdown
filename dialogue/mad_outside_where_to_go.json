@@ -1,6 +1,6 @@
 [
   {"sprite":"[PC]_normal", "pos":"left",  "move_in":"slide", "move_out":"slide", "text":"Hey Maddie, I heard you might be able to help us out with some magic or something."},
   {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Yeah I can probably make something useful for you guys. But you'll have to meet me in the woods." },
-  {"sprite":"Mad_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"Dad doesn't want my selling this stuff in public anymore. Says it scares the neighbors." },
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"Dad doesn't want me selling this stuff in public anymore. Says it scares the neighbors." },
   {"sprite":"Mad_normal",  "pos":"right", "move_in":"still", "move_out":"slide",  "text":"Just take the path next to my house and I'll catch up with you." }
 ]

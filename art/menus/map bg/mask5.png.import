@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/map6.png-cbcbc5d94732ee54f38c2189ac7a0b4e.stex"
+path="res://.import/mask5.png-0b5dac77b7090e2e98a706907d09d0eb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/menus/map bg/map6.png"
-dest_files=[ "res://.import/map6.png-cbcbc5d94732ee54f38c2189ac7a0b4e.stex" ]
+source_file="res://art/menus/map bg/mask5.png"
+dest_files=[ "res://.import/mask5.png-0b5dac77b7090e2e98a706907d09d0eb.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

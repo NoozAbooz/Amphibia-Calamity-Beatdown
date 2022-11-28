@@ -1,4 +1,5 @@
 boss1: 5.165
 Pause: 9.639
 nbd: 1.448
-shop: 3.430
+wart: 3.430
+shop: 1.87
