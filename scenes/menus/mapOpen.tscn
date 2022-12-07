@@ -22,22 +22,6 @@
 [ext_resource path="res://art/menus/map bg/map5.png" type="Texture" id=29]
 [ext_resource path="res://art/menus/map bg/hand_only.png" type="Texture" id=30]
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 21 ), ExtResource( 24 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 2 ), ExtResource( 29 ), ExtResource( 28 ) ],
-"loop": false,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 30 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
 [sub_resource type="Animation" id=5]
 resource_name = "default"
 length = 1.41667
@@ -115,6 +99,22 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 24 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 2 ), ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="mapOpen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -122,6 +122,10 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/default = SubResource( 5 )
 
 [node name="table" type="TextureRect" parent="."]
 light_mask = 0
@@ -146,30 +150,24 @@ __meta__ = {
 
 [node name="map" type="AnimatedSprite" parent="."]
 light_mask = 0
-position = Vector2( -676, 366 )
+position = Vector2( 640, 360 )
 frames = SubResource( 2 )
-frame = 3
-
-[node name="hand" type="AnimatedSprite" parent="."]
-light_mask = 0
-position = Vector2( -500, 338 )
-frames = SubResource( 3 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "default"
-anims/default = SubResource( 5 )
+frame = 10
 
 [node name="mask" type="Light2D" parent="."]
-texture = ExtResource( 10 )
 offset = Vector2( 640, 360 )
 mode = 3
 range_item_cull_mask = 4
 
 [node name="map_contents" type="Sprite" parent="."]
-visible = false
 light_mask = 4
 position = Vector2( 644, 371 )
 texture = ExtResource( 4 )
 
-[connection signal="pressed" from="startButton" to="." method="_on_startButton_pressed"]
+[node name="hand" type="AnimatedSprite" parent="."]
+light_mask = 0
+position = Vector2( -500, 316 )
+frames = SubResource( 3 )
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="startButton" to="." method="_on_startButton_pressed"]

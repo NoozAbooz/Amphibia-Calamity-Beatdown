@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/dock.glb-7e371c3ab45ab61cf0254dea5baa622a.scn"
+path="res://.import/log_col.glb-cc48c6eeb3a30837946125f8ba945b7a.scn"
 
 [deps]
 
-source_file="res://art/models/dock/dock.glb"
-dest_files=[ "res://.import/dock.glb-7e371c3ab45ab61cf0254dea5baa622a.scn" ]
+source_file="res://art/models/trip_to_lake/log_col.glb"
+dest_files=[ "res://.import/log_col.glb-cc48c6eeb3a30837946125f8ba945b7a.scn" ]
 
 [params]
 
