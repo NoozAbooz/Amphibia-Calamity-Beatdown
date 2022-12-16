@@ -95,6 +95,8 @@ func findSpawnPoint(loc):
 	return spawnPoint
 
 func disableBarriers(choice):
+	if (get_parent().get_node_or_null("leftWall/CollisionShape") == null):
+		return
 	get_parent().get_node("leftWall/CollisionShape").disabled = choice
 	#get_parent().get_node("leftWall/passThroughL/CollisionShape2").disabled = choice
 	get_parent().get_node("rightWall/CollisionShape").disabled = choice

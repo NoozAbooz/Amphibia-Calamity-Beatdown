@@ -58,30 +58,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 80, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 4 )
-region = Rect2( 120, 80, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 4 )
-region = Rect2( 240, 80, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 4 )
-region = Rect2( 360, 80, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 4 )
-region = Rect2( 480, 80, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 4 )
-region = Rect2( 600, 80, 120, 40 )
-
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 40, 120, 40 )
@@ -105,6 +81,30 @@ region = Rect2( 480, 40, 120, 40 )
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 4 )
 region = Rect2( 600, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 4 )
+region = Rect2( 120, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 4 )
+region = Rect2( 240, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 360, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
+region = Rect2( 480, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 4 )
+region = Rect2( 600, 80, 120, 40 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 4 )
@@ -140,14 +140,14 @@ region = Rect2( 360, 0, 120, 40 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
@@ -186,14 +186,9 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 27 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "bestFrondsHard",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "bestFronds",
+"name": "wartwood",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -201,22 +196,27 @@ animations = [ {
 "name": "playground",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "wartwood",
+"name": "bestFronds",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "bestFrondsHard",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "none",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "uncheck",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "none",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -254,22 +254,21 @@ texture = ExtResource( 8 )
 [node name="map decorations" type="Node2D" parent="."]
 
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
-position = Vector2( 812.5, 419 )
+position = Vector2( 687, 384 )
 frames = SubResource( 10 )
-frame = 1
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]
-position = Vector2( 706, 537 )
+position = Vector2( 726.5, 533.5 )
 texture = ExtResource( 23 )
 
 [node name="wart2" type="Sprite" parent="map decorations"]
-position = Vector2( 741.5, 540.5 )
+position = Vector2( 762, 537 )
 texture = ExtResource( 22 )
 flip_h = true
 
 [node name="Line2D" type="Line2D" parent="map decorations"]
-points = PoolVector2Array( 718, 567, 610, 567 )
+points = PoolVector2Array( 740, 563, 578, 563 )
 width = 3.0
 default_color = Color( 1, 1, 1, 1 )
 texture = ExtResource( 25 )
@@ -277,7 +276,7 @@ texture_mode = 1
 joint_mode = 2
 
 [node name="Line2D2" type="Line2D" parent="map decorations"]
-points = PoolVector2Array( 609, 422, 609, 566 )
+points = PoolVector2Array( 576, 466, 576, 560 )
 width = 3.0
 default_color = Color( 1, 1, 1, 1 )
 texture = ExtResource( 25 )
@@ -286,7 +285,7 @@ joint_mode = 2
 
 [node name="Line2D3" type="Line2D" parent="map decorations"]
 position = Vector2( 8, 63 )
-points = PoolVector2Array( 605, 357, 805, 391 )
+points = PoolVector2Array( 568, 403, 681, 355 )
 width = 3.0
 default_color = Color( 1, 1, 1, 1 )
 texture = ExtResource( 25 )
@@ -294,13 +293,14 @@ texture_mode = 1
 joint_mode = 2
 
 [node name="wart" type="TextureButton" parent="."]
-margin_left = 695.0
-margin_top = 550.0
-margin_right = 743.0
-margin_bottom = 582.0
+margin_left = 715.0
+margin_top = 546.0
+margin_right = 763.0
+margin_bottom = 578.0
 focus_neighbour_left = NodePath("../lvl1")
 focus_neighbour_top = NodePath(".")
 focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -329,10 +329,11 @@ __meta__ = {
 }
 
 [node name="lvl1" type="TextureButton" parent="."]
-margin_left = 586.0
-margin_top = 550.0
-margin_right = 634.0
-margin_bottom = 582.0
+margin_left = 552.0
+margin_top = 546.0
+margin_right = 600.0
+margin_bottom = 578.0
+focus_neighbour_left = NodePath("../lvl2")
 focus_neighbour_top = NodePath("../lvl2")
 focus_neighbour_right = NodePath("../wart")
 action_mode = 0
@@ -347,13 +348,13 @@ __meta__ = {
 }
 
 [node name="lvl2" type="TextureButton" parent="."]
-margin_left = 585.0
-margin_top = 405.0
-margin_right = 633.0
-margin_bottom = 437.0
+margin_left = 552.0
+margin_top = 449.0
+margin_right = 600.0
+margin_bottom = 481.0
 focus_neighbour_left = NodePath(".")
-focus_neighbour_top = NodePath(".")
-focus_neighbour_right = NodePath("../lvl3")
+focus_neighbour_top = NodePath("../lvl3")
+focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath("../lvl1")
 action_mode = 0
 button_mask = 0
@@ -367,10 +368,10 @@ __meta__ = {
 }
 
 [node name="lvl3" type="TextureButton" parent="."]
-margin_left = 789.5
-margin_top = 437.0
-margin_right = 837.5
-margin_bottom = 469.0
+margin_left = 664.0
+margin_top = 401.0
+margin_right = 712.0
+margin_bottom = 433.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -501,10 +502,10 @@ animation = "idle"
 playing = true
 
 [node name="arrow" type="Sprite" parent="."]
-position = Vector2( 719, 529 )
+position = Vector2( 739, 512 )
 rotation = 1.5708
 texture = ExtResource( 26 )
-offset = Vector2( -0.307691, 0 )
+offset = Vector2( -10, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="arrow"]
 autoplay = "point"

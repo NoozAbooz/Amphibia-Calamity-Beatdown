@@ -54,9 +54,9 @@ panorama = ExtResource( 14 )
 [sub_resource type="Environment" id=130]
 background_mode = 1
 background_sky = SubResource( 129 )
-background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, 3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, 180, 0 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -2921,7 +2921,8 @@ shadow_enabled = true
 editor_only = true
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -106.151, 0.0985069, 5.62642 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -109.039, 0.354105, 1.8563 )
+hideGUI = true
 
 [node name="MeshInstance4" type="MeshInstance" parent="."]
 transform = Transform( 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 308.311, 10.8205, 20.5694 )
@@ -3838,7 +3839,7 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 238.773, 17.3924, 18.9216 )
 
 [node name="ambush2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -189.544, 17.3924, -21.7859 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -187.321, 17.3924, -21.7859 )
 ambushName = "playgroundAmbush2"
 
 [node name="lilypad" parent="." instance=ExtResource( 16 )]

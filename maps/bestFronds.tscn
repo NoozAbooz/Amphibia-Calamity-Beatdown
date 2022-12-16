@@ -1200,13 +1200,13 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 8 )
 region = Rect2( 136, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=89]
-atlas = ExtResource( 8 )
-region = Rect2( 68, 330, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=74]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 330, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 8 )
+region = Rect2( 68, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 8 )
@@ -1281,14 +1281,14 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 89 ) ],
-"loop": false,
-"name": "hurt_air",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 74 ) ],
 "loop": false,
 "name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 89 ) ],
+"loop": false,
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 165 ), SubResource( 166 ), SubResource( 81 ), SubResource( 82 ) ],
@@ -2621,7 +2621,7 @@ shadow_enabled = true
 editor_only = true
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 513.553, 11.4993, -31.476 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 615.336, 17.4403, -40.8209 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )

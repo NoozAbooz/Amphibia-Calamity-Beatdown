@@ -26,6 +26,7 @@ var spawnerLocation = Vector3.ZERO
 var nextScene = camScene.instance()
 
 export var hideGUI = false
+export var noCameraWalls = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -94,6 +95,9 @@ func _process(_delta):
 	nextScene = camScene.instance()
 	get_parent().add_child(nextScene)
 	nextScene.get_node("Camera").initialize(translation)
+	if noCameraWalls:
+		nextScene.get_node("leftWall").queue_free()
+		nextScene.get_node("rightWall").queue_free()
 	
 	# adds pause scene
 	nextScene = pauseScene.instance()
