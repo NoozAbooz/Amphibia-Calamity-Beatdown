@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://art/npcs/fern.png" type="Texture" id=1]
 [ext_resource path="res://scenes/npcs/npc.gd" type="Script" id=2]
@@ -10,14 +10,29 @@ extents = Vector3( 2, 6, 1 )
 [sub_resource type="CylinderMesh" id=10]
 height = 0.1
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=21]
 flags = 2
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 30, 34 )
 
+[sub_resource type="AtlasTexture" id=22]
+flags = 2
+atlas = ExtResource( 1 )
+region = Rect2( 30, 0, 30, 34 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 2
+atlas = ExtResource( 1 )
+region = Rect2( 60, 0, 30, 34 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 2
+atlas = ExtResource( 1 )
+region = Rect2( 90, 0, 30, 34 )
+
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ SubResource( 19 ) ],
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 23 ), SubResource( 24 ), SubResource( 21 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -53,6 +68,7 @@ transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0
 offset = Vector2( 0, 16 )
 pixel_size = 0.07
 frames = SubResource( 20 )
+frame = 3
 playing = true
 
 [node name="bubble" type="AnimatedSprite3D" parent="."]

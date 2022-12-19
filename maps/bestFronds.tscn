@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=2]
+[gd_scene load_steps=187 format=2]
 
 [ext_resource path="res://maps/best_fronds/trip_to_lake_vis.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://maps/level objects/ambush.tscn" type="PackedScene" id=2]
@@ -57,6 +57,7 @@
 [ext_resource path="res://maps/decorations/dock.tscn" type="PackedScene" id=55]
 [ext_resource path="res://maps/decorations/logBridge.tscn" type="PackedScene" id=56]
 [ext_resource path="res://maps/level objects/windbox.gd" type="Script" id=57]
+[ext_resource path="res://maps/decorations/dontSwimSign.tscn" type="PackedScene" id=58]
 
 [sub_resource type="PanoramaSky" id=181]
 panorama = ExtResource( 11 )
@@ -64,9 +65,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=182]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, 3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, 180, 0 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1200,13 +1201,13 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 8 )
 region = Rect2( 136, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=74]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 330, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=89]
 atlas = ExtResource( 8 )
 region = Rect2( 68, 330, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 8 )
@@ -1281,14 +1282,14 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 74 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 89 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 74 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 165 ), SubResource( 166 ), SubResource( 81 ), SubResource( 82 ) ],
@@ -2621,7 +2622,7 @@ shadow_enabled = true
 editor_only = true
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 615.336, 17.4403, -40.8209 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.503, 3.82618, 2.07601 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -2959,6 +2960,9 @@ collision_mask = 0
 [node name="waterfallFloor" type="CollisionShape" parent="environment"]
 transform = Transform( 0.932065, 0, -0.362292, 0, 1, 0, 0.362292, 0, 0.932065, 93.6511, -2.98262, -90.552 )
 shape = SubResource( 216 )
+
+[node name="sign" parent="environment" instance=ExtResource( 58 )]
+transform = Transform( -1.44889, 0, 0.388229, 0, 1.5, 0, -0.388229, 0, -1.44889, 726.519, 3.14882, -92.7025 )
 
 [node name="enemies" type="Spatial" parent="."]
 
@@ -3357,6 +3361,9 @@ flower = true
 
 [node name="lilypad17" parent="lilypads" instance=ExtResource( 5 )]
 transform = Transform( -0.463402, 0, 0.187773, 0, 0.5, 0, -0.187773, 0, -0.463402, 880.539, 2.87458, -26.6696 )
+
+[node name="lilypad36" parent="lilypads" instance=ExtResource( 5 )]
+transform = Transform( -0.31181, 0, 0.390864, 0, 0.5, 0, -0.390864, 0, -0.31181, 865.46, 2.87458, -27.9393 )
 
 [node name="lilypad35" parent="lilypads" instance=ExtResource( 5 )]
 transform = Transform( -0.463402, 0, 0.187773, 0, 0.5, 0, -0.187773, 0, -0.463402, 982.738, 2.87458, -33.1789 )
