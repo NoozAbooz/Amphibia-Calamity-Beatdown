@@ -76,7 +76,7 @@ func _ready():
 	item3.num = 3
 	item3.title = "Luck Upgrade"
 	item3.cost = COST3
-	item3.desc = "Increases odds of enemies and barrels dropping better items and more coppers."
+	item3.desc = "Increases odds of enemies and barrels dropping better items and more coppers. Makes life-saving techs more common."
 	item3.dialogue = "mad_luck"
 	
 	refreshShop()

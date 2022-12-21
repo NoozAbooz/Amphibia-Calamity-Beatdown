@@ -748,7 +748,7 @@ func _physics_process(delta):
 				nextState = HURTFALLING
 		HURTFLOOR:
 			#randf ( )
-			if (hp <= 0) and (LCancel) and (rng.rand.randf() <= 0.75):
+			if (hp <= 0) and (LCancel) and (rng.rand.randf() <= (0.60 + (pg.luckUpgrades * pg.techBoost))):
 				nextState = LANDC
 				state = LANDC
 				soundManager.playSound("counter")

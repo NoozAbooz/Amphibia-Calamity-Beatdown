@@ -1,14 +1,14 @@
 extends Control
 
-enum {BASIC, DROP, VERIFY, OPTIONS, COMBOS, POS}
-enum {ANNE, SPRIG, SASHA, MARCY, MAGGIE}
+enum {BASIC, DROP, VERIFY, OPTIONS, COMBOS, POS, CONTROLS}
+enum {ANNE, SPRIG, SASHA, MARCY, MAGGIE, GRIME}
 var state = 0
 
 var chars = [ANNE, SPRIG]
 var charState = ANNE
 var charStateIndex = 0
 var charPrev = SPRIG
-
+var showGamepad = true
 onready var namesNode = $combosMenu/namesContainer/namesAnne
 
 
@@ -82,11 +82,24 @@ func _process(_delta):
 				_on_buttonBack_pressed()
 			COMBOS:
 				_on_buttonBack_pressed()
+			VERIFY:
+				_on_buttonBack_pressed()
+			CONTROLS:
+				_on_buttonBack_pressed()
+			OPTIONS:
+				_on_buttonBack_pressed()
 				
 	if (get_tree().paused):
 		self.show()
 	else:
 		self.hide()
+	# checks for 'm' and 'n' presses. PlayerGlobals script does not run _process when paused.
+	if (get_tree().paused == true):
+		if(Input.is_action_just_pressed("fullscreen") == true):
+			OS.set_window_fullscreen(!OS.window_fullscreen)
+		if(Input.is_action_just_pressed("mute") == true):
+			var busIndex = AudioServer.get_bus_index("Master")
+			AudioServer.set_bus_mute(busIndex, !AudioServer.is_bus_mute(busIndex))
 	# displays different menus
 	match state:
 		BASIC:
@@ -97,27 +110,30 @@ func _process(_delta):
 			$verifyMenu.hide()
 			$optionsMenu.hide()
 			$combosMenu.hide()
+			$controlsMenu.hide()
 			if (pg.countPlayers() > 1):
 				$basicMenu/buttonDrop.disabled = false
 			else:
 				$basicMenu/buttonDrop.disabled = true
 		DROP:
-			$labelMain.text = "DROP WHICH PLAYER"
+			$labelMain.text = "DROP WHICH PLAYER?"
 			$basicMenu.hide()
 			$dropMenu.show()
 			$posMenu.hide()
 			$verifyMenu.hide()
 			$optionsMenu.hide()
 			$combosMenu.hide()
+			$controlsMenu.hide()
 			showDropButtons()
 		POS:
-			$labelMain.text = "WARP WHICH PLAYER"
+			$labelMain.text = "WARP WHICH PLAYER?"
 			$basicMenu.hide()
 			$dropMenu.hide()
 			$posMenu.show()
 			$verifyMenu.hide()
 			$optionsMenu.hide()
 			$combosMenu.hide()
+			$controlsMenu.hide()
 			showPosButtons()
 		VERIFY:
 			$basicMenu.hide()
@@ -126,6 +142,7 @@ func _process(_delta):
 			$verifyMenu.show()
 			$optionsMenu.hide()
 			$combosMenu.hide()
+			$controlsMenu.hide()
 		OPTIONS:
 			$basicMenu.hide()
 			$dropMenu.hide()
@@ -133,13 +150,35 @@ func _process(_delta):
 			$verifyMenu.hide()
 			$optionsMenu.show()
 			$combosMenu.hide()
+			$controlsMenu.hide()
+		CONTROLS:
+			$labelMain.text = ""
+			$basicMenu.hide()
+			$dropMenu.hide()
+			$posMenu.hide()
+			$verifyMenu.hide()
+			$optionsMenu.hide()
+			$combosMenu.hide()
+			$controlsMenu.show()
+			if (showGamepad):
+				$controlsMenu/type.text = "Gamepad"
+				$controlsMenu/board.hide()
+				$controlsMenu/pad.show()
+			else:
+				$controlsMenu/type.text = "Keyboard"
+				$controlsMenu/board.show()
+				$controlsMenu/pad.hide()
+			if (Input.is_action_just_pressed("ui_left") == true) or (Input.is_action_just_pressed("ui_right") == true):
+				showGamepad = !showGamepad
 		COMBOS:
+			$labelMain.text = ""
 			$basicMenu.hide()
 			$dropMenu.hide()
 			$posMenu.hide()
 			$verifyMenu.hide()
 			$optionsMenu.hide()
 			$combosMenu.show()
+			$controlsMenu.hide()
 			# sets names and face depending on character if selection changed
 			if (charState != charPrev):
 				$combosMenu/namesContainer/namesAnne.hide()
@@ -213,6 +252,9 @@ func _on_buttonResume_pressed():
 	stopMusic()
 	soundManager.resumeMusic()
 
+func _on_buttonMapAttempt_pressed():
+	state = VERIFY
+	$verifyMenu/buttonBack.grab_focus()
 
 func _on_buttonMap_pressed():
 	get_tree().paused = false
@@ -250,13 +292,16 @@ func _on_buttonP4_pressed():
 	state = BASIC
 	$basicMenu/buttonResume.grab_focus()
 
-
 func _on_buttonCombo_pressed():
 	state = COMBOS
 	charState = ANNE
 	charPrev = SPRIG
 	$combosMenu/face.play(str(0))
 	$combosMenu/buttonBack.grab_focus()
+	
+func _on_buttonControls_pressed():
+	state = CONTROLS
+	$controlsMenu/buttonBack.grab_focus()
 
 func _on_buttonPos_pressed():
 	state = POS
@@ -299,3 +344,6 @@ func _on_buttonAllPos_pressed():
 	get_tree().paused = false
 	stopMusic()
 	soundManager.resumeMusic()
+
+
+

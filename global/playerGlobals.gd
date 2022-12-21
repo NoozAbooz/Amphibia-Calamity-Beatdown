@@ -18,6 +18,7 @@ const livesBoost   = 1
 const damageBoost  = 0.2
 const coinBoost    = 1
 const dropBoost    = 0.05
+const techBoost    = 0.20
 
 
 # attack unlocks
@@ -57,6 +58,7 @@ var hasMarcy  = true
 var hasSasha  = true
 var hasSprig = true
 var hasMaggie = false
+var hasGrime = false
 var availableChars = ["Anne"]
 
 # Completed levels
@@ -90,6 +92,8 @@ func recalcInfo():
 		availableChars.append("Sprig")
 	if hasMaggie:
 		availableChars.append("Maggie")
+	if hasGrime:
+		availableChars.append("Grime")
 	# inputs
 	checkAvailableInputs()
 
@@ -103,9 +107,14 @@ func checkAvailableInputs():
 func _ready():
 	pass # Replace with function body.
 	
-#func _process(_delta):
-	#pass
-	
+func _process(_delta):
+	# checks for keyboard presses for options
+	if(Input.is_action_just_pressed("fullscreen") == true):
+		OS.set_window_fullscreen(!OS.window_fullscreen)
+	if(Input.is_action_just_pressed("mute") == true):
+		var busIndex = AudioServer.get_bus_index("Master")
+		AudioServer.set_bus_mute(busIndex, !AudioServer.is_bus_mute(busIndex))
+		#print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 
 func countPlayers():
 	var count = 0

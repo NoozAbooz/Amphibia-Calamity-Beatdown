@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
@@ -16,31 +16,34 @@
 [ext_resource path="res://art/menus/faces.png" type="Texture" id=14]
 [ext_resource path="res://themes/playerPanelTextAlt.tres" type="Theme" id=15]
 [ext_resource path="res://art/menus/char_info_empty.png" type="Texture" id=16]
+[ext_resource path="res://art/menus/controls2.png" type="Texture" id=17]
+[ext_resource path="res://art/menus/controls1.png" type="Texture" id=18]
+[ext_resource path="res://themes/Early GameBoy.ttf" type="DynamicFontData" id=19]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 400, 350 )
 
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 800, 0, 400, 350 )
+
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 400, 0, 400, 350 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 1200, 0, 400, 350 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1600, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 14 )
-region = Rect2( 800, 0, 400, 350 )
+region = Rect2( 1200, 0, 400, 350 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -49,14 +52,14 @@ animations = [ {
 "name": "0",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 5 ) ],
+"loop": false,
+"name": "3",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 1 ) ],
 "loop": false,
 "name": "2",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 3 ) ],
-"loop": false,
-"name": "1",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 4 ) ],
@@ -64,11 +67,18 @@ animations = [ {
 "name": "4",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ) ],
+"frames": [ SubResource( 3 ) ],
 "loop": false,
-"name": "3",
+"name": "1",
 "speed": 5.0
 } ]
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 4
+font_data = ExtResource( 19 )
 
 [node name="pauseScreen" type="Control"]
 pause_mode = 2
@@ -89,7 +99,7 @@ __meta__ = {
 
 [node name="labelMain" type="Label" parent="."]
 margin_right = 1280.0
-margin_bottom = 150.0
+margin_bottom = 170.0
 theme = ExtResource( 1 )
 text = "PAUSED"
 align = 1
@@ -100,8 +110,11 @@ __meta__ = {
 
 [node name="basicMenu" type="Control" parent="."]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_top = -30.0
+margin_bottom = -30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="buttonResume" type="Button" parent="basicMenu"]
 margin_left = 320.0
@@ -150,7 +163,7 @@ margin_bottom = 560.0
 focus_neighbour_top = NodePath("../buttonDrop")
 focus_neighbour_bottom = NodePath("../buttonMap")
 theme = ExtResource( 11 )
-text = "Re-Position Player"
+text = "Re-Center Player"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -158,12 +171,29 @@ __meta__ = {
 [node name="buttonCombo" type="Button" parent="basicMenu"]
 margin_left = 320.0
 margin_top = 300.0
-margin_right = 960.0
+margin_right = 610.0
 margin_bottom = 360.0
+focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath("../buttonResume")
+focus_neighbour_right = NodePath("../buttonControls")
 focus_neighbour_bottom = NodePath("../buttonDrop")
 theme = ExtResource( 11 )
 text = "Combo List"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonControls" type="Button" parent="basicMenu"]
+margin_left = 670.0
+margin_top = 300.0
+margin_right = 960.0
+margin_bottom = 360.0
+focus_neighbour_left = NodePath("../buttonCombo")
+focus_neighbour_top = NodePath("../buttonResume")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../buttonDrop")
+theme = ExtResource( 11 )
+text = "Controls"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -245,9 +275,9 @@ __meta__ = {
 
 [node name="dark2" type="ColorRect" parent="posMenu"]
 margin_left = 248.0
-margin_top = 138.0
+margin_top = 153.0
 margin_right = 1032.0
-margin_bottom = 262.0
+margin_bottom = 277.0
 color = Color( 0.270588, 0.270588, 0.270588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -266,9 +296,9 @@ __meta__ = {
 
 [node name="buttonAllPos" type="Button" parent="posMenu"]
 margin_left = 320.0
-margin_top = 440.0
+margin_top = 455.0
 margin_right = 960.0
-margin_bottom = 500.0
+margin_bottom = 515.0
 theme = ExtResource( 11 )
 text = "All PLayers"
 __meta__ = {
@@ -277,9 +307,9 @@ __meta__ = {
 
 [node name="buttonP1Pos" type="Button" parent="posMenu"]
 margin_left = 290.0
-margin_top = 310.0
+margin_top = 325.0
 margin_right = 390.0
-margin_bottom = 410.0
+margin_bottom = 425.0
 theme = ExtResource( 11 )
 text = " P1"
 __meta__ = {
@@ -288,9 +318,9 @@ __meta__ = {
 
 [node name="buttonP2Pos" type="Button" parent="posMenu"]
 margin_left = 490.0
-margin_top = 310.0
+margin_top = 325.0
 margin_right = 590.0
-margin_bottom = 410.0
+margin_bottom = 425.0
 theme = ExtResource( 11 )
 text = " P2"
 __meta__ = {
@@ -299,9 +329,9 @@ __meta__ = {
 
 [node name="buttonP3Pos" type="Button" parent="posMenu"]
 margin_left = 690.0
-margin_top = 310.0
+margin_top = 325.0
 margin_right = 790.0
-margin_bottom = 410.0
+margin_bottom = 425.0
 theme = ExtResource( 11 )
 text = " P3"
 __meta__ = {
@@ -310,9 +340,9 @@ __meta__ = {
 
 [node name="buttonP4Pos" type="Button" parent="posMenu"]
 margin_left = 890.0
-margin_top = 310.0
+margin_top = 325.0
 margin_right = 990.0
-margin_bottom = 410.0
+margin_bottom = 425.0
 theme = ExtResource( 11 )
 text = " P4"
 __meta__ = {
@@ -321,9 +351,9 @@ __meta__ = {
 
 [node name="NinePatchRect" type="NinePatchRect" parent="posMenu"]
 margin_left = 240.0
-margin_top = 130.0
+margin_top = 145.0
 margin_right = 1040.0
-margin_bottom = 270.0
+margin_bottom = 285.0
 texture = ExtResource( 16 )
 patch_margin_left = 15
 patch_margin_top = 15
@@ -335,9 +365,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="posMenu"]
 margin_left = 240.0
-margin_top = 140.0
+margin_top = 155.0
 margin_right = 1040.0
-margin_bottom = 260.0
+margin_bottom = 275.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
@@ -346,7 +376,78 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="verifyMenu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1240.0
+margin_bottom = -680.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dark2" type="ColorRect" parent="verifyMenu"]
+margin_left = 248.0
+margin_top = 158.0
+margin_right = 1032.0
+margin_bottom = 282.0
+color = Color( 0.270588, 0.270588, 0.270588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonBack" type="Button" parent="verifyMenu"]
+margin_left = 320.0
+margin_top = 460.0
+margin_right = 960.0
+margin_bottom = 520.0
+theme = ExtResource( 11 )
+text = "Maybe not..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonToMap" type="Button" parent="verifyMenu"]
+margin_left = 320.0
+margin_top = 360.0
+margin_right = 960.0
+margin_bottom = 420.0
+theme = ExtResource( 11 )
+text = "Back to the map!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="verifyMenu"]
+margin_left = 240.0
+margin_top = 150.0
+margin_right = 1040.0
+margin_bottom = 290.0
+texture = ExtResource( 16 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="verifyMenu"]
+margin_left = 240.0
+margin_top = 160.0
+margin_right = 1040.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Return to map screen?
+ANy progress and money collected will be lost."
+align = 1
+valign = 1
+autowrap = true
+
 [node name="combosMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -1879,7 +1980,7 @@ position = Vector2( 995, 155 )
 texture = ExtResource( 13 )
 flip_h = true
 
-[node name="verifyMenu" type="Control" parent="."]
+[node name="optionsMenu" type="Control" parent="."]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -1887,10 +1988,186 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="optionsMenu" type="Control" parent="."]
+[node name="controlsMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dark2" type="ColorRect" parent="controlsMenu"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1260.0
+margin_bottom = 600.0
+color = Color( 0.270588, 0.270588, 0.270588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arrowL" type="Sprite" parent="controlsMenu"]
+position = Vector2( 760, 50 )
+texture = ExtResource( 13 )
+
+[node name="arrowR" type="Sprite" parent="controlsMenu"]
+position = Vector2( 520, 50 )
+texture = ExtResource( 13 )
+flip_h = true
+
+[node name="type" type="Label" parent="controlsMenu"]
+margin_left = 500.0
+margin_top = 30.0
+margin_right = 780.0
+margin_bottom = 70.0
+theme = ExtResource( 3 )
+text = "Keyboard"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonBack" type="Button" parent="controlsMenu"]
+margin_left = 320.0
+margin_top = 625.0
+margin_right = 960.0
+margin_bottom = 685.0
+theme = ExtResource( 11 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="controlsMenu"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1264.0
+margin_bottom = 608.0
+texture = ExtResource( 10 )
+draw_center = false
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pad" type="Control" parent="controlsMenu"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controllerControls" type="Label" parent="controlsMenu/pad"]
+margin_left = 40.0
+margin_top = 212.0
+margin_right = 496.0
+margin_bottom = 468.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "Dpad - movement
+
+double
+   tap     - Run
+  Dpad
+
+Start - Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controllerControls4" type="Label" parent="controlsMenu/pad"]
+margin_left = 302.0
+margin_top = 108.0
+margin_right = 974.0
+margin_bottom = 149.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "L1,L2 - run            R1,R2 - block"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controllerControls2" type="Label" parent="controlsMenu/pad"]
+margin_left = 980.0
+margin_top = 196.0
+margin_right = 1328.0
+margin_bottom = 578.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "x - light 
+      attack
+	
+y - heavy 
+      attack
+	
+a - jump
+
+b - block,
+      back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pad" type="Sprite" parent="controlsMenu/pad"]
+position = Vector2( 640, 390 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 17 )
+
+[node name="board" type="Control" parent="controlsMenu"]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="board" type="Sprite" parent="controlsMenu/board"]
+position = Vector2( 640, 437 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 18 )
+
+[node name="keyboardControls" type="Label" parent="controlsMenu/board"]
+margin_left = 131.0
+margin_top = 131.0
+margin_right = 587.0
+margin_bottom = 276.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "wasd   - movement
+f,q     - run
+Double tap wsad - run
+Enter - Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keyboardControls2" type="Label" parent="controlsMenu/board"]
+margin_left = 702.0
+margin_top = 131.0
+margin_right = 1146.0
+margin_bottom = 276.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "k         - light attack
+i         - heavy attack
+l         -  jump
+o,p,j - block"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keyboardControls3" type="Label" parent="controlsMenu/board"]
+margin_left = 938.0
+margin_top = 26.0
+margin_right = 1254.0
+margin_bottom = 97.0
+theme = ExtResource( 15 )
+custom_fonts/font = SubResource( 7 )
+text = "n - fullscreen
+m - mute audio"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1901,10 +2178,11 @@ stream = ExtResource( 12 )
 volume_db = -12.0
 
 [connection signal="pressed" from="basicMenu/buttonResume" to="." method="_on_buttonResume_pressed"]
-[connection signal="pressed" from="basicMenu/buttonMap" to="." method="_on_buttonMap_pressed"]
+[connection signal="pressed" from="basicMenu/buttonMap" to="." method="_on_buttonMapAttempt_pressed"]
 [connection signal="pressed" from="basicMenu/buttonDrop" to="." method="_on_buttonDrop_pressed"]
 [connection signal="pressed" from="basicMenu/buttonPos" to="." method="_on_buttonPos_pressed"]
 [connection signal="pressed" from="basicMenu/buttonCombo" to="." method="_on_buttonCombo_pressed"]
+[connection signal="pressed" from="basicMenu/buttonControls" to="." method="_on_buttonControls_pressed"]
 [connection signal="pressed" from="dropMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
 [connection signal="pressed" from="dropMenu/buttonP1" to="." method="_on_buttonP1_pressed"]
 [connection signal="pressed" from="dropMenu/buttonP2" to="." method="_on_buttonP2_pressed"]
@@ -1916,4 +2194,7 @@ volume_db = -12.0
 [connection signal="pressed" from="posMenu/buttonP2Pos" to="." method="_on_buttonP2Pos_pressed"]
 [connection signal="pressed" from="posMenu/buttonP3Pos" to="." method="_on_buttonP3Pos_pressed"]
 [connection signal="pressed" from="posMenu/buttonP4Pos" to="." method="_on_buttonP4Pos_pressed"]
+[connection signal="pressed" from="verifyMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
+[connection signal="pressed" from="verifyMenu/buttonToMap" to="." method="_on_buttonMap_pressed"]
 [connection signal="pressed" from="combosMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
+[connection signal="pressed" from="controlsMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
