@@ -1,12 +1,31 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/menus/title.gd" type="Script" id=1]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=2]
 [ext_resource path="res://themes/Early GameBoy.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://themes/shop_button.tres" type="Theme" id=4]
+[ext_resource path="res://themes/playerPanelTextAlt.tres" type="Theme" id=5]
+[ext_resource path="res://art/menus/controls2.png" type="Texture" id=6]
+[ext_resource path="res://art/menus/controls1.png" type="Texture" id=7]
+[ext_resource path="res://art/menus/charBlock.png" type="Texture" id=8]
+[ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 4
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 4
 font_data = ExtResource( 3 )
 
 [node name="title" type="Control"]
@@ -17,25 +36,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="startButton" type="Button" parent="."]
-margin_left = 535.0
-margin_top = 174.0
-margin_right = 793.0
-margin_bottom = 246.0
-theme = ExtResource( 4 )
-text = "Start"
+[node name="lockButton" type="Button" parent="."]
+visible = false
+margin_left = -622.0
+margin_top = 230.0
+margin_right = -446.0
+margin_bottom = 279.0
+toggle_mode = true
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="lockButton" type="Button" parent="."]
-visible = false
-margin_left = 81.0
-margin_top = 184.0
-margin_right = 257.0
-margin_bottom = 233.0
-toggle_mode = true
-clip_text = true
 
 [node name="Label" type="Label" parent="lockButton"]
 margin_right = 186.0
@@ -43,13 +54,16 @@ margin_bottom = 48.0
 text = "Enable All Upgrades"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="hitboxButton" type="Button" parent="."]
 visible = false
-margin_left = 569.0
-margin_top = 539.0
-margin_right = 755.0
-margin_bottom = 587.0
+margin_left = -612.0
+margin_top = 498.0
+margin_right = -426.0
+margin_bottom = 546.0
 toggle_mode = true
 clip_text = true
 __meta__ = {
@@ -80,45 +94,319 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="keyboardControls" type="Label" parent="."]
-margin_left = 15.0
-margin_top = 350.0
-margin_right = 576.0
-margin_bottom = 733.0
-theme = ExtResource( 2 )
-text = "Controls:
-
-Keyboard:
-
-wasd   - movement
-k         - light attack
-i         - heavy attack
-l         -  jump
-o,p,j - block
-f,q     - run
-Double tap wsad - run"
-
-[node name="controllerControls" type="Label" parent="."]
-margin_left = 624.0
-margin_top = 350.0
-margin_right = 1280.0
-margin_bottom = 710.0
-theme = ExtResource( 2 )
-text = "
-
-Controller:
-
-Dpad   - movement
-x         - light attack
-y         - heavy attack
-a         - jump
-R1,R2 - block
-L1,L2 - run
-double tap Dpad - run"
+[node name="mainMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="startButton" to="." method="_on_startButton_pressed"]
+[node name="startButton" type="Button" parent="mainMenu"]
+margin_left = 45.0
+margin_top = 200.0
+margin_right = 303.0
+margin_bottom = 272.0
+theme = ExtResource( 4 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controlsButton" type="Button" parent="mainMenu"]
+margin_left = 45.0
+margin_top = 300.0
+margin_right = 303.0
+margin_bottom = 372.0
+theme = ExtResource( 4 )
+text = "Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="creditsButton" type="Button" parent="mainMenu"]
+margin_left = 45.0
+margin_top = 400.0
+margin_right = 303.0
+margin_bottom = 472.0
+theme = ExtResource( 4 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exitButton" type="Button" parent="mainMenu"]
+margin_left = 45.0
+margin_top = 500.0
+margin_right = 303.0
+margin_bottom = 572.0
+theme = ExtResource( 4 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controlsMenu" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dark" type="ColorRect" parent="controlsMenu"]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dark2" type="ColorRect" parent="controlsMenu"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1260.0
+margin_bottom = 600.0
+color = Color( 0.270588, 0.270588, 0.270588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arrowL" type="Sprite" parent="controlsMenu"]
+position = Vector2( 760, 50 )
+texture = ExtResource( 9 )
+
+[node name="arrowR" type="Sprite" parent="controlsMenu"]
+position = Vector2( 520, 50 )
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="type" type="Label" parent="controlsMenu"]
+margin_left = 500.0
+margin_top = 30.0
+margin_right = 780.0
+margin_bottom = 70.0
+theme = ExtResource( 2 )
+text = "Keyboard"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonBack" type="Button" parent="controlsMenu"]
+margin_left = 320.0
+margin_top = 625.0
+margin_right = 960.0
+margin_bottom = 685.0
+theme = ExtResource( 4 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="controlsMenu"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1264.0
+margin_bottom = 608.0
+texture = ExtResource( 8 )
+draw_center = false
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pad" type="Control" parent="controlsMenu"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controllerControls" type="Label" parent="controlsMenu/pad"]
+margin_left = 40.0
+margin_top = 212.0
+margin_right = 496.0
+margin_bottom = 468.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Dpad - movement
+
+double
+   tap     - Run
+  Dpad
+
+Start - Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controllerControls4" type="Label" parent="controlsMenu/pad"]
+margin_left = 302.0
+margin_top = 108.0
+margin_right = 974.0
+margin_bottom = 149.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "L1,L2 - run            R1,R2 - block"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controllerControls2" type="Label" parent="controlsMenu/pad"]
+margin_left = 980.0
+margin_top = 196.0
+margin_right = 1328.0
+margin_bottom = 578.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "x - light 
+      attack
+	
+y - heavy 
+      attack
+	
+a - jump
+
+b - block,
+      back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pad" type="Sprite" parent="controlsMenu/pad"]
+position = Vector2( 640, 390 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="board" type="Control" parent="controlsMenu"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="board" type="Sprite" parent="controlsMenu/board"]
+position = Vector2( 640, 437 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="keyboardControls" type="Label" parent="controlsMenu/board"]
+margin_left = 131.0
+margin_top = 131.0
+margin_right = 587.0
+margin_bottom = 276.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "wasd   - movement
+f,q     - run
+Double tap wsad - run
+Enter - Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keyboardControls2" type="Label" parent="controlsMenu/board"]
+margin_left = 702.0
+margin_top = 131.0
+margin_right = 1146.0
+margin_bottom = 276.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "k         - light attack
+i         - heavy attack
+l         -  jump
+o,p,j - block"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keyboardControls3" type="Label" parent="controlsMenu/board"]
+margin_left = 938.0
+margin_top = 26.0
+margin_right = 1254.0
+margin_bottom = 97.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "n - fullscreen
+m - mute audio"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="creditsMenu" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dark" type="ColorRect" parent="creditsMenu"]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dark2" type="ColorRect" parent="creditsMenu"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1260.0
+margin_bottom = 600.0
+color = Color( 0.270588, 0.270588, 0.270588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonBack" type="Button" parent="creditsMenu"]
+margin_left = 320.0
+margin_top = 625.0
+margin_right = 960.0
+margin_bottom = 685.0
+theme = ExtResource( 4 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="creditsMenu"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1264.0
+margin_bottom = 608.0
+texture = ExtResource( 8 )
+draw_center = false
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="names" type="Label" parent="creditsMenu"]
+margin_left = 455.0
+margin_top = 83.0
+margin_right = 803.0
+margin_bottom = 465.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 3 )
+text = "(names)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="toggled" from="lockButton" to="." method="_on_lockButton_toggled"]
 [connection signal="toggled" from="hitboxButton" to="." method="_on_hitboxButton_toggled"]
+[connection signal="pressed" from="mainMenu/startButton" to="." method="_on_startButton_pressed"]
+[connection signal="pressed" from="mainMenu/controlsButton" to="." method="_on_controlsButton_pressed"]
+[connection signal="pressed" from="mainMenu/creditsButton" to="." method="_on_creditsButton_pressed"]
+[connection signal="pressed" from="mainMenu/exitButton" to="." method="_on_exitButton_pressed"]
+[connection signal="pressed" from="controlsMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
+[connection signal="pressed" from="creditsMenu/buttonBack" to="." method="_on_buttonBack_pressed"]

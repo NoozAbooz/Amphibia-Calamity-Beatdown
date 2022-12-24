@@ -2,10 +2,15 @@ extends Control
 
 var loading = false
 
+enum {MAIN, CONTROLS, CREDITS}
+var showGamepad = false
+
+var state = MAIN
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	soundManager.playMusicIfDiff("menu")
-	$startButton.grab_focus()
+	$mainMenu/startButton.grab_focus()
 	_on_lockButton_toggled(false)
 	$lockButton.pressed = false
 	_on_hitboxButton_toggled(false)
@@ -13,9 +18,33 @@ func _ready():
 	loading = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if (Input.is_action_just_pressed("ui_cancel") == true) and (state != MAIN) and (!loading):
+		state = MAIN
+		$mainMenu/startButton.grab_focus()
+	match state:
+		MAIN:
+			$mainMenu.show()
+			$creditsMenu.hide()
+			$controlsMenu.hide()
+		CREDITS:
+			$mainMenu.hide()
+			$creditsMenu.show()
+			$controlsMenu.hide()
+		CONTROLS:
+			$mainMenu.hide()
+			$creditsMenu.hide()
+			$controlsMenu.show()
+			if (showGamepad):
+				$controlsMenu/type.text = "Gamepad"
+				$controlsMenu/board.hide()
+				$controlsMenu/pad.show()
+			else:
+				$controlsMenu/type.text = "Keyboard"
+				$controlsMenu/board.show()
+				$controlsMenu/pad.hide()
+			if (Input.is_action_just_pressed("ui_left") == true) or (Input.is_action_just_pressed("ui_right") == true):
+				showGamepad = !showGamepad
 
 func _on_startButton_pressed():
 	if not loading:
@@ -36,7 +65,6 @@ func _on_lockButton_toggled(button_pressed):
 		pg.hasAirSpin = true
 		pg.hasDJ      = true
 		pg.hasCounter = true
-		
 	else:
 		$lockButton/Label.text = "Enable All Upgrades"
 		pg.healthUpgrades = 0 # 20 per upgrade, max 3
@@ -61,3 +89,19 @@ func _on_hitboxButton_toggled(button_pressed):
 		get_tree().set_debug_collisions_hint(false)
 		
 	#print("hitboxes changed!")
+
+
+func _on_controlsButton_pressed():
+	state = CONTROLS
+	$controlsMenu/buttonBack.grab_focus()
+
+func _on_creditsButton_pressed():
+	state = CREDITS
+	$creditsMenu/buttonBack.grab_focus()
+
+func _on_exitButton_pressed():
+	get_tree().quit()
+
+func _on_buttonBack_pressed():
+	state = MAIN
+	$mainMenu/startButton.grab_focus()
