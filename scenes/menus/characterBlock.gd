@@ -38,15 +38,15 @@ func incInputIndex(num):
 	# updates globals
 	pg.playerInput[playerNumber] = playerInput
 
-func setHue():
-	if (playerChoice == "Anne"):
-		hue = 0.630
-	elif (playerChoice == "Marcy"):
-		hue = 0.364
-	elif (playerChoice == "Sasha"):
-		hue = 0.883
-	elif (playerChoice == "Maggie"):
-		hue = 0.053
+#func setHue():
+#	if (playerChoice == "Anne"):
+#		hue = 0.630
+#	elif (playerChoice == "Marcy"):
+#		hue = 0.364
+#	elif (playerChoice == "Sasha"):
+#		hue = 0.883
+#	elif (playerChoice == "Maggie"):
+#		hue = 0.053
 	
 # Called when the node enters the scene tree for the first time.
 #func _ready():
@@ -88,7 +88,7 @@ func _process(_delta):
 		$labelInput.text = ("Keyboard")
 	else:
 		$labelInput.text = ("Controller " + str(int(playerInput) + 1))
-	setHue()
+	#setHue()
 	$bg.color = Color.from_hsv(hue, 0.75, 0.75, 1)
 	
 	# removes characters with esc/select

@@ -9,6 +9,8 @@ var colorAnne = Color8(55, 150, 223)
 var colorSasha = Color8(215, 40, 119)
 var colorMarcy = Color8(152, 186, 62)
 var colorSprig = Color8(76, 102, 255)
+var colorMaggie = Color8(217, 76, 255)
+var colorGrime = Color8(255, 158, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +32,10 @@ func initialize(character, lives, coins, alive, playerNumber):
 			get_node("bg/colorBG").color = colorMarcy
 		"Sprig":
 			get_node("bg/colorBG").color = colorSprig
+		"Maggie":
+			get_node("bg/colorBG").color = colorMaggie
+		"Grime":
+			get_node("bg/colorBG").color = colorGrime
 		_:
 			get_node("bg/colorBG").color = Color8(10, 10, 10)
 	# Corrections if player was defeated

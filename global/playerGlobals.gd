@@ -57,8 +57,8 @@ var levelNum = 0
 var hasMarcy  = true
 var hasSasha  = true
 var hasSprig = true
-var hasMaggie = false
-var hasGrime = false
+var hasMaggie = true
+var hasGrime = true
 var availableChars = ["Anne"]
 
 # Completed levels
