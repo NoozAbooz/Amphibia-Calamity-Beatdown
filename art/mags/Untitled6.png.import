@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kick.png-7f94c534921c221e14740f541795356a.stex"
+path="res://.import/Untitled6.png-3f85c69a1c5b1ae0179e40863606b9ac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/marcy/kick.png"
-dest_files=[ "res://.import/kick.png-7f94c534921c221e14740f541795356a.stex" ]
+source_file="res://art/mags/Untitled6.png"
+dest_files=[ "res://.import/Untitled6.png-3f85c69a1c5b1ae0179e40863606b9ac.stex" ]
 
 [params]
 
@@ -20,10 +20,10 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
-flags/mipmaps=true
+flags/filter=true
+flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
