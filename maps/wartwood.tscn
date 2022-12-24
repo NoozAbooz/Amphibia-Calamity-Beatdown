@@ -91,9 +91,9 @@ panorama = ExtResource( 55 )
 [sub_resource type="Environment" id=130]
 background_mode = 1
 background_sky = SubResource( 131 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1001,13 +1001,13 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 5 )
 region = Rect2( 136, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=89]
-atlas = ExtResource( 5 )
-region = Rect2( 68, 330, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=74]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 330, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 5 )
+region = Rect2( 68, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 5 )
@@ -1082,14 +1082,14 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 89 ) ],
-"loop": false,
-"name": "hurt_air",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 74 ) ],
 "loop": false,
 "name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 89 ) ],
+"loop": false,
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ) ],
@@ -1752,46 +1752,26 @@ numFlowerBlue = 0
 numFlowerGreen = 0
 numLily = 3
 
-[node name="grass3" parent="environment/plants" instance=ExtResource( 69 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -391.459, 0.0479174, -7.60816 )
-distributionType = 1
-numSmallGrass = 5
-numBigGrass = 3
-numFlowerRed = 2
-numFlowerBlue = 0
-numFlowerGreen = 0
-numLily = 0
-
-[node name="grass10" parent="environment/plants" instance=ExtResource( 69 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -367.21, 0.0479174, -12.9094 )
-distributionType = 1
-numSmallGrass = 6
-numBigGrass = 0
+[node name="grass11" parent="environment/plants" instance=ExtResource( 69 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -399.219, 0.0479174, 15.055 )
+xRange = 11
+zRange = 15
+numSmallGrass = 16
+numBigGrass = 4
 numFlowerRed = 0
 numFlowerBlue = 0
 numFlowerGreen = 0
-numLily = 2
+numLily = 0
 
-[node name="grass11" parent="environment/plants" instance=ExtResource( 69 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -414.645, 0.0479174, 10.1704 )
-xRange = 12
-zRange = 12
-numSmallGrass = 8
-numBigGrass = 3
-numFlowerRed = 1
+[node name="grass12" parent="environment/plants" instance=ExtResource( 69 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -337.518, 0.0479174, 15.055 )
+xRange = 11
+zRange = 20
+numSmallGrass = 20
+numFlowerRed = 0
 numFlowerBlue = 0
 numFlowerGreen = 0
 numLily = 0
-
-[node name="grass9" parent="environment/plants" instance=ExtResource( 69 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -378.969, 0.0479136, 8.57283 )
-xRange = 20
-zRange = 5
-numSmallGrass = 10
-numBigGrass = 0
-numFlowerRed = 2
-numFlowerBlue = 2
-numLily = 2
 
 [node name="grass4" parent="environment/plants" instance=ExtResource( 69 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0214224, 0.0479174, -0.222852 )
@@ -1827,27 +1807,15 @@ numFlowerGreen = 22
 numLily = 0
 
 [node name="grass7" parent="environment/plants" instance=ExtResource( 69 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 301.317, 0.0479193, 7.81714 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 239.62, 0.0479174, 30.4182 )
 distributionType = 1
-radius = 10
-numSmallGrass = 18
-numBigGrass = 2
+radius = 2
+numSmallGrass = 4
+numBigGrass = 0
 numFlowerRed = 0
 numFlowerBlue = 0
 numFlowerGreen = 0
-numLily = 3
-
-[node name="grass8" parent="environment/plants" instance=ExtResource( 69 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 306.68, 0.0479193, -8.32014 )
-xRange = 8
-zRange = 20
-radius = 11
-numSmallGrass = 18
-numBigGrass = 3
-numFlowerRed = 0
-numFlowerBlue = 0
-numFlowerGreen = 0
-numLily = 4
+numLily = 0
 
 [node name="trees" type="Spatial" parent="environment"]
 
@@ -2247,8 +2215,7 @@ hasDialogue = false
 dialogueName = "dummy"
 
 [node name="loggle" parent="environment/npcs" instance=ExtResource( 80 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71061, -1.90735e-06, 0.280565 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17486, -1.90735e-06, -8.30487 )
 hasDialogue = false
 
 [node name="bessie" parent="environment/npcs" instance=ExtResource( 15 )]

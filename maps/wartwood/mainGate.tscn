@@ -119,9 +119,8 @@ extents = Vector3( 6, 1.5, 1 )
 [sub_resource type="ConvexPolygonShape" id=11]
 points = PoolVector3Array( 5.5, 0, 1, 5.5, 0, -1, -5.5, 0, 1, -5.5, 0, -1, 2, 1.5, -1, 2, 1.5, 1, -2, 1.5, -1, -2, 1.5, 1 )
 
-[sub_resource type="CapsuleShape" id=9]
-radius = 2.0
-height = 8.0
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 1.29192, 3.11919, 2.28282 )
 
 [node name="mainGate" type="StaticBody"]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
@@ -201,9 +200,9 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.5, 1
 shape = SubResource( 8 )
 
 [node name="CollisionShape6" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.89234, -0.127414, -2.02227 )
-shape = SubResource( 9 )
+transform = Transform( 1, 0, 0, 0, 1, 1.89478e-14, 0, -1.89478e-14, 1, 4.35811, 2.51086, -1.1713 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape7" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.892, -0.127, -2.022 )
-shape = SubResource( 9 )
+transform = Transform( 1, 0, 0, 0, 1, 1.89478e-14, 0, -1.89478e-14, 1, -4.358, 2.511, -1.171 )
+shape = SubResource( 12 )
