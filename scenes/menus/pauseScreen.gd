@@ -21,6 +21,8 @@ func _ready():
 		chars.append(MARCY)
 	if pg.hasMaggie:
 		chars.append(MAGGIE)
+	if pg.hasGrime:
+		chars.append(GRIME)
 	
 	
 func playMusic():
@@ -186,6 +188,7 @@ func _process(_delta):
 				$combosMenu/namesContainer/namesSasha.hide()
 				$combosMenu/namesContainer/namesMarcy.hide()
 				$combosMenu/namesContainer/namesMaggie.hide()
+				$combosMenu/namesContainer/namesGrime.hide()
 				match charState:
 					ANNE:
 						namesNode = $combosMenu/namesContainer/namesAnne
@@ -197,6 +200,8 @@ func _process(_delta):
 						namesNode = $combosMenu/namesContainer/namesSasha
 					MAGGIE:
 						namesNode = $combosMenu/namesContainer/namesMaggie
+					GRIME:
+						namesNode = $combosMenu/namesContainer/namesGrime
 					_:
 						namesNode = $combosMenu/namesContainer/namesAnne
 				namesNode.show()

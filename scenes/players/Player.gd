@@ -84,6 +84,9 @@ var hurtType = 0
 var hurtDir = Vector3.ZERO
 var hurtPierced = false
 
+var pogo = false
+var pogoMultiplier = 1
+
 var lastOnFloorHeight = 0
 var lastOnFloorPos = Vector3.ZERO
 var shadowHeight = 0 # used in camera positioning
@@ -236,6 +239,8 @@ func spawnProj(projVel = Vector3.ZERO, projAng = 0):
 	var projType = 0
 	if (playerChar == "Marcy"):
 		projType = 1
+	elif (playerChar == "Maggie"):
+		projType = 2
 	# instances and initializes projectile scene
 	var proj = projScene.instance()
 	get_parent().add_child(proj)
@@ -243,6 +248,10 @@ func spawnProj(projVel = Vector3.ZERO, projAng = 0):
 
 func forceRecoil():
 	recoilStart = true
+	
+func forcePogo(strength):
+	pogo = true
+	pogoMultiplier = strength
 	
 func forceMiniJump():
 	if (velocity.y <= 20):
@@ -540,6 +549,9 @@ func _physics_process(delta):
 			elif animFinished:
 				nextState = IDLE
 				animFinished = false
+#			elif (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button):
+#				clearInputBuffer()
+#				nextState = A_L2
 		A_H1:
 			if animFinished:
 				nextState = IDLE
@@ -966,6 +978,14 @@ func _physics_process(delta):
 	elif (mini_jump_boost > 0):
 		velocity.y = mini_jump_boost
 		mini_jump_boost = 0
+	elif (pogo) and (hitLanded):
+		velocity.y = force_jump * pogoMultiplier
+		pogo = false
+	
+	# clears pogo on miss:
+	if is_on_floor():
+		pogo = false
+	#print(pogo)
 	
 	# sets X speed
 	if isInState([WALK, IDLE]):
