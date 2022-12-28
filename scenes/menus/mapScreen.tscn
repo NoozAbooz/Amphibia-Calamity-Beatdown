@@ -188,14 +188,9 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "wartwood",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
-"name": "bestFrondsHard",
+"name": "playground",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -203,22 +198,27 @@ animations = [ {
 "name": "bestFronds",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 27 ) ],
 "loop": true,
-"name": "playground",
+"name": "bestFrondsHard",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "wartwood",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "uncheck",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "check",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "uncheck",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -512,7 +512,6 @@ __meta__ = {
 position = Vector2( 266, 818 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="arrow" type="Sprite" parent="."]

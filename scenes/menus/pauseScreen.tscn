@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
@@ -30,20 +30,25 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 400, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 14 )
-region = Rect2( 1600, 0, 400, 350 )
+region = Rect2( 1200, 0, 400, 350 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 800, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 14 )
-region = Rect2( 1200, 0, 400, 350 )
+region = Rect2( 1600, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 2000, 0, 400, 350 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -57,9 +62,9 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 3 ) ],
 "loop": false,
-"name": "4",
+"name": "1",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ) ],
@@ -67,10 +72,15 @@ animations = [ {
 "name": "3",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
+"frames": [ SubResource( 4 ) ],
 "loop": false,
-"name": "1",
+"name": "4",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": false,
+"name": "5",
+"speed": 0.0
 } ]
 
 [sub_resource type="DynamicFont" id=7]
@@ -1275,6 +1285,7 @@ margin_right = 444.0
 margin_bottom = 1068.0
 
 [node name="namesMaggie" type="ScrollContainer" parent="combosMenu/namesContainer"]
+visible = false
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0
@@ -1473,7 +1484,6 @@ margin_right = 444.0
 margin_bottom = 1068.0
 
 [node name="namesGrime" type="ScrollContainer" parent="combosMenu/namesContainer"]
-visible = false
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0
@@ -1524,7 +1534,7 @@ margin_bottom = 214.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Mega Punch"
+text = "Quake Combo"
 align = 2
 valign = 1
 
@@ -2167,7 +2177,7 @@ __meta__ = {
 position = Vector2( 1047, 155 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 6 )
-animation = "0"
+animation = "5"
 
 [node name="arrowL" type="Sprite" parent="combosMenu"]
 position = Vector2( 1099, 155 )

@@ -21,7 +21,7 @@ func _process(delta):
 			player.setHitBox(10, KB_WEAK, Vector3(1, 0, 0))
 			
 		A_H1:
-			player.setHitBox(12, KB_STRONG, Vector3(30, 25, 0), "hit3")
+			player.setHitBox(12, KB_ANGLED, Vector3(15, 40, 0), "hit3")
 		A_H2:
 			player.setHitBox(20, KB_STRONG, Vector3(7, 50, 0), "hit3")
 		A_H3:
