@@ -258,8 +258,11 @@ func _on_buttonResume_pressed():
 	soundManager.resumeMusic()
 
 func _on_buttonMapAttempt_pressed():
-	state = VERIFY
-	$verifyMenu/buttonBack.grab_focus()
+	if pg.levelNum == 0:
+		_on_buttonMap_pressed()
+	else:
+		state = VERIFY
+		$verifyMenu/buttonBack.grab_focus()
 
 func _on_buttonMap_pressed():
 	get_tree().paused = false

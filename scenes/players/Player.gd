@@ -45,6 +45,7 @@ var mini_jump_boost = 0
 var recoilStart = false
 var recoilCounter = 0
 var recoilDir = 0
+var forceHardLand = false
 var canMove = true # true if player is not in recoil
 
 var bouncing = false
@@ -463,7 +464,10 @@ func _physics_process(delta):
 				nextState = RISING
 		FALLING:
 			if is_on_floor():
-				if checkWalk() == false:
+				if forceHardLand:
+					forceHardLand = false
+					nextState = LAND
+				elif checkWalk() == false:
 					nextState = IDLE
 				elif (speed == speed_run):
 					nextState = RUN
@@ -492,6 +496,7 @@ func _physics_process(delta):
 			doubleJumpReady = true
 			nextState = RISING
 		LAND:
+			forceHardLand = false
 			if (LCancel):
 				nextState = LANDC
 				state = LANDC
@@ -1010,6 +1015,7 @@ func _physics_process(delta):
 	if (recoilCounter > 0): 
 		recoilCounter -= 1 
 	if (recoilStart):
+		forceHardLand = true
 		canMove = false
 		recoilStart = false
 		recoilCounter = 30

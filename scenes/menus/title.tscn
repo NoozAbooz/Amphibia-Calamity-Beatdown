@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/menus/title.gd" type="Script" id=1]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=2]
@@ -9,10 +9,8 @@
 [ext_resource path="res://art/menus/controls1.png" type="Texture" id=7]
 [ext_resource path="res://art/menus/charBlock.png" type="Texture" id=8]
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=9]
-
-[sub_resource type="DynamicFont" id=1]
-size = 48
-font_data = ExtResource( 3 )
+[ext_resource path="res://art/menus/main menu/main_menu_normal.png" type="Texture" id=10]
+[ext_resource path="res://art/menus/main menu/Logo1.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -36,12 +34,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 10 )
+centered = false
+
 [node name="lockButton" type="Button" parent="."]
-visible = false
-margin_left = -622.0
-margin_top = 230.0
-margin_right = -446.0
-margin_bottom = 279.0
+margin_left = 416.0
+margin_top = 330.0
+margin_right = 592.0
+margin_bottom = 379.0
 toggle_mode = true
 clip_text = true
 __meta__ = {
@@ -49,7 +50,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="lockButton"]
-margin_right = 186.0
+margin_right = 176.0
 margin_bottom = 48.0
 text = "Enable All Upgrades"
 align = 1
@@ -80,20 +81,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="titleText" type="Label" parent="."]
-margin_left = 23.0
-margin_top = 72.0
-margin_right = 1271.0
-margin_bottom = 132.0
-rect_pivot_offset = Vector2( 1575, 607 )
-custom_fonts/font = SubResource( 1 )
-text = "Amphibia: Calamity Beatdown"
-align = 1
-valign = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="mainMenu" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -101,11 +88,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="logo" type="Sprite" parent="mainMenu"]
+position = Vector2( 10, 10 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+centered = false
+
 [node name="startButton" type="Button" parent="mainMenu"]
-margin_left = 45.0
-margin_top = 200.0
-margin_right = 303.0
-margin_bottom = 272.0
+margin_left = 136.0
+margin_top = 320.0
+margin_right = 394.0
+margin_bottom = 392.0
 theme = ExtResource( 4 )
 text = "Start"
 __meta__ = {
@@ -113,10 +106,10 @@ __meta__ = {
 }
 
 [node name="controlsButton" type="Button" parent="mainMenu"]
-margin_left = 45.0
-margin_top = 300.0
-margin_right = 303.0
-margin_bottom = 372.0
+margin_left = 136.0
+margin_top = 420.0
+margin_right = 394.0
+margin_bottom = 492.0
 theme = ExtResource( 4 )
 text = "Controls"
 __meta__ = {
@@ -124,10 +117,10 @@ __meta__ = {
 }
 
 [node name="creditsButton" type="Button" parent="mainMenu"]
-margin_left = 45.0
-margin_top = 400.0
-margin_right = 303.0
-margin_bottom = 472.0
+margin_left = 136.0
+margin_top = 520.0
+margin_right = 394.0
+margin_bottom = 592.0
 theme = ExtResource( 4 )
 text = "Credits"
 __meta__ = {
@@ -135,10 +128,10 @@ __meta__ = {
 }
 
 [node name="exitButton" type="Button" parent="mainMenu"]
-margin_left = 45.0
-margin_top = 500.0
-margin_right = 303.0
-margin_bottom = 572.0
+margin_left = 136.0
+margin_top = 620.0
+margin_right = 394.0
+margin_bottom = 692.0
 theme = ExtResource( 4 )
 text = "Quit"
 __meta__ = {

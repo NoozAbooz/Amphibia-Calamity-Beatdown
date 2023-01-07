@@ -54,9 +54,9 @@ panorama = ExtResource( 14 )
 [sub_resource type="Environment" id=130]
 background_mode = 1
 background_sky = SubResource( 129 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -3471,7 +3471,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.1765, 0.375762, -0.0009908
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66.0864, 0.375762, 0.959445 )
 
 [node name="enemySpawnPoint45" parent="enemies" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.918, 0.375762, 3.46041 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -201.388, 18.0711, -22.906 )
+enemyNum = 7
 
 [node name="enemySpawnPoint46" parent="enemies" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.8278, 0.375762, 4.42084 )
@@ -3839,7 +3840,7 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 238.773, 17.3924, 18.9216 )
 
 [node name="ambush2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -187.321, 17.3924, -21.7859 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -503.365, 17.3924, -21.7859 )
 ambushName = "playgroundAmbush2"
 
 [node name="lilypad" parent="." instance=ExtResource( 16 )]
@@ -4080,23 +4081,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -311.773, 17.9179, -2.89218 )
 enemyNum = 4
 
 [node name="enemySpawnPoint58" parent="." instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -302.657, 20.3426, -28.8755 )
-enemyNum = 4
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -296.733, 20.3426, -27.9655 )
+enemyNum = 6
 
 [node name="enemySpawnPoint55" parent="." instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -350.826, 19.9338, -16.0589 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -308.626, 19.9338, -24.3397 )
 enemyNum = 6
 
 [node name="enemySpawnPoint59" parent="." instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -330.256, 19.9338, -23.1425 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -307.53, 19.9338, -36.5855 )
 enemyNum = 6
 
 [node name="enemySpawnPoint56" parent="." instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -369.053, 23.3488, -1.46821 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -330.721, 23.3488, -23.7193 )
 enemyNum = 3
 
 [node name="enemySpawnPoint57" parent="." instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -365.816, 25.382, 0.607306 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -327.484, 25.382, -21.6438 )
 enemyNum = 3
 
 [node name="trailer" type="MeshInstance" parent="."]

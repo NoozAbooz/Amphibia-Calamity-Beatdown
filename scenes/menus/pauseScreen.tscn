@@ -30,6 +30,11 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 400, 0, 400, 350 )
 
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 2000, 0, 400, 350 )
+
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 14 )
@@ -45,11 +50,6 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1600, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 2000, 0, 400, 350 )
-
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ SubResource( 2 ) ],
@@ -61,6 +61,11 @@ animations = [ {
 "loop": false,
 "name": "2",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": false,
+"name": "5",
+"speed": 0.0
 }, {
 "frames": [ SubResource( 3 ) ],
 "loop": false,
@@ -76,11 +81,6 @@ animations = [ {
 "loop": false,
 "name": "4",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 8 ) ],
-"loop": false,
-"name": "5",
-"speed": 0.0
 } ]
 
 [sub_resource type="DynamicFont" id=7]
@@ -119,7 +119,6 @@ __meta__ = {
 }
 
 [node name="basicMenu" type="Control" parent="."]
-visible = false
 margin_top = -30.0
 margin_bottom = -30.0
 __meta__ = {
@@ -457,6 +456,7 @@ valign = 1
 autowrap = true
 
 [node name="combosMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {

@@ -44,7 +44,7 @@ var playerFixPos = [false, false, false, false]
 var unlimitedLives = false
 var unlimitedMoney = false
 var hardcoreMode   = false
-var allCharsMode   = false
+var allCharsMode   = true
 var easyMode       = false
 var hardMode       = false
  
@@ -55,10 +55,10 @@ var levelNum = 0
 
 # playable characters
 var hasMarcy  = true
-var hasSasha  = true
+var hasSasha  = false
 var hasSprig = true
-var hasMaggie = true
-var hasGrime = true
+var hasMaggie = false
+var hasGrime = false
 var availableChars = ["Anne"]
 
 # Completed levels
@@ -79,7 +79,7 @@ var firstTimeInWartwood = true
 var currentStore = 0 # 0 = none; 1 = city hall; 2 = Maddie; 3 = Felicia
 
 # debug flags
-var debugCameraAvailable = true
+var debugCameraAvailable = false
 
 func recalcInfo():
 	# characters
@@ -90,9 +90,9 @@ func recalcInfo():
 		availableChars.append("Sasha")
 	if hasSprig or allCharsMode:
 		availableChars.append("Sprig")
-	if hasMaggie:
+	if hasMaggie or allCharsMode:
 		availableChars.append("Maggie")
-	if hasGrime:
+	if hasGrime or allCharsMode:
 		availableChars.append("Grime")
 	# inputs
 	checkAvailableInputs()
