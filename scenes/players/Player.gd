@@ -571,7 +571,10 @@ func _physics_process(delta):
 				animFinished = false
 		A_AL1:
 			if is_on_floor():
-				if checkWalk() == false:
+				if forceHardLand:
+					forceHardLand = false
+					nextState = LAND
+				elif checkWalk() == false:
 					nextState = IDLE
 				elif (speed == speed_run):
 					nextState = RUN
@@ -599,7 +602,10 @@ func _physics_process(delta):
 				animFinished = false
 		A_AL2:
 			if is_on_floor():
-				if checkWalk() == false:
+				if forceHardLand:
+					forceHardLand = false
+					nextState = LAND
+				elif checkWalk() == false:
 					nextState = IDLE
 				elif (speed == speed_run):
 					nextState = RUN
@@ -661,6 +667,7 @@ func _physics_process(delta):
 				nextState = RISING
 				animFinished = false
 		A_AH3_LAUNCH:
+			forceHardLand = false
 			nextState = A_AH3_RISE
 		A_AH3_RISE:
 			if is_on_floor():

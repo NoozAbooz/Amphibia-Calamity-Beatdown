@@ -1,3 +1,7 @@
 [
-  {"sprite":"May_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"(city hall exit dialogue)" },
+  {"sprite":"Toadstool_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Thanks for checking in." },
+  {"sprite":"Toadstool_normal", "pos":"right",  "move_in":"still", "move_out":"slide", "text":"Now I can get back to embezzling the town's money." },
+  {"sprite":"[PC]_normal", "pos":"left",  "move_in":"slide", "move_out":"slide",  "text":"You know I can still hear you right?"},
+  {"sprite":"Toadstool_normal", "pos":"right",  "move_in":"slide", "move_out":"slide",  "text":"Did I say \"embezzling\"? I meant to say \"sharing\"! Yeah... \"sharing\"."},
+  {"sprite":"[PC]_normal", "pos":"left",  "move_in":"slide", "move_out":"slide", "text":"...whatever."}
 ]

@@ -84,16 +84,16 @@ var debugCameraAvailable = false
 func recalcInfo():
 	# characters
 	availableChars = ["Anne"]
-	if hasMarcy or allCharsMode:
-		availableChars.append("Marcy")
-	if hasSasha or allCharsMode:
-		availableChars.append("Sasha")
 	if hasSprig or allCharsMode:
 		availableChars.append("Sprig")
-	if hasMaggie or allCharsMode:
-		availableChars.append("Maggie")
+	if hasSasha or allCharsMode:
+		availableChars.append("Sasha")
+	if hasMarcy or allCharsMode:
+		availableChars.append("Marcy")
 	if hasGrime or allCharsMode:
 		availableChars.append("Grime")
+	if hasMaggie or allCharsMode:
+		availableChars.append("Maggie")
 	# inputs
 	checkAvailableInputs()
 

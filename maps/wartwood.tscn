@@ -92,9 +92,9 @@ panorama = ExtResource( 55 )
 [sub_resource type="Environment" id=130]
 background_mode = 1
 background_sky = SubResource( 131 )
-background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, 3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, 180, 0 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -984,6 +984,14 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 5 )
 region = Rect2( 136, 330, 68, 66 )
 
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 5 )
+region = Rect2( 68, 330, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 330, 68, 66 )
+
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 66, 68, 66 )
@@ -1015,14 +1023,6 @@ region = Rect2( 408, 66, 68, 66 )
 [sub_resource type="AtlasTexture" id=144]
 atlas = ExtResource( 5 )
 region = Rect2( 476, 66, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=74]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 330, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=89]
-atlas = ExtResource( 5 )
-region = Rect2( 68, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 5 )
@@ -1065,9 +1065,9 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ) ],
+"frames": [ SubResource( 89 ) ],
 "loop": false,
-"name": "walk",
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 74 ) ],
@@ -1075,9 +1075,9 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 89 ) ],
+"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "walk",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
@@ -1730,8 +1730,7 @@ numLily = 3
 
 [node name="grass11" parent="environment/plants" instance=ExtResource( 69 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -399.219, 0.0479174, 15.055 )
-xRange = 11
-zRange = 15
+xRange = 15
 numSmallGrass = 16
 numBigGrass = 4
 numFlowerRed = 0
@@ -1741,8 +1740,7 @@ numLily = 0
 
 [node name="grass12" parent="environment/plants" instance=ExtResource( 69 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -337.518, 0.0479174, 15.055 )
-xRange = 11
-zRange = 20
+xRange = 20
 numSmallGrass = 20
 numFlowerRed = 0
 numFlowerBlue = 0
@@ -2060,22 +2058,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 237.674, 0.0588547, 23.9694 )
 dialogueName = "hoppop_school"
 startLeft = true
 
-[node name="hopPop2" parent="environment/npcs" instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.52933, 0.0588547, 7.7162 )
-dialogueName = "hoppop_school"
-
 [node name="wally" parent="environment/npcs" instance=ExtResource( 28 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -275.931, -0.893019, -36.6554 )
 dialogueName = "wally_boom"
 startLeft = true
 
-[node name="wally2" parent="environment/npcs" instance=ExtResource( 28 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8934, -0.0196334, -12.9479 )
-dialogueName = "wally_boom"
-startLeft = true
-
-[node name="maddie2" parent="environment/npcs" instance=ExtResource( 37 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -364.666, 0.00803697, -4.02148 )
+[node name="maddie" parent="environment/npcs" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -365.674, 0.00803697, -4.76125 )
 dialogueName = "mad_outside_where_to_go"
 
 [node name="sadie" parent="environment/npcs" instance=ExtResource( 38 )]
@@ -2096,7 +2085,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -314.894, 0, -8.65018 )
 hasDialogue = false
 
 [node name="frog8" parent="environment/npcs" instance=ExtResource( 60 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.90318, 0, -20.2274 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1104, 0, -19.7202 )
 hasDialogue = false
 
 [node name="frog4" parent="environment/npcs" instance=ExtResource( 60 )]
@@ -2106,7 +2095,6 @@ startLeft = true
 
 [node name="frog2" parent="environment/npcs" instance=ExtResource( 61 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0043, -7.62941e-06, 20.0007 )
-visible = false
 hasDialogue = false
 startLeft = true
 
@@ -2115,16 +2103,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -401.981, 0, 22.3733 )
 hasDialogue = false
 startLeft = true
 
-[node name="frog5" parent="environment/npcs" instance=ExtResource( 62 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5643, -4.76837e-07, -19.1066 )
-hasDialogue = false
-startLeft = true
-
 [node name="frog7" parent="environment/npcs" instance=ExtResource( 78 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 190.264, 0, -8.59552 )
-
-[node name="frog9" parent="environment/npcs" instance=ExtResource( 78 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8779, 7.62939e-06, 7.36373 )
 
 [node name="frog" parent="environment/npcs" instance=ExtResource( 77 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -298.91, 1.52588e-05, -26.378 )
@@ -2143,22 +2123,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 286.567, 3.8147e-06, 1.30583 )
 hasDialogue = false
 startLeft = true
 
-[node name="fern2" parent="environment/npcs" instance=ExtResource( 75 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1928, 3.8147e-06, -13.0501 )
-hasDialogue = false
-
 [node name="flour" parent="environment/npcs" instance=ExtResource( 76 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -352.486, 0, 17.634 )
 hasDialogue = false
 startLeft = true
 
-[node name="flour2" parent="environment/npcs" instance=ExtResource( 76 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2369, 9.53674e-06, -7.98422 )
-hasDialogue = false
-startLeft = true
-
 [node name="stumpy" parent="environment/npcs" instance=ExtResource( 72 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2403, 4.76837e-07, 20.4554 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.809, 4.76837e-07, 19.4392 )
 hasDialogue = false
 startLeft = true
 
@@ -2167,18 +2138,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -362.302, -1.19952, 17.4227 )
 hasDialogue = false
 
 [node name="mayor" parent="environment/npcs" instance=ExtResource( 73 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14194, -1.90735e-06, -19.3176 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2181, -1.90735e-06, -14.6945 )
+dialogueName = "mayor_first"
 startLeft = true
 
 [node name="toady" parent="environment/npcs" instance=ExtResource( 81 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7919, 0, -14.749 )
-visible = false
 hasDialogue = false
 startLeft = true
 
 [node name="felicia" parent="environment/npcs" instance=ExtResource( 74 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.97, 0, 4.8736 )
-visible = false
 hasDialogue = false
 
 [node name="ivy" parent="environment/npcs" instance=ExtResource( 79 )]
@@ -2191,16 +2161,13 @@ hasDialogue = false
 dialogueName = "dummy"
 
 [node name="loggle" parent="environment/npcs" instance=ExtResource( 80 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17486, -1.90735e-06, -8.30487 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.61261, -1.90735e-06, -3.80371 )
 hasDialogue = false
 
 [node name="bessie" parent="environment/npcs" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 243.03, 1.81198e-05, 30.9767 )
 hasDialogue = false
 startLeft = true
-
-[node name="bessie2" parent="environment/npcs" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3863, 9.53674e-07, 5.89971 )
 
 [node name="ground" type="StaticBody" parent="environment"]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, 0 )

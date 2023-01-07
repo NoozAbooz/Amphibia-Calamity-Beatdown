@@ -1,3 +1,9 @@
 [
-  {"sprite":"May_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"(city hall intro dialogue)" },
+  {"sprite":"Toadstool_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"Ah! The Plantars! Perfect timing." },
+  {"sprite":"[PC]_normal", "pos":"left",  "move_in":"slide", "move_out":"slide",  "text":"Lets just cut to the chase. What do you need us to do?"},
+  {"sprite":"Toadstool_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Oh you misunderstand children. I called you all here to help you." },
+  {"sprite":"Toadstool_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"Think of it as repayment for your assistance with the millipede incident last week." },
+  {"sprite":"Toadstool_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"You see with my resources, I can make these little adventures y'all keep having a bit easier for you. Or make them even more dangerous if that's your thing. And that's just the start." },
+  {"sprite":"Toadstool_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"You'd be amazed the problems you can solve with a little bribin' money." },
+  {"sprite":"Toadstool_normal",  "pos":"right", "move_in":"still", "move_out":"slide",  "text":"So what do you say?" },
 ]
