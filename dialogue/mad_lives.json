@@ -1,3 +1,6 @@
 [
-  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"(number of lives upgrade description)" }
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"Looking for some extra resiliency, eh? I’ve got an extra soul I can give ya. Don’t worry, the guy I stole it from won’t miss it." },
+  {"sprite":"[PC]_normal",  "pos":"left", "move_in":"slide", "move_out":"slide",  "text":"You stole someone’s soul?!? You can do that?!?" },
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"Look, do you want an extra life or not [PC]?" },
+  {"sprite":"[PC]_normal",  "pos":"left", "move_in":"slide", "move_out":"slide",  "text":"Eh, why not." }
 ]

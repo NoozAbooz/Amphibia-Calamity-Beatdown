@@ -211,13 +211,13 @@ __meta__ = {
 [node name="leftChar" type="AnimatedSprite" parent="."]
 position = Vector2( -300, 250 )
 frames = ExtResource( 2 )
-animation = "Toadstool_normal"
+animation = "Ivy_normal"
 flip_h = true
 
 [node name="rightChar" type="AnimatedSprite" parent="."]
 position = Vector2( 1580, 250 )
 frames = ExtResource( 2 )
-animation = "Toadstool_normal"
+animation = "Ivy_normal"
 
 [node name="leftCharAnim" type="AnimationPlayer" parent="."]
 autoplay = "offScreen"
@@ -252,7 +252,6 @@ __meta__ = {
 position = Vector2( 1248, 680 )
 frames = SubResource( 4 )
 animation = "blink"
-frame = 1
 playing = true
 
 [node name="label" type="Label" parent="."]

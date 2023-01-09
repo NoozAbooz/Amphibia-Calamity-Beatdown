@@ -88,7 +88,11 @@ func _ready():
 	get_node("confirm").hide()
 	
 	# intro dialogue
-	playDialogue("mad_enter")
+	if (pg.seenMaddie):
+		playDialogue("mad_repeat")
+	else:
+		playDialogue("mad_enter")
+		pg.seenMaddie = true
 	
 	#get_node("main/buttonExit").grab_focus()
 	

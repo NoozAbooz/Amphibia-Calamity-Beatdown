@@ -44,7 +44,7 @@ var playerFixPos = [false, false, false, false]
 var unlimitedLives = false
 var unlimitedMoney = false
 var hardcoreMode   = false
-var allCharsMode   = true
+var allCharsMode   = false
 var easyMode       = false
 var hardMode       = false
  
@@ -75,6 +75,7 @@ var inCutscene = false
 
 # wartwood flags
 var seenToadstool = false
+var seenMaddie = false
 var firstTimeInWartwood = true
 var currentStore = 0 # 0 = none; 1 = city hall; 2 = Maddie; 3 = Felicia
 
