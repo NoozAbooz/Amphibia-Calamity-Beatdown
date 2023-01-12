@@ -44,7 +44,7 @@ var playerFixPos = [false, false, false, false]
 var unlimitedLives = false
 var unlimitedMoney = false
 var hardcoreMode   = false
-var allCharsMode   = false
+var allCharsMode   = true
 var easyMode       = false
 var hardMode       = false
  
@@ -54,7 +54,7 @@ var levelMusic = "ripple"
 var levelNum = 0
 
 # playable characters
-var hasMarcy  = true
+var hasMarcy  = false
 var hasSasha  = false
 var hasSprig = true
 var hasMaggie = false

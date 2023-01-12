@@ -10,7 +10,7 @@
 [ext_resource path="res://art/menus/charBlock.png" type="Texture" id=8]
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=9]
 [ext_resource path="res://art/menus/main menu/main_menu_normal.png" type="Texture" id=10]
-[ext_resource path="res://art/menus/main menu/Logo1.png" type="Texture" id=11]
+[ext_resource path="res://art/menus/main menu/Logo_complete.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24

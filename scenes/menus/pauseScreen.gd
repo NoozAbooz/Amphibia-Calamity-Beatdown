@@ -19,9 +19,9 @@ func _ready():
 		chars.append(SASHA)
 	if pg.hasMarcy or pg.allCharsMode:
 		chars.append(MARCY)
-	if pg.hasMaggie:
+	if pg.hasMaggie or pg.allCharsMode:
 		chars.append(MAGGIE)
-	if pg.hasGrime:
+	if pg.hasGrime or pg.allCharsMode:
 		chars.append(GRIME)
 	
 	

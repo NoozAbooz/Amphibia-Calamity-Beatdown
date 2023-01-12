@@ -25,15 +25,20 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 400, 350 )
 
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 2000, 0, 400, 350 )
+
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 400, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 14 )
-region = Rect2( 2000, 0, 400, 350 )
+region = Rect2( 1600, 0, 400, 350 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
@@ -45,11 +50,6 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 800, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 1600, 0, 400, 350 )
-
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ SubResource( 2 ) ],
@@ -57,15 +57,20 @@ animations = [ {
 "name": "0",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 8 ) ],
+"loop": false,
+"name": "5",
+"speed": 0.0
+}, {
 "frames": [ SubResource( 1 ) ],
 "loop": false,
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ) ],
+"frames": [ SubResource( 4 ) ],
 "loop": false,
-"name": "5",
-"speed": 0.0
+"name": "4",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 3 ) ],
 "loop": false,
@@ -75,11 +80,6 @@ animations = [ {
 "frames": [ SubResource( 5 ) ],
 "loop": false,
 "name": "3",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 4 ) ],
-"loop": false,
-"name": "4",
 "speed": 5.0
 } ]
 
@@ -456,7 +456,6 @@ valign = 1
 autowrap = true
 
 [node name="combosMenu" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {

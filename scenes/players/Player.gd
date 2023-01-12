@@ -1032,7 +1032,7 @@ func _physics_process(delta):
 		else:
 			recoilDir = -1
 		velocity.y = 0.75 * force_jump_double
-		if (state == A_SH):
+		if (state == A_SH) or (state == A_H3):
 			state = RISING
 	if (recoilCounter > 0) and (is_on_floor() == false):
 		velocity.x = -1.25 * speed * recoilDir
@@ -1068,8 +1068,22 @@ func _physics_process(delta):
 			windVect = Vector3.ZERO
 	
 	# Heavy Air attack 3
-	if (isInState([A_AH3_HIT])) and !comboReady:
+	if (isInState([A_AH3_HIT])) and !comboReady and (playerChar == "Maggie" or playerChar == "Sasha"):
 		canMove = true
+		velocity.y = -3
+		velocity.x = speed * direction.x
+		velocity.z = speed_z * direction.z
+		if playerChar == "Sasha":
+			velocity.x = 0
+			velocity.z = 0
+			velocity.y = -0.5
+	elif (isInState([A_AH3_HIT])) and (playerChar == "Maggie" or playerChar == "Sasha"):
+		canMove = true
+		velocity.x = speed * direction.x
+		velocity.z = speed_z * direction.z
+	elif (isInState([A_AH3_HIT])) and !comboReady:
+		canMove = true
+		velocity.y = -3
 		velocity.x = speed * direction.x
 		velocity.z = speed_z * direction.z
 	elif (isInState([A_AH3_HIT])) and hitLanded:
