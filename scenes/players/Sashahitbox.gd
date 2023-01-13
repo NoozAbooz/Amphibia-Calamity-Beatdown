@@ -16,9 +16,9 @@ func _process(delta):
 		A_L1:
 			player.setHitBox(5, KB_WEAK, Vector3(1, 0, 0))
 		A_L2:
-			player.setHitBox(10, KB_WEAK, Vector3(1, 0, 0), "hit2")
+			player.setHitBox(5, KB_WEAK, Vector3(1, 0, 0), "hit2")
 		A_L3:
-			player.setHitBox(10, KB_WEAK, Vector3(1, 0, 0))
+			player.setHitBox(6, KB_WEAK, Vector3(1, 0, 0))
 			
 		A_H1:
 			player.setHitBox(12, KB_STRONG, Vector3(30, 25, 0), "hit3")
@@ -31,11 +31,16 @@ func _process(delta):
 				player.setHitBox(2, KB_WEAK, Vector3(1, 0, 0), "hit5")
 		
 		A_AL1:
-			player.setHitBox(8, KB_AIR, Vector3(1, 0, 0))
+			player.setHitBox(5, KB_AIR, Vector3(1, 0, 0))
 		A_AL2:
-			player.setHitBox(8, KB_AIR, Vector3(1, 0, 0), "hit2")
+			player.setHitBox(5, KB_STRONG, Vector3(10, 5, 0), "hit2")
 		A_AL3:
-			player.setHitBox(12, KB_AIR_UP, Vector3(1, 30, 0))
+			if (player.secondCombo):
+				player.setHitBox(5, KB_STRONG, Vector3(10, 30, 0))
+			else:
+				player.setHitBox(5, KB_AIR, Vector3(1, 0, 0))
+			
+			
 			
 		A_AH1:
 			player.setHitBox(20, KB_ANGLED, Vector3(40, 10, 0), "hit3")

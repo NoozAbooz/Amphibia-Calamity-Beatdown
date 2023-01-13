@@ -50,6 +50,7 @@ var hardMode       = false
  
 # destination level info
 var levelName = "test"
+var levelNameDisc = "test"
 var levelMusic = "ripple"
 var levelNum = 0
 

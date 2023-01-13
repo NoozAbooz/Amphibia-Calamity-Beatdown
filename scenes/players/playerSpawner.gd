@@ -123,5 +123,8 @@ func _process(_delta):
 	# sets player movement/cutscene flag so they can act
 	pg.dontMove = false
 	
+	# sets level in discord thing
+	discordRPC.updateLevel(pg.levelNameDisc)
+	
 	#removes spawner
 	queue_free()

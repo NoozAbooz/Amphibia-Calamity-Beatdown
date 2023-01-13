@@ -10,6 +10,7 @@ var state = MAIN
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	soundManager.playMusicIfDiff("menu")
+	discordRPC.updateLevel("Main Menu")
 	$mainMenu/startButton.grab_focus()
 	_on_lockButton_toggled(false)
 	$lockButton.pressed = false

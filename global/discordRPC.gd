@@ -1,7 +1,8 @@
 extends Node
 
 var discord := DiscordRPC.new()
-var application_id: int = 983557502568374282
+var application_id: int = 1063326299860504646
+var timestamp = OS.get_unix_time()
 
 func _ready() -> void:
 	add_child(discord)
@@ -12,17 +13,25 @@ func _ready() -> void:
 
 func _on_discord_ready(user: Dictionary) -> void:
 	var presence := RichPresence.new()
-	presence.details = "In main menu"
-	presence.state = "afk"
 	
-	presence.details = "Currently on:"
+	presence.details = "Currently in:"
 	presence.state = "Main Menu"
 
 	presence.large_image_key = "icon"
-	presence.large_image_text = ":smug_anne:"
-	#presence.small_image_key = "mantis_stand"
-	#presence.small_image_text = "Angy mantis"
+	presence.large_image_text = "Anna Bananna"
 	
-	presence.start_timestamp = OS.get_unix_time()
+	presence.start_timestamp = timestamp #OS.get_unix_time()
+	
+	discord.get_module("RichPresence").update_presence(presence)
+	
+func updateLevel(levelName, altDesc = "Currently in:"):
+	var presence := RichPresence.new()
+	presence.details = altDesc
+	presence.state = levelName
+	
+	presence.large_image_key = pg.playerCharacter[0].to_lower()
+	presence.large_image_text = "Playing as: " + pg.playerCharacter[0]
+	
+	presence.start_timestamp = timestamp
 	
 	discord.get_module("RichPresence").update_presence(presence)

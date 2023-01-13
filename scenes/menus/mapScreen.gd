@@ -24,6 +24,7 @@ var markerState = READY
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	soundManager.playMusicIfDiff("menu")
+	discordRPC.updateLevel("Checking the map", "Currently:")
 	cam.zoom = Vector2(1,1)
 	loading = false
 	get_node("cam/pockets/totalMoney").text = str(pg.totalMoney)
@@ -186,6 +187,7 @@ func _on_playButton_pressed():
 func _on_wart_focus_entered():
 	fucusOnButton(get_node("wart"))
 	pg.levelName = "wartwood"
+	pg.levelNameDisc = "Wartwood"
 	pg.levelMusic = "wart"
 	pg.levelNum = 0
 	$cam/phone/levelName.text = "Wartwood"
@@ -195,6 +197,7 @@ func _on_wart_focus_entered():
 func _on_play_focus_entered():
 	fucusOnButton(get_node("play"))
 	pg.levelName = "playground"
+	pg.levelNameDisc = "?-2 Beta Playground"
 	pg.levelMusic = "marcy"
 	pg.levelNum = 1
 	$cam/phone/levelName.text = "Beta Playground"
@@ -204,6 +207,7 @@ func _on_play_focus_entered():
 func _on_lvl1_focus_entered():
 	fucusOnButton(get_node("lvl1"))
 	pg.levelName = "bestFronds"
+	pg.levelNameDisc = "1-1 Trip to the Lake"
 	pg.levelMusic = "swamp"
 	pg.levelNum = 2
 	$cam/phone/levelName.text = "Trip to the Lake"
@@ -213,6 +217,7 @@ func _on_lvl1_focus_entered():
 func _on_lvl2_focus_entered():
 	fucusOnButton(get_node("lvl2"))
 	pg.levelName = "bestFrondsHard"
+	pg.levelNameDisc = "?-1 Bonus Level"
 	pg.levelMusic = "nbd"
 	pg.levelNum = 3
 	#$cam/phone/levelName.text = "Valley Ridge"

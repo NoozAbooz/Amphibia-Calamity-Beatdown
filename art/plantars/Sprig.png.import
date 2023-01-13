@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sasha_icon.png-8a8a41553fd44f3874423ebbe0a345e0.stex"
+path="res://.import/Sprig.png-40e6baba0c48a08b3a035f493460eafb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sasha/Sasha_icon.png"
-dest_files=[ "res://.import/Sasha_icon.png-8a8a41553fd44f3874423ebbe0a345e0.stex" ]
+source_file="res://art/plantars/Sprig.png"
+dest_files=[ "res://.import/Sprig.png-40e6baba0c48a08b3a035f493460eafb.stex" ]
 
 [params]
 

@@ -120,6 +120,8 @@ var inputBuffKey = null
 var inputBuffTimer = 0
 var inputBuffMax = 8
 
+var secondCombo = false
+
 
 func initialize(num, pos, character):
 	# adds hit box area to appropriate group so enemies can tell hitboxes apart
@@ -255,6 +257,8 @@ func forcePogo(strength):
 	pogoMultiplier = strength
 	
 func forceMiniJump():
+	if (playerChar == "Sasha") and !secondCombo:
+		return
 	if (velocity.y <= 20):
 		mini_jump_boost = 15
 		
@@ -547,6 +551,10 @@ func _physics_process(delta):
 			if (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button) and pg.hasSpin:
 				clearInputBuffer()
 				nextState = A_H3
+			elif (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button) and (secondCombo == false) and (playerChar == "Sasha"):
+				clearInputBuffer()
+				nextState = A_L2
+				secondCombo = true
 			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
 			elif (comboReady) and (hitLanded) and (inputBuffKey == jump_button):
 				clearInputBuffer()
@@ -642,6 +650,10 @@ func _physics_process(delta):
 			elif (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button) and pg.hasAirSpin:
 				clearInputBuffer()
 				nextState = A_AH3_LAUNCH
+			elif (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button) and (secondCombo == false) and (playerChar == "Sasha"):
+				clearInputBuffer()
+				nextState = A_AL2
+				secondCombo = true
 			elif animFinished and (velocity.y <= 0):
 				nextState = FALLING
 				animFinished = false
@@ -865,6 +877,10 @@ func _physics_process(delta):
 		soundManager.playSound("jump")
 	# sets state
 	state = nextState
+	
+	#Sasha 5 hit combos
+	if isInState([IDLE, WALK, RUN, JUMP, BOUNCE, LAND, LANDC]):
+		secondCombo = false
 	
 	# Counter mechanic
 	if (counterTimer > 0):
