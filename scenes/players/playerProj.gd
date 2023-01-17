@@ -1,4 +1,4 @@
-extends Area
+extends KinematicBody
 
 
 var hitDamage = 0
@@ -9,17 +9,25 @@ var hitDir = Vector3.ZERO
 var hitSound = ""
 
 var velocity = Vector3.ZERO
+var velocityInit = Vector3.ZERO
 
 var force_grav = 50.0
 
 var hitLanded = false
 
+var active = true
+
 var playerChar = "proj"
 
-enum {GRAV, NOGRAV}
+enum {GRAV, NOGRAV, GRAVBOUNCE}
+
 var physType = GRAV
 
 var despawnOnHit = false
+
+var bounceOffEnemy = false
+
+var baseball = false
 
 onready var sprite = get_node("zeroPoint/AnimatedSprite3D")
 
@@ -35,6 +43,9 @@ func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, p
 	
 	match projType:
 		0:
+			sprite.offset = Vector2.ZERO
+			despawnOnHit = false
+			bounceOffEnemy = false
 			sprite.play("rock")
 			physType = GRAV
 			# flips sprite if necessary and sets starting velocity
@@ -45,7 +56,9 @@ func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, p
 				sprite.flip_h = false
 				velocity = Vector3(30, 10, 0)
 		1:
+			sprite.offset = Vector2.ZERO
 			despawnOnHit = true
+			bounceOffEnemy = false
 			physType = NOGRAV
 			sprite.play("arrow")
 			# flips sprite if necessary and sets starting velocity
@@ -58,16 +71,21 @@ func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, p
 			sprite.rotation_degrees.z = -1 * projAng
 			velocity = projVel.rotated(Vector3(0, 0, 1), deg2rad(projAng))
 		2:
+			sprite.offset = Vector2(-6, 4)
+			despawnOnHit = true
+			bounceOffEnemy = true
 			physType = NOGRAV
-			sprite.play("arrow")
+			sprite.play("ball")
+			baseball = true
 			# flips sprite if necessary and sets starting velocity
 			if (lookRight == false):
 				sprite.flip_h = false
 				projVel.x *= -1
 				projAng = -1 * projAng
+				sprite.rotation_degrees.z = (-1 * projAng) + 20
 			else:
 				sprite.flip_h = true
-			sprite.rotation_degrees.z = -1 * projAng
+				sprite.rotation_degrees.z = (-1 * projAng) - 20
 			velocity = projVel.rotated(Vector3(0, 0, 1), deg2rad(projAng))
 		_:
 			sprite.play("rock")
@@ -85,16 +103,53 @@ func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, p
 	hitDir = dir
 	hitSound = sfx
 	translation = pos
+	# stores initial velocity for bouncing
+	velocityInit = velocity
 		
 func _physics_process(delta):
+	if not active:
+		velocity.y -= force_grav * delta
+		sprite.rotation_degrees.z += delta * 600
+		if is_on_floor() or is_on_wall():
+			queue_free()
 	# exerts gravity
 	if (physType == GRAV):
 		velocity.y -= force_grav * delta
+	# contact with things
+	if is_on_wall():
+		ricochet()
+	if is_on_floor():
+		bounce()
+	if (hitLanded and despawnOnHit and active):
+		if not bounceOffEnemy:
+			queue_free()
+		else:
+			ricochet()
 	# moves the object based on velocity vector
-	translation += velocity * delta
-	# despawns after hit
-	if hitLanded and (despawnOnHit):
-		queue_free()
+	velocity = move_and_slide(velocity, Vector3.UP, true)
+	
+func ricochet():
+	if (get_node_or_null("zeroPoint/hitbox") != null):
+		get_node_or_null("zeroPoint/hitbox").queue_free()
+	active = false
+	velocity.x = -0.3 * velocityInit.x
+	velocity.y = 13
+	force_grav = 75
+	if (baseball):
+		sprite.play("ball2")
+		sprite.offset = Vector2.ZERO
+	
+func bounce():
+	if (get_node_or_null("zeroPoint/hitbox") != null):
+		get_node_or_null("zeroPoint/hitbox").queue_free()
+	active = false
+	velocity.x *= 0.6
+	velocity.y = 13
+	force_grav = 75
+	if (baseball):
+		sprite.play("ball2")
+		sprite.offset = Vector2.ZERO
+	
 
 func _on_despawnTimer_timeout():
 	queue_free()
