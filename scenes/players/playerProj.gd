@@ -27,6 +27,8 @@ var despawnOnHit = false
 
 var bounceOffEnemy = false
 
+var stickInPlace = false
+
 var baseball = false
 
 onready var sprite = get_node("zeroPoint/AnimatedSprite3D")
@@ -59,6 +61,7 @@ func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, p
 			sprite.offset = Vector2.ZERO
 			despawnOnHit = true
 			bounceOffEnemy = false
+			stickInPlace = true
 			physType = NOGRAV
 			sprite.play("arrow")
 			# flips sprite if necessary and sets starting velocity
@@ -107,7 +110,7 @@ func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, p
 	velocityInit = velocity
 		
 func _physics_process(delta):
-	if not active:
+	if not active and not stickInPlace:
 		velocity.y -= force_grav * delta
 		sprite.rotation_degrees.z += delta * 600
 		if is_on_floor() or is_on_wall():
@@ -117,9 +120,15 @@ func _physics_process(delta):
 		velocity.y -= force_grav * delta
 	# contact with things
 	if is_on_wall():
-		ricochet()
+		if stickInPlace:
+			stick()
+		else:
+			ricochet()
 	if is_on_floor():
-		bounce()
+		if stickInPlace:
+			stick()
+		else:
+			bounce()
 	if (hitLanded and despawnOnHit and active):
 		if not bounceOffEnemy:
 			queue_free()
@@ -149,7 +158,16 @@ func bounce():
 	if (baseball):
 		sprite.play("ball2")
 		sprite.offset = Vector2.ZERO
-	
+		
+func stick():
+	if (get_node_or_null("zeroPoint/hitbox") != null):
+		get_node_or_null("zeroPoint/hitbox").queue_free()
+	#get_node("despawnTimer").start(1.25)
+	active = false
+	velocity.x = 0
+	velocity.y = 0
+	velocity.z = 0
+	force_grav = 0
 
 func _on_despawnTimer_timeout():
 	queue_free()

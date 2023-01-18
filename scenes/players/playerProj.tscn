@@ -88,7 +88,7 @@ layers = 3
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 38 )
-animation = "ball2"
+animation = "arrow"
 playing = true
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
