@@ -28,22 +28,6 @@ region = Rect2( 120, 0, 60, 52 )
 atlas = ExtResource( 1 )
 region = Rect2( 180, 0, 60, 52 )
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 60, 52 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 1 )
-region = Rect2( 60, 0, 60, 52 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 1 )
-region = Rect2( 240, 0, 60, 52 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 1 )
-region = Rect2( 300, 0, 60, 52 )
-
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 60, 52 )
@@ -64,6 +48,22 @@ region = Rect2( 480, 0, 60, 52 )
 atlas = ExtResource( 1 )
 region = Rect2( 540, 0, 60, 52 )
 
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 60, 52 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 60, 0, 60, 52 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
+region = Rect2( 240, 0, 60, 52 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 1 )
+region = Rect2( 300, 0, 60, 52 )
+
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
@@ -71,15 +71,15 @@ animations = [ {
 "name": "default",
 "speed": 4.0
 }, {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
-"loop": true,
-"name": "blink",
-"speed": 4.0
-}, {
 "frames": [ SubResource( 25 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 23 ), SubResource( 22 ), SubResource( 25 ) ],
 "loop": true,
 "name": "croak",
 "speed": 8.0
+}, {
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "blink",
+"speed": 4.0
 } ]
 
 [sub_resource type="SpriteFrames" id=8]
@@ -129,7 +129,6 @@ transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0
 offset = Vector2( 0, 25 )
 pixel_size = 0.07
 frames = SubResource( 11 )
-frame = 3
 playing = true
 
 [node name="bubble" type="AnimatedSprite3D" parent="."]

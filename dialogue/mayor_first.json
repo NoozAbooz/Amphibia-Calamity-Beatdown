@@ -1,6 +1,6 @@
 [
   {"sprite":"[PC]_normal",  "pos":"left", "move_in":"slide", "move_out":"slide", "text":"Sup Mayor." },
-  {"sprite":"Toadstool_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"Well if it isn't the Plantars. Tell me, to what do I the... honor." },
+  {"sprite":"Toadstool_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"Well if it isn't the Plantars. Tell me, to what do I owe the... honor." },
   {"sprite":"[PC]_ask",  "pos":"left", "move_in":"slide", "move_out":"slide", "text":"So, uh, Hop-Pop said you were looking for us?" },
   {"sprite":"Toadstool_normal", "pos":"right",  "move_in":"slide", "move_out":"none",  "text":"Oh that's right! I did have that thing I wanted to discuss with y'all."},
   {"sprite":"Toadstool_normal", "pos":"right",  "move_in":"still", "move_out":"slide",  "text":"But why don't we chat inside City Hall. It's more private."},

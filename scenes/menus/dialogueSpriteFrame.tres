@@ -6,7 +6,7 @@
 [ext_resource path="res://art/cutscenes/Marcy_normal.png" type="Texture" id=4]
 [ext_resource path="res://art/cutscenes/Marcy_ask.png" type="Texture" id=5]
 [ext_resource path="res://art/cutscenes/Hoppop_normal.png" type="Texture" id=6]
-[ext_resource path="res://art/cutscenes/Wally_ask.png" type="Texture" id=7]
+[ext_resource path="res://art/cutscenes/Buck_normal.png" type="Texture" id=7]
 [ext_resource path="res://art/cutscenes/Wally_normal.png" type="Texture" id=8]
 [ext_resource path="res://art/cutscenes/Hoppop_ask.png" type="Texture" id=9]
 [ext_resource path="res://art/cutscenes/Fel_normal.png" type="Texture" id=10]
@@ -41,49 +41,19 @@ animations = [ {
 "name": "Anne_normal",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": false,
-"name": "Hoppop_mad",
+"name": "Hoppop_normal",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 18 ) ],
 "loop": false,
-"name": "Wally_normal",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "Marcy_ask",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": false,
-"name": "Anne_ask",
-"speed": 5.0
+"name": "Ivy_normal",
+"speed": 0.0
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "Mad_normal",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": false,
-"name": "Hoppop_ask",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Marcy_normal",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "Sprig_ask",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": false,
-"name": "Polly_happy",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -91,14 +61,9 @@ animations = [ {
 "name": "Sprig_happy",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": false,
-"name": "Wally_ask",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "Sprig_normal",
+"name": "Hoppop_mad",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -106,9 +71,14 @@ animations = [ {
 "name": "Fel_normal",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": false,
-"name": "Hoppop_normal",
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Sprig_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Marcy_ask",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
@@ -116,8 +86,38 @@ animations = [ {
 "name": "Toadstool_normal",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": false,
-"name": "Ivy_normal",
-"speed": 0.0
+"name": "Anne_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Sprig_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "Hoppop_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "Polly_happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Marcy_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "Wally_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Buck_normal",
+"speed": 5.0
 } ]

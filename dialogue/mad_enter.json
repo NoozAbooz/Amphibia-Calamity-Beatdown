@@ -1,6 +1,6 @@
 [
   {"sprite":"[PC]_normal",  "pos":"left", "move_in":"slide", "move_out":"slide",  "text":"Hey Maddie. Think you could use some of your curse skills to buff us up for our next adventure." },
   {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"none",  "text":"Uh, yeah. I should be able to make something useful for you guys. As a level 1 witch I can make a few different permanent upgrade potions." },
-  {"sprite":"Mad_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"But these ingredients are a little hard to come by, so I cant be giving them out for free." },
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"still", "move_out":"none",  "text":"But these ingredients are a little hard to come by, so I can't be giving them out for free." },
   {"sprite":"Mad_normal",  "pos":"right", "move_in":"still", "move_out":"slide",  "text":"What were you thinking?" }
 ]
