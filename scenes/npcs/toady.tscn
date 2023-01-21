@@ -303,7 +303,7 @@ offset = Vector2( 0, 13 )
 pixel_size = 0.07
 frames = SubResource( 21 )
 animation = "clipboard"
-frame = 68
+frame = 73
 playing = true
 
 [node name="bubble" type="AnimatedSprite3D" parent="."]

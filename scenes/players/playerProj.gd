@@ -12,6 +12,7 @@ var velocity = Vector3.ZERO
 var velocityInit = Vector3.ZERO
 
 var force_grav = 50.0
+var force_grav_heavy = 100.0
 
 var hitLanded = false
 
@@ -19,7 +20,7 @@ var active = true
 
 var playerChar = "proj"
 
-enum {GRAV, NOGRAV, GRAVBOUNCE}
+enum {GRAV, NOGRAV, GRAVBOUNCE, GRAVHEAVY}
 
 var physType = GRAV
 
@@ -31,7 +32,12 @@ var stickInPlace = false
 
 var baseball = false
 
+var explosive = false
+var exploded = false
+
 onready var sprite = get_node("zeroPoint/AnimatedSprite3D")
+
+onready var hitboxCol = get_node("zeroPoint/hitbox/CollisionShape")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,6 +48,10 @@ func _ready():
 func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, projVel = Vector3.ZERO, projAng = 0):
 	# determines type of physics
 	physType = projType
+	
+	# default hitbox
+	hitboxCol.shape.radius = 0.5
+	hitboxCol.shape.height = 0.75
 	
 	match projType:
 		0:
@@ -90,6 +100,24 @@ func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, p
 				sprite.flip_h = true
 				sprite.rotation_degrees.z = (-1 * projAng) - 20
 			velocity = projVel.rotated(Vector3(0, 0, 1), deg2rad(projAng))
+		3:
+			despawnOnHit = true
+			bounceOffEnemy = false
+			physType = GRAVHEAVY
+			sprite.play("ball2")
+			baseball = false
+			explosive = true
+			#hitboxCol.disabled = true
+			# flips sprite if necessary and sets starting velocity
+			if (lookRight == false):
+				sprite.flip_h = false
+				projVel.x *= -1
+				projAng = -1 * projAng
+				sprite.rotation_degrees.z = (-1 * projAng) + 20
+			else:
+				sprite.flip_h = true
+				sprite.rotation_degrees.z = (-1 * projAng) - 20
+			velocity = projVel.rotated(Vector3(0, 0, 1), deg2rad(projAng))
 		_:
 			sprite.play("rock")
 			physType = GRAV
@@ -118,19 +146,27 @@ func _physics_process(delta):
 	# exerts gravity
 	if (physType == GRAV):
 		velocity.y -= force_grav * delta
+	if (physType == GRAVHEAVY):
+		velocity.y -= force_grav_heavy * delta
 	# contact with things
 	if is_on_wall():
 		if stickInPlace:
 			stick()
+		elif explosive:
+			explode()
 		else:
 			ricochet()
 	if is_on_floor():
 		if stickInPlace:
 			stick()
+		elif explosive:
+			explode()
 		else:
 			bounce()
 	if (hitLanded and despawnOnHit and active):
-		if not bounceOffEnemy:
+		if explosive:
+			explode()
+		elif not bounceOffEnemy:
 			queue_free()
 		else:
 			ricochet()
@@ -158,6 +194,26 @@ func bounce():
 	if (baseball):
 		sprite.play("ball2")
 		sprite.offset = Vector2.ZERO
+		
+func explode():
+	if (exploded == true):
+		return
+	exploded = true
+	if (get_node_or_null("shadowMaker") != null):
+		get_node_or_null("shadowMaker").queue_free()
+	if (get_node_or_null("zeroPoint/AnimatedSprite3D") != null):
+		get_node("zeroPoint/AnimatedSprite3D").queue_free()
+	get_node("despawnTimer").start(0.5)
+	hitboxCol.disabled = false
+	hitboxCol.shape.radius = 2.5
+	hitboxCol.shape.height = 4
+	velocity.x = 0
+	velocity.y = 0
+	velocity.z = 0
+	force_grav_heavy = 0
+	if (get_node("explosionMesh") != null):
+		get_node("explosionMesh").visible = true
+	
 		
 func stick():
 	if (get_node_or_null("zeroPoint/hitbox") != null):

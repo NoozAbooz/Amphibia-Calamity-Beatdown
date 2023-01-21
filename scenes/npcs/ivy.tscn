@@ -228,7 +228,7 @@ transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0
 offset = Vector2( 0, 17 )
 pixel_size = 0.07
 frames = SubResource( 20 )
-frame = 3
+frame = 34
 playing = true
 
 [node name="bubble" type="AnimatedSprite3D" parent="."]

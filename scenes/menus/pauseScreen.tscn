@@ -20,20 +20,10 @@
 [ext_resource path="res://art/menus/controls1.png" type="Texture" id=18]
 [ext_resource path="res://themes/Early GameBoy.ttf" type="DynamicFontData" id=19]
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 400, 350 )
-
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 2000, 0, 400, 350 )
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 400, 0, 400, 350 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
@@ -45,27 +35,27 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1200, 0, 400, 350 )
 
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 400, 0, 400, 350 )
+
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 800, 0, 400, 350 )
 
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 400, 350 )
+
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 2 ) ],
-"loop": false,
-"name": "0",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 8 ) ],
 "loop": false,
 "name": "5",
 "speed": 0.0
-}, {
-"frames": [ SubResource( 1 ) ],
-"loop": false,
-"name": "2",
-"speed": 5.0
 }, {
 "frames": [ SubResource( 4 ) ],
 "loop": false,
@@ -77,9 +67,19 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 1 ) ],
+"loop": false,
+"name": "2",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 5 ) ],
 "loop": false,
 "name": "3",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": false,
+"name": "0",
 "speed": 5.0
 } ]
 
@@ -119,6 +119,7 @@ __meta__ = {
 }
 
 [node name="basicMenu" type="Control" parent="."]
+visible = false
 margin_top = -30.0
 margin_bottom = -30.0
 __meta__ = {
@@ -488,7 +489,6 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="namesAnne" type="ScrollContainer" parent="combosMenu/namesContainer"]
-visible = false
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0
@@ -915,7 +915,7 @@ margin_bottom = 74.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Triple Bolt Shot"
+text = "3 Hit Combo"
 align = 2
 valign = 1
 
@@ -937,7 +937,7 @@ margin_bottom = 214.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Trip Kick"
+text = "Point Blank Arrow"
 align = 2
 valign = 1
 
@@ -959,7 +959,7 @@ margin_bottom = 354.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Slide"
+text = "Accidental Rollout"
 align = 2
 valign = 1
 
@@ -970,7 +970,7 @@ margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 15 )
-text = "Crossbow Jab"
+text = "Tactical Retreat"
 align = 2
 valign = 1
 
@@ -981,7 +981,7 @@ margin_bottom = 494.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Triple Bolt Shot"
+text = "3 Hit Air Combo"
 align = 2
 valign = 1
 
@@ -992,7 +992,7 @@ margin_bottom = 564.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Aerial Mega Punch"
+text = "Explosive Formula"
 align = 2
 valign = 1
 
@@ -1014,7 +1014,7 @@ margin_bottom = 704.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 15 )
-text = "Shell Breaker"
+text = "Potion Spam"
 align = 2
 valign = 1
 
@@ -1053,7 +1053,7 @@ margin_bottom = 914.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 15 )
-text = "Counter"
+text = "Pocket Potions"
 align = 2
 valign = 1
 
@@ -1483,6 +1483,7 @@ margin_right = 444.0
 margin_bottom = 1068.0
 
 [node name="namesGrime" type="ScrollContainer" parent="combosMenu/namesContainer"]
+visible = false
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0

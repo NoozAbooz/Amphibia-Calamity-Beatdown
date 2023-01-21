@@ -235,15 +235,26 @@ func setHitBox(damage, type, dir, sfx = "hit1"):
 	if (lookRight == false):
 		hitDir.x *= -1
 		
-func spawnProj(projVel = Vector3.ZERO, projAng = 0):
+func spawnProj(projVel = Vector3.ZERO, projAng = 0, addPlayerVel = false):
 	# sets spawn point
 	var spawnLocation = get_node("zeroPoint/projSpawnPoint").global_transform.origin
 	# sets projectile type
 	var projType = 0
-	if (playerChar == "Marcy"):
+	if (playerChar == "Marcy") and isInState([A_SH]) and comboReady:
+		projType = 3
+	elif (playerChar == "Marcy") and isInState([A_AH1, A_AH3_HIT, COUNTER]):
+		projType = 3
+	elif (playerChar == "Marcy"):
 		projType = 1
 	elif (playerChar == "Maggie"):
 		projType = 2
+	# adds player velocity to projectile's (x and z for lobbed weapons)
+	if addPlayerVel and lookRight:
+		projVel.x += 0.75 * velocity.x
+		projVel.z += velocity.z
+	elif addPlayerVel and not lookRight:
+		projVel.x -= 0.75 * velocity.x
+		projVel.z += velocity.z
 	# instances and initializes projectile scene
 	var proj = projScene.instance()
 	get_parent().add_child(proj)
@@ -1066,7 +1077,10 @@ func _physics_process(delta):
 		velocity.x = slideSpeed * slideDir.x
 		velocity.z = slideSpeed * (float(speed_z) / float(speed_run)) * slideDir.y
 		if (slideSpeed > 0):
-			slideSpeed -= 1.25 # 1.5
+			if (playerChar == "Marcy"):
+				slideSpeed -= 1.0
+			else:
+				slideSpeed -= 1.25 # 1.5
 		if (slideSpeed < 0):
 			slideSpeed = 0
 	
@@ -1084,16 +1098,16 @@ func _physics_process(delta):
 			windVect = Vector3.ZERO
 	
 	# Heavy Air attack 3
-	if (isInState([A_AH3_HIT])) and !comboReady and (playerChar == "Maggie" or playerChar == "Sasha"):
+	if (isInState([A_AH3_HIT])) and !comboReady and (playerChar == "Maggie" or playerChar == "Sasha" or playerChar == "Marcy"):
 		canMove = true
 		velocity.y = -3
 		velocity.x = speed * direction.x
 		velocity.z = speed_z * direction.z
-		if playerChar == "Sasha":
+		if playerChar == "Sasha" or playerChar == "Marcy":
 			velocity.x = 0
 			velocity.z = 0
 			velocity.y = -0.5
-	elif (isInState([A_AH3_HIT])) and (playerChar == "Maggie" or playerChar == "Sasha"):
+	elif (isInState([A_AH3_HIT])) and (playerChar == "Maggie" or playerChar == "Sasha" or playerChar == "Marcy"):
 		canMove = true
 		velocity.x = speed * direction.x
 		velocity.z = speed_z * direction.z
