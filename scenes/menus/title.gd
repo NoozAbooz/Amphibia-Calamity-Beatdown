@@ -106,3 +106,7 @@ func _on_exitButton_pressed():
 func _on_buttonBack_pressed():
 	state = MAIN
 	$mainMenu/startButton.grab_focus()
+
+
+func _on_start_button_pressed():
+	pass # Replace with function body.

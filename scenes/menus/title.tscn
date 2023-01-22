@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/menus/title.gd" type="Script" id=1]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=2]
@@ -11,15 +11,16 @@
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=9]
 [ext_resource path="res://art/menus/main menu/main_menu_normal.png" type="Texture" id=10]
 [ext_resource path="res://art/menus/main menu/Logo_complete.png" type="Texture" id=11]
+[ext_resource path="res://scenes/menus/mm_button.tscn" type="PackedScene" id=12]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=7]
 size = 24
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 4
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=8]
 size = 24
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
@@ -35,10 +36,12 @@ __meta__ = {
 }
 
 [node name="bg" type="Sprite" parent="."]
+light_mask = 0
 texture = ExtResource( 10 )
 centered = false
 
 [node name="lockButton" type="Button" parent="."]
+visible = false
 margin_left = 416.0
 margin_top = 330.0
 margin_right = 592.0
@@ -94,49 +97,61 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 11 )
 centered = false
 
-[node name="startButton" type="Button" parent="mainMenu"]
+[node name="startButtonOld" type="Button" parent="mainMenu"]
+visible = false
 margin_left = 136.0
 margin_top = 320.0
 margin_right = 394.0
 margin_bottom = 392.0
 theme = ExtResource( 4 )
+button_mask = 0
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="controlsButton" type="Button" parent="mainMenu"]
-margin_left = 136.0
-margin_top = 420.0
-margin_right = 394.0
-margin_bottom = 492.0
-theme = ExtResource( 4 )
-text = "Controls"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="startButton" parent="mainMenu" instance=ExtResource( 12 )]
+margin_left = 215.0
+margin_top = 355.0
+margin_right = 215.0
+margin_bottom = 355.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../controlsButton")
 
-[node name="creditsButton" type="Button" parent="mainMenu"]
-margin_left = 136.0
-margin_top = 520.0
-margin_right = 394.0
-margin_bottom = 592.0
-theme = ExtResource( 4 )
-text = "Credits"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="controlsButton" parent="mainMenu" instance=ExtResource( 12 )]
+margin_left = 215.0
+margin_top = 455.0
+margin_right = 215.0
+margin_bottom = 455.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath("../startButton")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../creditsButton")
+type = 1
 
-[node name="exitButton" type="Button" parent="mainMenu"]
-margin_left = 136.0
-margin_top = 620.0
-margin_right = 394.0
-margin_bottom = 692.0
-theme = ExtResource( 4 )
-text = "Quit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="creditsButton" parent="mainMenu" instance=ExtResource( 12 )]
+margin_left = 215.0
+margin_top = 555.0
+margin_right = 215.0
+margin_bottom = 555.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath("../controlsButton")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../exitButton")
+type = 2
+
+[node name="exitButton" parent="mainMenu" instance=ExtResource( 12 )]
+margin_left = 215.0
+margin_top = 655.0
+margin_right = 215.0
+margin_bottom = 655.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath("../creditsButton")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+type = 3
 
 [node name="controlsMenu" type="Control" parent="."]
 visible = false
@@ -225,7 +240,7 @@ margin_top = 212.0
 margin_right = 496.0
 margin_bottom = 468.0
 theme = ExtResource( 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 7 )
 text = "Dpad - movement
 
 double
@@ -243,7 +258,7 @@ margin_top = 108.0
 margin_right = 974.0
 margin_bottom = 149.0
 theme = ExtResource( 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 7 )
 text = "L1,L2 - run            R1,R2 - block"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -255,7 +270,7 @@ margin_top = 196.0
 margin_right = 1328.0
 margin_bottom = 578.0
 theme = ExtResource( 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 7 )
 text = "x - light 
       attack
 	
@@ -294,7 +309,7 @@ margin_top = 131.0
 margin_right = 587.0
 margin_bottom = 276.0
 theme = ExtResource( 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 7 )
 text = "wasd   - movement
 f,q     - run
 Double tap wsad - run
@@ -309,7 +324,7 @@ margin_top = 131.0
 margin_right = 1146.0
 margin_bottom = 276.0
 theme = ExtResource( 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 7 )
 text = "k         - light attack
 i         - heavy attack
 l         -  jump
@@ -324,7 +339,7 @@ margin_top = 26.0
 margin_right = 1254.0
 margin_bottom = 97.0
 theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 7 )
 text = "n - fullscreen
 m - mute audio"
 __meta__ = {
@@ -389,7 +404,7 @@ margin_top = 83.0
 margin_right = 803.0
 margin_bottom = 465.0
 theme = ExtResource( 2 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 8 )
 text = "(names)"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -397,6 +412,7 @@ __meta__ = {
 
 [connection signal="toggled" from="lockButton" to="." method="_on_lockButton_toggled"]
 [connection signal="toggled" from="hitboxButton" to="." method="_on_hitboxButton_toggled"]
+[connection signal="pressed" from="mainMenu/startButtonOld" to="." method="_on_startButton_pressed"]
 [connection signal="pressed" from="mainMenu/startButton" to="." method="_on_startButton_pressed"]
 [connection signal="pressed" from="mainMenu/controlsButton" to="." method="_on_controlsButton_pressed"]
 [connection signal="pressed" from="mainMenu/creditsButton" to="." method="_on_creditsButton_pressed"]
