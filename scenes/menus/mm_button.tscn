@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://art/menus/main menu/sword.png" type="Texture" id=1]
 [ext_resource path="res://art/menus/main menu/mask.png" type="Texture" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://scenes/menus/mm_button.gd" type="Script" id=4]
 [ext_resource path="res://themes/MMButtonText.tres" type="Theme" id=5]
 [ext_resource path="res://art/menus/main menu/remote.png" type="Texture" id=6]
+[ext_resource path="res://art/menus/main menu/book.png" type="Texture" id=7]
+[ext_resource path="res://art/menus/main menu/fwagon.png" type="Texture" id=8]
+[ext_resource path="res://art/menus/main menu/button_green.png" type="Texture" id=9]
+[ext_resource path="res://art/menus/main menu/button_gray.png" type="Texture" id=10]
+[ext_resource path="res://art/menus/main menu/button_pink.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "focus_loop"
@@ -22,7 +27,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 40, 0 ) ]
+"values": [ Vector2( 36, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("button:scale")
@@ -48,6 +53,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("button/text:custom_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "focus_start"
@@ -63,7 +80,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.333333 ),
 "transitions": PoolRealArray( 0.3, 1 ),
 "update": 0,
-"values": [ Vector2( 104, 0 ), Vector2( 40, 0 ) ]
+"values": [ Vector2( 104, 0 ), Vector2( 36, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("button:scale")
@@ -88,6 +105,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("button/text:custom_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.921569, 0.921569, 0.921569, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -129,13 +158,40 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("button/text:custom_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.921569, 0.921569, 0.921569, 1 ) ]
+}
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "gray",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": false,
 "name": "blue",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": false,
+"name": "pink",
+"speed": 5.0
 } ]
 
 [sub_resource type="AtlasTexture" id=6]
@@ -153,6 +209,16 @@ animations = [ {
 "loop": false,
 "name": "remote",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "fwagon",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "book",
+"speed": 1.0
 } ]
 
 [node name="mm_button" type="TextureButton"]
@@ -164,6 +230,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
 anims/focus_loop = SubResource( 1 )
 anims/focus_start = SubResource( 2 )
 anims/idle = SubResource( 3 )
@@ -172,7 +239,7 @@ anims/idle = SubResource( 3 )
 light_mask = 0
 scale = Vector2( 2, 2 )
 frames = SubResource( 4 )
-animation = "blue"
+animation = "green"
 
 [node name="mask" type="Light2D" parent="button"]
 light_mask = 2
@@ -183,9 +250,9 @@ shadow_item_cull_mask = 0
 
 [node name="icon" type="AnimatedSprite" parent="button"]
 light_mask = 2
-position = Vector2( 104, 0 )
+position = Vector2( 40, 0 )
 frames = SubResource( 5 )
-animation = "remote"
+animation = "fwagon"
 
 [node name="text" type="Label" parent="button"]
 margin_left = -66.0
@@ -193,7 +260,8 @@ margin_top = -21.0
 margin_right = 72.0
 margin_bottom = 18.0
 theme = ExtResource( 5 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "XXXXXXXX"
 align = 1
 valign = 1

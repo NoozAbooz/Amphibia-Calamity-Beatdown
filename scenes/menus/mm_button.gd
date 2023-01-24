@@ -18,20 +18,20 @@ func _ready():
 			buttonIcon.light_mask = 32
 		1:
 			buttonText.text = "CONTROLS"
-			buttonColor.play("blue")
+			buttonColor.play("green")
 			buttonIcon.play("remote")
 			mask.range_item_cull_mask = 64
 			buttonIcon.light_mask = 64
 		2:
 			buttonText.text = "CREDITS"
-			buttonColor.play("blue")
-			buttonIcon.play("remote")
+			buttonColor.play("gray")
+			buttonIcon.play("book")
 			mask.range_item_cull_mask = 128
 			buttonIcon.light_mask = 128
 		3:
 			buttonText.text = "EXIT"
-			buttonColor.play("blue")
-			buttonIcon.play("sword")
+			buttonColor.play("pink")
+			buttonIcon.play("fwagon")
 			mask.range_item_cull_mask = 256
 			buttonIcon.light_mask = 256
 		_:
