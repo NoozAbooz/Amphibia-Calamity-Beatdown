@@ -188,9 +188,9 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 27 ) ],
 "loop": true,
-"name": "playground",
+"name": "bestFrondsHard",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -198,9 +198,9 @@ animations = [ {
 "name": "bestFronds",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 27 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "bestFrondsHard",
+"name": "playground",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -211,11 +211,6 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "none",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "check",
@@ -224,6 +219,11 @@ animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "uncheck",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "none",
 "speed": 5.0
 } ]
 
@@ -283,7 +283,7 @@ joint_mode = 2
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
 position = Vector2( 687, 384 )
 frames = SubResource( 10 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]
@@ -326,6 +326,7 @@ __meta__ = {
 }
 
 [node name="play" type="TextureButton" parent="."]
+visible = false
 margin_left = 696.0
 margin_top = 767.0
 margin_right = 744.0
@@ -349,6 +350,7 @@ margin_bottom = 578.0
 focus_neighbour_left = NodePath("../lvl2")
 focus_neighbour_top = NodePath("../lvl2")
 focus_neighbour_right = NodePath("../wart")
+focus_neighbour_bottom = NodePath(".")
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -397,6 +399,7 @@ __meta__ = {
 }
 
 [node name="lvl4" type="TextureButton" parent="."]
+visible = false
 margin_left = 447.0
 margin_top = 801.0
 margin_right = 495.0
@@ -413,6 +416,7 @@ __meta__ = {
 }
 
 [node name="lvl5" type="TextureButton" parent="."]
+visible = false
 margin_left = 401.0
 margin_top = 798.0
 margin_right = 449.0
@@ -429,6 +433,7 @@ __meta__ = {
 }
 
 [node name="lvl6" type="TextureButton" parent="."]
+visible = false
 margin_left = 482.0
 margin_top = 778.0
 margin_right = 530.0
@@ -445,6 +450,7 @@ __meta__ = {
 }
 
 [node name="lvl7" type="TextureButton" parent="."]
+visible = false
 margin_left = 402.0
 margin_top = 778.0
 margin_right = 450.0
@@ -461,6 +467,7 @@ __meta__ = {
 }
 
 [node name="lvl8" type="TextureButton" parent="."]
+visible = false
 margin_left = 488.0
 margin_top = 753.0
 margin_right = 536.0
@@ -477,6 +484,7 @@ __meta__ = {
 }
 
 [node name="lvl9" type="TextureButton" parent="."]
+visible = false
 margin_left = 411.0
 margin_top = 757.0
 margin_right = 459.0
@@ -493,6 +501,7 @@ __meta__ = {
 }
 
 [node name="lvl10" type="TextureButton" parent="."]
+visible = false
 margin_left = 451.0
 margin_top = 759.0
 margin_right = 499.0

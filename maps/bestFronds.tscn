@@ -65,9 +65,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=182]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, 3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, 180, 0 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -3955,13 +3955,13 @@ transform = Transform( 0.463153, -0.0303207, 0.885759, 0.886112, 0.0351578, -0.4
 transform = Transform( 0.463153, -0.0303207, 0.885759, 0.886112, 0.0351578, -0.462135, -0.0171291, 0.998922, 0.043151, 562.482, 12.8246, -29.4267 )
 
 [node name="barrelClosed12" parent="decorations" instance=ExtResource( 42 )]
-transform = Transform( -0.329906, 0.447728, 0.831084, 0.929448, -4.37114e-08, 0.368952, 0.16519, 0.89417, -0.41614, 166.002, 13.9693, -18.3228 )
+transform = Transform( -0.329906, 0.447728, 0.831084, 0.929448, -4.37114e-08, 0.368952, 0.16519, 0.89417, -0.41614, 167.082, 13.9693, -17.7811 )
 
 [node name="barrelClosed13" parent="decorations" instance=ExtResource( 42 )]
-transform = Transform( 0.395692, 0.461779, 0.793844, 0.886112, 0.0351578, -0.462135, -0.241314, 0.886298, -0.395276, 168.118, 13.9693, -19.3946 )
+transform = Transform( 0.395692, 0.461779, 0.793844, 0.886112, 0.0351578, -0.462135, -0.241314, 0.886298, -0.395276, 169.198, 13.9693, -18.9483 )
 
 [node name="barrelClosed14" parent="decorations" instance=ExtResource( 42 )]
-transform = Transform( 0.395692, 0.461779, 0.793844, 0.886112, 0.0351578, -0.462135, -0.241314, 0.886298, -0.395276, 167.076, 15.5464, -18.8107 )
+transform = Transform( 0.395692, 0.461779, 0.793844, 0.886112, 0.0351578, -0.462135, -0.241314, 0.886298, -0.395276, 168.156, 15.5464, -18.3644 )
 
 [node name="barrelClosed4" parent="decorations" instance=ExtResource( 42 )]
 transform = Transform( -3.20569e-08, -0.733374, 0.679825, 1, -4.37114e-08, 0, 2.97161e-08, 0.679825, 0.733374, 86.5048, 1.0312, -1.98676 )
@@ -4003,7 +4003,7 @@ transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 2, 163.972, 12.5153, -19.7619 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.628, 0, -6.19926 )
 
 [node name="mush_house" parent="decorations" instance=ExtResource( 27 )]
-transform = Transform( 0.809653, 0, -0.586909, 0, 1, 0, 0.586909, 0, 0.809653, 155.309, 12.3138, -16.2847 )
+transform = Transform( 0.736983, 0, -0.675911, 0, 1, 0, 0.675911, 0, 0.736983, 157.557, 12.3138, -15.9197 )
 
 [node name="swampTreeA" parent="decorations" instance=ExtResource( 20 )]
 transform = Transform( 1.08458, 0, 0.183559, 0, 1.1, 0, -0.183559, 0, 1.08458, 35.8097, 3.805, -8.55154 )

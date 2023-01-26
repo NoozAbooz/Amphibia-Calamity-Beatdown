@@ -3,7 +3,7 @@ extends Node
 # player variables
 var playerStartingMaxHP = 100 #100
 var playerStartingLives = 3 #3
-var totalMoney = 1237
+var totalMoney = 200
 var newMoney = 0
 var kills = 0 # Used to count in ambushes
 var killsTotal = 0 # Used to count total kills
@@ -44,7 +44,7 @@ var playerFixPos = [false, false, false, false]
 var unlimitedLives = false
 var unlimitedMoney = false
 var hardcoreMode   = false
-var allCharsMode   = true
+var allCharsMode   = false
 var easyMode       = false
 var hardMode       = false
  
@@ -64,7 +64,7 @@ var availableChars = ["Anne"]
 
 # Completed levels
 #                     [Wartwood, Test,  l1,    l2,    l3,    l4,    l5,    l6,    l7,    l8,    l9,   final]
-var completedLevels = [  true,   true, true, false, false, false, false, false, false, false, false, false]
+var completedLevels = [  true,   true, false, false, false, false, false, false, false, false, false, false]
 var unlockedFinalLevel = false
 
 # game over stuff
