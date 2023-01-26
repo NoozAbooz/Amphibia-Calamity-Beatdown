@@ -92,9 +92,9 @@ panorama = ExtResource( 55 )
 [sub_resource type="Environment" id=130]
 background_mode = 1
 background_sky = SubResource( 131 )
-background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, 3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, 180, 0 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1228,7 +1228,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 241.199
 [node name="statue" parent="environment/buildings" instance=ExtResource( 25 )]
 
 [node name="bake" parent="environment/buildings" instance=ExtResource( 6 )]
-transform = Transform( -0.247033, 0, -0.969007, 0, 1, 0, 0.969007, 0, -0.247033, -369.73, 0.409885, -32.0394 )
+transform = Transform( -0.247033, 0, -0.969007, 0, 1, 0, 0.969007, 0, -0.247033, -369.73, 0.152, -32.039 )
 
 [node name="gng" parent="environment/buildings" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40.2512, 0.681709, -12.0315 )
@@ -1706,7 +1706,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -340.924, 0, -4.52726 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -340.535, 4.76837e-07, -5.72126 )
 
 [node name="pot2" parent="environment/plants" instance=ExtResource( 66 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -311.692, 4.76837e-07, -22.3096 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -313.006, 4.76837e-07, -21.2961 )
 
 [node name="grass" parent="environment/plants" instance=ExtResource( 69 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -287.211, 0.0479174, -8.89058 )
@@ -2082,7 +2082,7 @@ hasDialogue = true
 dialogueName = "roadblock"
 
 [node name="frog1" parent="environment/npcs" instance=ExtResource( 60 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -314.894, 0, -8.65018 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -321.642, 0, -5.11217 )
 hasDialogue = false
 
 [node name="frog8" parent="environment/npcs" instance=ExtResource( 60 )]
@@ -2109,7 +2109,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5537, -7.62939e-06, 5.9654
 hasDialogue = false
 
 [node name="frog" parent="environment/npcs" instance=ExtResource( 77 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -298.91, 1.52588e-05, -26.378 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -304.913, 1.33515e-05, -15.1457 )
 hasDialogue = false
 
 [node name="frog6" parent="environment/npcs" instance=ExtResource( 62 )]
