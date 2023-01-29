@@ -109,14 +109,15 @@ func checkAvailableInputs():
 func _ready():
 	pass # Replace with function body.
 	
-func _process(_delta):
-	# checks for keyboard presses for options
-	if(Input.is_action_just_pressed("fullscreen") == true):
-		OS.set_window_fullscreen(!OS.window_fullscreen)
-	if(Input.is_action_just_pressed("mute") == true):
-		var busIndex = AudioServer.get_bus_index("Master")
-		AudioServer.set_bus_mute(busIndex, !AudioServer.is_bus_mute(busIndex))
-		#print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+# ***Added to sfx manager alongside volume settings***
+#func _process(_delta):
+#	# checks for keyboard presses for options
+#	if(Input.is_action_just_pressed("fullscreen") == true):
+#		OS.set_window_fullscreen(!OS.window_fullscreen)
+#	if(Input.is_action_just_pressed("mute") == true):
+#		var busIndex = AudioServer.get_bus_index("Master")
+#		AudioServer.set_bus_mute(busIndex, !AudioServer.is_bus_mute(busIndex))
+#		#print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 
 func countPlayers():
 	var count = 0

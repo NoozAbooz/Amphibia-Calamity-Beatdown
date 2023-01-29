@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Statue.png-5baf83fb510bb5928241a1b8640dccc7.stex"
+path="res://.import/tyvav1.png-9aa05ffe4c2eda9a16d37add2924046e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/models/Wartwood/statue/Textures/Statue.png"
-dest_files=[ "res://.import/Statue.png-5baf83fb510bb5928241a1b8640dccc7.stex" ]
+source_file="res://art/other/tyvav1.png"
+dest_files=[ "res://.import/tyvav1.png-9aa05ffe4c2eda9a16d37add2924046e.stex" ]
 
 [params]
 

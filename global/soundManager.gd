@@ -6,6 +6,10 @@ var oldDB = 0
 var songList = []
 var dBList = []
 
+var masterBusIndex
+
+var masterVolume = 0
+
 var alreadyStopped = false # a flag to insure that ending a tween and starting a new song both don't stop()
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +20,50 @@ func _ready():
 		dBList.append(song.volume_db)
 		#print(songList)
 		#print(dbList)
+	masterBusIndex = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_volume_db(masterBusIndex, masterVolume)
+
+func _process(_delta):
+	# checks for keyboard presses for options
+	if(Input.is_action_just_pressed("fullscreen") == true):
+		OS.set_window_fullscreen(!OS.window_fullscreen)
+	if(Input.is_action_just_pressed("mute") == true):
+		AudioServer.set_bus_mute(masterBusIndex, !AudioServer.is_bus_mute(masterBusIndex))
+		displayVolume()
+	if(Input.is_action_just_pressed("vol+") == true):
+		updateVolume(2)
+		displayVolume()
+	if(Input.is_action_just_pressed("vol-") == true):
+		updateVolume(-2)
+		displayVolume()
 		
+func displayVolume():
+	if (AudioServer.is_bus_mute(masterBusIndex)):
+		$volumeLabel.text = "V O L U M E \n( M U T E )"
+	else:
+		$volumeLabel.text = "V O L U M E \n" + getVolumeString()
+	$animVol.play("display")
+	$animVol.seek(0)
+
+func getVolumeString():
+	var returnString = "|"
+	for i in range(-20, 10, 2):
+		if (i < masterVolume):
+			returnString += "|"
+		else:
+			returnString += "-"
+	return returnString
+
+func updateVolume(amount):
+	masterVolume += amount
+	if masterVolume >= 10:
+		masterVolume = 10
+	if masterVolume <= -20:
+		masterVolume = -20
+	AudioServer.set_bus_volume_db(masterBusIndex, masterVolume)
+	#print(masterVolume)
+	
+	
 func getDefaultVol(name):
 	var index = songList.find(name)
 	if index != -1:

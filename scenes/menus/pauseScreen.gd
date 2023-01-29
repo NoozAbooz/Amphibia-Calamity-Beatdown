@@ -95,13 +95,6 @@ func _process(_delta):
 		self.show()
 	else:
 		self.hide()
-	# checks for 'm' and 'n' presses. PlayerGlobals script does not run _process when paused.
-	if (get_tree().paused == true):
-		if(Input.is_action_just_pressed("fullscreen") == true):
-			OS.set_window_fullscreen(!OS.window_fullscreen)
-		if(Input.is_action_just_pressed("mute") == true):
-			var busIndex = AudioServer.get_bus_index("Master")
-			AudioServer.set_bus_mute(busIndex, !AudioServer.is_bus_mute(busIndex))
 	# displays different menus
 	match state:
 		BASIC:

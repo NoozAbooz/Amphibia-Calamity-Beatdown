@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/menus/title.gd" type="Script" id=1]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=2]
@@ -14,6 +14,13 @@
 [ext_resource path="res://scenes/menus/mm_button.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=7]
+size = 24
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 4
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=9]
 size = 24
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
@@ -180,18 +187,18 @@ __meta__ = {
 }
 
 [node name="arrowL" type="Sprite" parent="controlsMenu"]
-position = Vector2( 760, 50 )
+position = Vector2( 356, 50 )
 texture = ExtResource( 9 )
 
 [node name="arrowR" type="Sprite" parent="controlsMenu"]
-position = Vector2( 520, 50 )
+position = Vector2( 116, 50 )
 texture = ExtResource( 9 )
 flip_h = true
 
 [node name="type" type="Label" parent="controlsMenu"]
-margin_left = 500.0
+margin_left = 96.0
 margin_top = 30.0
-margin_right = 780.0
+margin_right = 376.0
 margin_bottom = 70.0
 theme = ExtResource( 2 )
 text = "Keyboard"
@@ -290,8 +297,33 @@ position = Vector2( 640, 390 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 
+[node name="keyboardControls3" type="Label" parent="controlsMenu/pad"]
+margin_left = 829.0
+margin_top = 26.0
+margin_right = 1254.0
+margin_bottom = 97.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 9 )
+text = "+ or .- volume up
+- or ,- volume down"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keyboardControls4" type="Label" parent="controlsMenu/pad"]
+margin_left = 451.0
+margin_top = 26.0
+margin_right = 836.0
+margin_bottom = 97.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 9 )
+text = "n - fullscreen
+m - mute audio"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="board" type="Control" parent="controlsMenu"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -334,9 +366,22 @@ __meta__ = {
 }
 
 [node name="keyboardControls3" type="Label" parent="controlsMenu/board"]
-margin_left = 938.0
+margin_left = 829.0
 margin_top = 26.0
 margin_right = 1254.0
+margin_bottom = 97.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 7 )
+text = "+ or .- volume up
+- or ,- volume down"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keyboardControls4" type="Label" parent="controlsMenu/board"]
+margin_left = 451.0
+margin_top = 26.0
+margin_right = 836.0
 margin_bottom = 97.0
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 7 )

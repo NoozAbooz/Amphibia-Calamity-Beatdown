@@ -283,7 +283,7 @@ joint_mode = 2
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
 position = Vector2( 687, 384 )
 frames = SubResource( 10 )
-frame = 3
+frame = 5
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]

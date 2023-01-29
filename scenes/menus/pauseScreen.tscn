@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
@@ -25,15 +25,20 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 2000, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 14 )
-region = Rect2( 1600, 0, 400, 350 )
+region = Rect2( 0, 0, 400, 350 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1200, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1600, 0, 400, 350 )
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -45,11 +50,6 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 800, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 400, 350 )
-
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ SubResource( 8 ) ],
@@ -57,14 +57,19 @@ animations = [ {
 "name": "5",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 2 ) ],
 "loop": false,
-"name": "4",
+"name": "0",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 3 ) ],
 "loop": false,
 "name": "1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": false,
+"name": "4",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 1 ) ],
@@ -76,14 +81,16 @@ animations = [ {
 "loop": false,
 "name": "3",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 2 ) ],
-"loop": false,
-"name": "0",
-"speed": 5.0
 } ]
 
 [sub_resource type="DynamicFont" id=7]
+size = 24
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 4
+font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=9]
 size = 24
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
@@ -457,6 +464,7 @@ valign = 1
 autowrap = true
 
 [node name="combosMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -2197,7 +2205,6 @@ __meta__ = {
 }
 
 [node name="controlsMenu" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -2215,18 +2222,18 @@ __meta__ = {
 }
 
 [node name="arrowL" type="Sprite" parent="controlsMenu"]
-position = Vector2( 760, 50 )
+position = Vector2( 356, 50 )
 texture = ExtResource( 13 )
 
 [node name="arrowR" type="Sprite" parent="controlsMenu"]
-position = Vector2( 520, 50 )
+position = Vector2( 116, 50 )
 texture = ExtResource( 13 )
 flip_h = true
 
 [node name="type" type="Label" parent="controlsMenu"]
-margin_left = 500.0
+margin_left = 96.0
 margin_top = 30.0
-margin_right = 780.0
+margin_right = 376.0
 margin_bottom = 70.0
 theme = ExtResource( 3 )
 text = "Keyboard"
@@ -2325,6 +2332,32 @@ position = Vector2( 640, 390 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 17 )
 
+[node name="keyboardControls3" type="Label" parent="controlsMenu/pad"]
+margin_left = 829.0
+margin_top = 26.0
+margin_right = 1254.0
+margin_bottom = 97.0
+theme = ExtResource( 15 )
+custom_fonts/font = SubResource( 9 )
+text = "+ or .- volume up
+- or ,- volume down"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keyboardControls4" type="Label" parent="controlsMenu/pad"]
+margin_left = 451.0
+margin_top = 26.0
+margin_right = 836.0
+margin_bottom = 97.0
+theme = ExtResource( 15 )
+custom_fonts/font = SubResource( 9 )
+text = "n - fullscreen
+m - mute audio"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="board" type="Control" parent="controlsMenu"]
 visible = false
 margin_right = 40.0
@@ -2369,12 +2402,25 @@ __meta__ = {
 }
 
 [node name="keyboardControls3" type="Label" parent="controlsMenu/board"]
-margin_left = 938.0
+margin_left = 829.0
 margin_top = 26.0
 margin_right = 1254.0
 margin_bottom = 97.0
 theme = ExtResource( 15 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
+text = "+ or .- volume up
+- or ,- volume down"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keyboardControls4" type="Label" parent="controlsMenu/board"]
+margin_left = 451.0
+margin_top = 26.0
+margin_right = 836.0
+margin_bottom = 97.0
+theme = ExtResource( 15 )
+custom_fonts/font = SubResource( 9 )
 text = "n - fullscreen
 m - mute audio"
 __meta__ = {

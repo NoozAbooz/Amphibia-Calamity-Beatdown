@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/StatueWartwood.glb-84e4d43c6e3a78e6191ea1c424f1a5af.scn"
+path="res://.import/WartWood_Statue.glb-55d0fd258113b078a9bc76c51f3995c2.scn"
 
 [deps]
 
-source_file="res://art/models/Wartwood/statue/StatueWartwood.glb"
-dest_files=[ "res://.import/StatueWartwood.glb-84e4d43c6e3a78e6191ea1c424f1a5af.scn" ]
+source_file="res://art/models/Wartwood/statue/WartWood_Statue.glb"
+dest_files=[ "res://.import/WartWood_Statue.glb-55d0fd258113b078a9bc76c51f3995c2.scn" ]
 
 [params]
 
