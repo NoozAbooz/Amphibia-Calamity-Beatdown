@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=1]
+[ext_resource path="res://art/menus/hp_bar.png" type="Texture" id=2]
+[ext_resource path="res://themes/bossBars.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/enemies/dummyLifebar.gd" type="Script" id=4]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CylinderMesh" id=3]
+material = SubResource( 2 )
+top_radius = 12.0
+bottom_radius = 12.0
+height = 40.0
+
+[sub_resource type="CylinderShape" id=4]
+radius = 15.0
+height = 40.0
+
+[node name="dummyLifebar" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
+visible = false
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Area" type="Area" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
+shape = SubResource( 4 )
+
+[node name="2D elements" type="Node2D" parent="."]
+
+[node name="lifeBar" type="ProgressBar" parent="2D elements"]
+margin_left = 326.0
+margin_top = 5.0
+margin_right = 954.0
+margin_bottom = 35.0
+theme = ExtResource( 3 )
+step = 0.25
+value = 100.0
+allow_lesser = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lifeOutline" type="NinePatchRect" parent="2D elements"]
+margin_left = 320.0
+margin_top = 5.0
+margin_right = 960.0
+margin_bottom = 35.0
+texture = ExtResource( 2 )
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 14
+patch_margin_bottom = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bossName" type="Label" parent="2D elements"]
+margin_left = 320.0
+margin_top = 5.0
+margin_right = 960.0
+margin_bottom = 69.0
+theme = ExtResource( 1 )
+text = "Maurice the Mantis"
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
+[connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

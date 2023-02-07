@@ -24,6 +24,7 @@ var markerState = READY
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	soundManager.playMusicIfDiff("menu")
+	soundManager.follow2DCam = true
 	discordRPC.updateLevel("Checking the map", "Currently:")
 	cam.zoom = Vector2(1,1)
 	loading = false
@@ -121,6 +122,9 @@ func _process(delta):
 #	cam.position.y = marker.position.y
 	cam.zoom.x += 0.2*(zoomDes.x - cam.zoom.x)
 	cam.zoom.y += 0.2*(zoomDes.y - cam.zoom.y)
+	soundManager.scale = cam.zoom
+	soundManager.position = cam.position - Vector2((cam.zoom.x * 1280 * 0.5), (cam.zoom.y * 720 * 0.5))
+	
 	
 	# "back" Inputs
 	if !infoScreen:

@@ -24,6 +24,7 @@ export var color = 0 # determines behavior besed on the enemy color (green vs ye
 
 export var hp = 100
 
+
 var velocity = Vector3.ZERO
 var velocityG = Vector3.ZERO
 var velocityE = Vector3.ZERO
@@ -394,6 +395,8 @@ func _physics_process(delta):
 		else:
 			nextState = HURT
 		hp -= hurtDamage
+		if (get_node_or_null("dummyLifebar") != null):
+			get_node("dummyLifebar").dealDamage(hurtDamage)
 		#print(str(hurtDamage))
 	state = nextState
 	

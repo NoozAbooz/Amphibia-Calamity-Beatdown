@@ -10,6 +10,10 @@ var masterBusIndex
 
 var masterVolume = 0
 
+var follow2DCam = false
+var tempPos = Vector2.ZERO
+var tempScale = Vector2(1,1)
+
 var alreadyStopped = false # a flag to insure that ending a tween and starting a new song both don't stop()
 
 # Called when the node enters the scene tree for the first time.
@@ -36,6 +40,14 @@ func _process(_delta):
 	if(Input.is_action_just_pressed("vol-") == true):
 		updateVolume(-2)
 		displayVolume()
+	# positions volume meter
+	if follow2DCam:
+		pass
+		#self.scale = tempScale
+		#self.position = tempPos - Vector2((self.scale.x * 1280 * 0.5), (self.scale.y * 720 * 0.5))
+	else:
+		self.scale = Vector2(1,1)
+		self.position = Vector2.ZERO
 		
 func displayVolume():
 	if (AudioServer.is_bus_mute(masterBusIndex)):

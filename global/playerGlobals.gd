@@ -3,7 +3,7 @@ extends Node
 # player variables
 var playerStartingMaxHP = 100 #100
 var playerStartingLives = 3 #3
-var totalMoney = 200
+var totalMoney = 2000
 var newMoney = 0
 var kills = 0 # Used to count in ambushes
 var killsTotal = 0 # Used to count total kills
@@ -58,7 +58,7 @@ var levelNum = 0
 var hasMarcy  = false
 var hasSasha  = false
 var hasSprig = true
-var hasMaggie = false
+var hasMaggie = true
 var hasGrime = false
 var availableChars = ["Anne"]
 

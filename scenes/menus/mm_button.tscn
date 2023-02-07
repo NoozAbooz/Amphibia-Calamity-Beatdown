@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://art/menus/main menu/sword.png" type="Texture" id=1]
 [ext_resource path="res://art/menus/main menu/mask.png" type="Texture" id=2]
@@ -11,6 +11,16 @@
 [ext_resource path="res://art/menus/main menu/button_green.png" type="Texture" id=9]
 [ext_resource path="res://art/menus/main menu/button_gray.png" type="Texture" id=10]
 [ext_resource path="res://art/menus/main menu/button_pink.png" type="Texture" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "focus_loop"
@@ -221,9 +231,19 @@ animations = [ {
 "speed": 1.0
 } ]
 
-[node name="mm_button" type="TextureButton"]
+[node name="mm_button" type="Button"]
 light_mask = 0
-button_mask = 0
+margin_left = -140.0
+margin_top = -45.0
+margin_right = 140.0
+margin_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -237,6 +257,7 @@ anims/idle = SubResource( 3 )
 
 [node name="button" type="AnimatedSprite" parent="."]
 light_mask = 0
+position = Vector2( 140, 45 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 4 )
 animation = "green"
@@ -250,7 +271,7 @@ shadow_item_cull_mask = 0
 
 [node name="icon" type="AnimatedSprite" parent="button"]
 light_mask = 2
-position = Vector2( 40, 0 )
+position = Vector2( 36, 0 )
 frames = SubResource( 5 )
 animation = "fwagon"
 
@@ -271,4 +292,6 @@ __meta__ = {
 
 [connection signal="focus_entered" from="." to="." method="_on_mm_button_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_mm_button_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mm_button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mm_button_mouse_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

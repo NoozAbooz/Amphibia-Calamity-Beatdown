@@ -1,5 +1,5 @@
 [
-  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"A charm would be cheaper, but this potion is permenent." },
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"A charm would be cheaper, but this potion is permanent." },
   {"sprite":"[PC]_happy",  "pos":"left", "move_in":"slide", "move_out":"slide",  "text":"Wow! You can make yourself lucky with magic. Why don't people do this all the time?" },
   {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"Probably because it's super illegal." },
   {"sprite":"[PC]_normal",  "pos":"left", "move_in":"slide", "move_out":"none",  "text":"Ha. Good one." },

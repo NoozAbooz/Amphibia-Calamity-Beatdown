@@ -45,6 +45,7 @@ func goto_scene(path): # Game requests to switch to this scene.
 	set_process(true)
 
 	# Start your "loading..." animation.
+	soundManager.follow2DCam = false
 	get_node("AnimationPlayer").play("block")
 
 	#wait_frames = 1

@@ -25,30 +25,30 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 2000, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 400, 350 )
-
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1200, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 800, 0, 400, 350 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1600, 0, 400, 350 )
 
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 400, 350 )
+
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 400, 0, 400, 350 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 800, 0, 400, 350 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -57,14 +57,14 @@ animations = [ {
 "name": "5",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 2 ) ],
-"loop": false,
-"name": "0",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 3 ) ],
 "loop": false,
 "name": "1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": false,
+"name": "3",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 4 ) ],
@@ -72,14 +72,14 @@ animations = [ {
 "name": "4",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 2 ) ],
+"loop": false,
+"name": "0",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 1 ) ],
 "loop": false,
 "name": "2",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 5 ) ],
-"loop": false,
-"name": "3",
 "speed": 5.0
 } ]
 
@@ -1409,7 +1409,7 @@ margin_bottom = 634.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Throwing Knives"
+text = "Baseball Chuck"
 align = 2
 valign = 1
 
@@ -1431,7 +1431,7 @@ margin_bottom = 774.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Quick Knives"
+text = "Quick Throw"
 align = 2
 valign = 1
 __meta__ = {

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=2]
+[gd_resource type="Theme" load_steps=11 format=2]
 
 [ext_resource path="res://themes/Early GameBoy.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://art/menus/button_normal.png" type="Texture" id=2]
@@ -6,21 +6,13 @@
 [ext_resource path="res://art/menus/button_pressed.png" type="Texture" id=4]
 [ext_resource path="res://art/menus/button_disabled.png" type="Texture" id=5]
 
-[sub_resource type="StyleBoxTexture" id=6]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 5 )
 region_rect = Rect2( -0.169701, 0, 30.1697, 30 )
 margin_left = 8.17774
 margin_right = 8.04793
 margin_top = 8.05222
 margin_bottom = 8.32692
-
-[sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 30, 30 )
-margin_left = 8.0
-margin_right = 8.0
-margin_top = 8.0
-margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 3 )
@@ -56,8 +48,8 @@ font_data = ExtResource( 1 )
 [resource]
 default_font = SubResource( 1 )
 Button/colors/font_color_disabled = Color( 0.25098, 0.25098, 0.25098, 1 )
-Button/styles/disabled = SubResource( 6 )
-Button/styles/focus = SubResource( 2 )
+Button/styles/disabled = SubResource( 2 )
+Button/styles/focus = SubResource( 3 )
 Button/styles/hover = SubResource( 3 )
 Button/styles/normal = SubResource( 4 )
 Button/styles/pressed = SubResource( 5 )

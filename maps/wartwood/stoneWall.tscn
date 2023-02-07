@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://art/models/WartwoodGateWalls/wall.material" type="Material" id=1]
+[ext_resource path="res://art/models/Wartwood/gateAndWall/wall.material" type="Material" id=1]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "stoneWall_Cube007"
@@ -19,7 +19,7 @@ surfaces/0 = {
 
 [node name="stoneWall" type="Spatial"]
 
-[node name="wallHP3x3001" type="MeshInstance" parent="."]
+[node name="wallHP3x3002" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.632246, 0, 0, 0, 1, 13.6953, 3.89854, 0 )
 mesh = SubResource( 1 )
 material/0 = null

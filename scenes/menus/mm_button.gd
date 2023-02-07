@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 export(int, "start", "controls", "credits", "exit") var type
 
@@ -50,8 +50,28 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		
 
 func _on_mm_button_focus_entered():
-	$AnimationPlayer.play("focus_start")
+	if is_hovered():
+		$AnimationPlayer.play("focus_loop")
+	else:
+		$AnimationPlayer.play("focus_start")
 	
 
 func _on_mm_button_focus_exited():
-	$AnimationPlayer.play("idle")
+	if is_hovered():
+		$AnimationPlayer.play("focus_loop")
+	else:
+		$AnimationPlayer.play("idle")
+
+
+func _on_mm_button_mouse_entered():
+	if has_focus():
+		$AnimationPlayer.play("focus_loop")
+	else:
+		$AnimationPlayer.play("focus_start")
+
+
+func _on_mm_button_mouse_exited():
+	if has_focus():
+		$AnimationPlayer.play("focus_loop")
+	else:
+		$AnimationPlayer.play("idle")

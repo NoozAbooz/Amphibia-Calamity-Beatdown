@@ -3,5 +3,5 @@
   {"sprite":"[PC]_normal",  "pos":"left", "move_in":"slide", "move_out":"slide",  "text":"...This one tastes really good actually!" },
   {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"Thanks. I used my secret recipe." },
   {"sprite":"[PC]_ask",  "pos":"left", "move_in":"slide", "move_out":"slide",  "text":"What'd you put in it?" },
-  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"...It's a *SECRET* recipe." }
+  {"sprite":"Mad_normal",  "pos":"right", "move_in":"slide", "move_out":"slide",  "text":"...It's a SECRET recipe." }
 ]
