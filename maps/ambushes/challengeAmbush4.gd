@@ -41,13 +41,9 @@ var wave0 = [
 	nme.ambEnemy.new(nme.waspScene,     nme.wasp,     Vector3(9, 0, -3),  Vector3.ZERO, 300),
 ]
 var wave1 = [
-	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(1, 20, 0),  Vector3.ZERO, 30),
-	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(-1, 20, 0),  Vector3.ZERO, 30),
-	nme.ambEnemy.new(nme.yellowMantisScene,   nme.yellowMantis,   Vector3(-20, 0, 0),  Vector3.ZERO, 120),
-	nme.ambEnemy.new(nme.yellowMantisScene,   nme.yellowMantis,   Vector3(-20, 0, 0),  Vector3.ZERO, 120),
-	nme.ambEnemy.new(nme.blackMantisScene,   nme.blackMantis,   Vector3(9, 0, -3),  Vector3.ZERO, 360),
-	nme.ambEnemy.new(nme.blackMantisScene,   nme.blackMantis,   Vector3(9, 0, -3),  Vector3.ZERO, 360),
-	
+	nme.ambEnemy.new(nme.robotScene,   nme.robot,    Vector3(-21.5, 0, 0),  Vector3.ZERO, 30),
+	nme.ambEnemy.new(nme.robotScene,   nme.robot,    Vector3(-21.5, 0, 0),  Vector3.ZERO, 90),
+	nme.ambEnemy.new(nme.robotScene,   nme.robot,    Vector3(9, 0, -3),   Vector3.ZERO, 300)
 ]
 var wave2 = [
 	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(0, 20, 0),  Vector3.ZERO, 30),

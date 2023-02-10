@@ -89,6 +89,7 @@ var animFinished = false
 
 var onRightWall = false
 var onLeftWall = false
+var alreadyBounced = false
 
 func isInState(list):
 	var found = false
@@ -216,6 +217,9 @@ func rollDefensiveAction():
 func equalOdds(stateArray):
 	var i = rng.rand.randi_range(0, len(stateArray)-1)
 	return stateArray[i]
+	
+func playsfx(name):
+	soundManager.playSound(name)
 	
 
 func _ready():
@@ -491,11 +495,15 @@ func _physics_process(delta):
 		velocity.z += enemyPush.z
 	
 	# barrier pushback / bounceback
+	if ambushEnemy and (isInState([HURTFLOOR])):
+		alreadyBounced = false
 	if isInState([HURTLAUNCH, HURTRISING, HURTFALLING]):
-		if (onRightWall and (velocity.x > 0) and ambushEnemy):
+		if (onRightWall and (velocity.x > 0) and ambushEnemy and !alreadyBounced):
 			velocity = Vector3(-25, 15, 0)
-		elif onLeftWall and (velocity.x < 0) and ambushEnemy:
+			alreadyBounced = true
+		elif onLeftWall and (velocity.x < 0) and ambushEnemy and !alreadyBounced:
 			velocity = Vector3(25, 15, 0)
+			alreadyBounced = true
 	else:
 		if onRightWall and (velocity.x > 0) and ambushEnemy:
 			velocity.x = 0

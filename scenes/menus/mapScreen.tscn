@@ -283,7 +283,7 @@ joint_mode = 2
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
 position = Vector2( 687, 384 )
 frames = SubResource( 10 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]
@@ -521,7 +521,6 @@ __meta__ = {
 position = Vector2( 266, 818 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="arrow" type="Sprite" parent="."]

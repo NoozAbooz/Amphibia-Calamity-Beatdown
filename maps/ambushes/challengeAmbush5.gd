@@ -15,9 +15,9 @@ extends Spatial
 
 var numWaves = 1
 var wave0 = [
-	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(8, -5, 0),  Vector3(-10, 60, -10), 0),
-	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(-8, -5, 0),  Vector3(10, 60, 0), 30),
-	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(8, -5, 0),  Vector3(-10, 60, 10), 60),
+	nme.ambEnemy.new(nme.spiderScene,        nme.spider,        Vector3(8, -5, 0),  Vector3(-10, 60, -10), 0),
+	nme.ambEnemy.new(nme.spiderScene,        nme.spider,        Vector3(-8, -5, 0),  Vector3(10, 60, 0), 30),
+	nme.ambEnemy.new(nme.spiderScene,        nme.spider,        Vector3(8, -5, 0),  Vector3(-10, 60, 10), 60),
 	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(6, -5, 0),  Vector3(10, 60, 0), 120),
 	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(-6, -5, 0),  Vector3(-10, 60, 0), 120),
 	nme.ambEnemy.new(nme.waspScene,   nme.wasp,   Vector3(-2, 4, -9),  Vector3.ZERO, 240),

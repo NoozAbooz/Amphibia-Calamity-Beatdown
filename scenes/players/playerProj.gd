@@ -104,7 +104,7 @@ func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, p
 			despawnOnHit = true
 			bounceOffEnemy = false
 			physType = GRAVHEAVY
-			sprite.play("ball2")
+			sprite.play("potion")
 			baseball = false
 			explosive = true
 			#hitboxCol.disabled = true
@@ -211,8 +211,11 @@ func explode():
 	velocity.y = 0
 	velocity.z = 0
 	force_grav_heavy = 0
-	if (get_node("explosionMesh") != null):
-		get_node("explosionMesh").visible = true
+	$AnimationPlayer.play("splode")
+	soundManager.pitchSound("bomb1", rng.rand.randf_range(0.95, 1.3))
+	soundManager.playSound("bomb1")
+#	if (get_node("explosionMesh") != null):
+#		get_node("explosionMesh").visible = true
 	
 		
 func stick():

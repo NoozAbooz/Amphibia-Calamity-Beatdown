@@ -13,14 +13,21 @@ extends Spatial
 # Setting the first wave to a number means no enemies will spawn
 # and the player must kill that many existing enemies to complete the wave
 
-var numWaves = 2
+var numWaves = 3
 var wave0 = [
 	nme.ambEnemy.new(nme.greenMantisScene,   nme.greenMantis,   Vector3(0, 20, 0),  Vector3.ZERO, 60),
 	nme.ambEnemy.new(nme.yellowMantisScene,   nme.yellowMantis,   Vector3(4, 20, 0),  Vector3.ZERO, 60),
 	nme.ambEnemy.new(nme.yellowMantisScene,   nme.yellowMantis,   Vector3(-4, 20, 0),  Vector3.ZERO, 60),
 ]
 var wave1 = [
-	nme.ambEnemy.new(nme.redMantisScene,   nme.redMantis,   Vector3(0, 20, 0),  Vector3.ZERO, 60),
+	nme.ambEnemy.new(nme.robotScene,   nme.robot,   Vector3(-23, 0, 0),  Vector3.ZERO, 30),
+	nme.ambEnemy.new(nme.robotScene,   nme.robot,   Vector3(22, 0, 6.5),  Vector3.ZERO, 60)
+]
+var wave2 = [
+	nme.ambEnemy.new(nme.robotScene,   nme.robot,   Vector3(-23, 0, 0),  Vector3.ZERO, 30),
+	nme.ambEnemy.new(nme.waspScene,    nme.wasp,    Vector3(10, 6, -8),  Vector3.ZERO, 150),
+	nme.ambEnemy.new(nme.waspScene,    nme.wasp,    Vector3(10, 6, -8),  Vector3.ZERO, 210),
+	nme.ambEnemy.new(nme.waspScene,    nme.wasp,    Vector3(10, 6, -8),  Vector3.ZERO, 270)
 ]
 
 # Called when the node enters the scene tree for the first time.
