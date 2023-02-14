@@ -224,17 +224,17 @@ func _process(_delta):
 	else:
 		# debug camera moveable with arrow keys
 		if (Input.is_action_pressed("cam_left") == true):
-			pivot.translation.x -= 0.2
+			pivot.translation.x -= 0.15
 		elif (Input.is_action_pressed("cam_right") == true):
-			pivot.translation.x += 0.2
+			pivot.translation.x += 0.15
 		elif (Input.is_action_pressed("cam_down") == true):
-			pivot.translation.y -= 0.2
+			pivot.translation.y -= 0.15
 		elif (Input.is_action_pressed("cam_up") == true):
-			pivot.translation.y += 0.2
+			pivot.translation.y += 0.15
 		elif (Input.is_action_pressed("cam_forward") == true):
-			pivot.translation.z -= 0.2
+			pivot.translation.z -= 0.15
 		elif (Input.is_action_pressed("cam_back") == true):
-			pivot.translation.z += 0.2
+			pivot.translation.z += 0.15
 	
 	# checks if cam has returned to previous position after a cutscene, and if yer re-enables movement
 	if (returning):

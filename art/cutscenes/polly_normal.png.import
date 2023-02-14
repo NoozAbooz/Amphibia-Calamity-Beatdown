@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hoppop_normal.png-6f55acff7838af72d7b3afa15ea00d83.stex"
+path="res://.import/polly_normal.png-976d18fa7fce41a97d798347e4691b83.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cutscenes/hoppop_normal.png"
-dest_files=[ "res://.import/hoppop_normal.png-6f55acff7838af72d7b3afa15ea00d83.stex" ]
+source_file="res://art/cutscenes/polly_normal.png"
+dest_files=[ "res://.import/polly_normal.png-976d18fa7fce41a97d798347e4691b83.stex" ]
 
 [params]
 

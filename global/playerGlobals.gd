@@ -3,7 +3,7 @@ extends Node
 # player variables
 var playerStartingMaxHP = 100 #100
 var playerStartingLives = 3 #3
-var totalMoney = 2000
+var totalMoney = 280
 var newMoney = 0
 var kills = 0 # Used to count in ambushes
 var killsTotal = 0 # Used to count total kills
@@ -55,11 +55,12 @@ var levelMusic = "ripple"
 var levelNum = 0
 
 # playable characters
-var hasMarcy  = true
+var hasMarcy  = false
 var hasSasha  = false
 var hasSprig = true
-var hasMaggie = true
+var hasMaggie = false
 var hasGrime = false
+var hasDarla = false
 var availableChars = ["Anne"]
 
 # Completed levels
@@ -81,7 +82,7 @@ var firstTimeInWartwood = true
 var currentStore = 0 # 0 = none; 1 = city hall; 2 = Maddie; 3 = Felicia
 
 # debug flags
-var debugCameraAvailable = false
+var debugCameraAvailable = true
 
 func recalcInfo():
 	# characters
@@ -96,6 +97,8 @@ func recalcInfo():
 		availableChars.append("Grime")
 	if hasMaggie or allCharsMode:
 		availableChars.append("Maggie")
+	if hasDarla:
+		availableChars.append("Darla")
 	# inputs
 	checkAvailableInputs()
 

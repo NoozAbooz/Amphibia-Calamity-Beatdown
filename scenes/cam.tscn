@@ -41,7 +41,7 @@ transform = Transform( 0.906308, -3.79978e-07, 0.422617, 0.109382, 0.965923, -0.
 collision_layer = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="leftWall"]
-transform = Transform( 1, -3.01981e-14, 0, -3.37508e-14, 1, -7.10543e-15, 0, 7.10543e-15, 1, -9.53674e-07, 5.82077e-11, -5 )
+transform = Transform( 1, -3.01981e-14, 0, -3.37508e-14, 1, -7.10543e-15, 0, 7.10543e-15, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="leftWall"]
@@ -67,7 +67,7 @@ transform = Transform( 0.906308, -1.49011e-08, -0.422617, -0.109382, 0.965923, -
 collision_layer = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="rightWall"]
-transform = Transform( 1, 0, 2.98023e-08, -7.10543e-15, 1, 7.10543e-15, 0, 0, 1, 9.53674e-07, 0, -5 )
+transform = Transform( 1, 0, 2.98023e-08, -7.10543e-15, 1, 7.10543e-15, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="passThroughR" type="Area" parent="rightWall" groups=["oneWayLeft"]]

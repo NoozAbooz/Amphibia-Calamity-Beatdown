@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Hoppop_ask.png-0b3b338e935637b58e98639230069435.stex"
+path="res://.import/hoppop_ask.png-257bc3e5da3326720f74d0b62db53eec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cutscenes/Hoppop_ask.png"
-dest_files=[ "res://.import/Hoppop_ask.png-0b3b338e935637b58e98639230069435.stex" ]
+source_file="res://art/cutscenes/hoppop_ask.png"
+dest_files=[ "res://.import/hoppop_ask.png-257bc3e5da3326720f74d0b62db53eec.stex" ]
 
 [params]
 

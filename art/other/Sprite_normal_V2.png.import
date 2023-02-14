@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hoppop_normal.png-6f55acff7838af72d7b3afa15ea00d83.stex"
+path="res://.import/Sprite_normal_V2.png-9d85b6b0982347df3db602cde997196a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cutscenes/hoppop_normal.png"
-dest_files=[ "res://.import/hoppop_normal.png-6f55acff7838af72d7b3afa15ea00d83.stex" ]
+source_file="res://art/other/Sprite_normal_V2.png"
+dest_files=[ "res://.import/Sprite_normal_V2.png-9d85b6b0982347df3db602cde997196a.stex" ]
 
 [params]
 
