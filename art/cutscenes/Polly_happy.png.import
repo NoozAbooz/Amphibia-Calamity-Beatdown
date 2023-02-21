@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/polly_happy.png-97e09b4960a56de8de9ccf93d4ac7a4b.stex"
+path="res://.import/Polly_happy.png-3a5599fa9e61861f006366b0d78b8ab8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cutscenes/polly_happy.png"
-dest_files=[ "res://.import/polly_happy.png-97e09b4960a56de8de9ccf93d4ac7a4b.stex" ]
+source_file="res://art/cutscenes/Polly_happy.png"
+dest_files=[ "res://.import/Polly_happy.png-3a5599fa9e61861f006366b0d78b8ab8.stex" ]
 
 [params]
 
