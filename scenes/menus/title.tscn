@@ -463,15 +463,13 @@ margin_top = 26.0
 margin_right = 1461.0
 margin_bottom = 598.0
 scroll_horizontal_enabled = false
-scroll_vertical = 600
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="names" type="VBoxContainer" parent="creditsMenu/namesCredits"]
-margin_top = -600.0
 margin_right = 974.0
-margin_bottom = 2680.0
+margin_bottom = 3280.0
 rect_min_size = Vector2( 970, 572 )
 custom_constants/separation = 10
 __meta__ = {

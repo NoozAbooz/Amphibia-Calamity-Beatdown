@@ -8,7 +8,7 @@ var dummy = null
 var displayHPMax = 100
 var displayHP = displayHPMax
 
-onready var anim = get_node("AnimationPlayer")
+#onready var anim = get_node("AnimationPlayer")
 onready var despawnTimer = get_node("Timer")
 onready var bar = get_node("2D elements")
 
