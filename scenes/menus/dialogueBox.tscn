@@ -212,14 +212,14 @@ __meta__ = {
 position = Vector2( -300, 250 )
 scale = Vector2( 0.5, 0.5 )
 frames = ExtResource( 2 )
-animation = "Wally_ask"
+animation = "Maggie_happy"
 flip_h = true
 
 [node name="rightChar" type="AnimatedSprite" parent="."]
 position = Vector2( 1580, 250 )
 scale = Vector2( 0.5, 0.5 )
 frames = ExtResource( 2 )
-animation = "Wally_ask"
+animation = "Maggie_happy"
 
 [node name="leftCharAnim" type="AnimationPlayer" parent="."]
 autoplay = "offScreen"
@@ -254,7 +254,6 @@ __meta__ = {
 position = Vector2( 1248, 680 )
 frames = SubResource( 4 )
 animation = "blink"
-frame = 1
 playing = true
 
 [node name="label" type="Label" parent="."]

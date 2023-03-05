@@ -10,6 +10,8 @@ func _ready():
 	soundManager.FadeOutSong("menu")
 	$"buttons".hide()
 	loading = false
+	if pg.seenTutorial:
+		_on_noButton_pressed()
 	
 func _process(_delta):
 	# skips
@@ -30,9 +32,11 @@ func _on_yesButton_pressed():
 	if not loading:
 		tran.loadLevel("res://scenes/menus/tutorial.tscn")
 		loading = true
+		pg.seenTutorial = true
 
 
 func _on_noButton_pressed():
 	if not loading:
 		tran.loadLevel("res://scenes/menus/mapOpen.tscn")
 		loading = true
+		pg.seenTutorial = true

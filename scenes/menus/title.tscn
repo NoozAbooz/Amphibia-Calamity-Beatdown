@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/menus/title.gd" type="Script" id=1]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://art/menus/controls1.png" type="Texture" id=7]
 [ext_resource path="res://art/menus/charBlock.png" type="Texture" id=8]
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=9]
-[ext_resource path="res://art/menus/main menu/main_menu_normal.png" type="Texture" id=10]
+[ext_resource path="res://art/menus/main menu/Sketch001.png" type="Texture" id=10]
 [ext_resource path="res://art/menus/main menu/Logo_complete.png" type="Texture" id=11]
 [ext_resource path="res://scenes/menus/mm_button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://art/menus/main menu/credits.png" type="Texture" id=13]
@@ -34,6 +34,161 @@ outline_size = 8
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
+[sub_resource type="Animation" id=13]
+resource_name = "idle"
+length = 0.5
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("bgFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("mainMenu/logo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("mainMenu/startButton:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 310 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("mainMenu/controlsButton:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 100, 410 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("mainMenu/creditsButton:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 510 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("mainMenu/exitButton:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 220, 610 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "intro"
+length = 1.5
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("bgFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("mainMenu/logo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.333333, 0.45, 0.516667, 0.6 ),
+"transitions": PoolRealArray( 1, 0.5, -2, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 2.2, 2.2 ), Vector2( 1.9, 1.9 ), Vector2( 2, 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("mainMenu/startButton:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.683333, 1.05 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( -500, 310 ), Vector2( -560, 310 ), Vector2( 40, 310 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("mainMenu/controlsButton:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.833333, 1.2 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( -500, 410 ), Vector2( -500, 410 ), Vector2( 100, 410 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("mainMenu/creditsButton:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.983333, 1.35 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( -500, 510 ), Vector2( -440, 510 ), Vector2( 160, 510 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("mainMenu/exitButton:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.13333, 1.5 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( -500, 610 ), Vector2( -380, 610 ), Vector2( 220, 610 ) ]
+}
+
 [node name="title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -44,8 +199,18 @@ __meta__ = {
 
 [node name="bg" type="Sprite" parent="."]
 light_mask = 0
+scale = Vector2( 0.514, 0.514 )
 texture = ExtResource( 10 )
 centered = false
+
+[node name="bgFade" type="ColorRect" parent="."]
+light_mask = 0
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="lockButton" type="Button" parent="."]
 visible = false
@@ -99,10 +264,9 @@ __meta__ = {
 }
 
 [node name="logo" type="Sprite" parent="mainMenu"]
-position = Vector2( 10, 10 )
+position = Vector2( 275, 160 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 11 )
-centered = false
 
 [node name="startButtonOld" type="Button" parent="mainMenu"]
 visible = false
@@ -118,14 +282,15 @@ __meta__ = {
 }
 
 [node name="startButton" parent="mainMenu" instance=ExtResource( 12 )]
-margin_left = 100.0
+margin_left = 40.0
 margin_top = 310.0
-margin_right = 400.0
+margin_right = 340.0
 margin_bottom = 410.0
 focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath(".")
 focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath("../controlsButton")
+defaultButton = true
 
 [node name="controlsButton" parent="mainMenu" instance=ExtResource( 12 )]
 margin_left = 100.0
@@ -139,9 +304,9 @@ focus_neighbour_bottom = NodePath("../creditsButton")
 type = 1
 
 [node name="creditsButton" parent="mainMenu" instance=ExtResource( 12 )]
-margin_left = 100.0
+margin_left = 160.0
 margin_top = 510.0
-margin_right = 400.0
+margin_right = 460.0
 margin_bottom = 610.0
 focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath("../controlsButton")
@@ -150,9 +315,9 @@ focus_neighbour_bottom = NodePath("../exitButton")
 type = 2
 
 [node name="exitButton" parent="mainMenu" instance=ExtResource( 12 )]
-margin_left = 100.0
+margin_left = 220.0
 margin_top = 610.0
-margin_right = 400.0
+margin_right = 520.0
 margin_bottom = 710.0
 focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath("../creditsButton")
@@ -392,6 +557,7 @@ __meta__ = {
 }
 
 [node name="creditsMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -463,15 +629,13 @@ margin_top = 26.0
 margin_right = 1461.0
 margin_bottom = 598.0
 scroll_horizontal_enabled = false
-scroll_vertical = 400
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="names" type="VBoxContainer" parent="creditsMenu/namesCredits"]
-margin_top = -400.0
 margin_right = 974.0
-margin_bottom = 2880.0
+margin_bottom = 3280.0
 rect_min_size = Vector2( 970, 572 )
 custom_constants/separation = 10
 __meta__ = {
@@ -1357,6 +1521,11 @@ margin_right = 974.0
 margin_bottom = 3280.0
 rect_min_size = Vector2( 970, 0 )
 
+[node name="introAnim" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+anims/idle = SubResource( 13 )
+anims/intro = SubResource( 12 )
+
 [connection signal="toggled" from="lockButton" to="." method="_on_lockButton_toggled"]
 [connection signal="toggled" from="hitboxButton" to="." method="_on_hitboxButton_toggled"]
 [connection signal="pressed" from="mainMenu/startButtonOld" to="." method="_on_startButton_pressed"]
@@ -1366,3 +1535,4 @@ rect_min_size = Vector2( 970, 0 )
 [connection signal="pressed" from="mainMenu/exitButton" to="." method="_on_exitButton_pressed"]
 [connection signal="pressed" from="controlsMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
 [connection signal="pressed" from="creditsMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
+[connection signal="animation_finished" from="introAnim" to="." method="_on_introAnim_animation_finished"]

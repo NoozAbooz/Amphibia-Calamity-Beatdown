@@ -58,9 +58,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=217]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.152941, 0.152941, 0.180392, 1 )
 background_energy = 2.48
 ambient_light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
@@ -818,7 +818,7 @@ shadow_enabled = true
 editor_only = true
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 394.577, 10.2404, -27.9464 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6799, 3.83746, 2.939 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )

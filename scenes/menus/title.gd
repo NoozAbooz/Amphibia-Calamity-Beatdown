@@ -1,28 +1,42 @@
 extends Control
 
 var loading = false
+var waitingOnIntro = false
 
 enum {MAIN, CONTROLS, CREDITS}
 var showGamepad = false
+
+onready var introAnim = get_node("introAnim")
 
 var state = MAIN
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	loading = true
+	waitingOnIntro = true
 	soundManager.playMusicIfDiff("menu")
 	discordRPC.updateLevel("Main Menu")
-	$mainMenu/startButton.grab_focus()
-	_on_lockButton_toggled(false)
+	#$mainMenu/startButton.grab_focus()
+	#_on_lockButton_toggled(false)
 	$lockButton.pressed = false
-	_on_hitboxButton_toggled(false)
+	#_on_hitboxButton_toggled(false)
 	$hitboxButton.pressed = false
 	loading = false
 
 
 func _process(delta):
+	# intro skip
+	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right")) and waitingOnIntro:
+		_on_introAnim_animation_finished("intro")
+		if Input.is_action_just_pressed("ui_down"):
+			$mainMenu/controlsButton.grab_focus()
+	# backing out of menus
 	if (Input.is_action_just_pressed("ui_cancel") == true) and (state != MAIN) and (!loading):
 		state = MAIN
 		$mainMenu/startButton.grab_focus()
+	# FSM
+	if loading:
+		state = MAIN
 	match state:
 		MAIN:
 			$mainMenu.show()
@@ -53,9 +67,15 @@ func _process(delta):
 				showGamepad = !showGamepad
 
 func _on_startButton_pressed():
+	if waitingOnIntro:
+		return
 	if not loading:
-		tran.loadLevel("res://scenes/menus/tutorialIntro.tscn")
 		loading = true
+		if !pg.seenTutorial:
+			tran.loadLevel("res://scenes/menus/tutorialIntro.tscn")
+		else:
+			tran.loadLevel("res://scenes/menus/mapOpen.tscn")
+		
 	
 
 
@@ -87,6 +107,8 @@ func _on_lockButton_toggled(button_pressed):
 	#print("Unlocks changed!")
 
 func _on_hitboxButton_toggled(button_pressed):
+	if waitingOnIntro:
+		return
 	if (button_pressed):
 		$hitboxButton/Label.text = "Disable Hitboxes"
 		get_tree().set_debug_collisions_hint(true)
@@ -99,20 +121,35 @@ func _on_hitboxButton_toggled(button_pressed):
 
 
 func _on_controlsButton_pressed():
+	if waitingOnIntro:
+		return
 	state = CONTROLS
 	$controlsMenu/buttonBack.grab_focus()
 
 func _on_creditsButton_pressed():
+	if waitingOnIntro:
+		return
 	state = CREDITS
 	$creditsMenu/buttonBack.grab_focus()
 
 func _on_exitButton_pressed():
+	if waitingOnIntro:
+		return
 	get_tree().quit()
 
 func _on_buttonBack_pressed():
+	if waitingOnIntro:
+		return
 	state = MAIN
 	$mainMenu/startButton.grab_focus()
 
-
-func _on_start_button_pressed():
-	pass # Replace with function body.
+func _on_introAnim_animation_finished(anim_name):
+	$mainMenu/startButton.grab_focus()
+	#_on_lockButton_toggled(false)
+	$lockButton.pressed = false
+	#_on_hitboxButton_toggled(false)
+	$hitboxButton.pressed = false
+	loading = false
+	waitingOnIntro = false
+	if (anim_name == "intro"):
+		introAnim.play("idle")
