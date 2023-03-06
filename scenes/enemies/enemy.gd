@@ -496,7 +496,7 @@ func _physics_process(delta):
 		velocity.z += enemyPush.z
 	
 	# barrier pushback / bounceback
-	if ambushEnemy and (isInState([HURTFLOOR])):
+	if ambushEnemy and (isInState([HURTFLOOR, HURTLAUNCH])):
 		alreadyBounced = false
 	if isInState([HURTLAUNCH, HURTRISING, HURTFALLING]):
 		if (onRightWall and (velocity.x > 0) and ambushEnemy and !alreadyBounced):
