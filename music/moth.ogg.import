@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/moth.ogg-1b517bfc94cd6bae4c58a209f3fa17f5.oggstr"
+
+[deps]
+
+source_file="res://music/moth.ogg"
+dest_files=[ "res://.import/moth.ogg-1b517bfc94cd6bae4c58a209f3fa17f5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

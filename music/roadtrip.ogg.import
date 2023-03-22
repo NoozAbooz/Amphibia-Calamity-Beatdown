@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/roadtrip.ogg-399bd5b8ec299480dbd1c605201b412d.oggstr"
+
+[deps]
+
+source_file="res://music/roadtrip.ogg"
+dest_files=[ "res://.import/roadtrip.ogg-399bd5b8ec299480dbd1c605201b412d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=5.133

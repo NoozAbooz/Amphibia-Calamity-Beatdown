@@ -188,6 +188,11 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "playground",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "bestFrondsHard",
@@ -196,11 +201,6 @@ animations = [ {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "bestFronds",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "playground",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -216,14 +216,14 @@ animations = [ {
 "name": "check",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "uncheck",
-"speed": 5.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "none",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "uncheck",
 "speed": 5.0
 } ]
 
@@ -283,7 +283,7 @@ joint_mode = 2
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
 position = Vector2( 687, 384 )
 frames = SubResource( 10 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]
@@ -313,7 +313,7 @@ margin_bottom = 578.0
 focus_neighbour_left = NodePath("../lvl1")
 focus_neighbour_top = NodePath(".")
 focus_neighbour_right = NodePath(".")
-focus_neighbour_bottom = NodePath(".")
+focus_neighbour_bottom = NodePath("../play")
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -326,11 +326,10 @@ __meta__ = {
 }
 
 [node name="play" type="TextureButton" parent="."]
-visible = false
-margin_left = 696.0
-margin_top = 767.0
-margin_right = 744.0
-margin_bottom = 799.0
+margin_left = 716.0
+margin_top = 768.0
+margin_right = 764.0
+margin_bottom = 800.0
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -521,6 +520,7 @@ __meta__ = {
 position = Vector2( 266, 818 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="arrow" type="Sprite" parent="."]

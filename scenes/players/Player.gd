@@ -258,7 +258,7 @@ func spawnProj(projVel = Vector3.ZERO, projAng = 0, addPlayerVel = false):
 	# instances and initializes projectile scene
 	var proj = projScene.instance()
 	get_parent().add_child(proj)
-	proj.initialize(spawnLocation, lookRight, hitDamage, hitType, hitDir, hitSound, projType, projVel, projAng)
+	proj.initialize(spawnLocation, lookRight, hitDamage, hitType, hitDir, hitSound, projType, projVel, projAng, playerNum)
 
 func forceRecoil():
 	recoilStart = true
@@ -1077,7 +1077,7 @@ func _physics_process(delta):
 		velocity.x = slideSpeed * slideDir.x
 		velocity.z = slideSpeed * (float(speed_z) / float(speed_run)) * slideDir.y
 		if (slideSpeed > 0):
-			if (playerChar == "Marcy"):
+			if (playerChar == "Sasha") or (playerChar == "Marcy"):
 				slideSpeed -= 1.0
 			else:
 				slideSpeed -= 1.25 # 1.5
@@ -1254,6 +1254,9 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 
 
 func _on_hurtbox_area_entered(area):
+	# prevents self hurting
+	
+	
 	# evnironmental stuff
 	if area.is_in_group("oneWayRight") or area.is_in_group("oneWayLeft"):
 		area.get_parent().get_parent().get_node("Camera").disableBarriers(true)
@@ -1313,18 +1316,30 @@ func _on_hurtbox_area_entered(area):
 		# plays sfx
 		soundManager.playSound("pickup")
 		return
+	# HURTBOX COLISSION
+	# handles attack if projectile, sets attacker and attackerLocation variables
+	var attacker = area.get_parent().get_parent()
+	# checks if player is hitting self
+	if attacker.is_in_group("players") or attacker.is_in_group("playerProjectiles"):
+		#print(str(attacker.playerNum) + " - " + str(playerNum))
+		if !pg.pvp or (attacker.playerNum == playerNum):
+			return
+		else:
+			attacker.hitLanded = true
+	# NOTE: Commenting this out likely broke arrow launcher test scenes.
+	# But those will be re-made to closer match player projectiles anyway, so
+	# for now attackers will be defined as above for all impacts.
+#	if area.is_in_group("projectiles"):
+#		attacker = area.get_parent()
+#	else:
+#		attacker = area.get_parent().get_parent()
 	# Enemy hitboxes:
 	if (invincible == false) and (invincibleState == false) and (invincibleGetUp <= 0) and (pg.dontMove == false):
 		justHurt = true
 	else:
 		return
 	invincible = true
-	# handles attack if projectile, sets attacker and attackerLocation variables
-	var attacker = area.get_parent()
-	if area.is_in_group("projectiles"):
-		attacker = area.get_parent()
-	else:
-		attacker = area.get_parent().get_parent()
+	
 	var attackerLoc = attacker.translation
 	if area.is_in_group("bosses"):
 		attackerLoc += attacker.get_node("boss").translation

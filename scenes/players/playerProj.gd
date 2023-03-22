@@ -20,6 +20,8 @@ var active = true
 
 var playerChar = "proj"
 
+var playerNum = 5
+
 enum {GRAV, NOGRAV, GRAVBOUNCE, GRAVHEAVY}
 
 var physType = GRAV
@@ -45,9 +47,12 @@ func _ready():
 	pass # Replace with function body.
 
 
-func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, projVel = Vector3.ZERO, projAng = 0):
+func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, projVel = Vector3.ZERO, projAng = 0, projSource = 5):
 	# determines type of physics
 	physType = projType
+	
+	# stores who shot the projectile
+	playerNum = projSource
 	
 	# default hitbox
 	hitboxCol.shape.radius = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/players/playerProj.gd" type="Script" id=1]
 [ext_resource path="res://art/vfx/player_projectiles.png" type="Texture" id=2]
@@ -58,15 +58,15 @@ animations = [ {
 "name": "ball2",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
-"loop": true,
-"name": "ball",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "potion",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
+"loop": true,
+"name": "ball",
+"speed": 10.0
 } ]
 
 [sub_resource type="CylinderShape" id=39]
@@ -82,7 +82,7 @@ rings = 1
 
 [sub_resource type="SpatialMaterial" id=52]
 flags_transparent = true
-albedo_color = Color( 1, 1, 1, 0 )
+albedo_color = Color( 1, 1, 1, 0.367644 )
 albedo_texture = ExtResource( 5 )
 
 [sub_resource type="ArrayMesh" id=49]
@@ -102,7 +102,7 @@ surfaces/0 = {
 
 [sub_resource type="SpatialMaterial" id=53]
 flags_transparent = true
-albedo_color = Color( 1, 1, 1, 0 )
+albedo_color = Color( 1, 1, 1, 0.367644 )
 albedo_texture = ExtResource( 4 )
 
 [sub_resource type="ArrayMesh" id=48]
@@ -118,21 +118,6 @@ surfaces/0 = {
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 240
-}
-
-[sub_resource type="Animation" id=54]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("explosionMeshInner:mesh:surface_1/material:albedo_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=51]
@@ -235,6 +220,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("zeroPoint/hitbox/CollisionShape:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=50]
 resource_name = "wait"
@@ -334,8 +331,20 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0.584314 ) ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("zeroPoint/hitbox/CollisionShape:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[node name="proj" type="KinematicBody"]
+[node name="proj" type="KinematicBody" groups=["playerProjectiles"]]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_layer = 8192
 collision_mask = 2
@@ -362,6 +371,7 @@ monitoring = false
 
 [node name="CollisionShape" type="CollisionShape" parent="zeroPoint/hitbox"]
 shape = SubResource( 39 )
+disabled = true
 
 [node name="shadowMaker" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
@@ -374,13 +384,13 @@ one_shot = true
 autostart = true
 
 [node name="explosionMeshInner" type="MeshInstance" parent="."]
-transform = Transform( 0.974279, 0, 0.5625, 0, 1.125, 0, -0.5625, 0, 0.974279, 0, 0, 0 )
+transform = Transform( 1.01488, 0, 0.473245, 0, 1.11979, 0, -0.473245, 0, 1.01488, 0, 0, 0 )
 mesh = SubResource( 49 )
 skeleton = NodePath("../explosionMeshOuter")
 material/0 = null
 
 [node name="explosionMeshOuter" type="MeshInstance" parent="."]
-transform = Transform( 0.957556, 0, 0.803485, 0, 1.25, 0, -0.803485, 0, 0.957556, 0, 0, 0 )
+transform = Transform( 1.02447, 0, 0.673804, 0, 1.22619, 0, -0.673804, 0, 1.02447, 0, 0, 0 )
 cast_shadow = 0
 generate_lightmap = false
 mesh = SubResource( 48 )
@@ -389,7 +399,6 @@ material/0 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "wait"
-anims/RESET = SubResource( 54 )
 anims/splode = SubResource( 51 )
 anims/wait = SubResource( 50 )
 
