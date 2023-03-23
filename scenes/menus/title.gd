@@ -16,6 +16,7 @@ func _ready():
 	waitingOnIntro = true
 	soundManager.playMusicIfDiff("menu")
 	discordRPC.updateLevel("Main Menu")
+	$mainMenu/Button/AnimatedSprite.play(pg.prefLang)
 	#$mainMenu/startButton.grab_focus()
 	#_on_lockButton_toggled(false)
 	$lockButton.pressed = false
@@ -153,3 +154,8 @@ func _on_introAnim_animation_finished(anim_name):
 	waitingOnIntro = false
 	if (anim_name == "intro"):
 		introAnim.play("idle")
+
+
+func _on_languageButton_pressed():
+	pg.cycleLocale()
+	$mainMenu/Button/AnimatedSprite.play(pg.prefLang)

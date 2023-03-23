@@ -13,25 +13,25 @@ export var defaultButton = false
 func _ready():
 	match type:
 		0:
-			buttonText.text = "START"
+			buttonText.text = "KEY_MM_START"
 			buttonColor.play("blue")
 			buttonIcon.play("sword")
 			mask.range_item_cull_mask = 32
 			buttonIcon.light_mask = 32
 		1:
-			buttonText.text = "CONTROLS"
+			buttonText.text = "KEY_MM_CONTROLS"
 			buttonColor.play("green")
 			buttonIcon.play("remote")
 			mask.range_item_cull_mask = 64
 			buttonIcon.light_mask = 64
 		2:
-			buttonText.text = "CREDITS"
+			buttonText.text = "KEY_MM_CREDITS"
 			buttonColor.play("gray")
 			buttonIcon.play("book")
 			mask.range_item_cull_mask = 128
 			buttonIcon.light_mask = 128
 		3:
-			buttonText.text = "EXIT"
+			buttonText.text = "KEY_MM_EXIT"
 			buttonColor.play("pink")
 			buttonIcon.play("fwagon")
 			mask.range_item_cull_mask = 256

@@ -691,6 +691,13 @@ vol-={
 3d_physics/layer_14="Projectiles"
 3d_physics/layer_15="Enemy Only Barrier"
 
+[locale]
+
+translations=PoolStringArray( "res://dialogue/mainmenu_text.en.translation", "res://dialogue/mainmenu_text.es.translation", "res://dialogue/mainmenu_text.fr.translation", "res://dialogue/menus_text.en.translation", "res://dialogue/menus_text.es.translation", "res://dialogue/menus_text.fr.translation", "res://dialogue/tutorial_text.en.translation", "res://dialogue/tutorial_text.es.translation", "res://dialogue/tutorial_text.fr.translation" )
+translation_remaps={
+"res://art/menus/main menu/flag_en.png": PoolStringArray( "res://art/menus/main menu/flag_en.png:en", "res://art/menus/main menu/flag_fr.png:fr" )
+}
+
 [logging]
 
 file_logging/enable_file_logging.pc=false

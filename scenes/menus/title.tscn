@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/menus/title.gd" type="Script" id=1]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=2]
@@ -13,6 +13,21 @@
 [ext_resource path="res://art/menus/main menu/Logo_complete.png" type="Texture" id=11]
 [ext_resource path="res://scenes/menus/mm_button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://art/menus/main menu/credits.png" type="Texture" id=13]
+[ext_resource path="res://art/menus/main menu/flag_en.png" type="Texture" id=14]
+[ext_resource path="res://art/menus/main menu/flag_fr.png" type="Texture" id=15]
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 14 ) ],
+"loop": false,
+"name": "en",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": false,
+"name": "fr",
+"speed": 5.0
+} ]
 
 [sub_resource type="DynamicFont" id=7]
 size = 24
@@ -324,6 +339,34 @@ focus_neighbour_top = NodePath("../creditsButton")
 focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath(".")
 type = 3
+
+[node name="Button" type="TextureButton" parent="mainMenu"]
+margin_left = 1168.0
+margin_top = 659.0
+margin_right = 1268.0
+margin_bottom = 711.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="mainMenu/Button"]
+margin_left = -431.0
+margin_top = 12.0
+margin_right = -7.0
+margin_bottom = 42.0
+theme = ExtResource( 2 )
+text = "KEY_MM_LANG"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="mainMenu/Button"]
+position = Vector2( 50, 26 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 14 )
+animation = "en"
 
 [node name="controlsMenu" type="Control" parent="."]
 visible = false
@@ -1533,6 +1576,7 @@ anims/intro = SubResource( 12 )
 [connection signal="pressed" from="mainMenu/controlsButton" to="." method="_on_controlsButton_pressed"]
 [connection signal="pressed" from="mainMenu/creditsButton" to="." method="_on_creditsButton_pressed"]
 [connection signal="pressed" from="mainMenu/exitButton" to="." method="_on_exitButton_pressed"]
+[connection signal="pressed" from="mainMenu/Button" to="." method="_on_languageButton_pressed"]
 [connection signal="pressed" from="controlsMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
 [connection signal="pressed" from="creditsMenu/buttonBack" to="." method="_on_buttonBack_pressed"]
 [connection signal="animation_finished" from="introAnim" to="." method="_on_introAnim_animation_finished"]

@@ -29,7 +29,8 @@ func _process(delta):
 		$"arrowContinue".show()
 	messageNode.percent_visible = (messagePercent* 0.01)
 	# skips
-	if (Input.is_action_just_pressed("pause") == true):
+	if (Input.is_action_just_pressed("pause") == true) and not loading:
+		loading = true
 		tran.loadLevel("res://scenes/menus/mapOpen.tscn")
 	if (Input.is_action_just_pressed("ui_accept") == true):
 #		var animationNum = get_node("AnimationPlayer").current_animation
@@ -48,8 +49,8 @@ func advance():
 
 func speak(dialogue):
 	messagePercent = 0
-	messageText = dialogue
-	messageLength = len(dialogue)
+	messageText = tr(dialogue)
+	messageLength = len(tr(dialogue))
 	
 	
 func _on_startButton_pressed():

@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://dialogue/dialogue_text.en.translation", "res://dialogue/dialogue_text.es.translation", "res://dialogue/dialogue_text.fr.translation" ]
+
+source_file="res://dialogue/dialogue_text.csv"
+dest_files=[ "res://dialogue/dialogue_text.en.translation", "res://dialogue/dialogue_text.es.translation", "res://dialogue/dialogue_text.fr.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

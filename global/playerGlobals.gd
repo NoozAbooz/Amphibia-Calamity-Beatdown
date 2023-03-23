@@ -90,6 +90,9 @@ var seenTutorial = false
 # debug flags
 var debugCameraAvailable = false
 
+# localization
+var prefLang = "en"
+
 func recalcInfo():
 	# characters
 	availableChars = ["Anne"]
@@ -116,18 +119,17 @@ func checkAvailableInputs():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	# localization
+	TranslationServer.set_locale(prefLang)
 	
-# ***Added to sfx manager alongside volume settings***
-#func _process(_delta):
-#	# checks for keyboard presses for options
-#	if(Input.is_action_just_pressed("fullscreen") == true):
-#		OS.set_window_fullscreen(!OS.window_fullscreen)
-#	if(Input.is_action_just_pressed("mute") == true):
-#		var busIndex = AudioServer.get_bus_index("Master")
-#		AudioServer.set_bus_mute(busIndex, !AudioServer.is_bus_mute(busIndex))
-#		#print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 
+func cycleLocale():
+	var curLangIndex = TranslationServer.get_loaded_locales().find(prefLang) + 1
+	if (curLangIndex >= len(TranslationServer.get_loaded_locales())):
+		curLangIndex = 0
+	prefLang = TranslationServer.get_loaded_locales()[curLangIndex]
+	TranslationServer.set_locale(prefLang)
+	
 func countPlayers():
 	var count = 0
 	for i in playerAlive:
