@@ -16,7 +16,7 @@ var dead = false
 export var decoration = false
 var hp = 100
 export var oddsSpawn = 0.2
-export var maxSpawns = 10
+export var maxSpawns = 12
 var spawnCount = 0
 
 export var maxCoins = 20
@@ -25,6 +25,9 @@ export var oddsDrop = 1.0
 export var oddsKhao = 0.20 
 
 func spawn():
+	if (not active) or (spawnCount > maxSpawns):
+		#print(active)
+		return
 	var num = rng.rand.randi_range(1, 3)
 	for i in range(0, num):
 		var nextEnemy = nme.spiderScene.instance()
@@ -142,9 +145,9 @@ func _on_AnimationPlayerDamage_animation_finished(anim_name):
 			despawn()
 
 
-func _on_spawnDelay_timeout():
-	if active and (spawnCount < maxSpawns):
-		spawn()
+#func _on_spawnDelay_timeout():
+#	if active and (spawnCount < maxSpawns):
+#		spawn()
 
 
 func _on_aggro_area_entered(_area):
@@ -155,7 +158,7 @@ func _on_AnimationPlayerSpawn_animation_finished(anim_name):
 	match anim_name:
 		"idle":
 			if (rng.rand.randf() < oddsSpawn) or counterSpawn:
-				$spawnTimer.start()
+				#$spawnTimer.start()
 				animSpawn.play("spawn")
 			else:
 				animSpawn.play("idle")

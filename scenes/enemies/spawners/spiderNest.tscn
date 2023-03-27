@@ -34,6 +34,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.3, 1.5 ), Vector3( 1.5, 1.85, 1.5 ), Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.5, 1.5 ) ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "dead"
@@ -241,8 +255,8 @@ radius = 3.0
 height = 4.0
 
 [sub_resource type="CylinderShape" id=8]
-radius = 10.0
-height = 10.0
+radius = 12.0
+height = 42.0
 
 [node name="spiderNest" type="StaticBody"]
 collision_layer = 1024
@@ -266,7 +280,7 @@ shape = SubResource( 1 )
 [node name="modelZero" type="Spatial" parent="."]
 
 [node name="SpiderSpawner2-con" type="MeshInstance" parent="modelZero"]
-transform = Transform( 2.92061e-07, 0, 1.5, 0, 1.48853, 0, -1.5, 0, 2.92061e-07, 0, 1, 0 )
+transform = Transform( 2.92061e-07, 0, 1.5, 0, 1.3, 0, -1.5, 0, 2.92061e-07, 0, 1, 0 )
 mesh = SubResource( 9 )
 material/0 = null
 

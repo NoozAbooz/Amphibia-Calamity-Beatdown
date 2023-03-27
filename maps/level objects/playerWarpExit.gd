@@ -13,6 +13,10 @@ var cam = null
 var offset = Vector3.ZERO
 var destination = Vector3.ZERO
 
+export(int, "none", "cave") var audioEffect
+
+export(int, "none", "enableFog", "disableFog") var fogEffect
+
 func _ready():
 	warpEnt = get_parent().get_node("warp" + str(warpNum))
 	# connects to corresponding warp entrance and listens for signal
@@ -69,6 +73,27 @@ func movePlayers():
 		print(str(destination + offset))
 	#moves camera
 	cam.initialize(destination)
+	# adds effect to audio if necessary
+	match audioEffect:
+		0:
+			soundManager.addEffect("none")
+		1:
+			soundManager.addEffect("cave")
+		_:
+			soundManager.addEffect("none")
+	# turns on fog if necessary
+	match fogEffect:
+		0:
+			pass
+		1:
+			var world = get_node("/root/" + pg.levelName + "/WorldEnvironment")
+			world.environment.fog_enabled = true
+		2:
+			var world = get_node("/root/" + pg.levelName + "/WorldEnvironment")
+			world.environment.fog_enabled = false
+		_:
+			pass
+	
 	
 func unpausePlayers():
 	pg.dontMove = false

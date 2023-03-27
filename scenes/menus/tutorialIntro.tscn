@@ -93,26 +93,26 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 200, 350 )
-
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 200, 0, 200, 350 )
 
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 200, 350 )
+
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 3 ) ],
-"loop": false,
-"name": "left",
-"speed": 0.0
-}, {
 "frames": [ SubResource( 4 ) ],
 "loop": false,
 "name": "right",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": false,
+"name": "left",
 "speed": 0.0
 } ]
 
@@ -165,7 +165,8 @@ margin_right = 550.0
 margin_bottom = 100.0
 theme = ExtResource( 2 )
 toggle_mode = true
-text = "Sure!"
+text = "KEY_TUT_YES"
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -176,7 +177,8 @@ margin_right = 930.0
 margin_bottom = 100.0
 theme = ExtResource( 2 )
 toggle_mode = true
-text = "Nope"
+text = "KEY_TUT_NO"
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

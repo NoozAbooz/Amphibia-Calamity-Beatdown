@@ -23,7 +23,7 @@ func playSound():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	$"buttons".show()
-	$"label".text = "Would you like to watch the tutorial?"
+	$"label".text = "KEY_TUT_ASK"
 	$"buttons/noButton".grab_focus()
 	$"AnimationPlayer".play("idle")
 	buttonsReady = true

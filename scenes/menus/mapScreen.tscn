@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://scenes/menus/mapScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/menus/map bg/map_table.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://art/menus/map icons/line.png" type="Texture" id=25]
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=26]
 [ext_resource path="res://art/menus/map popup/bestFrondsHard.png" type="Texture" id=27]
+[ext_resource path="res://art/menus/map popup/mountain.png" type="Texture" id=28]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 21 )
@@ -60,30 +61,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 40, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 4 )
-region = Rect2( 120, 40, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 4 )
-region = Rect2( 240, 40, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 4 )
-region = Rect2( 360, 40, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 4 )
-region = Rect2( 480, 40, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 4 )
-region = Rect2( 600, 40, 120, 40 )
-
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 80, 120, 40 )
@@ -107,6 +84,30 @@ region = Rect2( 480, 80, 120, 40 )
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 4 )
 region = Rect2( 600, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 4 )
+region = Rect2( 120, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 4 )
+region = Rect2( 240, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 4 )
+region = Rect2( 360, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 4 )
+region = Rect2( 480, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 4 )
+region = Rect2( 600, 40, 120, 40 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 4 )
@@ -142,14 +143,14 @@ region = Rect2( 360, 0, 120, 40 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
@@ -188,6 +189,11 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "mountain",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "playground",
@@ -198,14 +204,14 @@ animations = [ {
 "name": "bestFrondsHard",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "bestFronds",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "wartwood",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "bestFronds",
 "speed": 5.0
 } ]
 
@@ -283,7 +289,7 @@ joint_mode = 2
 [node name="tower" type="AnimatedSprite" parent="map decorations"]
 position = Vector2( 687, 384 )
 frames = SubResource( 10 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="wart1" type="Sprite" parent="map decorations"]
@@ -527,7 +533,7 @@ playing = true
 position = Vector2( 739, 512 )
 rotation = 1.5708
 texture = ExtResource( 26 )
-offset = Vector2( -9.99999, 0 )
+offset = Vector2( -10, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="arrow"]
 autoplay = "point"
@@ -557,7 +563,7 @@ __meta__ = {
 position = Vector2( -150, 0 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
-animation = "bestFrondsHard"
+animation = "mountain"
 
 [node name="levelName" type="Label" parent="cam/phone"]
 margin_left = 56.0

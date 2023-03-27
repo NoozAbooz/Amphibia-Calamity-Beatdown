@@ -16,6 +16,9 @@ var tempScale = Vector2(1,1)
 
 var alreadyStopped = false # a flag to insure that ending a tween and starting a new song both don't stop()
 
+var inCave = false
+var caveReverb = AudioEffectReverb.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# stores default volumes for music
@@ -26,6 +29,11 @@ func _ready():
 		#print(dbList)
 	masterBusIndex = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_volume_db(masterBusIndex, masterVolume)
+	# preps cave reverb
+	caveReverb.wet = 1
+	caveReverb.dry = 0.2
+	caveReverb.room_size = 0.2
+	caveReverb.hipass = 0.3
 
 func _process(_delta):
 	# checks for keyboard presses for options
@@ -48,6 +56,7 @@ func _process(_delta):
 	else:
 		self.scale = Vector2(1,1)
 		self.position = Vector2.ZERO
+
 		
 func displayVolume():
 	if (AudioServer.is_bus_mute(masterBusIndex)):
@@ -74,7 +83,22 @@ func updateVolume(amount):
 		masterVolume = -20
 	AudioServer.set_bus_volume_db(masterBusIndex, masterVolume)
 	#print(masterVolume)
-	
+
+func addEffect(type = "none"):
+	masterBusIndex = AudioServer.get_bus_index("Master")
+	match type:
+		"cave":
+			clearEffects()
+			AudioServer.add_bus_effect(masterBusIndex, caveReverb)
+		"none":
+			clearEffects()
+		_:
+			clearEffects()
+			
+func clearEffects():
+	var numEffects = AudioServer.get_bus_effect_count(masterBusIndex)
+	for i in range(0, numEffects):
+		AudioServer.remove_bus_effect(masterBusIndex, 0)
 	
 func getDefaultVol(name):
 	var index = songList.find(name)

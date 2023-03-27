@@ -953,13 +953,13 @@ region = Rect2( 276, 30, 46, 30 )
 atlas = ExtResource( 4 )
 region = Rect2( 322, 30, 46, 30 )
 
-[sub_resource type="AtlasTexture" id=150]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 60, 46, 30 )
-
 [sub_resource type="AtlasTexture" id=149]
 atlas = ExtResource( 4 )
 region = Rect2( 46, 60, 46, 30 )
+
+[sub_resource type="AtlasTexture" id=150]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 60, 46, 30 )
 
 [sub_resource type="AtlasTexture" id=151]
 atlas = ExtResource( 4 )
@@ -1014,14 +1014,14 @@ animations = [ {
 "name": "walk",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 150 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 0.0
-}, {
 "frames": [ SubResource( 149 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 150 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 0.0
 }, {
 "frames": [ SubResource( 151 ), SubResource( 152 ) ],
@@ -1126,15 +1126,15 @@ flags = 2
 atlas = ExtResource( 1 )
 region = Rect2( 322, 30, 46, 30 )
 
-[sub_resource type="AtlasTexture" id=167]
-flags = 2
-atlas = ExtResource( 1 )
-region = Rect2( 0, 60, 46, 30 )
-
 [sub_resource type="AtlasTexture" id=166]
 flags = 2
 atlas = ExtResource( 1 )
 region = Rect2( 46, 60, 46, 30 )
+
+[sub_resource type="AtlasTexture" id=167]
+flags = 2
+atlas = ExtResource( 1 )
+region = Rect2( 0, 60, 46, 30 )
 
 [sub_resource type="AtlasTexture" id=176]
 flags = 2
@@ -1188,14 +1188,14 @@ animations = [ {
 "name": "walk",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 167 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 0.0
-}, {
 "frames": [ SubResource( 166 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 167 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -1276,7 +1276,7 @@ modulate = Color( 1, 1, 1, 0.941176 )
 pixel_size = 0.07
 frames = SubResource( 123 )
 animation = "air"
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
@@ -1294,7 +1294,6 @@ visible = false
 offset = Vector2( 0, 60 )
 pixel_size = 0.05
 frames = SubResource( 196 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite3DFlash" type="AnimatedSprite3D" parent="zeroPoint"]

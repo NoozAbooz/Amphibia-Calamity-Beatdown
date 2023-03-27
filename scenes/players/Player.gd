@@ -1126,7 +1126,7 @@ func _physics_process(delta):
 		snapVect = Vector3(0, -2, 0)
 	
 	velocity = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true, 4, 1.05)
-	if (!isInState([BLOCK, BLOCKHIT, HURTFLOOR])) and (isInWindbox):
+	if (!isInState([BLOCK, BLOCKHIT, HURTFLOOR])) and (isInWindbox) and (invincibleGetUp <= 45):
 		move_and_slide_with_snap(Vector3(windVect.x, 0, windVect.z), snapVect, Vector3.UP, true, 4, 1.05)
 	
 	# checks if player is sliding up a wall and corrects if necessary

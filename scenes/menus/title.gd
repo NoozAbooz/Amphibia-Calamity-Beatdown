@@ -49,19 +49,19 @@ func _process(delta):
 			$controlsMenu.hide()
 			# scrolling
 			if Input.is_action_pressed("ui_up"):
-				$creditsMenu/namesCredits.scroll_vertical -= 6
+				$creditsMenu/namesCredits.scroll_vertical -= 8
 			if Input.is_action_pressed("ui_down"):
-				$creditsMenu/namesCredits.scroll_vertical += 6
+				$creditsMenu/namesCredits.scroll_vertical += 8
 		CONTROLS:
 			$mainMenu.hide()
 			$creditsMenu.hide()
 			$controlsMenu.show()
 			if (showGamepad):
-				$controlsMenu/type.text = "Gamepad"
+				$controlsMenu/type.text = "KEY_MM_CONT_TYPE_GP"
 				$controlsMenu/board.hide()
 				$controlsMenu/pad.show()
 			else:
-				$controlsMenu/type.text = "Keyboard"
+				$controlsMenu/type.text = "KEY_MM_CONT_TYPE_KB"
 				$controlsMenu/board.show()
 				$controlsMenu/pad.hide()
 			if (Input.is_action_just_pressed("ui_left") == true) or (Input.is_action_just_pressed("ui_right") == true):

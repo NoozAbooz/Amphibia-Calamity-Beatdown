@@ -1,10 +1,10 @@
 keys,en,es,fr
 ,,,
-KEY_TUT_-3,"Welcome to Amphibia Calamity Beatdown!  The Amphibia themed fan made beat ‘em up. Press ""A"" (or the L key on a keyboard) to continue.",mm1,fr1
-KEY_TUT_-2,"You can skip this tutorial at any time with ""Start"" (ENTER on keyboard) or jump ahead with ""A"" (L on keyboard). A list of controls is also available in the pause menu.",mm2,fr2
-KEY_TUT_-1,"The game can be played with a keyboard or controller, but a controller works best! (The controller buttons may be a little different if you are not using an Xbox or Logitech controller)",mm3,fr3
-KEY_TUT_0,Here’s our hero Anne now! Better late than never.,mm4,fr4
-KEY_TUT_1,"Move your character with the D-Pad (WSAD) and jump with ""A"" (L key).",???,French
+KEY_TUT_-3,"Welcome to Amphibia Calamity Beatdown!  The Amphibia themed fan made beat ‘em up. Press ""A"" (or the L key on a keyboard) to continue.",,
+KEY_TUT_-2,"You can skip this tutorial at any time with ""Start"" (ENTER on keyboard) or jump ahead with ""A"" (L on keyboard). A list of controls is also available in the pause menu.",,
+KEY_TUT_-1,"The game can be played with a keyboard or controller, but a controller works best! (The controller buttons may be a little different if you are not using an Xbox or Logitech controller)",,
+KEY_TUT_0,Here’s our hero Anne now! Better late than never.,,
+KEY_TUT_1,"Move your character with the D-Pad (WSAD) and jump with ""A"" (L key).",,
 KEY_TUT_2,"Double tap left or right to run, or just hold ""L"" (Q or F key). ",,
 KEY_TUT_3,Watch out! There are deadly creatures all around Amphibia!,,
 KEY_TUT_4,There are two types of attacks you can use to deal with them.,,
@@ -20,3 +20,7 @@ KEY_TUT_13,"Press block just before landing to catch yourself and avoid being kn
 KEY_TUT_14,"If you are knocked to the ground with zero health, you lose a life! Lose all your lives and it’s game over.",,
 KEY_TUT_15,"But with some good timing and a little luck, you can perform a tech after a lethal blow and keep going! Never give up!",,
 KEY_TUT_16,That’s all there is to it! Additional moves and stat upgrades can be purchased in Wartwood. Have fun out there!,,
+,,,
+KEY_TUT_ASK,Would you like to watch the tutorial?,,
+KEY_TUT_YES,Sure!,,
+KEY_TUT_NO,Nope,,

@@ -29,14 +29,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=9]
 size = 24
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 4
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=7]
 size = 24
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
@@ -395,21 +395,21 @@ __meta__ = {
 }
 
 [node name="arrowL" type="Sprite" parent="controlsMenu"]
-position = Vector2( 356, 50 )
+position = Vector2( 328, 50 )
 texture = ExtResource( 9 )
 
 [node name="arrowR" type="Sprite" parent="controlsMenu"]
-position = Vector2( 116, 50 )
+position = Vector2( 74, 50 )
 texture = ExtResource( 9 )
 flip_h = true
 
 [node name="type" type="Label" parent="controlsMenu"]
-margin_left = 96.0
+margin_left = -23.0
 margin_top = 30.0
-margin_right = 376.0
+margin_right = 433.0
 margin_bottom = 70.0
 theme = ExtResource( 2 )
-text = "Keyboard"
+text = "KEY_MM_CONT_TYPE_KB"
 align = 1
 valign = 1
 __meta__ = {
@@ -422,7 +422,7 @@ margin_top = 625.0
 margin_right = 960.0
 margin_bottom = 685.0
 theme = ExtResource( 4 )
-text = "Back"
+text = "KEY_MENU_BACK"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -442,7 +442,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="keyboardControls3" type="Label" parent="controlsMenu"]
+margin_left = 764.0
+margin_top = 26.0
+margin_right = 1189.0
+margin_bottom = 97.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 9 )
+text = "KEY_MM_CONT_VOL2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keyboardControls4" type="Label" parent="controlsMenu"]
+margin_left = 369.0
+margin_top = 26.0
+margin_right = 754.0
+margin_bottom = 97.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 9 )
+text = "KEY_MM_CONT_VOL1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="pad" type="Control" parent="controlsMenu"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -450,52 +475,50 @@ __meta__ = {
 }
 
 [node name="controllerControls" type="Label" parent="controlsMenu/pad"]
-margin_left = 40.0
+margin_left = 28.0
 margin_top = 212.0
 margin_right = 496.0
 margin_bottom = 468.0
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 7 )
-text = "Dpad - movement
+text = "KEY_MM_CONT_GP2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-double
-   tap     - Run
-  Dpad
-
-Start - Pause"
+[node name="controllerControls3" type="Label" parent="controlsMenu/pad"]
+margin_left = 25.0
+margin_top = 266.0
+margin_right = 206.0
+margin_bottom = 421.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 7 )
+text = "KEY_MM_CONT_GP3"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="controllerControls4" type="Label" parent="controlsMenu/pad"]
 margin_left = 302.0
-margin_top = 108.0
+margin_top = 126.0
 margin_right = 974.0
-margin_bottom = 149.0
+margin_bottom = 167.0
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 7 )
-text = "L1,L2 - run            R1,R2 - block"
+text = "KEY_MM_CONT_GP1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="controllerControls2" type="Label" parent="controlsMenu/pad"]
-margin_left = 980.0
+margin_left = 960.0
 margin_top = 196.0
-margin_right = 1328.0
+margin_right = 1340.0
 margin_bottom = 578.0
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 7 )
-text = "x - light 
-      attack
-	
-y - heavy 
-      attack
-	
-a - jump
-
-b - block,
-      back"
+text = "KEY_MM_CONT_GP4"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -505,33 +528,8 @@ position = Vector2( 640, 390 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 
-[node name="keyboardControls3" type="Label" parent="controlsMenu/pad"]
-margin_left = 829.0
-margin_top = 26.0
-margin_right = 1254.0
-margin_bottom = 97.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 9 )
-text = "+ or .- volume up
-- or ,- volume down"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="keyboardControls4" type="Label" parent="controlsMenu/pad"]
-margin_left = 451.0
-margin_top = 26.0
-margin_right = 836.0
-margin_bottom = 97.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 9 )
-text = "n - fullscreen
-m - mute audio"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="board" type="Control" parent="controlsMenu"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -544,57 +542,25 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 
 [node name="keyboardControls" type="Label" parent="controlsMenu/board"]
-margin_left = 131.0
+margin_left = 81.0
 margin_top = 131.0
-margin_right = 587.0
+margin_right = 603.0
 margin_bottom = 276.0
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 7 )
-text = "wasd   - movement
-f,q     - run
-Double tap wsad - run
-Enter - Pause"
+text = "KEY_MM_CONT_KB1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="keyboardControls2" type="Label" parent="controlsMenu/board"]
-margin_left = 702.0
+margin_left = 657.0
 margin_top = 131.0
-margin_right = 1146.0
+margin_right = 1243.0
 margin_bottom = 276.0
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 7 )
-text = "k         - light attack
-i         - heavy attack
-l         -  jump
-o,p,j - block"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="keyboardControls3" type="Label" parent="controlsMenu/board"]
-margin_left = 829.0
-margin_top = 26.0
-margin_right = 1254.0
-margin_bottom = 97.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 7 )
-text = "+ or .- volume up
-- or ,- volume down"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="keyboardControls4" type="Label" parent="controlsMenu/board"]
-margin_left = 451.0
-margin_top = 26.0
-margin_right = 836.0
-margin_bottom = 97.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 7 )
-text = "n - fullscreen
-m - mute audio"
+text = "KEY_MM_CONT_KB2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -698,7 +664,7 @@ rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 10 )
-text = "Head Developer"
+text = "KEY_MM_CRED_DEV"
 align = 1
 valign = 1
 
@@ -732,7 +698,7 @@ rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 10 )
-text = "2D and Pixel Art"
+text = "KEY_MM_CRED_2D"
 align = 1
 valign = 1
 
@@ -1012,7 +978,7 @@ rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 10 )
-text = "3D Modeling and Texturing"
+text = "KEY_MM_CRED_3D"
 align = 1
 valign = 1
 
@@ -1127,7 +1093,7 @@ rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 10 )
-text = "Sounds and Music"
+text = "KEY_MM_CRED_SOUND"
 align = 1
 valign = 1
 
@@ -1242,7 +1208,7 @@ rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 10 )
-text = "Writing and Translating"
+text = "KEY_MM_CRED_WRIT"
 align = 1
 valign = 1
 
@@ -1335,7 +1301,7 @@ rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 10 )
-text = "Special Thanks"
+text = "KEY_MM_CRED_SPEC"
 align = 1
 valign = 1
 
@@ -1461,7 +1427,7 @@ rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 10 )
-text = "Extra Special Thanks"
+text = "KEY_MM_CRED_EXSPEC"
 align = 1
 valign = 1
 
@@ -1510,7 +1476,7 @@ margin_bottom = 2986.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
-text = "and The entire Amphibia crew!"
+text = "KEY_MM_CRED_CREW"
 align = 1
 valign = 1
 
@@ -1543,7 +1509,7 @@ margin_bottom = 3196.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
-text = "Thanks for playing our game!!!"
+text = "KEY_MM_CRED_THNX"
 align = 1
 valign = 1
 

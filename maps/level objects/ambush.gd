@@ -22,6 +22,8 @@ enum {INACTIVE, WAIT, WAIT2, PREP, SPAWN, FIGHT}
 var state = INACTIVE
 var nextState = INACTIVE
 
+export var respawnOffset = Vector3.ZERO
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -107,7 +109,7 @@ func _on_cameraTrigger_area_entered(area):
 	# Camera positioning
 	cam.inAmbush = true
 	cam.ambushTarget = translation + Vector3(0, 0, 10)
-	cam.ambushSpawnPoint = translation + Vector3(0, 5, 0)
+	cam.ambushSpawnPoint = translation + Vector3(0, 5, 0) + respawnOffset
 	get_node("cameraTrigger").queue_free()
 	
 func spawn(enemy):
