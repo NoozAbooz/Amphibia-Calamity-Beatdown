@@ -43,9 +43,14 @@ func advance():
 	elif (animationNum == 16):
 		finished()
 	else:
-		animationNum = animationNum + 1
-		$"AnimationPlayer".play(str(animationNum))
-		$"arrowContinue".hide()
+		if (messagePercent < 100):
+			messagePercent = 100
+			$"arrowContinue".show()
+			return
+		else:
+			animationNum = animationNum + 1
+			$"AnimationPlayer".play(str(animationNum))
+			$"arrowContinue".hide()
 
 func speak(dialogue):
 	messagePercent = 0

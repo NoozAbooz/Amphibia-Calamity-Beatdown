@@ -348,6 +348,7 @@ focus_neighbour_bottom = NodePath(".")
 type = 3
 
 [node name="Button" type="TextureButton" parent="mainMenu"]
+visible = false
 margin_left = 1168.0
 margin_top = 659.0
 margin_right = 1268.0
@@ -573,7 +574,6 @@ __meta__ = {
 }
 
 [node name="creditsMenu" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -645,13 +645,15 @@ margin_top = 26.0
 margin_right = 1461.0
 margin_bottom = 598.0
 scroll_horizontal_enabled = false
+scroll_vertical = 1500
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="names" type="VBoxContainer" parent="creditsMenu/namesCredits"]
+margin_top = -1500.0
 margin_right = 974.0
-margin_bottom = 3280.0
+margin_bottom = 1780.0
 rect_min_size = Vector2( 970, 572 )
 custom_constants/separation = 10
 __meta__ = {
@@ -1154,7 +1156,7 @@ margin_bottom = 188.0
 rect_min_size = Vector2( 485, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
-text = "Vassamo"
+text = "Tsuwami"
 align = 1
 valign = 1
 
@@ -1192,7 +1194,7 @@ margin_bottom = 188.0
 rect_min_size = Vector2( 485, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
-text = " "
+text = " Vassamo"
 align = 1
 valign = 1
 

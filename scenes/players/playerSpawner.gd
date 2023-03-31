@@ -121,6 +121,9 @@ func _process(_delta):
 	get_parent().add_child(nextScene)
 	
 	# plays music
+	# April Fools
+	if ("Maggie" in pg.playerCharacter) and (pg.levelName == "bestFrondsHard"):
+		pg.levelMusic = "mag"
 	soundManager.playMusic(pg.levelMusic)
 	
 	# sets player movement/cutscene flag so they can act

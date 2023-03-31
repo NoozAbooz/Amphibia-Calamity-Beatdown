@@ -22,11 +22,11 @@ const techBoost    = 0.20
 
 
 # attack unlocks
-var hasSpin    = true
-var hasSlide   = true
-var hasAirSpin = true
-var hasDJ      = true
-var hasCounter = true
+var hasSpin    = false
+var hasSlide   = false
+var hasAirSpin = false
+var hasDJ      = false
+var hasCounter = false
 
 # numer of players / player inputs
 var availableInputs = ["k0"]
@@ -58,11 +58,11 @@ var levelMusic = "ripple"
 var levelNum = 0
 
 # playable characters
-var hasMarcy  = true
-var hasSasha  = true
+var hasMarcy  = false
+var hasSasha  = false
 var hasSprig = true
 var hasMaggie = true
-var hasGrime = true
+var hasGrime = false
 var hasDarla = false
 var availableChars = ["Anne"]
 
@@ -70,7 +70,7 @@ var clover = false
 
 # Completed levels
 #                     [Wartwood, Test,  l1,    l2,    l3,    l4,    l5,    l6,    l7,    l8,    l9,   final]
-var completedLevels = [  true,   true, true, false, false, false, false, false, false, false, false, false]
+var completedLevels = [  true,   true, false, false, false, false, false, false, false, false, false, false]
 var unlockedFinalLevel = false
 
 # game over stuff

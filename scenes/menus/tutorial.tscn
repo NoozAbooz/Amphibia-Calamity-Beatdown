@@ -79,9 +79,9 @@ region = Rect2( 408, 66, 68, 66 )
 atlas = ExtResource( 42 )
 region = Rect2( 476, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=74]
+[sub_resource type="AtlasTexture" id=89]
 atlas = ExtResource( 42 )
-region = Rect2( 0, 330, 68, 66 )
+region = Rect2( 68, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 42 )
@@ -107,13 +107,9 @@ region = Rect2( 272, 132, 68, 66 )
 atlas = ExtResource( 42 )
 region = Rect2( 340, 132, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=89]
+[sub_resource type="AtlasTexture" id=74]
 atlas = ExtResource( 42 )
-region = Rect2( 68, 330, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=118]
-atlas = ExtResource( 42 )
-region = Rect2( 136, 330, 68, 66 )
+region = Rect2( 0, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=102]
 atlas = ExtResource( 42 )
@@ -122,6 +118,10 @@ region = Rect2( 204, 264, 68, 66 )
 [sub_resource type="AtlasTexture" id=103]
 atlas = ExtResource( 42 )
 region = Rect2( 272, 264, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=118]
+atlas = ExtResource( 42 )
+region = Rect2( 136, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=104]
 atlas = ExtResource( 42 )
@@ -177,9 +177,9 @@ animations = [ {
 "name": "walk",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 74 ) ],
+"frames": [ SubResource( 89 ) ],
 "loop": false,
-"name": "hurt",
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
@@ -187,20 +187,20 @@ animations = [ {
 "name": "attack_right",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 89 ) ],
+"frames": [ SubResource( 74 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "hurt",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 118 ), null ],
-"loop": true,
-"name": "dead",
-"speed": 3.0
 }, {
 "frames": [ SubResource( 102 ), SubResource( 103 ) ],
 "loop": true,
 "name": "fly",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 118 ), null ],
+"loop": true,
+"name": "dead",
+"speed": 3.0
 }, {
 "frames": [ SubResource( 104 ), SubResource( 105 ) ],
 "loop": false,
@@ -217,10 +217,6 @@ animations = [ {
 "name": "attack_hard",
 "speed": 10.0
 } ]
-
-[sub_resource type="AtlasTexture" id=125]
-atlas = ExtResource( 5 )
-region = Rect2( 208, 384, 104, 64 )
 
 [sub_resource type="AtlasTexture" id=126]
 atlas = ExtResource( 5 )
@@ -253,6 +249,10 @@ region = Rect2( 624, 64, 104, 64 )
 [sub_resource type="AtlasTexture" id=133]
 atlas = ExtResource( 5 )
 region = Rect2( 728, 64, 104, 64 )
+
+[sub_resource type="AtlasTexture" id=125]
+atlas = ExtResource( 5 )
+region = Rect2( 208, 384, 104, 64 )
 
 [sub_resource type="AtlasTexture" id=134]
 atlas = ExtResource( 5 )
@@ -342,21 +342,17 @@ region = Rect2( 416, 0, 104, 64 )
 atlas = ExtResource( 5 )
 region = Rect2( 520, 0, 104, 64 )
 
-[sub_resource type="AtlasTexture" id=166]
+[sub_resource type="AtlasTexture" id=164]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 192, 104, 64 )
+region = Rect2( 104, 256, 104, 64 )
 
-[sub_resource type="AtlasTexture" id=167]
+[sub_resource type="AtlasTexture" id=165]
 atlas = ExtResource( 5 )
-region = Rect2( 104, 192, 104, 64 )
+region = Rect2( 208, 256, 104, 64 )
 
-[sub_resource type="AtlasTexture" id=168]
+[sub_resource type="AtlasTexture" id=176]
 atlas = ExtResource( 5 )
-region = Rect2( 208, 192, 104, 64 )
-
-[sub_resource type="AtlasTexture" id=169]
-atlas = ExtResource( 5 )
-region = Rect2( 312, 192, 104, 64 )
+region = Rect2( 312, 256, 104, 64 )
 
 [sub_resource type="AtlasTexture" id=172]
 atlas = ExtResource( 5 )
@@ -374,10 +370,6 @@ region = Rect2( 624, 128, 104, 64 )
 atlas = ExtResource( 5 )
 region = Rect2( 728, 128, 104, 64 )
 
-[sub_resource type="AtlasTexture" id=155]
-atlas = ExtResource( 5 )
-region = Rect2( 624, 0, 104, 64 )
-
 [sub_resource type="AtlasTexture" id=151]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 128, 104, 64 )
@@ -394,25 +386,33 @@ region = Rect2( 208, 128, 104, 64 )
 atlas = ExtResource( 5 )
 region = Rect2( 312, 128, 104, 64 )
 
-[sub_resource type="AtlasTexture" id=162]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 384, 104, 64 )
-
 [sub_resource type="AtlasTexture" id=170]
 atlas = ExtResource( 5 )
 region = Rect2( 728, 0, 104, 64 )
 
-[sub_resource type="AtlasTexture" id=164]
+[sub_resource type="AtlasTexture" id=162]
 atlas = ExtResource( 5 )
-region = Rect2( 104, 256, 104, 64 )
+region = Rect2( 0, 384, 104, 64 )
 
-[sub_resource type="AtlasTexture" id=165]
+[sub_resource type="AtlasTexture" id=166]
 atlas = ExtResource( 5 )
-region = Rect2( 208, 256, 104, 64 )
+region = Rect2( 0, 192, 104, 64 )
 
-[sub_resource type="AtlasTexture" id=176]
+[sub_resource type="AtlasTexture" id=167]
 atlas = ExtResource( 5 )
-region = Rect2( 312, 256, 104, 64 )
+region = Rect2( 104, 192, 104, 64 )
+
+[sub_resource type="AtlasTexture" id=168]
+atlas = ExtResource( 5 )
+region = Rect2( 208, 192, 104, 64 )
+
+[sub_resource type="AtlasTexture" id=169]
+atlas = ExtResource( 5 )
+region = Rect2( 312, 192, 104, 64 )
+
+[sub_resource type="AtlasTexture" id=155]
+atlas = ExtResource( 5 )
+region = Rect2( 624, 0, 104, 64 )
 
 [sub_resource type="AtlasTexture" id=150]
 atlas = ExtResource( 5 )
@@ -424,15 +424,15 @@ region = Rect2( 104, 384, 104, 64 )
 
 [sub_resource type="SpriteFrames" id=49]
 animations = [ {
-"frames": [ SubResource( 125 ) ],
-"loop": false,
-"name": "block",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ) ],
 "loop": true,
 "name": "run",
 "speed": 24.0
+}, {
+"frames": [ SubResource( 125 ) ],
+"loop": false,
+"name": "block",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 134 ) ],
 "loop": false,
@@ -464,9 +464,9 @@ animations = [ {
 "name": "stand",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ) ],
+"frames": [ SubResource( 164 ), SubResource( 165 ), SubResource( 176 ) ],
 "loop": false,
-"name": "attack_L2",
+"name": "attack_slide_L",
 "speed": 15.0
 }, {
 "frames": [ SubResource( 172 ), SubResource( 172 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ) ],
@@ -474,14 +474,14 @@ animations = [ {
 "name": "attack_H2",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 155 ) ],
-"loop": false,
-"name": "rise",
-"speed": 15.0
-}, {
 "frames": [ SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ) ],
 "loop": false,
 "name": "attack_L1",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 170 ) ],
+"loop": false,
+"name": "fall",
 "speed": 15.0
 }, {
 "frames": [ SubResource( 162 ) ],
@@ -489,14 +489,14 @@ animations = [ {
 "name": "land",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 170 ) ],
+"frames": [ SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ) ],
 "loop": false,
-"name": "fall",
+"name": "attack_L2",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 164 ), SubResource( 165 ), SubResource( 176 ) ],
+"frames": [ SubResource( 155 ) ],
 "loop": false,
-"name": "attack_slide_L",
+"name": "rise",
 "speed": 15.0
 }, {
 "frames": [ SubResource( 150 ) ],
@@ -3803,24 +3803,25 @@ script = ExtResource( 43 )
 targetName = "mantis"
 
 [node name="mantis" type="AnimatedSprite" parent="characters"]
-position = Vector2( -200, 100 )
+position = Vector2( 1400, 404 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 106 )
-animation = "idle"
-frame = 5
+animation = "walk"
+frame = 3
 playing = true
+flip_h = true
 
 [node name="Anne" type="AnimatedSprite" parent="characters"]
-position = Vector2( 550, 425 )
+position = Vector2( -150, 425 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 49 )
-animation = "run"
-frame = 2
+animation = "walk"
+frame = 5
 playing = true
 offset = Vector2( 0, -7 )
 
 [node name="fx" type="AnimatedSprite" parent="characters"]
-position = Vector2( 551, 433 )
+position = Vector2( -118, 200 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 50 )
 animation = "hit"
@@ -3829,7 +3830,7 @@ playing = true
 
 [node name="arrow" type="Sprite" parent="characters"]
 visible = false
-position = Vector2( 1400, 297 )
+position = Vector2( -147, 297 )
 rotation = 1.5708
 scale = Vector2( 3, 3 )
 texture = ExtResource( 38 )
@@ -3839,7 +3840,6 @@ visible = false
 position = Vector2( 431, 315 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 191 )
-frame = 1
 playing = true
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
@@ -3870,7 +3870,6 @@ __meta__ = {
 position = Vector2( 1248, 680 )
 frames = SubResource( 198 )
 animation = "blink"
-frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
