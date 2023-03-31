@@ -3,6 +3,7 @@ extends Control
 
 var triggered = false
 var buttonsReady = false
+var loading = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,10 +35,16 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 
 
 func _on_buttonMap_pressed():
+	if loading:
+		return
 	if (buttonsReady):
+		loading = true
 		pg.backToMapLose()
 
 
 func _on_buttonRestart_pressed():
+	if loading:
+		return
 	if (buttonsReady):
+		loading = true
 		tran.loadLevel("res://maps/" + pg.levelName + ".tscn")

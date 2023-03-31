@@ -210,8 +210,8 @@ func explode():
 		get_node("zeroPoint/AnimatedSprite3D").queue_free()
 	get_node("despawnTimer").start(0.5)
 	hitboxCol.disabled = false
-	hitboxCol.shape.radius = 2.5
-	hitboxCol.shape.height = 4
+	hitboxCol.shape.radius = 1.5
+	hitboxCol.shape.height = 3
 	velocity.x = 0
 	velocity.y = 0
 	velocity.z = 0

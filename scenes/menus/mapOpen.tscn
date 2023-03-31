@@ -150,23 +150,25 @@ __meta__ = {
 
 [node name="map" type="AnimatedSprite" parent="."]
 light_mask = 0
-position = Vector2( 640, 360 )
+position = Vector2( -676, 366 )
 frames = SubResource( 2 )
 frame = 10
 
 [node name="mask" type="Light2D" parent="."]
+texture = ExtResource( 10 )
 offset = Vector2( 640, 360 )
 mode = 3
 range_item_cull_mask = 4
 
 [node name="map_contents" type="Sprite" parent="."]
+visible = false
 light_mask = 4
 position = Vector2( 644, 371 )
 texture = ExtResource( 4 )
 
 [node name="hand" type="AnimatedSprite" parent="."]
 light_mask = 0
-position = Vector2( -500, 316 )
+position = Vector2( -500, 338 )
 frames = SubResource( 3 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

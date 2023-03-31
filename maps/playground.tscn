@@ -3990,7 +3990,7 @@ magnitude = 8
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -120.2, 0.315853, -0.475311 )
 
 [node name="warpExit0" parent="warps" instance=ExtResource( 47 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -406.204, 10.86, -0.622473 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -356.515, 16.9929, -4.37665 )
 
 [node name="barrelClosed" parent="." instance=ExtResource( 49 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2514, 1.04203, 8.68475 )

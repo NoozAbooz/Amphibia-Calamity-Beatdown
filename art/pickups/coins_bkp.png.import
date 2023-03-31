@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sprite_normal_V2.png-9d85b6b0982347df3db602cde997196a.stex"
+path="res://.import/coins_bkp.png-aa2bc6302401edb97ba09973af178469.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/other/Sprite_normal_V2.png"
-dest_files=[ "res://.import/Sprite_normal_V2.png-9d85b6b0982347df3db602cde997196a.stex" ]
+source_file="res://art/pickups/coins_bkp.png"
+dest_files=[ "res://.import/coins_bkp.png-aa2bc6302401edb97ba09973af178469.stex" ]
 
 [params]
 

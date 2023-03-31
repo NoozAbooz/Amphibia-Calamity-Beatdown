@@ -66,6 +66,8 @@ var hasGrime = true
 var hasDarla = false
 var availableChars = ["Anne"]
 
+var clover = false
+
 # Completed levels
 #                     [Wartwood, Test,  l1,    l2,    l3,    l4,    l5,    l6,    l7,    l8,    l9,   final]
 var completedLevels = [  true,   true, true, false, false, false, false, false, false, false, false, false]
@@ -106,7 +108,7 @@ func recalcInfo():
 		availableChars.append("Grime")
 	if hasMaggie or allCharsMode:
 		availableChars.append("Maggie")
-	if hasDarla:
+	if hasDarla and clover:
 		availableChars.append("Darla")
 	# inputs
 	checkAvailableInputs()

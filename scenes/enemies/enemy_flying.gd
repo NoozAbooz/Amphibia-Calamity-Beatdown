@@ -241,6 +241,7 @@ func initialize(type, loc, vel = Vector3.ZERO, brk = false, infVis = false, infE
 	# use when spawning enemies on screen
 	if infVis:
 		get_node("aggro/CollisionShape").get_shape().radius = 100
+		get_node("aggro/CollisionShape").get_shape().height = 100
 		targetFound = true
 		# picks a random target
 		target = rng.rand.randi_range(0, 3)

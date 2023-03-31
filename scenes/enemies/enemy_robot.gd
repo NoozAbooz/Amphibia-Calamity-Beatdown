@@ -283,6 +283,7 @@ func initialize(type, loc, vel = Vector3.ZERO, brk = false, infVis = false, infE
 	# Sets up target and aggro collision if the enemy has infinite vision (like if from spawner)
 	if infVis:
 		get_node("aggro/CollisionShape").get_shape().radius = 100
+		get_node("aggro/CollisionShape").get_shape().height = 100
 		targetFound = true
 		# picks a random target
 		target = rng.rand.randi_range(0, 3)

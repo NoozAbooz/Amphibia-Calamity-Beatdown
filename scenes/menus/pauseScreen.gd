@@ -1,7 +1,7 @@
 extends Control
 
 enum {BASIC, DROP, VERIFY, OPTIONS, COMBOS, POS, CONTROLS}
-enum {ANNE, SPRIG, SASHA, MARCY, MAGGIE, GRIME}
+enum {ANNE, SPRIG, SASHA, MARCY, MAGGIE, GRIME, DARLA}
 var state = 0
 
 var chars = [ANNE, SPRIG]
@@ -23,6 +23,8 @@ func _ready():
 		chars.append(MAGGIE)
 	if pg.hasGrime or pg.allCharsMode:
 		chars.append(GRIME)
+	if pg.hasDarla and pg.clover:
+		chars.append(DARLA)
 	
 	
 func playMusic():
@@ -182,6 +184,7 @@ func _process(_delta):
 				$combosMenu/namesContainer/namesMarcy.hide()
 				$combosMenu/namesContainer/namesMaggie.hide()
 				$combosMenu/namesContainer/namesGrime.hide()
+				$combosMenu/namesContainer/namesDarla.hide()
 				match charState:
 					ANNE:
 						namesNode = $combosMenu/namesContainer/namesAnne
@@ -195,6 +198,8 @@ func _process(_delta):
 						namesNode = $combosMenu/namesContainer/namesMaggie
 					GRIME:
 						namesNode = $combosMenu/namesContainer/namesGrime
+					DARLA:
+						namesNode = $combosMenu/namesContainer/namesDarla
 					_:
 						namesNode = $combosMenu/namesContainer/namesAnne
 				namesNode.show()

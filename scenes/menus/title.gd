@@ -12,6 +12,15 @@ var state = MAIN
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$bg2.visible = false
+	$bg.visible = true
+	if (get_node_or_null("key-co") == null):
+		pg.clover = false
+	if pg.clover:
+		$bg2.visible = true
+		$bg.visible = false
+	else:
+		$bg2.queue_free()
 	loading = true
 	waitingOnIntro = true
 	soundManager.playMusicIfDiff("menu")

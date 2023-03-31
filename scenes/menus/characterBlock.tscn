@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/menus/characterBlock.gd" type="Script" id=1]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=2]
 [ext_resource path="res://art/menus/char_select.png" type="Texture" id=3]
+[ext_resource path="res://art/mod/char_sel.png" type="Texture" id=4]
 [ext_resource path="res://art/menus/charBlock.png" type="Texture" id=5]
 [ext_resource path="res://art/menus/menu_arrow.png" type="Texture" id=8]
 
@@ -13,14 +14,6 @@ region = Rect2( 1220, 0, 305, 730 )
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
 region = Rect2( 1525, 0, 305, 730 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 3 )
-region = Rect2( 610, 0, 305, 730 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 3 )
-region = Rect2( 915, 0, 305, 730 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
@@ -54,16 +47,29 @@ region = Rect2( 3050, 0, 305, 730 )
 atlas = ExtResource( 3 )
 region = Rect2( 3355, 0, 305, 730 )
 
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 610, 0, 305, 730 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 915, 0, 305, 730 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 305, 730 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 305, 0, 305, 730 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": false,
 "name": "Marcy",
-"speed": 0.0
-}, {
-"frames": [ SubResource( 11 ), SubResource( 12 ) ],
-"loop": false,
-"name": "Sasha",
 "speed": 0.0
 }, {
 "frames": [ SubResource( 5 ), SubResource( 6 ) ],
@@ -76,11 +82,6 @@ animations = [ {
 "name": "Maggie",
 "speed": 0.0
 }, {
-"frames": [  ],
-"loop": false,
-"name": "Banne",
-"speed": 0.0
-}, {
 "frames": [ SubResource( 13 ), SubResource( 14 ) ],
 "loop": false,
 "name": "Sprig",
@@ -89,6 +90,16 @@ animations = [ {
 "frames": [ SubResource( 17 ), SubResource( 18 ) ],
 "loop": false,
 "name": "Grime",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ) ],
+"loop": false,
+"name": "Sasha",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 19 ), SubResource( 20 ) ],
+"loop": false,
+"name": "Darla",
 "speed": 0.0
 } ]
 

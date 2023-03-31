@@ -218,29 +218,29 @@ func _on_lvl1_focus_entered():
 	$cam/pockets/levelName.text = "Trip to the Lake"
 	$cam/phone/levelPic.play("bestFronds")
 	
-#func _on_lvl2_focus_entered():
-#	fucusOnButton(get_node("lvl2"))
-#	pg.levelName = "bestFrondsHard"
-#	pg.levelNameDisc = "?-1 Bonus Level"
-#	pg.levelMusic = "nbd"
-#	pg.levelNum = 3
-#	#$cam/phone/levelName.text = "Valley Ridge"
-#	#$cam/pockets/levelName.text = "Valley Ridge"
-#	$cam/phone/levelName.text = "Trip to the Lake EX"
-#	$cam/pockets/levelName.text = "Bonus Challenge"
-#	$cam/phone/levelPic.play("bestFrondsHard")
-	
 func _on_lvl2_focus_entered():
 	fucusOnButton(get_node("lvl2"))
-	pg.levelName = "mountain"
-	pg.levelNameDisc = "1-2 The Mountain Pass"
-	pg.levelMusic = "mountain"
+	pg.levelName = "bestFrondsHard"
+	pg.levelNameDisc = "?-1 Bonus Level"
+	pg.levelMusic = "nbd"
 	pg.levelNum = 3
 	#$cam/phone/levelName.text = "Valley Ridge"
 	#$cam/pockets/levelName.text = "Valley Ridge"
-	$cam/phone/levelName.text = "The Mountain Pass"
-	$cam/pockets/levelName.text = "The Mountain Pass"
-	$cam/phone/levelPic.play("mountain")
+	$cam/phone/levelName.text = "Trip to the Lake EX"
+	$cam/pockets/levelName.text = "Bonus Challenge"
+	$cam/phone/levelPic.play("bestFrondsHard")
+	
+#func _on_lvl2_focus_entered():
+#	fucusOnButton(get_node("lvl2"))
+#	pg.levelName = "mountain"
+#	pg.levelNameDisc = "1-2 The Mountain Pass"
+#	pg.levelMusic = "mountain"
+#	pg.levelNum = 3
+#	#$cam/phone/levelName.text = "Valley Ridge"
+#	#$cam/pockets/levelName.text = "Valley Ridge"
+#	$cam/phone/levelName.text = "The Mountain Pass"
+#	$cam/pockets/levelName.text = "The Mountain Pass"
+#	$cam/phone/levelPic.play("mountain")
 
 
 

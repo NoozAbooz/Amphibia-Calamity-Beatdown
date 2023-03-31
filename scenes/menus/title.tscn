@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/menus/title.gd" type="Script" id=1]
 [ext_resource path="res://themes/playerPanelText.tres" type="Theme" id=2]
@@ -15,17 +15,18 @@
 [ext_resource path="res://art/menus/main menu/credits.png" type="Texture" id=13]
 [ext_resource path="res://art/menus/main menu/flag_en.png" type="Texture" id=14]
 [ext_resource path="res://art/menus/main menu/flag_fr.png" type="Texture" id=15]
+[ext_resource path="res://art/mod/title.png" type="Texture" id=16]
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
-"loop": false,
-"name": "en",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": false,
 "name": "fr",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": false,
+"name": "en",
 "speed": 5.0
 } ]
 
@@ -216,6 +217,12 @@ __meta__ = {
 light_mask = 0
 scale = Vector2( 0.514, 0.514 )
 texture = ExtResource( 10 )
+centered = false
+
+[node name="bg2" type="Sprite" parent="."]
+visible = false
+light_mask = 0
+texture = ExtResource( 16 )
 centered = false
 
 [node name="bgFade" type="ColorRect" parent="."]

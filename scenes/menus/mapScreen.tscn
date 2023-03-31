@@ -61,30 +61,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 80, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 4 )
-region = Rect2( 120, 80, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 4 )
-region = Rect2( 240, 80, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 4 )
-region = Rect2( 360, 80, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 4 )
-region = Rect2( 480, 80, 120, 40 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 4 )
-region = Rect2( 600, 80, 120, 40 )
-
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 40, 120, 40 )
@@ -108,6 +84,30 @@ region = Rect2( 480, 40, 120, 40 )
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 4 )
 region = Rect2( 600, 40, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 4 )
+region = Rect2( 120, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 4 )
+region = Rect2( 240, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 360, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
+region = Rect2( 480, 80, 120, 40 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 4 )
+region = Rect2( 600, 80, 120, 40 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 4 )
@@ -143,14 +143,14 @@ region = Rect2( 360, 0, 120, 40 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
@@ -194,14 +194,9 @@ animations = [ {
 "name": "mountain",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "playground",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
-"name": "bestFrondsHard",
+"name": "bestFronds",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -209,9 +204,14 @@ animations = [ {
 "name": "wartwood",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 27 ) ],
 "loop": true,
-"name": "bestFronds",
+"name": "bestFrondsHard",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "playground",
 "speed": 5.0
 } ]
 
@@ -319,7 +319,7 @@ margin_bottom = 578.0
 focus_neighbour_left = NodePath("../lvl1")
 focus_neighbour_top = NodePath(".")
 focus_neighbour_right = NodePath(".")
-focus_neighbour_bottom = NodePath("../play")
+focus_neighbour_bottom = NodePath(".")
 action_mode = 0
 button_mask = 0
 texture_normal = ExtResource( 6 )
@@ -352,7 +352,7 @@ margin_left = 552.0
 margin_top = 546.0
 margin_right = 600.0
 margin_bottom = 578.0
-focus_neighbour_left = NodePath("../lvl2")
+focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath("../lvl2")
 focus_neighbour_right = NodePath("../wart")
 focus_neighbour_bottom = NodePath(".")
@@ -374,7 +374,7 @@ margin_right = 600.0
 margin_bottom = 481.0
 focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath("../lvl3")
-focus_neighbour_right = NodePath(".")
+focus_neighbour_right = NodePath("../lvl3")
 focus_neighbour_bottom = NodePath("../lvl1")
 action_mode = 0
 button_mask = 0

@@ -30,10 +30,10 @@ func _ready():
 	masterBusIndex = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_volume_db(masterBusIndex, masterVolume)
 	# preps cave reverb
-	caveReverb.wet = 1
+	caveReverb.wet = 0.5
 	caveReverb.dry = 0.2
 	caveReverb.room_size = 0.2
-	caveReverb.hipass = 0.3
+	caveReverb.hipass = 0.15
 
 func _process(_delta):
 	# checks for keyboard presses for options

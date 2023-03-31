@@ -15,6 +15,7 @@ var MarcyScene = preload("res://scenes/players/Marcy.tscn")
 var SprigScene = preload("res://scenes/players/Sprig.tscn")
 var MaggieScene = preload("res://scenes/players/Maggie.tscn")
 var GrimeScene = preload("res://scenes/players/Grime.tscn")
+var DarlaScene = preload("res://scenes/players/Darla.tscn")
 
 var camScene = preload("res://scenes/cam.tscn")
 var pauseScene = preload("res://scenes/menus/pauseScreen.tscn")
@@ -73,6 +74,8 @@ func _process(_delta):
 				player = MaggieScene.instance()
 			"Grime":
 				player = GrimeScene.instance()
+			"Darla":
+				player = DarlaScene.instance()
 			_:
 				player = AnneScene.instance()
 		# Adds instance of player to tree

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://themes/pausedText.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menus/pauseScreen.gd" type="Script" id=2]
@@ -19,16 +19,27 @@
 [ext_resource path="res://art/menus/controls2.png" type="Texture" id=17]
 [ext_resource path="res://art/menus/controls1.png" type="Texture" id=18]
 [ext_resource path="res://themes/Early GameBoy.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://art/mod/face.png" type="Texture" id=20]
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 2000, 0, 400, 350 )
 
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 400, 350 )
+
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1200, 0, 400, 350 )
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 400, 0, 400, 350 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
@@ -40,15 +51,10 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 1600, 0, 400, 350 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 400, 350 )
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 400, 0, 400, 350 )
+atlas = ExtResource( 20 )
+region = Rect2( 0, 0, 388, 340 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -57,9 +63,19 @@ animations = [ {
 "name": "5",
 "speed": 0.0
 }, {
+"frames": [ SubResource( 2 ) ],
+"loop": false,
+"name": "0",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 3 ) ],
 "loop": false,
 "name": "1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 1 ) ],
+"loop": false,
+"name": "2",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ) ],
@@ -72,14 +88,9 @@ animations = [ {
 "name": "4",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 2 ) ],
+"frames": [ SubResource( 10 ) ],
 "loop": false,
-"name": "0",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 1 ) ],
-"loop": false,
-"name": "2",
+"name": "6",
 "speed": 5.0
 } ]
 
@@ -497,6 +508,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="namesAnne" type="ScrollContainer" parent="combosMenu/namesContainer"]
+visible = false
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0
@@ -602,7 +614,7 @@ margin_bottom = 564.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Aerial Mega Punch"
+text = "Slice"
 align = 2
 valign = 1
 
@@ -1689,6 +1701,205 @@ margin_top = 1064.0
 margin_right = 444.0
 margin_bottom = 1068.0
 
+[node name="namesDarla" type="ScrollContainer" parent="combosMenu/namesContainer"]
+visible = false
+margin_left = 167.0
+margin_top = 116.0
+margin_right = 1310.0
+margin_bottom = 578.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="names" type="VBoxContainer" parent="combosMenu/namesContainer/namesDarla"]
+margin_right = 444.0
+margin_bottom = 1068.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_right = 444.0
+margin_bottom = 4.0
+
+[node name="Label" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 14.0
+margin_right = 444.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit combo"
+align = 2
+valign = 1
+
+[node name="Label2" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 84.0
+margin_right = 444.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Rock Pillar"
+align = 2
+valign = 1
+
+[node name="Label3" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 154.0
+margin_right = 444.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "New Spell"
+align = 2
+valign = 1
+
+[node name="nameSpin" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 224.0
+margin_right = 444.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 15 )
+text = "Apology"
+align = 2
+valign = 1
+
+[node name="Label7" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 294.0
+margin_right = 444.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Pirouette"
+align = 2
+valign = 1
+
+[node name="nameTackle" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 364.0
+margin_right = 444.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 15 )
+text = "Cartwheel"
+align = 2
+valign = 1
+
+[node name="Label4" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 434.0
+margin_right = 444.0
+margin_bottom = 494.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "3 hit air combo"
+align = 2
+valign = 1
+
+[node name="Label6" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 504.0
+margin_right = 444.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Aerial Mega Punch"
+align = 2
+valign = 1
+
+[node name="Label8" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 574.0
+margin_right = 444.0
+margin_bottom = 634.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spike Combo"
+align = 2
+valign = 1
+
+[node name="nameAirSpin" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 644.0
+margin_right = 444.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 15 )
+text = "Shell Breaker"
+align = 2
+valign = 1
+
+[node name="Label9" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 714.0
+margin_right = 444.0
+margin_bottom = 774.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Spike"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 784.0
+margin_right = 444.0
+margin_bottom = 844.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Block"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nameCounter" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 854.0
+margin_right = 444.0
+margin_bottom = 914.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 15 )
+text = "Counter"
+align = 2
+valign = 1
+
+[node name="Label10" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 924.0
+margin_right = 444.0
+margin_bottom = 984.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = " Hard Landing Cancel"
+align = 2
+valign = 1
+
+[node name="Label11" type="Label" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 994.0
+margin_right = 444.0
+margin_bottom = 1054.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+text = "Tech"
+align = 2
+valign = 1
+
+[node name="HSeparator2" type="HSeparator" parent="combosMenu/namesContainer/namesDarla/names"]
+margin_top = 1064.0
+margin_right = 444.0
+margin_bottom = 1068.0
+
 [node name="symbolsContainer" type="ScrollContainer" parent="combosMenu"]
 margin_left = 630.0
 margin_top = 116.0
@@ -2185,7 +2396,7 @@ __meta__ = {
 position = Vector2( 1047, 155 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 6 )
-animation = "5"
+animation = "0"
 
 [node name="arrowL" type="Sprite" parent="combosMenu"]
 position = Vector2( 1099, 155 )
@@ -2205,6 +2416,7 @@ __meta__ = {
 }
 
 [node name="controlsMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
