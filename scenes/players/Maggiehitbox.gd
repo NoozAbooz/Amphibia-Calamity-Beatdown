@@ -49,7 +49,7 @@ func _process(delta):
 		A_SL:
 			player.setHitBox(5, KB_STRONG, Vector3(-7, 40, 0), "hit2")
 		A_SH:
-			player.setHitBox(15, KB_ANGLED, Vector3(40, 23, 0), "hit4")
+			player.setHitBox(12, KB_STRONG, Vector3(20, 25, 0), "hit3")
 			
 		COUNTER:
 			player.setHitBox(30, KB_STRONG, Vector3(0, -40, 0), "hit4")

@@ -19,14 +19,14 @@
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ ExtResource( 15 ) ],
-"loop": false,
-"name": "fr",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": false,
 "name": "en",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": false,
+"name": "fr",
 "speed": 5.0
 } ]
 
@@ -574,6 +574,7 @@ __meta__ = {
 }
 
 [node name="creditsMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -645,15 +646,13 @@ margin_top = 26.0
 margin_right = 1461.0
 margin_bottom = 598.0
 scroll_horizontal_enabled = false
-scroll_vertical = 1500
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="names" type="VBoxContainer" parent="creditsMenu/namesCredits"]
-margin_top = -1500.0
 margin_right = 974.0
-margin_bottom = 1780.0
+margin_bottom = 3280.0
 rect_min_size = Vector2( 970, 572 )
 custom_constants/separation = 10
 __meta__ = {

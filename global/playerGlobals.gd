@@ -22,11 +22,11 @@ const techBoost    = 0.20
 
 
 # attack unlocks
-var hasSpin    = false
-var hasSlide   = false
-var hasAirSpin = false
-var hasDJ      = false
-var hasCounter = false
+var hasSpin    = true
+var hasSlide   = true
+var hasAirSpin = true
+var hasDJ      = true
+var hasCounter = true
 
 # numer of players / player inputs
 var availableInputs = ["k0"]
@@ -37,6 +37,7 @@ var playerInput = ["X", "X", "X", "X"]
 var playerCharacter = ["Anne", "Anne", "Anne", "Anne"]
 var playerLives = [0, 0, 0, 0]
 var playerCoins = [0, 0, 0, 0]
+var playerHealth = [100, 100, 100, 100]
 var numPlayers = 1
 var playerFixPos = [false, false, false, false]
 
@@ -58,11 +59,11 @@ var levelMusic = "ripple"
 var levelNum = 0
 
 # playable characters
-var hasMarcy  = false
-var hasSasha  = false
+var hasMarcy  = true
+var hasSasha  = true
 var hasSprig = true
 var hasMaggie = true
-var hasGrime = false
+var hasGrime = true
 var hasDarla = false
 var availableChars = ["Anne"]
 
@@ -70,7 +71,7 @@ var clover = false
 
 # Completed levels
 #                     [Wartwood, Test,  l1,    l2,    l3,    l4,    l5,    l6,    l7,    l8,    l9,   final]
-var completedLevels = [  true,   true, false, false, false, false, false, false, false, false, false, false]
+var completedLevels = [  true,   true, true, true, false, false, false, false, false, false, false, false]
 var unlockedFinalLevel = false
 
 # game over stuff
@@ -88,6 +89,8 @@ var currentStore = 0 # 0 = none; 1 = city hall; 2 = Maddie; 3 = Felicia
 
 # other flags
 var seenTutorial = false
+var karting = false
+var initialSpawn = true
 
 # debug flags
 var debugCameraAvailable = false
@@ -118,6 +121,9 @@ func checkAvailableInputs():
 	for i in range(0, len(Input.get_connected_joypads())):
 		availableInputs.append(str(i))
 
+func _process(delta):
+	#print(playerCoins)
+	pass
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():

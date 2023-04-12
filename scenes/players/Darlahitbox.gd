@@ -21,7 +21,7 @@ func _process(delta):
 			player.setHitBox(8, KB_WEAK, Vector3(1, 0, 0))
 			
 		A_H1:
-			player.setHitBox(15, KB_STRONG, Vector3(1, 35, 0), "hit3")
+			player.setHitBox(50, KB_STRONG, Vector3(1, 45, 0), "hit4")
 		A_H2:
 			player.setHitBox(15, KB_STRONG, Vector3(7, 50, 0), "hit3")
 		A_H3:
@@ -38,18 +38,18 @@ func _process(delta):
 			player.setHitBox(10, KB_AIR_UP, Vector3(1, 30, 0))
 			
 		A_AH1:
-			player.setHitBox(15, KB_ANGLED, Vector3(40, 10, 0), "hit3")
+			player.setHitBox(10, KB_ANGLED, Vector3(12, 20, 0), "hit3")
 		A_AH2:
-			player.setHitBox(25, KB_STRONG_RECOIL, Vector3(30, -70, 0), "hit4")
+			player.setHitBox(10, KB_WEAK, Vector3(1, 0, 0), "hit4")
 		A_AH3_HIT:
-			player.setHitBox(1, KB_STRONG, Vector3(0, -50, 0), "hit3")
+			player.setHitBox(10, KB_STRONG, Vector3(0, 10, 0), "hit4")
 		A_AH3_LAND:
 			player.setHitBox(35, KB_ANGLED, Vector3(5, 50, 0), "hit3")
 		
 		A_SL:
 			player.setHitBox(5, KB_STRONG, Vector3(-7, 40, 0), "hit2")
 		A_SH:
-			player.setHitBox(15, KB_STRONG_RECOIL, Vector3(30, 25, 0), "hit3")
+			player.setHitBox(5, KB_STRONG, Vector3(20, 20, 0), "hit1")
 			
 		COUNTER:
 			player.setHitBox(30, KB_ANGLED, Vector3(5, 40, 0), "hit4")

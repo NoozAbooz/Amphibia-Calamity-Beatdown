@@ -30,9 +30,13 @@ var nextScene = camScene.instance()
 
 export var hideGUI = false
 export var noCameraWalls = false
+export var cartSpawnOffset = Vector3.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# repositions spawner if needed for minecart returns
+	if pg.karting:
+		translation = translation + cartSpawnOffset
 	# resets reposition player flags
 	for i in range(0, 4):
 		pg.playerFixPos[i] = false
@@ -54,11 +58,12 @@ func _ready():
 
 func _process(_delta):
 	# Sets globals BEFORE spawning players since player initializations use these vars
-	for i in range(0, 4):
-		pg.playerAlive[i] = pg.playerActive[i]
+	if pg.initialSpawn:
+		for i in range(0, 4):
+			pg.playerAlive[i] = pg.playerActive[i]
 	for i in range(0, 4):
 		# skips player spawning if there is none
-		if (pg.playerActive[i] == false):
+		if (pg.playerAlive[i] == false):
 			continue
 		# determines character choice and sets player variable
 		match pg.playerCharacter[i]:
@@ -128,6 +133,9 @@ func _process(_delta):
 	
 	# sets player movement/cutscene flag so they can act
 	pg.dontMove = false
+	
+	# sets flag for minecart levels to false
+	pg.karting = false
 	
 	# sets level in discord thing
 	discordRPC.updateLevel(pg.levelNameDisc)

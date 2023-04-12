@@ -592,15 +592,17 @@ func _on_hurtbox_area_entered(area):
 	var vfx = vfxScene.instance()
 	get_parent().add_child(vfx)
 	vfx.playEffect("hit", 0.5*(translation + attacker.translation))
-	# sets attacker as the target
-	if (attacker.playerChar != "proj"):
+	# sets attacker as the target and tells attacker that the hit occurred
+	if (attacker.playerChar != "proj") and (attacker.playerChar != "hazard"):
 		target = attacker
+	attacker.hitLanded = true
 	# stores damage/knockback variables
 	hurtDamage = attacker.hitDamage
 	hurtType = attacker.hitType
 	hurtDir = attacker.hitDir
-	# tells attacker that the hit occurred
-	attacker.hitLanded = true
+	# increases damage from hazards compared to players
+	if (attacker.playerChar == "hazard"):
+		hurtDamage *= 2	
 	# changes knockback values depending on the type and situation (type should end up as either weak or strong):
 	# changes x-z knokback angle to be away from player if an angled attack
 	if (hurtType == KB_ANGLED) or (hurtType == KB_ANGLED_PIERCE):

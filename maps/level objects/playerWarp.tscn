@@ -3,12 +3,12 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 5, 5, 5 )
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=4]
 flags_transparent = true
 albedo_color = Color( 1, 0.560784, 0, 0.392157 )
 
 [sub_resource type="CubeMesh" id=3]
-material = SubResource( 2 )
+material = SubResource( 4 )
 size = Vector3( 10, 10, 10 )
 
 [node name="warp0" type="Area"]

@@ -1,11 +1,17 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/players/playerProj.gd" type="Script" id=1]
 [ext_resource path="res://art/vfx/player_projectiles.png" type="Texture" id=2]
 [ext_resource path="res://art/vfx/baseball.png" type="Texture" id=3]
 [ext_resource path="res://art/vfx/explosions/round_p.png" type="Texture" id=4]
-[ext_resource path="res://art/vfx/explosions/sharp_p.png" type="Texture" id=5]
+[ext_resource path="res://themes/playerProjExpPurpOut.tres" type="Material" id=5]
 [ext_resource path="res://art/vfx/potion.png" type="Texture" id=6]
+[ext_resource path="res://art/mod/heart.png" type="Texture" id=7]
+[ext_resource path="res://art/vfx/explosions/sharp_r.png" type="Texture" id=8]
+[ext_resource path="res://art/vfx/explosions/round_r.png" type="Texture" id=9]
+[ext_resource path="res://art/vfx/explosions/sharp_p.png" type="Texture" id=10]
+[ext_resource path="res://art/mod/bolt2.png" type="Texture" id=11]
+[ext_resource path="res://art/mod/bolt.png" type="Texture" id=12]
 
 [sub_resource type="CylinderShape" id=42]
 radius = 0.45
@@ -19,11 +25,6 @@ region = Rect2( 18, 0, 18, 16 )
 [sub_resource type="AtlasTexture" id=47]
 atlas = ExtResource( 3 )
 region = Rect2( 100, 0, 25, 20 )
-
-[sub_resource type="AtlasTexture" id=36]
-flags = 1
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 18, 16 )
 
 [sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 3 )
@@ -41,6 +42,11 @@ region = Rect2( 50, 0, 25, 20 )
 atlas = ExtResource( 3 )
 region = Rect2( 75, 0, 25, 20 )
 
+[sub_resource type="AtlasTexture" id=36]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 18, 16 )
+
 [sub_resource type="SpriteFrames" id=38]
 animations = [ {
 "frames": [ SubResource( 41 ) ],
@@ -53,26 +59,41 @@ animations = [ {
 "name": "ball2",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "heart",
+"speed": 0.0
+}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "potion",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 36 ) ],
-"loop": false,
-"name": "rock",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
 "loop": true,
 "name": "ball",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 36 ) ],
+"loop": false,
+"name": "rock",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "none",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "bolt",
+"speed": 20.0
 } ]
 
 [sub_resource type="CylinderShape" id=39]
 resource_local_to_scene = true
-radius = 1.5
-height = 3.0
+radius = 1.6
+height = 40.0
 
 [sub_resource type="CylinderMesh" id=40]
 top_radius = 0.5
@@ -80,12 +101,8 @@ bottom_radius = 0.5
 height = 0.1
 rings = 1
 
-[sub_resource type="SpatialMaterial" id=52]
-flags_transparent = true
-albedo_color = Color( 1, 1, 1, 0.392157 )
-albedo_texture = ExtResource( 5 )
-
 [sub_resource type="ArrayMesh" id=49]
+resource_local_to_scene = true
 resource_name = "explode_in_Icosphere001"
 surfaces/0 = {
 "aabb": AABB( -1.76279, -1.42613, -1.6765, 3.52558, 2.85226, 3.35301 ),
@@ -94,18 +111,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 180,
-"material": SubResource( 52 ),
+"material": ExtResource( 5 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 180
 }
 
 [sub_resource type="SpatialMaterial" id=53]
+resource_local_to_scene = true
 flags_transparent = true
-albedo_color = Color( 1, 1, 1, 0.392157 )
+albedo_color = Color( 1, 1, 1, 0 )
 albedo_texture = ExtResource( 4 )
 
 [sub_resource type="ArrayMesh" id=48]
+resource_local_to_scene = true
 resource_name = "explode_out_Icosphere001"
 surfaces/0 = {
 "aabb": AABB( -1.90212, -2, -2, 3.80423, 4, 4 ),
@@ -232,6 +251,167 @@ tracks/8/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("explosionMeshInner:mesh:surface_1/material:albedo_texture")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("explosionMeshOuter:mesh:surface_1/material:albedo_texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=57]
+resource_name = "splodeRed"
+length = 0.5
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("explosionMeshOuter:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("explosionMeshOuter:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 40, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("explosionMeshOuter:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.5 ),
+"transitions": PoolRealArray( 0.6, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.9, 0.9, 0.9 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("explosionMeshOuter:mesh:surface_1/material:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.366667, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("explosionMeshInner:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("explosionMeshInner:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 30, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("explosionMeshInner:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 0.6, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.9, 0.9, 0.9 ), Vector3( 0.95, 0.95, 0.95 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("explosionMeshInner:mesh:surface_1/material:albedo_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.15, 0.366667, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("zeroPoint/hitbox/CollisionShape:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("explosionMeshInner:mesh:surface_1/material:albedo_texture")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("explosionMeshOuter:mesh:surface_1/material:albedo_texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ) ]
+}
 
 [sub_resource type="Animation" id=50]
 resource_name = "wait"
@@ -344,6 +524,243 @@ tracks/8/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="Animation" id=56]
+resource_name = "bob"
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -8 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 15, 90, 0 ), Vector3( 15, 90, 5 ), Vector3( 15, 90, -5 ), Vector3( 15, 90, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=60]
+resource_name = "laser"
+length = 2.0
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/hitbox/CollisionShape:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/hitbox/CollisionShape:shape:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 40.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/hitbox:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("beam:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("beam:mesh:top_radius")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 0.15, 3, 1 ),
+"update": 0,
+"values": [ 0.1, 0.1, 1.6, 0.01 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("beam:mesh:bottom_radius")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 0.15, 3, 1 ),
+"update": 0,
+"values": [ 0.1, 0.1, 1.6, 0.01 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("zeroPoint/hitbox/CollisionShape:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.03333, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("beam:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=54]
+resource_name = "normal"
+tracks/0/type = "value"
+tracks/0/path = NodePath("zeroPoint/AnimatedSprite3D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("zeroPoint/AnimatedSprite3D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 15, 90, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("zeroPoint/AnimatedSprite3D:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("zeroPoint/hitbox:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="CylinderShape" id=55]
+radius = 0.8
+height = 1.0
+
+[sub_resource type="SpatialMaterial" id=58]
+resource_local_to_scene = true
+flags_transparent = true
+albedo_color = Color( 1, 0, 0, 0.470588 )
+
+[sub_resource type="CylinderMesh" id=59]
+resource_local_to_scene = true
+material = SubResource( 58 )
+top_radius = 0.01
+bottom_radius = 0.01
+height = 100.0
+radial_segments = 6
+rings = 0
+
 [node name="proj" type="KinematicBody" groups=["playerProjectiles"]]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 collision_layer = 8192
@@ -357,11 +774,11 @@ shape = SubResource( 42 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="zeroPoint"]
 transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 0, 0, 0 )
-layers = 3
 pixel_size = 0.07
 alpha_cut = 1
 frames = SubResource( 38 )
-animation = "potion"
+animation = "none"
+frame = -1
 playing = true
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
@@ -383,13 +800,13 @@ one_shot = true
 autostart = true
 
 [node name="explosionMeshInner" type="MeshInstance" parent="."]
-transform = Transform( 0.89507, 0, 0.0940758, 0, 0.9, 0, -0.0940758, 0, 0.89507, 0, 0.25, 0 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.25, 0 )
 mesh = SubResource( 49 )
 skeleton = NodePath("../explosionMeshOuter")
 material/0 = null
 
 [node name="explosionMeshOuter" type="MeshInstance" parent="."]
-transform = Transform( 0.748421, 0, 0.105184, 0, 0.755776, 0, -0.105184, 0, 0.748421, 0, 0.25, 0 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.25, 0 )
 cast_shadow = 0
 generate_lightmap = false
 mesh = SubResource( 48 )
@@ -399,6 +816,28 @@ material/0 = null
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "wait"
 anims/splode = SubResource( 51 )
+anims/splodeRed = SubResource( 57 )
 anims/wait = SubResource( 50 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/bob = SubResource( 56 )
+anims/laser = SubResource( 60 )
+anims/normal = SubResource( 54 )
+
+[node name="healbox" type="Area" parent="." groups=["healthTiny"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+collision_layer = 256
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2" type="CollisionShape" parent="healbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 55 )
+disabled = true
+
+[node name="beam" type="MeshInstance" parent="."]
+mesh = SubResource( 59 )
+skeleton = NodePath("../..")
+material/0 = null
 
 [connection signal="timeout" from="despawnTimer" to="." method="_on_despawnTimer_timeout"]

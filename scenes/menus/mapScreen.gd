@@ -23,6 +23,10 @@ var markerState = READY
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# tells pg that news load in of characters will be for inital level spawns
+	pg.initialSpawn = true
+	pg.karting = false
+	# music stuff
 	soundManager.playMusicIfDiff("menu")
 	soundManager.follow2DCam = true
 	discordRPC.updateLevel("Checking the map", "Currently:")
@@ -55,8 +59,8 @@ func _ready():
 		#get_node("lvl2").set_focus_mode(0)
 		#get_node("play").disabled = true
 		#get_node("play").set_focus_mode(0)
-		get_node("lvl3").disabled = true
-		get_node("lvl3").set_focus_mode(0)
+#		get_node("lvl3").disabled = true
+#		get_node("lvl3").set_focus_mode(0)
 	# removes arrow if been to wartwood
 	if (pg.firstTimeInWartwood == false):
 		$"arrow".hide()
@@ -218,29 +222,25 @@ func _on_lvl1_focus_entered():
 	$cam/pockets/levelName.text = "Trip to the Lake"
 	$cam/phone/levelPic.play("bestFronds")
 	
-func _on_lvl2_focus_entered():
-	fucusOnButton(get_node("lvl2"))
+func _on_lvl3_focus_entered():
+	fucusOnButton(get_node("lvl3"))
 	pg.levelName = "bestFrondsHard"
 	pg.levelNameDisc = "?-1 Bonus Level"
 	pg.levelMusic = "nbd"
-	pg.levelNum = 3
-	#$cam/phone/levelName.text = "Valley Ridge"
-	#$cam/pockets/levelName.text = "Valley Ridge"
+	pg.levelNum = 4
 	$cam/phone/levelName.text = "Trip to the Lake EX"
 	$cam/pockets/levelName.text = "Bonus Challenge"
 	$cam/phone/levelPic.play("bestFrondsHard")
 	
-#func _on_lvl2_focus_entered():
-#	fucusOnButton(get_node("lvl2"))
-#	pg.levelName = "mountain"
-#	pg.levelNameDisc = "1-2 The Mountain Pass"
-#	pg.levelMusic = "mountain"
-#	pg.levelNum = 3
-#	#$cam/phone/levelName.text = "Valley Ridge"
-#	#$cam/pockets/levelName.text = "Valley Ridge"
-#	$cam/phone/levelName.text = "The Mountain Pass"
-#	$cam/pockets/levelName.text = "The Mountain Pass"
-#	$cam/phone/levelPic.play("mountain")
+func _on_lvl2_focus_entered():
+	fucusOnButton(get_node("lvl2"))
+	pg.levelName = "mountain"
+	pg.levelNameDisc = "1-2 The Mountain Pass"
+	pg.levelMusic = "mountain"
+	pg.levelNum = 3
+	$cam/phone/levelName.text = "The Mountain Pass"
+	$cam/pockets/levelName.text = "The Mountain Pass"
+	$cam/phone/levelPic.play("mountain")
 
 
 

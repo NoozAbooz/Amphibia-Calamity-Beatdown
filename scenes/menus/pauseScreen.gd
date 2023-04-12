@@ -10,6 +10,7 @@ var charStateIndex = 0
 var charPrev = SPRIG
 var showGamepad = true
 onready var namesNode = $combosMenu/namesContainer/namesAnne
+var loading = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -112,6 +113,9 @@ func _process(_delta):
 				$basicMenu/buttonDrop.disabled = false
 			else:
 				$basicMenu/buttonDrop.disabled = true
+			if (pg.karting):
+				$basicMenu/buttonDrop.disabled = true
+				$basicMenu/buttonPos.disabled = true
 		DROP:
 			$labelMain.text = "DROP WHICH PLAYER?"
 			$basicMenu.hide()
@@ -263,9 +267,11 @@ func _on_buttonMapAttempt_pressed():
 		$verifyMenu/buttonBack.grab_focus()
 
 func _on_buttonMap_pressed():
-	get_tree().paused = false
-	stopMusic()
-	pg.backToMapLose()
+	if not loading:
+		loading = true
+		get_tree().paused = false
+		stopMusic()
+		pg.backToMapLose()
 
 
 func _on_buttonDrop_pressed():

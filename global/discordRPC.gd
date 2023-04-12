@@ -29,8 +29,12 @@ func updateLevel(levelName, altDesc = "Currently in:"):
 	presence.details = altDesc
 	presence.state = levelName
 	
-	presence.large_image_key = pg.playerCharacter[0].to_lower()
-	presence.large_image_text = "Playing as: " + pg.playerCharacter[0]
+	if (pg.playerCharacter[0].to_lower() == "darla"):
+		presence.large_image_key = "unknown"
+		presence.large_image_text = "Playing as: ???"
+	else:
+		presence.large_image_key = pg.playerCharacter[0].to_lower()
+		presence.large_image_text = "Playing as: " + pg.playerCharacter[0]
 	
 	presence.start_timestamp = timestamp
 	

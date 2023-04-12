@@ -28,12 +28,12 @@ func _ready():
 		_:
 			get_node("AnimatedSprite3D").play("copper")
 
-func initialize(spawnLocation, val = 1):
+func initialize(spawnLocation, val = 1, velMulti = 1):
 	value = val
 	translation = spawnLocation
-	velocity.y = rng.rand.randf_range(20, 30)
+	velocity.y = rng.rand.randf_range(20, 30) * velMulti
 	bounceForce = velocity.y * 0.75
-	velocity.x = rng.rand.randf_range(1, 6)
+	velocity.x = rng.rand.randf_range(1, 6) * velMulti
 	velocity = velocity.rotated(Vector3.UP, rng.rand.randf_range(0, 6.28))
 	get_node("AnimatedSprite3D").play()
 	value = val

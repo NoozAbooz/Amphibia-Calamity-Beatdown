@@ -35,6 +35,7 @@ var coins = 0
 var safePos = Vector3.ZERO
 var deathFloorHeight = -30
 
+var direction = Vector3.ZERO
 var velocity = Vector3.ZERO
 var speed = speed_walk
 var lookRight = true
@@ -110,6 +111,12 @@ var fps = 1
 var windVect = Vector3.ZERO # "push" from wind boxes
 var isInWindbox = false
 
+var waveVect = Vector3.ZERO
+var isWavedashing = false
+var wavedashSpeed = 60
+var airdashVect = Vector3.ZERO
+var isAirdashing = false
+
 onready var anim = $"AnimationPlayer"
 onready var sprite = $"zeroPoint/AnimatedSprite3D"
 onready var face = $"playerInfo/face"
@@ -153,6 +160,13 @@ func initialize(num, pos, character):
 	lookRight = true
 	sprite.set_rotation_degrees(Vector3(-15, 90, 0))
 	$"zeroPoint".set_rotation_degrees(Vector3(0, 180, 0))
+	# sets updated values if spawning again after karting
+	if pg.karting:
+		#print(str(playerNum) + "-" + str(pg.playerHealth[playerNum]) + "-" + str(pg.playerLives[playerNum]) + "-" + str(pg.playerCoins[playerNum]))
+		hp = pg.playerHealth[playerNum]
+		lives = pg.playerLives[playerNum]
+		coins = pg.playerCoins[playerNum]
+		
 
 func clearInputBuffer():
 	inputBuffKey = null
@@ -219,12 +233,16 @@ func checkWalk():
 	var walk = false
 	if ((Input.is_action_pressed(right_button) == true) or (Input.is_action_pressed(left_button) == true) or (Input.is_action_pressed(down_button) == true) or (Input.is_action_pressed(up_button) == true)):
 		walk = true
+#	if isWavedashing:
+#		walk = false
 	return walk
 	
 func checkWalkJust():
 	var walk = false
 	if ((Input.is_action_just_pressed(right_button) == true) or (Input.is_action_just_pressed(left_button) == true) or (Input.is_action_just_pressed(down_button) == true) or (Input.is_action_just_pressed(up_button) == true)):
 		walk = true
+#	if isWavedashing:
+#		walk = false
 	return walk
 	
 func setHitBox(damage, type, dir, sfx = "hit1"):
@@ -235,9 +253,18 @@ func setHitBox(damage, type, dir, sfx = "hit1"):
 	if (lookRight == false):
 		hitDir.x *= -1
 		
-func spawnProj(projVel = Vector3.ZERO, projAng = 0, addPlayerVel = false):
+func playSoundEffect(soundName = "hit1", pitch = null, volume = 0):
+	if (pitch != null):
+		soundManager.pitchSound(soundName, pitch, volume)
+	soundManager.playSound(soundName)
+		
+func spawnProj(projVel = Vector3.ZERO, projAng = 0, addPlayerVel = false, randLoc = false):
 	# sets spawn point
 	var spawnLocation = get_node("zeroPoint/projSpawnPoint").global_transform.origin
+	# add random offset if necessary
+	if randLoc:
+		spawnLocation.x += rng.rand.randf_range(-15, 15)
+		spawnLocation.z += rng.rand.randf_range(-6, 8)
 	# sets projectile type
 	var projType = 0
 	if (playerChar == "Marcy") and isInState([A_SH]) and comboReady:
@@ -248,6 +275,12 @@ func spawnProj(projVel = Vector3.ZERO, projAng = 0, addPlayerVel = false):
 		projType = 1
 	elif (playerChar == "Maggie"):
 		projType = 2
+	elif (playerChar == "Darla") and isInState([A_H1]):
+		projType = 4
+	elif (playerChar == "Darla") and isInState([A_AH2]):
+		projType = 5
+	elif (playerChar == "Darla") and isInState([A_AH3_HIT]):
+		projType = 6
 	# adds player velocity to projectile's (x and z for lobbed weapons)
 	if addPlayerVel and lookRight:
 		projVel.x += 0.75 * velocity.x
@@ -268,8 +301,8 @@ func forcePogo(strength):
 	pogoMultiplier = strength
 	
 func forceMiniJump():
-	if (playerChar == "Sasha") and !secondCombo:
-		return
+#	if (playerChar == "Sasha") and !secondCombo:
+#		return
 	if (velocity.y <= 20):
 		mini_jump_boost = 15
 		
@@ -309,10 +342,38 @@ func addHealth(amount):
 		hp = 0
 	elif (hp >= hpMax):
 		hp = hpMax
+		
+func startWavedash():
+	waveVect = velocity.normalized() * wavedashSpeed
+	isWavedashing = true
+	#lookRight = !lookRight
+	
+func startAirdash(airdashSpeed = 30):
+	isAirdashing = true
+	# mirrors char if necessary, sets dash direction
+	if (direction.x > 0):
+		airdashVect.x = airdashSpeed
+		lookRight = true
+		sprite.set_rotation_degrees(Vector3(-15, 90, 0))
+		$"zeroPoint".set_rotation_degrees(Vector3(0, 180, 0))
+	elif (direction.x < 0):
+		airdashVect.x = -1 * airdashSpeed
+		lookRight = false
+		sprite.set_rotation_degrees(Vector3(15, 90, 0))
+		$"zeroPoint".set_rotation_degrees(Vector3(0, 0, 0))
+	else: # if standing still
+		if lookRight:
+			airdashVect.x = airdashSpeed
+		else:
+			airdashVect.x = -1 * airdashSpeed
+		
+func endAirdash():
+	airdashVect = Vector3.ZERO
+	isAirdashing = false
 
 func _physics_process(delta):
 	
-	var direction = Vector3.ZERO
+	direction = Vector3.ZERO
 	var snapVect  = Vector3.ZERO
 	
 	# input buffer
@@ -440,13 +501,16 @@ func _physics_process(delta):
 			elif (Input.is_action_pressed(right_button) == false) and (Input.is_action_pressed(left_button) == false):
 				nextState = WALK
 			#elif Input.is_action_just_pressed(light_attack_button):
+			elif (inputBuffKey == light_attack_button) and isWavedashing:
+				clearInputBuffer()
+				nextState = A_L1
 			elif (inputBuffKey == light_attack_button):
 				clearInputBuffer()
 				nextState = A_SL
 			#elif Input.is_action_just_pressed(heavy_attack_button):
 			elif (inputBuffKey == heavy_attack_button):
 				clearInputBuffer()
-				if pg.hasSlide:
+				if pg.hasSlide and (waveVect.length() <= 0.1*wavedashSpeed):
 					nextState = A_SH
 				else:
 					nextState = A_H1
@@ -534,6 +598,9 @@ func _physics_process(delta):
 			elif (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button):
 				clearInputBuffer()
 				nextState = A_H2
+			elif (comboReady) and (playerChar == "Marcy") and (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
+				nextState = A_H2
 			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
 			elif (comboReady) and (hitLanded) and (inputBuffKey == jump_button):
 				clearInputBuffer()
@@ -562,10 +629,10 @@ func _physics_process(delta):
 			if (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button) and pg.hasSpin:
 				clearInputBuffer()
 				nextState = A_H3
-			elif (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button) and (secondCombo == false) and (playerChar == "Sasha"):
-				clearInputBuffer()
-				nextState = A_L2
-				secondCombo = true
+#			elif (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button) and (secondCombo == false) and (playerChar == "Sasha"):
+#				clearInputBuffer()
+#				nextState = A_L2
+#				secondCombo = true
 			#elif (comboReady) and (hitLanded) and (Input.is_action_just_pressed(jump_button)):
 			elif (comboReady) and (hitLanded) and (inputBuffKey == jump_button):
 				clearInputBuffer()
@@ -661,10 +728,10 @@ func _physics_process(delta):
 			elif (comboReady) and (hitLanded) and (inputBuffKey == heavy_attack_button) and pg.hasAirSpin:
 				clearInputBuffer()
 				nextState = A_AH3_LAUNCH
-			elif (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button) and (secondCombo == false) and (playerChar == "Sasha"):
-				clearInputBuffer()
-				nextState = A_AL2
-				secondCombo = true
+#			elif (comboReady) and (hitLanded) and (inputBuffKey == light_attack_button) and (secondCombo == false) and (playerChar == "Sasha"):
+#				clearInputBuffer()
+#				nextState = A_AL2
+#				secondCombo = true
 			elif animFinished and (velocity.y <= 0):
 				nextState = FALLING
 				animFinished = false
@@ -738,6 +805,19 @@ func _physics_process(delta):
 		A_SH:
 			if (is_on_floor() == false):
 				nextState = FALLING
+#			elif (inputBuffKey == jump_button):
+#				clearInputBuffer()
+#				nextState = JUMP
+			#elif Input.is_action_just_pressed(light_attack_button) and (nearNPCs <= 0):
+#			elif (inputBuffKey == light_attack_button) and (nearNPCs <= 0):
+#				clearInputBuffer()
+#				nextState = A_L1
+#			#elif Input.is_action_just_pressed(heavy_attack_button):
+#			elif (inputBuffKey == heavy_attack_button):
+#				clearInputBuffer()
+#				nextState = A_H1
+#			elif Input.is_action_just_pressed(block_button):
+#				nextState = BLOCK
 			elif animFinished:
 				nextState = IDLE
 				animFinished = false
@@ -890,8 +970,8 @@ func _physics_process(delta):
 	state = nextState
 	
 	#Sasha 5 hit combos
-	if isInState([IDLE, WALK, RUN, JUMP, BOUNCE, LAND, LANDC]):
-		secondCombo = false
+#	if isInState([IDLE, WALK, RUN, JUMP, BOUNCE, LAND, LANDC]):
+#		secondCombo = false
 	
 	# Counter mechanic
 	if (counterTimer > 0):
@@ -927,7 +1007,7 @@ func _physics_process(delta):
 	
 	# mirror character if necessary
 	#if(state == WALK or state == RUN or state == DJUMP) and (direction != Vector3.ZERO):
-	if(isInState([WALK, RUN, JUMP, DJUMP])) and (direction != Vector3.ZERO):
+	if(isInState([IDLE, WALK, RUN, JUMP, DJUMP])) and (direction != Vector3.ZERO):
 		#$"zeroPoint".look_at(translation + Vector3(direction.x, 0, 0), Vector3.UP)
 		if (direction.x > 0):
 			lookRight = true
@@ -1017,12 +1097,18 @@ func _physics_process(delta):
 	elif (mini_jump_boost > 0):
 		velocity.y = mini_jump_boost
 		mini_jump_boost = 0
+	elif (pogo) and (hitLanded) and isInState([A_SL, A_SH]):
+		velocity.y = force_jump_double
+		state = DJUMP
+		pogo = false
 	elif (pogo) and (hitLanded):
 		velocity.y = force_jump * pogoMultiplier
 		pogo = false
+		if (playerChar == "Darla"):
+			state = RISING
 	
 	# clears pogo on miss:
-	if is_on_floor():
+	if is_on_floor() and not isInState([A_SL, A_SH]):
 		pogo = false
 	#print(pogo)
 	
@@ -1035,6 +1121,8 @@ func _physics_process(delta):
 	# X movement
 	if (wallSliding):
 		pass
+#	elif isInState([A_AH2]) and comboReady:
+		
 	elif isInState([WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE]):
 		canMove = true
 		velocity.x = speed * direction.x
@@ -1059,7 +1147,7 @@ func _physics_process(delta):
 		else:
 			recoilDir = -1
 		velocity.y = 0.75 * force_jump_double
-		if (state == A_SH) or (state == A_H3):
+		if (state == A_SH) or (state == A_SL) or (state == A_H3):
 			state = RISING
 	if (recoilCounter > 0) and (is_on_floor() == false):
 		velocity.x = -1.25 * speed * recoilDir
@@ -1079,6 +1167,8 @@ func _physics_process(delta):
 		if (slideSpeed > 0):
 			if (playerChar == "Sasha") or (playerChar == "Marcy"):
 				slideSpeed -= 1.0
+			elif (playerChar == "Darla"):
+				slideSpeed -= 0.75
 			else:
 				slideSpeed -= 1.25 # 1.5
 		if (slideSpeed < 0):
@@ -1098,16 +1188,16 @@ func _physics_process(delta):
 			windVect = Vector3.ZERO
 	
 	# Heavy Air attack 3
-	if (isInState([A_AH3_HIT])) and !comboReady and (playerChar == "Maggie" or playerChar == "Sasha" or playerChar == "Marcy"):
+	if (isInState([A_AH3_HIT])) and !comboReady and (playerChar == "Maggie" or playerChar == "Sasha" or playerChar == "Marcy" or playerChar == "Darla"):
 		canMove = true
 		velocity.y = -3
 		velocity.x = speed * direction.x
 		velocity.z = speed_z * direction.z
-		if playerChar == "Sasha" or playerChar == "Marcy":
+		if playerChar == "Sasha" or playerChar == "Marcy" or playerChar == "Darla":
 			velocity.x = 0
 			velocity.z = 0
-			velocity.y = -0.5
-	elif (isInState([A_AH3_HIT])) and (playerChar == "Maggie" or playerChar == "Sasha" or playerChar == "Marcy"):
+			velocity.y = 0 #-0.5
+	elif (isInState([A_AH3_HIT])) and (playerChar == "Maggie" or playerChar == "Sasha" or playerChar == "Marcy" or playerChar == "Darla"):
 		canMove = true
 		velocity.x = speed * direction.x
 		velocity.z = speed_z * direction.z
@@ -1118,6 +1208,32 @@ func _physics_process(delta):
 		velocity.z = speed_z * direction.z
 	elif (isInState([A_AH3_HIT])) and hitLanded:
 		velocity.y = -50
+		
+	#wavedashing
+	if (!is_on_floor()):
+		isWavedashing = false
+		waveVect = Vector3.ZERO
+	if isWavedashing and (sign(velocity.x) == sign(waveVect.x)) and (sign(velocity.z) == sign(waveVect.z)) and (waveVect.length() <= 0.2*wavedashSpeed):
+		isWavedashing = false
+		waveVect = Vector3.ZERO
+		#print("test")
+	if isWavedashing:
+		velocity.x = sign(velocity.x)*0.1
+		velocity.z = sign(velocity.z)*0.1
+		waveVect *= 0.90
+		if (abs(waveVect.x) <= 5) and ((abs(waveVect.z) <= 5)):
+			waveVect = Vector3.ZERO
+			isWavedashing = false
+		#print(waveVect)
+	
+	#airdashing
+	if (is_on_floor() or isInState([HURT, HURTLAUNCH, HURTFALLING, HURTRISING, HURTFLOOR])):
+		isAirdashing = false
+		airdashVect = Vector3.ZERO
+	if isAirdashing:
+		velocity.x = airdashVect.x
+		velocity.y = 0
+		velocity.z = 0
 	
 	# move and slide
 	if isInState([JUMP, RISING, HURTLAUNCH, HURTRISING, BOUNCE]):
@@ -1128,6 +1244,8 @@ func _physics_process(delta):
 	velocity = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true, 4, 1.05)
 	if (!isInState([BLOCK, BLOCKHIT, HURTFLOOR])) and (isInWindbox) and (invincibleGetUp <= 45):
 		move_and_slide_with_snap(Vector3(windVect.x, 0, windVect.z), snapVect, Vector3.UP, true, 4, 1.05)
+	if (isWavedashing):
+		move_and_slide_with_snap(Vector3(waveVect.x, 0, waveVect.z), snapVect, Vector3.UP, true, 4, 1.05)
 	
 	# checks if player is sliding up a wall and corrects if necessary
 #	if (is_on_wall() and ((direction.x * velocity.x > 0) or (direction.z * velocity.z > 0)) and (velocity.y > 0)):
@@ -1229,7 +1347,7 @@ func _physics_process(delta):
 		$playerInfo/lifeCounter.text = str(lives)
 	if (isInState([HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR])):
 		face.play("hurt")
-	elif (hp <= 0.4 * hpMax):
+	elif (hp <= 0.35 * hpMax):
 		face.play("low")
 	else:
 		face.play("idle")
@@ -1293,6 +1411,21 @@ func _on_hurtbox_area_entered(area):
 		# plays sfx
 		soundManager.pitchSound("coin1", rng.rand.randf_range(0.9, 1.2))
 		soundManager.playSound("coin1")
+		return
+	elif area.is_in_group("healthTiny"):
+		# prevents self healing
+		if (area.get_parent().playerNum == playerNum):
+			return
+		# heals
+		addHealth(10)
+		# makes visual effect
+		var vfx = vfxScene.instance()
+		get_parent().add_child(vfx)
+		vfx.playEffect("health", 0.5*(translation + area.get_parent().translation))
+		# removes item
+		area.get_parent().queue_free()
+		# plays sfx
+		soundManager.playSound("pickup")
 		return
 	elif area.is_in_group("healthSmall"):
 		addHealth(0.25*hpMax)
