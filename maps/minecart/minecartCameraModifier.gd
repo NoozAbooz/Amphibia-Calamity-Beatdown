@@ -1,13 +1,13 @@
 extends Area
 
 
-export(int, "Stop Camera", "Free Camera", "Change Camera Offset", "Reset Position") var action
+export(int, "Stop Camera", "Free Camera", "Change Camera Offset", "Reset Position", "Free Camera Locks", "Lock Camera Height") var action
 
 export var newOffset = Vector3.ZERO
 
 export var cameraSpeed = 1.0
 
-enum {STILL, FOLLOW}
+enum {STILL, FOLLOW, READY, FOLLOW_X_ONLY}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,3 +34,9 @@ func _on_cameraModifier_area_entered(area):
 		3: #RESET
 			cam.cinematicOffset = Vector3.ZERO
 			cam.positioningSpeed = cameraSpeed
+			cam.mode = FOLLOW
+		4: #FREE
+			cam.mode = FOLLOW
+		5: #LOCK_Y
+			cam.mode = FOLLOW_X_ONLY
+			

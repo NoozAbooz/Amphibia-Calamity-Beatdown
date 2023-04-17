@@ -8,13 +8,12 @@ export var defaultOffset = Vector3(14, 15, 48)
 export var startingOffset = Vector3(20, 0, 0)
 var cinematicOffset = Vector3.ZERO
 
-enum {STILL, FOLLOW, READY}
+enum {STILL, FOLLOW, READY, FOLLOW_X_ONLY}
 var mode = READY
 
 var des = Vector3(0, 0, 0)
 var act = Vector3(0, 0, 0)
 var positioningSpeed = 1
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,8 +30,10 @@ func _process(delta):
 	match mode:
 		STILL:
 			des = cart.translation + cinematicOffset
+			des.y = cart.floorHeight + cinematicOffset.y
 		FOLLOW:
 			des = cart.translation + cinematicOffset + defaultOffset
+			des.y = cart.floorHeight + cinematicOffset.y + defaultOffset.y
 			act.x += 0.1 * (des.x - act.x) * positioningSpeed
 			act.y += 0.05 * (des.y - act.y) * positioningSpeed
 			act.z += 0.1 * (des.z - act.z) * positioningSpeed
@@ -45,4 +46,11 @@ func _process(delta):
 			pivot.translation = act
 			if (cart.translation.x >= pivot.translation.x - defaultOffset.x):
 				mode = FOLLOW
+		FOLLOW_X_ONLY:
+			des = cart.translation + cinematicOffset + defaultOffset
+			#des.y = cart.floorHeight + cinematicOffset.y + defaultOffset.y
+			act.x += 0.1 * (des.x - act.x) * positioningSpeed
+			#act.y += 0.05 * (des.y - act.y) * positioningSpeed
+			act.z += 0.1 * (des.z - act.z) * positioningSpeed
+			pivot.translation = act
 			

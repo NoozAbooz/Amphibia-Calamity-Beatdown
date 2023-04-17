@@ -2,7 +2,7 @@ extends StaticBody
 
 enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP, KB_WEAK_PIERCE, KB_STRONG_PIERCE, KB_ANGLED_PIERCE}
 
-var hitDamage = 20
+export var hitDamage = 20
 var hitType = KB_ANGLED_PIERCE
 var hitDir = Vector3(3, 50, 0)
 
@@ -15,9 +15,13 @@ var maxDelay = 5
 var minDelay = 2.5
 
 # set to negative to pick random initial delay (default behavior)
-export var initialDelay = -1
+export var skipFirstDelay = false
+
+export var initialDelay = -1.0
 
 export var constSpray = false
+
+export var enemiesImmune = false
 
 var active = false
 
@@ -27,6 +31,8 @@ onready var anim = $AnimationPlayer
 func _ready():
 	if constSpray:
 		anim.play("steamConst")
+	if enemiesImmune:
+		get_node("hitboxes/hitbox").set_collision_layer_bit(3, false)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -44,6 +50,8 @@ func _on_VisibilityNotifier_camera_entered(camera):
 		delay = initialDelay
 	if not constSpray:
 		$Timer.start(delay)
+	if skipFirstDelay:
+		anim.play("warn")
 
 
 func _on_VisibilityNotifier_camera_exited(camera):
@@ -55,3 +63,5 @@ func _on_VisibilityNotifier_camera_exited(camera):
 func _on_Timer_timeout():
 	if active:
 		anim.play("steam")
+	if skipFirstDelay:
+		anim.seek(0.9833)

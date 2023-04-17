@@ -2,9 +2,14 @@ extends KinematicBody
 
 var vfxScene = preload("res://scenes/vfx.tscn")
 
-var coinScene = preload("res://scenes/pickups/coin.tscn")
+var coinScene = preload("res://maps/minecart/coinDropped.tscn")
 
 var jump = "cart_jump"
+
+onready var wheels = [get_node("zeroPoint/wheels/wheel0"), get_node("zeroPoint/wheels/wheel1"), get_node("zeroPoint/wheels/wheel2"), get_node("zeroPoint/wheels/wheel3")]
+onready var anim = get_node("AnimationPlayer")
+onready var sprite = get_node("zeroPoint/AnimatedSprite3D")
+var mainCharacter = "none"
 
 # player variables
 var hpMax = 0
@@ -40,6 +45,8 @@ var inputJump = false
 enum {SPAWN, IDLE, JUMP, RISING, FALLING, BOUNCE, LAND, HURTLAUNCH, HURTRISING, CRASH}
 var state = IDLE
 var nextState = IDLE
+var changedState = false
+var finishedLanding = false
 
 # hurting
 var justHurt = false
@@ -47,16 +54,28 @@ var tempInvincible = false
 var damage = 0
 var hurtDamageMulti = 1
 
+# hitting
+var hitStun = false
+var bounced = false
+
 # animations
 var animFinished = false
+
+# keeps track of who gets next coin
+var nextCoinReceiver = 0
+
+# y value to send to cam
+var floorHeight = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 	
 func initialize(spawnLocation):
+	var hasFoundMainCharacter = false
 	# Parameter stuff
 	translation = spawnLocation
+	floorHeight = spawnLocation.y
 	zPOS = translation.z
 	# Stores important values
 	playerHealth = pg.playerHealth
@@ -70,6 +89,11 @@ func initialize(spawnLocation):
 		if (pg.playerAlive[i] == false):
 			get_node("playerInfo" + str(i)).queue_free()
 			continue
+		#picks player sprite
+		if not hasFoundMainCharacter:
+			hasFoundMainCharacter = true
+			mainCharacter = playerCharacter[i]
+			sprite.play(mainCharacter + "_idle")
 		# Player GUI stuff
 		var playerPan = "playerInfo" + str(i)
 		# sets up player healthbar/lives/coins
@@ -108,7 +132,7 @@ func updateGUI():
 		# Player GUI stuff
 		var playerPan = "playerInfo" + str(i)
 		# sets up player healthbar/lives/coins
-		get_node(playerPan + "/lifeBar").value = 100 * float(playerHealth[i]/hpMax)
+		get_node(playerPan + "/lifeBar").value = 100 * float(playerHealth[i])/float(hpMax)
 		get_node(playerPan + "/coinCounter").text = str(playerCoins[i]).pad_zeros(3)
 		if (playerLives[i] > 9):
 			get_node(playerPan + "/lifeCounter").text = " "
@@ -118,7 +142,7 @@ func updateGUI():
 		var condition = "idle"
 		if isInState([HURTLAUNCH, HURTRISING]):
 			condition = "hurt"
-		elif ( (float(playerHealth[i]/hpMax)) <= 0.35):
+		elif ( (float(playerHealth[i])/float(hpMax)) <= 0.35):
 			condition = "low"
 		get_node(playerPan + "/face").play(condition + playerCharacter[i])
 		
@@ -132,23 +156,30 @@ func spawnCoins():
 			if (coinsLeft >= 20):
 				var coins = coinScene.instance()
 				get_parent().add_child(coins)
-				coins.initialize(translation + Vector3(0, 1, 0), 20, 1.25)
+				coins.initialize(translation + Vector3(0, 1, 0), 20)
 				coinsLeft -= 20
 			elif (coinsLeft >= 5):
 				var coins = coinScene.instance()
 				get_parent().add_child(coins)
-				coins.initialize(translation + Vector3(0, 1, 0), 5, 1.25)
+				coins.initialize(translation + Vector3(0, 1, 0), 5)
 				coinsLeft -= 5
 			else:
 				var coins = coinScene.instance()
 				get_parent().add_child(coins)
-				coins.initialize(translation + Vector3(0, 1, 0), 1, 1.25)
+				coins.initialize(translation + Vector3(0, 1, 0), 1)
 				coinsLeft -= 1
 	playerCoins = [0, 0, 0, 0]
 	pg.playerCoins = [0, 0, 0, 0]
 	updateGUI()
 	
-
+func hitEnemy():
+	hitStun = true
+	$hitTimer.start(0.1)
+	
+func bounce():
+	bounced = true
+	
+	
 func clearInputBuffer():
 	inputBuffTimer = 0
 	inputJump = false
@@ -187,13 +218,23 @@ func everyoneIsDead():
 	return everyoneIsDead
 
 func addCoins(amount):
-	for i in range(0, 4):
-		# skips if dead player
-		if (pg.playerAlive[i] == false):
-			continue
+	var coinsToDishOut = amount
+	while (coinsToDishOut > 0):
+		if (pg.playerAlive[nextCoinReceiver] == false):
+			nextCoinReceiver += 1
 		else:
-			playerCoins[i] += amount
-			return
+			playerCoins[nextCoinReceiver] += 1
+			coinsToDishOut -= 1
+			nextCoinReceiver += 1
+		if (nextCoinReceiver >= 4):
+			nextCoinReceiver = 0
+#		for i in range(0, 4):
+#			# skips if dead player
+#			if (pg.playerAlive[i] == false):
+#				continue
+#			else:
+#				playerCoins[i] += amount
+#				return
 	updateGUI()
 
 
@@ -224,17 +265,27 @@ func _physics_process(delta):
 				nextState = FALLING
 			elif justHurt:
 				nextState = HURTLAUNCH
+			elif bounced:
+				bounced = false
+				nextState = BOUNCE
 			else:
 				state = IDLE
 		JUMP:
 			nextState = RISING
+			soundManager.pitchSound("jump", 1.0)
+			soundManager.playSound("jump")
 		BOUNCE:
 			nextState = RISING
+			soundManager.pitchSound("jump", 1.2)
+			soundManager.playSound("jump")
 		RISING:
 			if (velocity.y <= 0):
 				nextState = FALLING
 			elif justHurt:
 				nextState = HURTLAUNCH
+			elif bounced:
+				bounced = false
+				nextState = BOUNCE
 			else:
 				nextState = RISING
 		FALLING:
@@ -242,15 +293,21 @@ func _physics_process(delta):
 				nextState = LAND
 			elif justHurt:
 				nextState = HURTLAUNCH
+			elif bounced:
+				bounced = false
+				nextState = BOUNCE
 			else:
 				nextState = FALLING
 		LAND:
-			if (animFinished):
+			if (finishedLanding):
 				nextState = IDLE
-				animFinished = false
-			if (inputJump):
+				finishedLanding = false
+			elif (inputJump):
 				clearInputBuffer()
 				nextState = JUMP
+			elif bounced:
+				bounced = false
+				nextState = BOUNCE
 			elif justHurt:
 				nextState = HURTLAUNCH
 			else:
@@ -266,6 +323,9 @@ func _physics_process(delta):
 				nextState = CRASH
 				spawnCoins()
 				$crashTimer.start(3)
+			elif bounced:
+				bounced = false
+				nextState = BOUNCE
 			elif is_on_floor():
 				nextState = LAND
 			else:
@@ -274,6 +334,10 @@ func _physics_process(delta):
 			nextState = CRASH
 		_:
 			pass
+	if state != nextState:
+		changedState = true
+	else:
+		changedState = false
 	state = nextState
 	# taking damage ---------------------------------------
 	if isInState([HURTLAUNCH]):
@@ -331,7 +395,8 @@ func _physics_process(delta):
 		snapVect = Vector3.ZERO
 	else:
 		snapVect = Vector3(0, -2, 0)
-	velocity.y = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true, 4, 1.05).y
+	if not hitStun:
+		velocity.y = move_and_slide_with_snap(velocity, snapVect, Vector3.UP, true, 4, 1.05).y
 	# gets angle
 	if is_on_floor():
 		var tempVect = get_floor_normal()
@@ -356,13 +421,65 @@ func _physics_process(delta):
 		if (abs(desMaxSpeed - actMaxSpeed) < 1):
 			actMaxSpeed = desMaxSpeed
 		#print("vel: " + str(velocity.x) + " | actualMax: " + str(actMaxSpeed) + " | desiredMax: " + str(desMaxSpeed))
-	
+	# calculates height of floor below character for the camera
+	if ($RayCast.is_colliding()):
+		floorHeight = $RayCast.get_collision_point().y
+	# spins wheels
+	for wheel in wheels:
+		wheel.rotate_x(deg2rad(velocity.x * 0.3))
+	# characterSprite
+	if changedState:
+		match state: #SPAWN, IDLE, JUMP, RISING, FALLING, BOUNCE, LAND, HURTLAUNCH, HURTRISING, CRASH
+			SPAWN:
+				sprite.play(mainCharacter + "_idle")
+				anim.play("idle")
+			IDLE:
+				sprite.play(mainCharacter + "_idle")
+				anim.play("idle")
+			JUMP:
+				sprite.play(mainCharacter + "_rising")
+				anim.play("jump")
+			BOUNCE:
+				sprite.play(mainCharacter + "_rising")
+				anim.play("jump")
+			RISING:
+				sprite.play(mainCharacter + "_rising")
+				#anim.play("jump")
+			FALLING:
+				sprite.play(mainCharacter + "_falling")
+				anim.play("still")
+			LAND:
+				sprite.play(mainCharacter + "_landing")
+				anim.play("land")
+			HURTLAUNCH:
+				sprite.play(mainCharacter + "_hurt")
+				anim.play("still")
+			HURTRISING:
+				sprite.play(mainCharacter + "_hurt")
+				anim.play("still")
+			CRASH:
+				sprite.play(mainCharacter + "_dead")
+				anim.play("dead")
+			_:
+				sprite.play(mainCharacter + "_idle")
+				anim.play("idle")
 
-func _on_AnimationPlayer_animation_finished(_anim_name):
-	animFinished = true
+func _on_AnimationPlayer_animation_finished(anim_name):
+	match anim_name:
+		"land":
+			finishedLanding = true	
 
 
 func _on_hurtbox_area_entered(area):
+	if area.is_in_group("death"):
+		justHurt = true
+		damage = 15
+		tempInvincible = true
+		get_node("invTimer").start(3)
+		$effects.play("flash")
+		translation = area.respawnLocation
+		velocity.x = 0
+		return
 	if area.is_in_group("windboxes"):
 		forceWind = area.magnitude
 		return
@@ -416,6 +533,9 @@ func _on_hurtbox_area_entered(area):
 		tempInvincible = true
 		get_node("invTimer").start(3)
 		$effects.play("flash")
+		var vfx = vfxScene.instance()
+		get_parent().add_child(vfx)
+		vfx.playEffect("hit", 0.5*(translation + area.get_parent().get_parent().translation + Vector3(0, 0, 1.5)))
 
 
 func _on_invTimer_timeout():
@@ -426,3 +546,7 @@ func _on_invTimer_timeout():
 
 func _on_crashTimer_timeout():
 	get_parent().get_node("warps/minecartWarp")._on_minecartWarp_area_entered(null)
+
+
+func _on_hitTimer_timeout():
+	hitStun = false
