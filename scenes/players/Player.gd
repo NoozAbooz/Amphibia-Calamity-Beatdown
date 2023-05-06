@@ -96,8 +96,8 @@ var secondaryY = 0
 
 var nearNPCs = 0
 
-enum printStatesEnum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
-enum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO}
+enum printStatesEnum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO, WAVE}
+enum {IDLE, WALK, RUN, JUMP, DJUMP, RISING, FALLING, BOUNCE, LAND, LANDC, A_L1, A_L2, A_L3, A_H1, A_H2, A_H3, A_AL1, A_AL2, A_AL3, A_AH1, A_AH2, A_AH3_LAUNCH, A_AH3_RISE, A_AH3_HIT, A_AH3_LAND, A_SL, A_SH, BLOCK, COUNTER, BLOCKHIT, HURT, HURTLAUNCH, HURTRISING, HURTFALLING, HURTFLOOR, KO, WAVE}
 enum {UP, DOWN, LEFT, RIGHT, NONE}
 enum {KB_WEAK, KB_STRONG, KB_ANGLED, KB_AIR, KB_STRONG_RECOIL, KB_AIR_UP, KB_WEAK_PIERCE, KB_STRONG_PIERCE, KB_ANGLED_PIERCE}
 var oldInput = UP
@@ -504,16 +504,25 @@ func _physics_process(delta):
 			elif (inputBuffKey == light_attack_button) and isWavedashing:
 				clearInputBuffer()
 				nextState = A_L1
+			elif (inputBuffKey == heavy_attack_button) and isWavedashing:
+				clearInputBuffer()
+				nextState = A_H1
 			elif (inputBuffKey == light_attack_button):
 				clearInputBuffer()
 				nextState = A_SL
 			#elif Input.is_action_just_pressed(heavy_attack_button):
 			elif (inputBuffKey == heavy_attack_button):
 				clearInputBuffer()
-				if pg.hasSlide and (waveVect.length() <= 0.1*wavedashSpeed):
+				if pg.hasSlide: # and (waveVect.length() <= 0.1*wavedashSpeed):
 					nextState = A_SH
 				else:
 					nextState = A_H1
+			elif Input.is_action_just_pressed(block_button):
+				clearInputBuffer()
+				if pg.hasSlide and (waveVect.length() <= 0.1*wavedashSpeed):
+					nextState = WAVE
+				else:
+					nextState = RUN
 			else:
 				nextState = RUN
 		JUMP:
@@ -648,6 +657,9 @@ func _physics_process(delta):
 				nextState = IDLE
 				animFinished = false
 		A_H2:
+			if (comboReady) and (hitLanded) and (playerChar == "Marcy"):
+				nextState = IDLE
+				animFinished = false
 			if animFinished:
 				nextState = IDLE
 				animFinished = false
@@ -753,6 +765,8 @@ func _physics_process(delta):
 			elif animFinished and (velocity.y <= 0):
 				nextState = FALLING
 				animFinished = false
+#			elif (comboReady) and (playerChar == "Darla") and (inputBuffKey == heavy_attack_button):
+#				anim.seek(0, false)
 			elif animFinished:
 				nextState = RISING
 				animFinished = false
@@ -818,6 +832,12 @@ func _physics_process(delta):
 #				nextState = A_H1
 #			elif Input.is_action_just_pressed(block_button):
 #				nextState = BLOCK
+			elif animFinished:
+				nextState = IDLE
+				animFinished = false
+		WAVE:
+			if (is_on_floor() == false):
+				nextState = FALLING
 			elif animFinished:
 				nextState = IDLE
 				animFinished = false
@@ -958,7 +978,7 @@ func _physics_process(delta):
 		soundManager.playSound("run")
 	elif (nextState == BLOCK) and (state != BLOCK) and (state != BLOCKHIT):
 		soundManager.playSound("shield")
-	elif ((nextState == A_SL) or (nextState == A_SH)) and (state != A_SL) and (state != A_SH):
+	elif ((nextState == A_SL) or (nextState == A_SH) or (nextState == WAVE)) and (state != A_SL) and (state != A_SH) and (state != WAVE):
 		soundManager.playSound("slide")
 	elif (nextState == JUMP):
 		soundManager.pitchSound("jump", 1.0)
@@ -1115,7 +1135,7 @@ func _physics_process(delta):
 	# sets X speed
 	if isInState([WALK, IDLE]):
 		speed = speed_walk
-	elif isInState([RUN, A_SL, A_SH]):
+	elif isInState([RUN, A_SL, A_SH, WAVE]):
 		speed = speed_run
 		
 	# X movement
@@ -1154,21 +1174,29 @@ func _physics_process(delta):
 		velocity.z = 0
 		
 	# sliding
-	if (isInState([A_SL, A_SH]) == false):
+	if (isInState([A_SL, A_SH, WAVE]) == false):
 		slideReady = true
-	if (slideReady) and isInState([A_SL, A_SH]):
+	if (slideReady) and isInState([A_SL, A_SH, WAVE]):
 		slideReady = false
 		slideSpeed = speed_run * 2.0 #2.0
 		slideDir.x = direction.x
 		slideDir.y = direction.z
-	elif isInState([A_SL, A_SH]):
+	elif isInState([A_SL, A_SH, WAVE]):
 		velocity.x = slideSpeed * slideDir.x
 		velocity.z = slideSpeed * (float(speed_z) / float(speed_run)) * slideDir.y
 		if (slideSpeed > 0):
-			if (playerChar == "Sasha") or (playerChar == "Marcy"):
+			if (playerChar == "Sasha"):
 				slideSpeed -= 1.0
+			elif (playerChar == "Marcy"):
+				if isInState([A_SL]):
+					slideSpeed -= 1.25
+				else:
+					slideSpeed -= 1.75
 			elif (playerChar == "Darla"):
-				slideSpeed -= 0.75
+				if isInState([A_SL]):
+					slideSpeed -= 1.25
+				else:
+					slideSpeed -= 0.75
 			else:
 				slideSpeed -= 1.25 # 1.5
 		if (slideSpeed < 0):
@@ -1320,6 +1348,8 @@ func _physics_process(delta):
 		anim.play("attack_slide_L")
 	elif isInState([A_SH]):
 		anim.play("attack_slide_H")
+	elif isInState([WAVE]):
+		anim.play("wave")
 	elif isInState([BLOCK]):
 		anim.play("block")
 	elif isInState([BLOCKHIT]):

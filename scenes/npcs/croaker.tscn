@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://art/npcs/Sadie.png" type="Texture" id=1]
 [ext_resource path="res://scenes/npcs/npc.gd" type="Script" id=2]
@@ -78,7 +78,7 @@ region = Rect2( 60, 40, 60, 40 )
 [sub_resource type="SpriteFrames" id=24]
 animations = [ {
 "frames": [ SubResource( 11 ), SubResource( 11 ), SubResource( 11 ), SubResource( 12 ), SubResource( 12 ), SubResource( 12 ), SubResource( 11 ), SubResource( 11 ), SubResource( 11 ), SubResource( 12 ), SubResource( 12 ), SubResource( 12 ), SubResource( 11 ), SubResource( 11 ), SubResource( 11 ), SubResource( 12 ), SubResource( 12 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 19 ), SubResource( 19 ), SubResource( 19 ), SubResource( 19 ), SubResource( 19 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
-"loop": true,
+"loop": false,
 "name": "default",
 "speed": 5.0
 } ]
@@ -90,6 +90,36 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="Animation" id=25]
+resource_name = "idle"
+length = 6.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("shadowMaker2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.6, 5, 6, 6.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.19659, 1.5, 0 ), Vector3( 1.19659, 1.5, 0 ), Vector3( -1, 1.5, 0 ), Vector3( -1, 1.5, 0 ), Vector3( 1.19659, 1.5, 0 ) ]
+}
 
 [node name="sadie" type="Spatial"]
 script = ExtResource( 2 )
@@ -118,7 +148,7 @@ transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0
 offset = Vector2( 0, 19 )
 pixel_size = 0.07
 frames = SubResource( 24 )
-frame = 26
+frame = 5
 playing = true
 
 [node name="bubble" type="AnimatedSprite3D" parent="."]
@@ -126,6 +156,10 @@ transform = Transform( -4.37114e-08, 1, 0, -0.965926, -4.2222e-08, 0.258819, 0.2
 offset = Vector2( 25, 0 )
 pixel_size = 0.03
 frames = SubResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 25 )
 
 [connection signal="area_entered" from="talkZone" to="." method="_on_talkZone_area_entered"]
 [connection signal="area_exited" from="talkZone" to="." method="_on_talkZone_area_exited"]

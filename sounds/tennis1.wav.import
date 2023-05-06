@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tennis1.wav-b14a1b3f97e0a710697fb810d0df48af.sample"
+
+[deps]
+
+source_file="res://sounds/tennis1.wav"
+dest_files=[ "res://.import/tennis1.wav-b14a1b3f97e0a710697fb810d0df48af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

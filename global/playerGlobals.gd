@@ -64,10 +64,10 @@ var hasSasha  = true
 var hasSprig = true
 var hasMaggie = true
 var hasGrime = true
-var hasDarla = false
+var hasDarla = true
 var availableChars = ["Anne"]
 
-var clover = false
+var clover = true
 
 # Completed levels
 #                     [Wartwood, Test,  l1,    l2,    l3,    l4,    l5,    l6,    l7,    l8,    l9,   final]

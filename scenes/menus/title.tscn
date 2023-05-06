@@ -19,14 +19,14 @@
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
-"loop": false,
-"name": "en",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": false,
 "name": "fr",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": false,
+"name": "en",
 "speed": 5.0
 } ]
 
@@ -1379,7 +1379,7 @@ margin_bottom = 60.0
 rect_min_size = Vector2( 485, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
-text = "dmc.who"
+text = "Mystery Ghost"
 align = 1
 valign = 1
 
@@ -1542,6 +1542,8 @@ rect_min_size = Vector2( 970, 0 )
 autoplay = "intro"
 anims/idle = SubResource( 13 )
 anims/intro = SubResource( 12 )
+
+[node name="key" type="Node" parent="."]
 
 [connection signal="toggled" from="lockButton" to="." method="_on_lockButton_toggled"]
 [connection signal="toggled" from="hitboxButton" to="." method="_on_hitboxButton_toggled"]

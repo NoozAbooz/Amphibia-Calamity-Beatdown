@@ -49,10 +49,12 @@ func _process(delta):
 		A_SL:
 			player.setHitBox(8, KB_WEAK, Vector3(1, 0, 0), "hit1")
 		A_SH:
-			if (player.comboReady):
-				player.setHitBox(8, KB_ANGLED, Vector3(20, 20, 0), "hit3")
-			else:
-				player.setHitBox(5, KB_WEAK, Vector3(1, 0, 0), "hit1")
+			player.setHitBox(15, KB_ANGLED, Vector3(20, 35, 0), "hit3")
+#		A_SH: # Proj version
+#			if (player.comboReady):
+#				player.setHitBox(8, KB_ANGLED, Vector3(20, 20, 0), "hit3")
+#			else:
+#				player.setHitBox(5, KB_WEAK, Vector3(1, 0, 0), "hit1")
 			
 			
 		COUNTER:
