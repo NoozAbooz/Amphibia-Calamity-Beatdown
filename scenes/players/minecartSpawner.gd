@@ -22,6 +22,8 @@ var spawnerLocation = Vector3.ZERO
 
 var nextScene = camScene.instance()
 
+export (int, "newt", "earth") var cartType
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pg.karting = true
@@ -33,7 +35,7 @@ func _process(_delta):
 	# Adds instance of player to tree
 	get_parent().add_child(player)
 	# initializes player
-	player.initialize(translation)
+	player.initialize(translation, cartType)
 		
 	# adds camera scene
 	nextScene = camScene.instance()
@@ -61,7 +63,7 @@ func _process(_delta):
 	pg.dontMove = false
 	
 	# sets level in discord thing
-	discordRPC.updateLevel(pg.levelNameDisc)
+	#discordRPC.updateLevel(pg.levelNameDisc)
 	
 	#removes spawner
 	queue_free()

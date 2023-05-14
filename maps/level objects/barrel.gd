@@ -5,6 +5,7 @@ var vfxScene = preload("res://scenes/vfx.tscn")
 var coinScene = preload("res://scenes/pickups/coin.tscn")
 var khaoScene = preload("res://scenes/pickups/khao.tscn")
 var mushScene = preload("res://scenes/pickups/mush.tscn")
+var liveScene = preload("res://scenes/pickups/1up.tscn")
 var debrisScene = preload("res://scenes/enemies/spawners/debris.tscn")
 export var hp = 3
 var randChoice = 0
@@ -20,6 +21,7 @@ export var foods = 0
 export var bigFoods = 0
 export var spiders = 0
 export var wasps = 0
+export var lives = 0
 
 
 
@@ -45,6 +47,7 @@ func shuffleDrops(luck):
 	bigFoods = 0
 	spiders = 0
 	wasps = 0
+	lives = 0
 	# picks contents randomly and boost based on player luck
 	randChoice = rng.rand.randi_range(1, 15) + luck
 	match randChoice:
@@ -86,10 +89,13 @@ func shuffleDrops(luck):
 		16:
 			coppers = 35
 		17:
-			bigFoods = 1
+			bigFoods = 3
 		18:
+			lives = 1
+		19:
 			bigFoods = 1
 			goldCoins = 1
+			lives = 1
 		_:
 			pass
 
@@ -114,6 +120,11 @@ func dead():
 		food.initialize(translation + Vector3(0, 1, 0))
 	for i in range(0, bigFoods):
 		var food = khaoScene.instance()
+		get_parent().add_child(food)
+		food.initialize(translation + Vector3(0, 1, 0))
+	# spawns 1ups
+	for i in range(0, lives):
+		var food = liveScene.instance()
 		get_parent().add_child(food)
 		food.initialize(translation + Vector3(0, 1, 0))
 	# spawns wasps

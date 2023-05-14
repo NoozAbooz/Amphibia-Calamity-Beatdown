@@ -4,6 +4,7 @@ extends Area
 var loading = false
 export var destinationLevel = "test"
 
+# NOTE: MINECART ENTRANCE/EXIT/WARP MUST BE AN IMEDIATE CHILD OF THE MAP NODE
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +13,7 @@ func _ready():
 func storePlayerInfo():
 	# updates global player values from minecart node
 	if has_node("../minecart"):
-		pg.playerLives = get_node("minecart").playerLives
+		pg.playerLives = get_node("../minecart").playerLives
 		pg.playerCoins = get_node("../minecart").playerCoins
 		pg.playerHealth = get_node("../minecart").playerHealth
 		return

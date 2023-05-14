@@ -109,11 +109,11 @@ func _process(_delta):
 			$optionsMenu.hide()
 			$combosMenu.hide()
 			$controlsMenu.hide()
-			if (pg.countPlayers() > 1):
+			if (pg.countPlayers() > 1) and pg.dropPlayerEnabled:
 				$basicMenu/buttonDrop.disabled = false
 			else:
 				$basicMenu/buttonDrop.disabled = true
-			if (pg.karting):
+			if (pg.karting) or (pg.dropPlayerEnabled == false):
 				$basicMenu/buttonDrop.disabled = true
 				$basicMenu/buttonPos.disabled = true
 		DROP:

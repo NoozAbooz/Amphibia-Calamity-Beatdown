@@ -26,6 +26,8 @@ func _ready():
 	# tells pg that news load in of characters will be for inital level spawns
 	pg.initialSpawn = true
 	pg.karting = false
+	# re-enables dropping players from pause menu
+	pg.dropPlayerEnabled = true
 	# music stuff
 	soundManager.playMusicIfDiff("menu")
 	soundManager.follow2DCam = true

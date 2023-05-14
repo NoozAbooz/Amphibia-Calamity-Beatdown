@@ -7,7 +7,7 @@
 resource_name = "idle"
 step = 0.0166667
 tracks/0/type = "value"
-tracks/0/path = NodePath("modelZero/nest:scale")
+tracks/0/path = NodePath("modelZero/pivot/nest:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -16,23 +16,35 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.55, 1.5 ), Vector3( 1.5, 1.5, 1.5 ) ]
+"values": [ Vector3( 2, 2, 2 ), Vector3( 2, 2.2, 2 ), Vector3( 2, 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("modelZero/pivot/nest:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.55, 0.600001, 0.666668, 0.733333, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 60, -135, -180 ), Vector3( 60, -135, -180 ), Vector3( 61.4088, -133.884, -176.986 ), Vector3( 56.4638, -129.46, -173.875 ), Vector3( 61.4088, -133.884, -176.986 ), Vector3( 60, -135, -180 ), Vector3( 60, -135, -180 ) ]
 }
 
 [sub_resource type="Animation" id=7]
 resource_name = "spawn"
 step = 0.0166667
 tracks/0/type = "value"
-tracks/0/path = NodePath("modelZero/nest:scale")
+tracks/0/path = NodePath("modelZero/pivot/nest:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.333333, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 0.35, -2, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.333333, 0.5, 0.716668, 1 ),
+"transitions": PoolRealArray( 1, 0.35, -2, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.3, 1.5 ), Vector3( 1.5, 1.7, 1.5 ), Vector3( 1.5, 1.5, 1.5 ), Vector3( 1.5, 1.5, 1.5 ) ]
+"values": [ Vector3( 2, 2, 2 ), Vector3( 2, 1.3, 2 ), Vector3( 2, 2.5, 2 ), Vector3( 2, 2, 2 ), Vector3( 2, 2, 2 ), Vector3( 2, 2, 2 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -48,7 +60,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0.2, 0, 0 ), Vector3( -0.2, 0, 0 ), Vector3( 0.2, 0, 0 ), Vector3( -0.2, 0, 0 ), Vector3( 0.1, 0, 0 ), Vector3( -0.1, 0, 0 ), Vector3( 0.1, 0, 0 ), Vector3( -0.1, 0, 0 ), Vector3( 0.1, 0, 0 ), Vector3( -0.05, 0, 0 ), Vector3( 0.05, 0, 0 ), Vector3( -0.05, 0, 0 ), Vector3( 0.05, 0, 0 ), Vector3( -0.05, 0, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.4, 0, 0 ), Vector3( -0.4, 0, 0 ), Vector3( 0.4, 0, 0 ), Vector3( -0.4, 0, 0 ), Vector3( 0.2, 0, 0 ), Vector3( -0.2, 0, 0 ), Vector3( 0.1, 0, 0 ), Vector3( -0.1, 0, 0 ), Vector3( 0.1, 0, 0 ), Vector3( -0.05, 0, 0 ), Vector3( 0.05, 0, 0 ), Vector3( -0.05, 0, 0 ), Vector3( 0.05, 0, 0 ), Vector3( -0.05, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("modelZero:rotation_degrees")
@@ -166,7 +178,7 @@ radius = 1.75
 height = 3.0
 
 [sub_resource type="CylinderShape" id=10]
-radius = 10.0
+radius = 14.0
 height = 20.0
 
 [node name="waspNest" type="KinematicBody"]
@@ -189,10 +201,14 @@ anims/idle = SubResource( 5 )
 shape = SubResource( 8 )
 
 [node name="modelZero" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0425909, 0, 0 )
 
-[node name="nest" type="MeshInstance" parent="modelZero"]
-transform = Transform( 1.06066, 0.918558, -0.53033, -1.13247e-07, -0.75, -1.29904, -1.06066, 0.918559, -0.53033, -0.579343, 0.573954, -0.509499 )
+[node name="pivot" type="Spatial" parent="modelZero"]
+
+[node name="nest" type="MeshInstance" parent="modelZero/pivot"]
+transform = Transform( 1.41421, 1.22474, -0.707107, -1.50996e-07, -1, -1.73205, -1.41421, 1.22475, -0.707107, -0.579343, 0.573954, -0.509499 )
 mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
 material/0 = null
 
 [node name="hurtbox" type="Area" parent="."]

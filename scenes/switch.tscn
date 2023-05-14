@@ -135,7 +135,7 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="pivot" type="Spatial" parent="model"]
-transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, -0.5, 0 )
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -0.5, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="model/pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17567, 0 )

@@ -23,6 +23,8 @@ var maxZ = 0
 
 var debugMode = false
 
+var lockedHeight = false
+
 onready var pivot = get_parent_spatial()
 
 var playerPositions = PoolVector3Array()
@@ -204,6 +206,9 @@ func _process(_delta):
 	elif (onRightWall) and (desX > actX):
 		desX = actX
 		
+	if lockedHeight:
+		desY = actY
+		
 	# randomizes shake effect
 	if shaking:
 		shakeX = rng.rand.randf_range(-0.5, 0.5)
@@ -213,6 +218,8 @@ func _process(_delta):
 		shakeX = 0
 		shakeY = 0
 		shakeZ = 0
+	
+	
 	
 	if (debugMode == false):
 		actX += 0.1*(desX - actX) 

@@ -19,6 +19,8 @@ func _ready():
 	$hurtbox/CollisionShape2.disabled = true
 	if $hurtbox.is_in_group("healthSmall"):
 		$AnimatedSprite3D.play(look)
+	if $hurtbox.is_in_group("1up") and (pg.hardcoreMode or pg.unlimitedLives):
+		queue_free()
 
 func initialize(spawnLocation, val = 1):
 	value = val
@@ -38,6 +40,7 @@ func initialize(spawnLocation, val = 1):
 			_:
 				look = "jerky"
 		$AnimatedSprite3D.play(look)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

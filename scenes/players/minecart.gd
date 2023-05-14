@@ -11,6 +11,9 @@ onready var anim = get_node("AnimationPlayer")
 onready var sprite = get_node("zeroPoint/AnimatedSprite3D")
 var mainCharacter = "none"
 
+# look of cart
+var cartType = 0
+
 # player variables
 var hpMax = 0
 var playerHealth = [0, 0, 0, 0]
@@ -71,7 +74,7 @@ var floorHeight = 0
 func _ready():
 	pass
 	
-func initialize(spawnLocation):
+func initialize(spawnLocation, type):
 	var hasFoundMainCharacter = false
 	# Parameter stuff
 	translation = spawnLocation
@@ -122,6 +125,13 @@ func initialize(spawnLocation):
 	if (numExtras >= 1):
 		hurtDamageMulti = hurtDamageMulti * pow(1.2, numExtras)
 	updateGUI()
+	# look of cart
+	cartType = type
+	match cartType:
+		0:
+			$zeroPoint/shop/cart_earth.queue_free()
+		1:
+			$zeroPoint/shop/cart_newt.queue_free()
 		
 func updateGUI():
 	# sets GUI stuff
@@ -545,7 +555,7 @@ func _on_invTimer_timeout():
 
 
 func _on_crashTimer_timeout():
-	get_parent().get_node("warps/minecartWarp")._on_minecartWarp_area_entered(null)
+	get_parent().get_node("minecartWarp")._on_minecartWarp_area_entered(null)
 
 
 func _on_hitTimer_timeout():

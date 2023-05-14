@@ -48,7 +48,12 @@ onready var hitboxCol = get_node("zeroPoint/hitbox/CollisionShape")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	# sets meshes to copies of themselves
+	# for some fucking reason this fixes bug with "local to scene" not working with albedo alpha.
+	var mat = $explosionMeshInner.mesh.surface_get_material(0)
+	$explosionMeshInner.mesh.surface_set_material(0, mat.duplicate())
+	mat = $explosionMeshOuter.mesh.surface_get_material(0)
+	$explosionMeshOuter.mesh.surface_set_material(0, mat.duplicate())
 
 
 func initialize(pos, lookRight, damage, type, dir, sfx = "hit1", projType = 0, projVel = Vector3.ZERO, projAng = 0, projSource = 5):

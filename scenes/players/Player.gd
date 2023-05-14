@@ -93,6 +93,7 @@ var lastOnFloorHeight = 0
 var lastOnFloorPos = Vector3.ZERO
 var shadowHeight = 0 # used in camera positioning
 var secondaryY = 0
+var follwingAirbornePlayer = false
 
 var nearNPCs = 0
 
@@ -343,6 +344,13 @@ func addHealth(amount):
 	elif (hp >= hpMax):
 		hp = hpMax
 		
+func addLives(amount):
+	lives += amount
+	if (lives <= 0):
+		lives = 0
+	elif (lives >= 9):
+		lives = 9
+
 func startWavedash():
 	waveVect = velocity.normalized() * wavedashSpeed
 	isWavedashing = true
@@ -923,6 +931,7 @@ func _physics_process(delta):
 	# Bounce Pads
 	if (bouncing) and (isInState([RISING]) == false):
 		nextState = BOUNCE
+		bouncing = false
 	# checking for various invincibility flags
 	if (isInState([KO, HURTFALLING, HURTFLOOR, A_AH3_HIT])):
 		invincibleState = true
@@ -1014,7 +1023,10 @@ func _physics_process(delta):
 	if is_on_floor():
 		lastOnFloorHeight = translation.y
 		lastOnFloorPos = translation
-	if (shadowHeight > lastOnFloorHeight): # jumped up to higher ledge
+		follwingAirbornePlayer = false
+	if follwingAirbornePlayer:
+		secondaryY = translation.y
+	elif (shadowHeight > lastOnFloorHeight): # jumped up to higher ledge
 		secondaryY = shadowHeight
 	elif (translation.y < lastOnFloorHeight): # jumped/fell off ledge
 		if ($RayCast.is_colliding()): # not over death pit
@@ -1478,6 +1490,17 @@ func _on_hurtbox_area_entered(area):
 		area.get_parent().queue_free()
 		# plays sfx
 		soundManager.playSound("pickup")
+		return
+	elif area.is_in_group("1up"):
+		addLives(1)
+		# makes visual effect
+#		var vfx = vfxScene.instance()
+#		get_parent().add_child(vfx)
+#		vfx.playEffect("health", 0.5*(translation + area.get_parent().translation))
+		# removes item
+		area.get_parent().queue_free()
+		# plays sfx
+		soundManager.playSound("1up")
 		return
 	# HURTBOX COLISSION
 	# handles attack if projectile, sets attacker and attackerLocation variables

@@ -6,6 +6,7 @@ onready var blackMantisScene = preload("res://scenes/enemies/blackMantis.tscn")
 onready var redMantisScene = preload("res://scenes/enemies/bossMantis.tscn")
 onready var spiderScene = preload("res://scenes/enemies/spider.tscn")
 onready var waspScene = preload("res://scenes/enemies/wasp.tscn")
+onready var paperWaspScene = preload("res://scenes/enemies/paperWasp.tscn")
 onready var zapapedeScene = preload("res://scenes/enemies/zapapede.tscn")
 onready var robotScene = preload("res://scenes/enemies/robot.tscn")
 
@@ -43,6 +44,7 @@ var blackMantis
 var redMantis
 var spider
 var wasp
+var paperWasp
 var zapapede
 var robot
 
@@ -125,13 +127,27 @@ func _ready():
 	wasp.dam = 5
 	wasp.hlth = 30
 	wasp.wgt = 0
-	wasp.maxC = 2
+	wasp.maxC = 3
 	wasp.minC = 1
 	wasp.oddsD = 0.05
 	wasp.oddsK = 0.2
 	wasp.weakA = false
 	wasp.attackWaitTime = 70
 	wasp.color = 0
+	
+	# wasp Enemy Stats
+	paperWasp = stats.new()
+	paperWasp.spd = 5
+	paperWasp.dam = 5
+	paperWasp.hlth = 0
+	paperWasp.wgt = 0
+	paperWasp.maxC = 0
+	paperWasp.minC = 0
+	paperWasp.oddsD = 0
+	paperWasp.oddsK = 0
+	paperWasp.weakA = false
+	paperWasp.attackWaitTime = 70
+	paperWasp.color = 0
 	
 	# zapapede Enemy Stats
 	zapapede = stats.new()

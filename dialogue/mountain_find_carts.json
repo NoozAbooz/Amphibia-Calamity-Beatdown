@@ -1,0 +1,6 @@
+[
+  {"sprite":"[PC]_ask",   "pos":"left",  "move_in":"slide", "move_out":"none",  "text":"Are those... all the missing shopping carts from the Grub 'n Go?"},
+  {"sprite":"[PC]_normal",   "pos":"left",  "move_in":"still", "move_out":"none", "text":"So this is where that dragonfly has been taking them."},
+  {"sprite":"[PC]_normal",  "pos":"left", "move_in":"still", "move_out":"none", "text":"..."},
+  {"sprite":"[PC]_happy",  "pos":"left", "move_in":"still", "move_out":"slide", "text":"You guys thinking what I'm thinking?"}
+]

@@ -25,21 +25,25 @@ export var minCoins = 15
 export var oddsDrop = 1.0 
 export var oddsKhao = 0.20 
 
+var fallDir = Vector3.ZERO
+
 func spawn():
 	var num = rng.rand.randi_range(1, 2)
 	for i in range(0, num):
-		var nextEnemy = nme.waspScene.instance()
+		var nextEnemy = nme.paperWaspScene.instance()
 		get_parent().add_child(nextEnemy)
-		nextEnemy.initialize(nme.wasp, translation + Vector3((-1 + i), 0, rng.rand.randf_range(-1, 1)), Vector3.ZERO, true, true, true)
-		nextEnemy.hp = 0
+		nextEnemy.initialize(nme.paperWasp, translation + fallDir + Vector3(rng.rand.randf_range(-0.8, 0.8), 0, rng.rand.randf_range(-0.8, 0.8)), Vector3.ZERO, true, true, true)
 	spawnCount += num
 
 func spawnMore():
-	for i in range(0, 3):
+	for i in range(0, 2):
+		var nextEnemy = nme.paperWaspScene.instance()
+		get_parent().add_child(nextEnemy)
+		nextEnemy.initialize(nme.paperWasp, translation + Vector3(0, 1, 0), Vector3.ZERO, true, true, false)
+	for i in range(0, 2):
 		var nextEnemy = nme.waspScene.instance()
 		get_parent().add_child(nextEnemy)
-		nextEnemy.initialize(nme.wasp, translation + Vector3((-2 + i), 1, rng.rand.randf_range(-1, 1)), Vector3.ZERO, false, true, false)
-		
+		nextEnemy.initialize(nme.wasp, translation + Vector3(0, 1, 0), Vector3.ZERO, false, true, false)
 	
 func despawn():
 	# update drop counts/odds
@@ -84,7 +88,10 @@ func despawn():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$modelZero/pivot.rotation = rotation
+	fallDir = Vector3(1, 0, 1).rotated(Vector3.UP, rotation.y)
+	rotation = Vector3.ZERO
+	print(fallDir)
 
 
 func _process(delta):
@@ -94,7 +101,9 @@ func _process(delta):
 		spawnMore()
 	# falls if dead
 	if dead:
-		$modelZero/nest.rotate_z(-1*PI*delta)
+		$modelZero/pivot/nest.rotate_z(-1.25*PI*delta)
+		velocity.x = fallDir.x * 400 * delta
+		velocity.z = fallDir.z * 400 * delta
 		velocity.y -= 80 * delta
 		velocity = move_and_slide_with_snap(velocity, Vector3(0, 1, 0), Vector3.UP, true)
 
@@ -138,6 +147,7 @@ func _on_AnimationPlayerDamage_animation_finished(anim_name):
 			animDamage.play("idle")
 		"dead":
 			dead = true
+			velocity.y = 20
 			animDamage.play("idle")
 
 

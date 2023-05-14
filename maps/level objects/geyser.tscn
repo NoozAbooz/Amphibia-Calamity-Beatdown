@@ -2,7 +2,7 @@
 
 [ext_resource path="res://maps/level objects/geyser.gd" type="Script" id=1]
 
-[sub_resource type="ConvexPolygonShape" id=1]
+[sub_resource type="ConvexPolygonShape" id=269]
 points = PoolVector3Array( 1.5, 0, 1.5, 1.5, 0, -1.5, -1.5, 0, 1.5, -1.5, 0, -1.5, 0, 0.75, 0 )
 
 [sub_resource type="SpatialMaterial" id=2]
@@ -357,7 +357,8 @@ collision_mask = 0
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 269 )
+disabled = true
 
 [node name="base" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )

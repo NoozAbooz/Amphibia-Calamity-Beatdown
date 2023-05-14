@@ -4,7 +4,6 @@
 [ext_resource path="res://art/vfx/player_projectiles.png" type="Texture" id=2]
 [ext_resource path="res://art/vfx/baseball.png" type="Texture" id=3]
 [ext_resource path="res://art/vfx/explosions/round_p.png" type="Texture" id=4]
-[ext_resource path="res://themes/playerProjExpPurpOut.tres" type="Material" id=5]
 [ext_resource path="res://art/vfx/potion.png" type="Texture" id=6]
 [ext_resource path="res://art/mod/heart.png" type="Texture" id=7]
 [ext_resource path="res://art/vfx/explosions/sharp_r.png" type="Texture" id=8]
@@ -26,11 +25,6 @@ region = Rect2( 18, 0, 18, 16 )
 atlas = ExtResource( 3 )
 region = Rect2( 100, 0, 25, 20 )
 
-[sub_resource type="AtlasTexture" id=36]
-flags = 1
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 18, 16 )
-
 [sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 25, 20 )
@@ -47,6 +41,11 @@ region = Rect2( 50, 0, 25, 20 )
 atlas = ExtResource( 3 )
 region = Rect2( 75, 0, 25, 20 )
 
+[sub_resource type="AtlasTexture" id=36]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 18, 16 )
+
 [sub_resource type="SpriteFrames" id=38]
 animations = [ {
 "frames": [ SubResource( 41 ) ],
@@ -59,38 +58,38 @@ animations = [ {
 "name": "ball2",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 36 ) ],
-"loop": false,
-"name": "rock",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
 "loop": true,
 "name": "ball",
 "speed": 10.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "none",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": false,
 "name": "heart",
 "speed": 0.0
 }, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "bolt",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 36 ) ],
+"loop": false,
+"name": "rock",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "potion",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "bolt",
-"speed": 20.0
+"frames": [  ],
+"loop": false,
+"name": "none",
+"speed": 5.0
 } ]
 
-[sub_resource type="CylinderShape" id=39]
+[sub_resource type="CylinderShape" id=61]
 resource_local_to_scene = true
 radius = 1.6
 height = 40.0
@@ -101,7 +100,13 @@ bottom_radius = 0.5
 height = 0.1
 rings = 1
 
-[sub_resource type="ArrayMesh" id=49]
+[sub_resource type="SpatialMaterial" id=62]
+resource_local_to_scene = true
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0 )
+albedo_texture = ExtResource( 8 )
+
+[sub_resource type="ArrayMesh" id=63]
 resource_local_to_scene = true
 resource_name = "explode_in_Icosphere001"
 surfaces/0 = {
@@ -111,7 +116,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 180,
-"material": ExtResource( 5 ),
+"material": SubResource( 62 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 180
@@ -121,9 +126,9 @@ surfaces/0 = {
 resource_local_to_scene = true
 flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0 )
-albedo_texture = ExtResource( 4 )
+albedo_texture = ExtResource( 9 )
 
-[sub_resource type="ArrayMesh" id=48]
+[sub_resource type="ArrayMesh" id=64]
 resource_local_to_scene = true
 resource_name = "explode_out_Icosphere001"
 surfaces/0 = {
@@ -280,9 +285,9 @@ tracks/11/path = NodePath("explosionMeshInner:mesh:resource_local_to_scene")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
-tracks/11/enabled = true
+tracks/11/enabled = false
 tracks/11/keys = {
-"times": PoolRealArray( 0.0166667 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -292,9 +297,9 @@ tracks/12/path = NodePath("explosionMeshOuter:mesh:surface_1/material:albedo_tex
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
-tracks/12/enabled = true
+tracks/12/enabled = false
 tracks/12/keys = {
-"times": PoolRealArray( 0.0166667 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -779,8 +784,8 @@ albedo_color = Color( 1, 0, 0, 0.470588 )
 [sub_resource type="CylinderMesh" id=59]
 resource_local_to_scene = true
 material = SubResource( 58 )
-top_radius = 0.01
-bottom_radius = 0.01
+top_radius = 0.1
+bottom_radius = 0.1
 height = 100.0
 radial_segments = 6
 rings = 0
@@ -811,7 +816,7 @@ collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape" type="CollisionShape" parent="zeroPoint/hitbox"]
-shape = SubResource( 39 )
+shape = SubResource( 61 )
 
 [node name="shadowMaker" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
@@ -824,16 +829,16 @@ one_shot = true
 autostart = true
 
 [node name="explosionMeshInner" type="MeshInstance" parent="."]
-transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.25, 0 )
-mesh = SubResource( 49 )
+transform = Transform( 0.822724, 0, 0.475, 0, 0.95, 0, -0.475, 0, 0.822724, 0, 0.25, 0 )
+mesh = SubResource( 63 )
 skeleton = NodePath("../explosionMeshOuter")
 material/0 = null
 
 [node name="explosionMeshOuter" type="MeshInstance" parent="."]
-transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.25, 0 )
+transform = Transform( 0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 0, 0.25, 0 )
 cast_shadow = 0
 generate_lightmap = false
-mesh = SubResource( 48 )
+mesh = SubResource( 64 )
 software_skinning_transform_normals = false
 material/0 = null
 

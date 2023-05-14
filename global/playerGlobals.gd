@@ -91,6 +91,7 @@ var currentStore = 0 # 0 = none; 1 = city hall; 2 = Maddie; 3 = Felicia
 var seenTutorial = false
 var karting = false
 var initialSpawn = true
+var dropPlayerEnabled = true
 
 # debug flags
 var debugCameraAvailable = false
