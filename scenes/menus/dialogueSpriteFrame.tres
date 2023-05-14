@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=26 format=2]
+[gd_resource type="SpriteFrames" load_steps=37 format=2]
 
 [ext_resource path="res://art/cutscenes/Anne_ask.png" type="Texture" id=1]
 [ext_resource path="res://art/cutscenes/Marcy_happy.png" type="Texture" id=2]
@@ -25,6 +25,17 @@
 [ext_resource path="res://art/mod/Sprite_Happy_V2.png" type="Texture" id=23]
 [ext_resource path="res://art/mod/Sprite_Question_V2.png" type="Texture" id=24]
 [ext_resource path="res://art/mod/Sprite_normal_V2.png" type="Texture" id=25]
+[ext_resource path="res://art/cutscenes/Grime_happy.png" type="Texture" id=26]
+[ext_resource path="res://art/cutscenes/Grim_ask.png" type="Texture" id=27]
+[ext_resource path="res://art/cutscenes/Sasha_normal.png" type="Texture" id=28]
+[ext_resource path="res://art/cutscenes/Grime_normal.png" type="Texture" id=29]
+[ext_resource path="res://art/cutscenes/Bessie_saddle.png" type="Texture" id=30]
+[ext_resource path="res://art/cutscenes/Bessie_normal.png" type="Texture" id=31]
+[ext_resource path="res://art/cutscenes/Sasha_ask.png" type="Texture" id=32]
+[ext_resource path="res://art/cutscenes/Sasha_happy.png" type="Texture" id=33]
+[ext_resource path="res://art/cutscenes/Archie_normal.png" type="Texture" id=34]
+[ext_resource path="res://art/cutscenes/Croaker_normal.png" type="Texture" id=35]
+[ext_resource path="res://art/cutscenes/Loggle_normal.png" type="Texture" id=36]
 
 [resource]
 animations = [ {
@@ -38,24 +49,9 @@ animations = [ {
 "name": "Marcy_happy",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": false,
-"name": "Fel_normal",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": false,
 "name": "Hoppop_mad",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": false,
-"name": "Hoppop_ask",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "Mad_normal",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -73,14 +69,29 @@ animations = [ {
 "name": "Ivy_normal",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "Buck_normal",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "Hoppop_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Mad_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "Fel_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "Hoppop_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Buck_normal",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -103,49 +114,9 @@ animations = [ {
 "name": "Wally_ask",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ) ],
-"loop": false,
-"name": "Sprig_ask",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": false,
-"name": "Anne_ask",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": false,
-"name": "Polly_happy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": false,
-"name": "Toadstool_normal",
-"speed": 0.0
-}, {
-"frames": [ ExtResource( 22 ) ],
-"loop": false,
-"name": "Maggie_happy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": false,
-"name": "Anne_normal",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 21 ) ],
 "loop": false,
 "name": "Maggie_normal",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ) ],
-"loop": false,
-"name": "Maggie_ask",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ) ],
-"loop": false,
-"name": "Darla_normal",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ) ],
@@ -153,8 +124,103 @@ animations = [ {
 "name": "Darla_happy",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 19 ) ],
+"loop": false,
+"name": "Sprig_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": false,
+"name": "Maggie_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "Anne_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": false,
+"name": "Maggie_happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "Polly_happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": false,
+"name": "Darla_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "Anne_ask",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 24 ) ],
 "loop": false,
 "name": "Darla_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": false,
+"name": "Toadstool_normal",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": false,
+"name": "Bessie_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ) ],
+"loop": false,
+"name": "Croaker_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": false,
+"name": "Bessie_saddle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": false,
+"name": "Sasha_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": false,
+"name": "Sasha_happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": false,
+"name": "Sasha_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 36 ) ],
+"loop": false,
+"name": "Loggle_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ) ],
+"loop": false,
+"name": "Archie_normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "Grime_happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": false,
+"name": "Grime_ask",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": false,
+"name": "Grime_normal",
 "speed": 5.0
 } ]
