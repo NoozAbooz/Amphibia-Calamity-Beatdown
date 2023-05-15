@@ -16,14 +16,14 @@ func _process(delta):
 		A_L1:
 			player.setHitBox(5, KB_WEAK, Vector3(1, 0, 0))
 		A_L2:
-			player.setHitBox(5, KB_WEAK, Vector3(1, 0, 0), "hit2")
+			player.setHitBox(8, KB_WEAK, Vector3(1, 0, 0), "hit2")
 		A_L3:
-			player.setHitBox(6, KB_WEAK, Vector3(1, 0, 0))
+			player.setHitBox(8, KB_WEAK, Vector3(1, 0, 0))
 			
 		A_H1:
-			player.setHitBox(12, KB_STRONG, Vector3(30, 25, 0), "hit3")
+			player.setHitBox(15, KB_STRONG, Vector3(30, 25, 0), "hit3")
 		A_H2:
-			player.setHitBox(20, KB_STRONG, Vector3(7, 50, 0), "hit3")
+			player.setHitBox(15, KB_STRONG, Vector3(7, 50, 0), "hit3")
 		A_H3:
 			if (player.comboReady):
 				player.setHitBox(15, KB_ANGLED, Vector3(15, 35, 0), "none")
@@ -31,30 +31,30 @@ func _process(delta):
 				player.setHitBox(2, KB_WEAK, Vector3(1, 0, 0), "hit5")
 		
 		A_AL1:
-			player.setHitBox(5, KB_AIR, Vector3(1, 0, 0))
+			player.setHitBox(8, KB_AIR, Vector3(1, 0, 0))
 		A_AL2:
-			player.setHitBox(5, KB_AIR, Vector3(10, 5, 0), "hit2")
+			player.setHitBox(10, KB_AIR, Vector3(10, 5, 0), "hit2")
 		A_AL3:
-			player.setHitBox(5, KB_AIR_UP, Vector3(1, 30, 0))
+			player.setHitBox(10, KB_AIR_UP, Vector3(1, 30, 0))
 			
 			
 			
 		A_AH1:
 			player.setHitBox(15, KB_STRONG, Vector3(-7, 30, 0), "hit3")
 		A_AH2:
-			player.setHitBox(10, KB_AIR, Vector3(10, 5, 0), "hit4")
+			player.setHitBox(18, KB_AIR, Vector3(10, 5, 0), "hit4")
 		A_AH3_HIT:
-			player.setHitBox(6, KB_STRONG, Vector3(0, 7, 0), "hit4")
+			player.setHitBox(5, KB_STRONG, Vector3(0, 7, 0), "hit4")
 		A_AH3_LAND:
-			player.setHitBox(0, KB_ANGLED, Vector3(1, 10, 0), "hit3")
+			player.setHitBox(1, KB_ANGLED, Vector3(1, 10, 0), "hit3")
 		
 		A_SL:
 			player.setHitBox(5, KB_STRONG, Vector3(-7, 40, 0), "hit2")
 		A_SH:
-			player.setHitBox(15, KB_STRONG, Vector3(23, 25, 0), "hit3")
+			player.setHitBox(10, KB_STRONG, Vector3(23, 25, 0), "hit3")
 			
 		COUNTER:
-			player.setHitBox(35, KB_ANGLED, Vector3(5, 40, 0), "hit4")
+			player.setHitBox(30, KB_ANGLED, Vector3(5, 40, 0), "hit4")
 			
 		HURTFLOOR:
 			player.setHitBox(1, KB_ANGLED, Vector3(5, 15, 0))

@@ -58,9 +58,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=217]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.152941, 0.152941, 0.180392, 1 )
 background_energy = 2.48
 ambient_light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
@@ -1472,7 +1472,6 @@ randomContents = false
 coppers = 30
 
 [node name="triggers" type="Spatial" parent="."]
-visible = false
 
 [node name="cameraWall" parent="triggers" instance=ExtResource( 46 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -259.29, 16.3664, -37.7732 )
@@ -1497,7 +1496,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9143, 5.62601, 0 )
 dialogueName = "challenge_level"
 
 [node name="barriers" type="Spatial" parent="."]
-visible = false
 
 [node name="playerRiverBoundary" type="StaticBody" parent="barriers"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 621.249, 16.3682, -17.7414 )

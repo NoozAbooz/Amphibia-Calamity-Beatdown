@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://minecartEntrance.gd" type="Script" id=1]
 [ext_resource path="res://art/models/shoppingCarts/Material2.material" type="Material" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://art/models/shoppingCarts/Material3.material" type="Material" id=4]
 [ext_resource path="res://art/models/shoppingCarts/default material.material" type="Material" id=5]
 [ext_resource path="res://art/models/shoppingCarts/newtoia_kart_texture.material" type="Material" id=6]
+[ext_resource path="res://art/mod/cart.png" type="Texture" id=7]
 [ext_resource path="res://art/minecartSprites.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=185]
@@ -210,6 +211,70 @@ surfaces/1 = {
 "vertex_count": 8
 }
 
+[sub_resource type="AtlasTexture" id=191]
+atlas = ExtResource( 8 )
+region = Rect2( 300, 192, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=175]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 64, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=198]
+atlas = ExtResource( 8 )
+region = Rect2( 100, 320, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=192]
+atlas = ExtResource( 8 )
+region = Rect2( 200, 192, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=163]
+atlas = ExtResource( 8 )
+region = Rect2( 500, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=199]
+atlas = ExtResource( 8 )
+region = Rect2( 400, 320, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=194]
+atlas = ExtResource( 8 )
+region = Rect2( 500, 192, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=166]
+atlas = ExtResource( 8 )
+region = Rect2( 300, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=200]
+atlas = ExtResource( 8 )
+region = Rect2( 200, 320, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=193]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 192, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=164]
+atlas = ExtResource( 8 )
+region = Rect2( 400, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=201]
+atlas = ExtResource( 8 )
+region = Rect2( 500, 320, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=179]
+atlas = ExtResource( 8 )
+region = Rect2( 200, 64, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=180]
+atlas = ExtResource( 8 )
+region = Rect2( 100, 64, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=197]
+atlas = ExtResource( 8 )
+region = Rect2( 300, 320, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=202]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 320, 100, 64 )
+
 [sub_resource type="AtlasTexture" id=161]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 100, 64 )
@@ -218,52 +283,164 @@ region = Rect2( 0, 0, 100, 64 )
 atlas = ExtResource( 8 )
 region = Rect2( 500, 64, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=163]
+[sub_resource type="AtlasTexture" id=165]
 atlas = ExtResource( 8 )
-region = Rect2( 500, 0, 100, 64 )
+region = Rect2( 200, 0, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=180]
+[sub_resource type="AtlasTexture" id=196]
 atlas = ExtResource( 8 )
-region = Rect2( 100, 64, 100, 64 )
-
-[sub_resource type="AtlasTexture" id=178]
-atlas = ExtResource( 8 )
-region = Rect2( 300, 64, 100, 64 )
+region = Rect2( 400, 192, 100, 64 )
 
 [sub_resource type="AtlasTexture" id=182]
 atlas = ExtResource( 8 )
 region = Rect2( 400, 64, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=175]
+[sub_resource type="AtlasTexture" id=178]
 atlas = ExtResource( 8 )
-region = Rect2( 0, 64, 100, 64 )
-
-[sub_resource type="AtlasTexture" id=165]
-atlas = ExtResource( 8 )
-region = Rect2( 200, 0, 100, 64 )
-
-[sub_resource type="AtlasTexture" id=166]
-atlas = ExtResource( 8 )
-region = Rect2( 300, 0, 100, 64 )
-
-[sub_resource type="AtlasTexture" id=164]
-atlas = ExtResource( 8 )
-region = Rect2( 400, 0, 100, 64 )
-
-[sub_resource type="AtlasTexture" id=179]
-atlas = ExtResource( 8 )
-region = Rect2( 200, 64, 100, 64 )
+region = Rect2( 300, 64, 100, 64 )
 
 [sub_resource type="AtlasTexture" id=162]
 atlas = ExtResource( 8 )
 region = Rect2( 100, 0, 100, 64 )
 
-[sub_resource type="SpriteFrames" id=183]
+[sub_resource type="AtlasTexture" id=195]
+atlas = ExtResource( 8 )
+region = Rect2( 100, 192, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=211]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 128, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=209]
+atlas = ExtResource( 8 )
+region = Rect2( 200, 128, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=210]
+atlas = ExtResource( 8 )
+region = Rect2( 400, 128, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=203]
+atlas = ExtResource( 7 )
+region = Rect2( 400, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=205]
+atlas = ExtResource( 7 )
+region = Rect2( 200, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=189]
+atlas = ExtResource( 8 )
+region = Rect2( 300, 128, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=208]
+atlas = ExtResource( 7 )
+region = Rect2( 100, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=207]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=204]
+atlas = ExtResource( 7 )
+region = Rect2( 300, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=206]
+atlas = ExtResource( 7 )
+region = Rect2( 500, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=188]
+atlas = ExtResource( 8 )
+region = Rect2( 100, 128, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=190]
+atlas = ExtResource( 8 )
+region = Rect2( 500, 128, 100, 64 )
+
+[sub_resource type="SpriteFrames" id=128]
 animations = [ {
 "frames": [  ],
-"loop": false,
+"loop": true,
 "name": "empty",
-"speed": 0.0
+"speed": 5.0
+}, {
+"frames": [ SubResource( 191 ) ],
+"loop": true,
+"name": "Marcy_landing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 175 ) ],
+"loop": true,
+"name": "Sprig_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 198 ) ],
+"loop": true,
+"name": "Maggie_rising",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 192 ) ],
+"loop": true,
+"name": "Marcy_falling",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 163 ) ],
+"loop": true,
+"name": "Anne_dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 199 ) ],
+"loop": true,
+"name": "Maggie_hurt",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 194 ) ],
+"loop": true,
+"name": "Marcy_dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 166 ) ],
+"loop": true,
+"name": "Anne_landing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 200 ) ],
+"loop": true,
+"name": "Maggie_falling",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 193 ) ],
+"loop": true,
+"name": "Marcy_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 164 ) ],
+"loop": true,
+"name": "Anne_hurt",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 201 ) ],
+"loop": true,
+"name": "Maggie_dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 179 ) ],
+"loop": true,
+"name": "Sprig_falling",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 180 ) ],
+"loop": true,
+"name": "Sprig_rising",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 197 ) ],
+"loop": true,
+"name": "Maggie_landing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 202 ) ],
+"loop": true,
+"name": "Maggie_idle",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 161 ) ],
 "loop": true,
@@ -275,19 +452,14 @@ animations = [ {
 "name": "Sprig_dead",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 163 ) ],
+"frames": [ SubResource( 165 ) ],
 "loop": true,
-"name": "Anne_dead",
+"name": "Anne_falling",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 180 ) ],
+"frames": [ SubResource( 196 ) ],
 "loop": true,
-"name": "Sprig_rising",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 178 ) ],
-"loop": true,
-"name": "Sprig_landing",
+"name": "Marcy_hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 182 ) ],
@@ -295,34 +467,79 @@ animations = [ {
 "name": "Sprig_hurt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 175 ) ],
+"frames": [ SubResource( 178 ) ],
 "loop": true,
-"name": "Sprig_idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 165 ) ],
-"loop": true,
-"name": "Anne_falling",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 166 ) ],
-"loop": true,
-"name": "Anne_landing",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 164 ) ],
-"loop": true,
-"name": "Anne_hurt",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 179 ) ],
-"loop": true,
-"name": "Sprig_falling",
+"name": "Sprig_landing",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 162 ) ],
 "loop": true,
 "name": "Anne_rising",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 195 ) ],
+"loop": true,
+"name": "Marcy_rising",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 211 ) ],
+"loop": true,
+"name": "Sasha_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 209 ) ],
+"loop": true,
+"name": "Sasha_falling",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 210 ) ],
+"loop": true,
+"name": "Sasha_hurt",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 203 ) ],
+"loop": true,
+"name": "Darla_hurt",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 205 ) ],
+"loop": true,
+"name": "Darla_falling",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 189 ) ],
+"loop": true,
+"name": "Sasha_landing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 208 ) ],
+"loop": true,
+"name": "Darla_rising",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 207 ) ],
+"loop": true,
+"name": "Darla_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 204 ) ],
+"loop": true,
+"name": "Darla_landing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 206 ) ],
+"loop": true,
+"name": "Darla_dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 188 ) ],
+"loop": true,
+"name": "Sasha_rising",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 190 ) ],
+"loop": true,
+"name": "Sasha_dead",
 "speed": 5.0
 } ]
 
@@ -397,7 +614,7 @@ offset = Vector2( 0, 31 )
 flip_h = true
 pixel_size = 0.07
 alpha_cut = 1
-frames = SubResource( 183 )
+frames = SubResource( 128 )
 animation = "empty"
 
 [connection signal="area_entered" from="zeroPoint/hurtbox" to="." method="_on_hurtbox_area_entered_exiting"]

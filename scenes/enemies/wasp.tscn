@@ -547,17 +547,33 @@ tracks/5/keys = {
 atlas = ExtResource( 2 )
 region = Rect2( 200, 0, 50, 70 )
 
-[sub_resource type="AtlasTexture" id=46]
+[sub_resource type="AtlasTexture" id=47]
 atlas = ExtResource( 2 )
 region = Rect2( 150, 0, 50, 70 )
 
-[sub_resource type="AtlasTexture" id=47]
+[sub_resource type="AtlasTexture" id=46]
 atlas = ExtResource( 2 )
 region = Rect2( 150, 0, 50, 70 )
 
 [sub_resource type="AtlasTexture" id=48]
 atlas = ExtResource( 2 )
 region = Rect2( 250, 70, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 2 )
+region = Rect2( 200, 140, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 2 )
+region = Rect2( 250, 140, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 2 )
+region = Rect2( 50, 0, 50, 70 )
 
 [sub_resource type="AtlasTexture" id=53]
 atlas = ExtResource( 2 )
@@ -579,22 +595,6 @@ region = Rect2( 150, 70, 50, 70 )
 atlas = ExtResource( 2 )
 region = Rect2( 200, 70, 50, 70 )
 
-[sub_resource type="AtlasTexture" id=49]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 50, 70 )
-
-[sub_resource type="AtlasTexture" id=50]
-atlas = ExtResource( 2 )
-region = Rect2( 200, 140, 50, 70 )
-
-[sub_resource type="AtlasTexture" id=51]
-atlas = ExtResource( 2 )
-region = Rect2( 250, 140, 50, 70 )
-
-[sub_resource type="AtlasTexture" id=52]
-atlas = ExtResource( 2 )
-region = Rect2( 50, 0, 50, 70 )
-
 [sub_resource type="SpriteFrames" id=38]
 animations = [ {
 "frames": [ SubResource( 45 ) ],
@@ -602,14 +602,14 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 46 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 47 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 46 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 48 ) ],
@@ -617,14 +617,14 @@ animations = [ {
 "name": "attack",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ) ],
-"loop": false,
-"name": "attack_prep",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
 "loop": false,
 "name": "fly",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ) ],
+"loop": false,
+"name": "attack_prep",
 "speed": 5.0
 } ]
 
@@ -632,6 +632,7 @@ animations = [ {
 resource_local_to_scene = true
 
 [sub_resource type="CylinderShape" id=42]
+resource_local_to_scene = true
 radius = 1.25
 height = 3.0
 
@@ -746,8 +747,12 @@ cast_to = Vector3( 0, -5, 0 )
 collision_mask = 130
 debug_shape_thickness = 3.0
 
+[node name="spawnInvTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="zeroPoint/hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="zeroPoint/hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="area_entered" from="aggro" to="." method="_on_aggro_area_entered"]
 [connection signal="area_exited" from="aggro" to="." method="_on_aggro_area_exited"]
+[connection signal="timeout" from="spawnInvTimer" to="." method="_on_spawnInvTimer_timeout"]

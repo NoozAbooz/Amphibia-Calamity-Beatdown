@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=2]
+[gd_scene load_steps=161 format=2]
 
 [ext_resource path="res://scenes/players/playerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/pickups/mush.tscn" type="PackedScene" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://maps/decorations/bug objects/waspNextDec.tscn" type="PackedScene" id=33]
 [ext_resource path="res://scenes/enemies/spawners/waspNest.tscn" type="PackedScene" id=34]
 [ext_resource path="res://scenes/pickups/1up.tscn" type="PackedScene" id=35]
+[ext_resource path="res://maps/level objects/goal.tscn" type="PackedScene" id=36]
 [ext_resource path="res://maps/level objects/windbox.tscn" type="PackedScene" id=46]
 [ext_resource path="res://maps/level objects/playerWarpExit.tscn" type="PackedScene" id=47]
 [ext_resource path="res://maps/level objects/playerWarp.tscn" type="PackedScene" id=48]
@@ -48,9 +49,9 @@ panorama = ExtResource( 14 )
 [sub_resource type="Environment" id=200]
 background_mode = 1
 background_sky = SubResource( 129 )
-background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, 3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, 180, 0 )
+background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, -3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, -180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1104,10 +1105,6 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 21 )
 region = Rect2( 136, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=74]
-atlas = ExtResource( 21 )
-region = Rect2( 0, 330, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 21 )
 region = Rect2( 0, 66, 68, 66 )
@@ -1143,6 +1140,10 @@ region = Rect2( 476, 66, 68, 66 )
 [sub_resource type="AtlasTexture" id=89]
 atlas = ExtResource( 21 )
 region = Rect2( 68, 330, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 21 )
@@ -1185,11 +1186,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 74 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 165 ), SubResource( 166 ), SubResource( 81 ), SubResource( 82 ) ],
 "loop": false,
 "name": "walk",
@@ -1198,6 +1194,11 @@ animations = [ {
 "frames": [ SubResource( 89 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 74 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
@@ -2856,11 +2857,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 74 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 165 ), SubResource( 166 ), SubResource( 81 ), SubResource( 82 ) ],
 "loop": false,
 "name": "walk",
@@ -2869,6 +2865,11 @@ animations = [ {
 "frames": [ SubResource( 89 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 74 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
@@ -3867,8 +3868,11 @@ material = SubResource( 303 )
 environment = SubResource( 200 )
 
 [node name="playerSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 674.593, 35.2786, -86.5286 )
 cartSpawnOffset = Vector3( 868.466, 48.69, -63.128 )
+
+[node name="goal" parent="." instance=ExtResource( 36 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1162.49, 44.9792, -27.3333 )
+gravOn = true
 
 [node name="minecartWarp" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 799.152, 42.673, -99.7014 )
@@ -4356,6 +4360,7 @@ direction = Vector3( 0, 0, 1 )
 magnitude = 14
 
 [node name="barriers" type="Spatial" parent="."]
+visible = false
 
 [node name="cameraWall" parent="barriers" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8872, 2.46481, 0.0941734 )
@@ -4367,8 +4372,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 343.713, 23.6336, -14.9654 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 402.449, 30.2258, -14.7158 )
 
 [node name="cameraWall6" parent="barriers" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 966.04, 49.244, -63.6412 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 984.04, 49.244, -63.6412 )
 lockZ = true
+
+[node name="cameraWall7" parent="barriers" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1003.04, 56.244, -63.6412 )
 
 [node name="cameraWall4" parent="barriers" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 600.334, 52.4109, -47.9383 )
@@ -4907,19 +4915,23 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 689.422
 
 [node name="ambush" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 110.08, 4.15177, -9.25093 )
+visible = false
 ambushName = "mountainAmbush1"
 respawnOffset = Vector3( 0, 0, 9 )
 
 [node name="ambush2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -221.541, 12.5645, -4.60918 )
+visible = false
 ambushName = "mountainAmbush2"
 
 [node name="ambush3" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 232.268, 21.9076, -18.6664 )
+visible = false
 ambushName = "mountainAmbush3"
 
 [node name="ambush4" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 506.053, 29.7932, -10.7755 )
+visible = false
 ambushName = "mountainAmbush4"
 
 [node name="warps" type="Spatial" parent="."]
@@ -4952,14 +4964,14 @@ fogEffect = 2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 759.455, 40.092, -63.3669 )
 
 [node name="warp10" parent="warps" instance=ExtResource( 48 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1007.33, 52.5983, -71.3852 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1016.47, 58.5687, -71.3852 )
 
 [node name="warpExit8" parent="warps" instance=ExtResource( 47 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 567.926, 58.8278, -56.6654 )
 warpNum = 8
 
 [node name="warpExit10" parent="warps" instance=ExtResource( 47 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1162.93, 40.8616, -18.5134 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1162.93, 40.8616, -5.34915 )
 warpNum = 10
 
 [node name="warp3" parent="warps" instance=ExtResource( 48 )]
@@ -5561,6 +5573,7 @@ spot_range = 40.0
 spot_angle = 35.0
 
 [node name="triggers" type="Spatial" parent="."]
+visible = false
 
 [node name="dialogueTrigger1" type="Spatial" parent="triggers"]
 pause_mode = 2

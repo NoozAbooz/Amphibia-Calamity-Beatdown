@@ -129,9 +129,9 @@ func dead():
 		food.initialize(translation + Vector3(0, 1, 0))
 	# spawns wasps
 	for i in range(0, wasps):
-		var nextEnemy = nme.waspScene.instance()
+		var nextEnemy = nme.paperWaspScene.instance()
 		get_parent().add_child(nextEnemy)
-		nextEnemy.initialize(nme.wasp, translation + Vector3(0, 1, 0), Vector3.ZERO, true, true, true)
+		nextEnemy.initialize(nme.paperWasp, translation + Vector3(0, 1, 0), Vector3.ZERO, true, true, true)
 	# spawns spiders
 	for i in range(0, spiders):
 		var nextEnemy = nme.spiderScene.instance()

@@ -18,15 +18,15 @@ const livesBoost   = 1
 const damageBoost  = 0.2
 const coinBoost    = 1
 const dropBoost    = 0.05
-const techBoost    = 0.20
+const techBoost    = 0.15
 
 
 # attack unlocks
-var hasSpin    = true
-var hasSlide   = true
-var hasAirSpin = true
-var hasDJ      = true
-var hasCounter = true
+var hasSpin    = false
+var hasSlide   = false
+var hasAirSpin = false
+var hasDJ      = false
+var hasCounter = false
 
 # numer of players / player inputs
 var availableInputs = ["k0"]
@@ -63,11 +63,11 @@ var hasMarcy  = true
 var hasSasha  = true
 var hasSprig = true
 var hasMaggie = true
-var hasGrime = true
-var hasDarla = true
+var hasGrime = false
+var hasDarla = false
 var availableChars = ["Anne"]
 
-var clover = true
+var clover = false
 
 # Completed levels
 #                     [Wartwood, Test,  l1,    l2,    l3,    l4,    l5,    l6,    l7,    l8,    l9,   final]

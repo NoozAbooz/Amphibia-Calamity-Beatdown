@@ -137,6 +137,7 @@ __meta__ = {
 }
 
 [node name="basicMenu" type="Control" parent="."]
+visible = false
 margin_top = -30.0
 margin_bottom = -30.0
 __meta__ = {
@@ -474,7 +475,6 @@ valign = 1
 autowrap = true
 
 [node name="combosMenu" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -989,7 +989,7 @@ margin_bottom = 424.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 15 )
-text = "Tactical Retreat"
+text = "Stumble Kick"
 align = 2
 valign = 1
 
@@ -1104,7 +1104,6 @@ margin_right = 444.0
 margin_bottom = 1068.0
 
 [node name="namesSasha" type="ScrollContainer" parent="combosMenu/namesContainer"]
-visible = false
 margin_left = 167.0
 margin_top = 116.0
 margin_right = 1310.0
@@ -1155,7 +1154,7 @@ margin_bottom = 214.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Mega Punch"
+text = "Sword Chop"
 align = 2
 valign = 1
 
@@ -1166,7 +1165,7 @@ margin_bottom = 284.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 15 )
-text = "Spin Attack"
+text = "Spin Kicks"
 align = 2
 valign = 1
 
@@ -1177,7 +1176,7 @@ margin_bottom = 354.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Slide"
+text = "somersault "
 align = 2
 valign = 1
 
@@ -1210,7 +1209,7 @@ margin_bottom = 564.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Aerial Mega Punch"
+text = "Air Dash Slice"
 align = 2
 valign = 1
 
@@ -1221,7 +1220,7 @@ margin_bottom = 634.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Spike Combo"
+text = "Sasha-Copter"
 align = 2
 valign = 1
 
@@ -1232,7 +1231,7 @@ margin_bottom = 704.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 15 )
-text = "Shell Breaker"
+text = "Super Sasha-Copter"
 align = 2
 valign = 1
 
@@ -1243,7 +1242,7 @@ margin_bottom = 774.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 3 )
-text = "Spike"
+text = "Quick Sasha-Copter"
 align = 2
 valign = 1
 __meta__ = {

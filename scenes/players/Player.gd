@@ -55,6 +55,10 @@ var bounceHeight = 0
 var LCancel = false
 var LCancelActiveTimer = 0
 var LCancelResetTimer = 0
+var secondChanceTechTimer = 0
+#var secondChanceTechResetTimer = 0
+var lastSecondTech = false
+var pressedTechMidFall = false # prevent 2 chances to life-save tech
 
 var counterTimer = 0
 var counterSpamTimer = 0
@@ -129,6 +133,7 @@ var inputBuffTimer = 0
 var inputBuffMax = 8
 
 var secondCombo = false
+var arrowsShot = 0
 
 
 func initialize(num, pos, character):
@@ -163,7 +168,6 @@ func initialize(num, pos, character):
 	$"zeroPoint".set_rotation_degrees(Vector3(0, 180, 0))
 	# sets updated values if spawning again after karting
 	if pg.karting:
-		#print(str(playerNum) + "-" + str(pg.playerHealth[playerNum]) + "-" + str(pg.playerLives[playerNum]) + "-" + str(pg.playerCoins[playerNum]))
 		hp = pg.playerHealth[playerNum]
 		lives = pg.playerLives[playerNum]
 		coins = pg.playerCoins[playerNum]
@@ -191,7 +195,6 @@ func updateInputBuffer(delta):
 		inputBuffTimer = inputBuffMax
 	elif (Input.is_action_just_pressed(block_button) == true):
 		clearInputBuffer()
-	#print("key: " + str(inputBuffKey) + "   |   timer: " + str(inputBuffTimer))
 	
 func updateStats():
 	# sets lives
@@ -219,8 +222,7 @@ func updateStats():
 	if (numExtras >= 1):
 		hitDamageMulti  = hitDamageMulti  * pow(0.7, numExtras)
 		hurtDamageMulti = hurtDamageMulti * pow(1.2, numExtras)
-	#print("extras: " + str(numExtras))
-	#print("hit: " + str(hitDamageMulti) + " | hurt: " + str(hurtDamageMulti))
+
 
 func isInState(list):
 	var found = false
@@ -293,6 +295,13 @@ func spawnProj(projVel = Vector3.ZERO, projAng = 0, addPlayerVel = false, randLo
 	var proj = projScene.instance()
 	get_parent().add_child(proj)
 	proj.initialize(spawnLocation, lookRight, hitDamage, hitType, hitDir, hitSound, projType, projVel, projAng, playerNum)
+
+func addArrowCount(num):
+	arrowsShot += num
+	if (arrowsShot < 0):
+		arrowsShot = 0
+	elif (arrowsShot > 3):
+		arrowsShot = 3
 
 func forceRecoil():
 	recoilStart = true
@@ -435,12 +444,22 @@ func _physics_process(delta):
 		LCancelResetTimer -= 1
 	if (is_on_floor() == false) and Input.is_action_just_pressed(block_button) and (LCancelResetTimer <= 0):
 		LCancel = true
-		LCancelActiveTimer = 10
+		LCancelActiveTimer = 12
 		LCancelResetTimer = 40
 	if (LCancelActiveTimer <= 0):
 		LCancel = false
 	if (Input.is_action_just_pressed(light_attack_button)) or (Input.is_action_just_pressed(heavy_attack_button)):
 		LCancel = false
+	# tech chance after landing
+	if isInState([HURTFLOOR, KO]):
+		secondChanceTechTimer -= 1
+		if (secondChanceTechTimer > 0) and (not pressedTechMidFall) and Input.is_action_just_pressed(block_button):
+			lastSecondTech = true
+	if isInState([HURTFALLING]) and (Input.is_action_just_pressed(block_button)):
+		pressedTechMidFall = true
+	if isInState([HURTLAUNCH, HURTRISING]):
+		pressedTechMidFall = false
+		lastSecondTech = false
 	
 	# state changes
 	match state:
@@ -525,9 +544,10 @@ func _physics_process(delta):
 					nextState = A_SH
 				else:
 					nextState = A_H1
-			elif Input.is_action_just_pressed(block_button):
+			elif Input.is_action_just_pressed(block_button) and (playerChar == "Marcy"):
 				clearInputBuffer()
-				if pg.hasSlide and (waveVect.length() <= 0.1*wavedashSpeed):
+				#if pg.hasSlide and (waveVect.length() <= 0.1*wavedashSpeed):
+				if (waveVect.length() <= 0.1*wavedashSpeed):
 					nextState = WAVE
 				else:
 					nextState = RUN
@@ -661,7 +681,11 @@ func _physics_process(delta):
 #				clearInputBuffer()
 #				nextState = A_L2
 		A_H1:
-			if animFinished:
+			if (playerChar == "Marcy") and (arrowsShot < 3) and (comboReady) and (inputBuffKey == heavy_attack_button):
+				clearInputBuffer()
+				anim.seek(0)
+				nextState = A_H1
+			elif animFinished:
 				nextState = IDLE
 				animFinished = false
 		A_H2:
@@ -890,6 +914,7 @@ func _physics_process(delta):
 				nextState = IDLE
 				animFinished = false
 		HURTLAUNCH:
+			
 			nextState = HURTRISING
 		HURTRISING:
 			if (velocity.y <= 0):
@@ -899,11 +924,12 @@ func _physics_process(delta):
 		HURTFALLING:
 			if is_on_floor():
 				nextState = HURTFLOOR
+				secondChanceTechTimer = 15
 			else:
 				nextState = HURTFALLING
 		HURTFLOOR:
 			#randf ( )
-			if (hp <= 0) and (LCancel) and (rng.rand.randf() <= (0.60 + (pg.luckUpgrades * pg.techBoost))):
+			if (hp <= 0) and (LCancel) and (rng.rand.randf() <= (0.50 + (pg.luckUpgrades * pg.techBoost))):
 				nextState = LANDC
 				state = LANDC
 				soundManager.playSound("counter")
@@ -913,17 +939,27 @@ func _physics_process(delta):
 				soundManager.playSound("counter")
 				nextState = LANDC
 				state = LANDC
+			elif (lastSecondTech):
+				soundManager.playSound("counter")
+				nextState = LANDC
+				state = LANDC
 			elif (animFinished):
 				animFinished = false
 				nextState = IDLE
 			else:
 				nextState = HURTFLOOR
 		KO:
-			if (animFinished):
+			if (lastSecondTech) and (rng.rand.randf() <= (0.50 + (pg.luckUpgrades * pg.techBoost))):
+				soundManager.playSound("counter")
+				nextState = LANDC
+				state = LANDC
+			elif (animFinished):
 				animFinished = false
 				respawn(true)
 			else:
 				nextState = KO
+			lastSecondTech = false #prevents re-rolls every loop
+			secondChanceTechTimer = -1
 		_:
 			pass
 			#state = IDLE
@@ -972,7 +1008,6 @@ func _physics_process(delta):
 			nextState = HURT
 		hurtCount += 1
 		addHealth(-1 * hurtDamage * hurtDamageMulti)
-		#print("hurt: " + str(-1 * hurtDamage * hurtDamageMulti))
 		# plays sfx
 		if (nextState == COUNTER):
 			soundManager.playSound("counter")
@@ -1142,7 +1177,6 @@ func _physics_process(delta):
 	# clears pogo on miss:
 	if is_on_floor() and not isInState([A_SL, A_SH]):
 		pogo = false
-	#print(pogo)
 	
 	# sets X speed
 	if isInState([WALK, IDLE]):
@@ -1256,7 +1290,6 @@ func _physics_process(delta):
 	if isWavedashing and (sign(velocity.x) == sign(waveVect.x)) and (sign(velocity.z) == sign(waveVect.z)) and (waveVect.length() <= 0.2*wavedashSpeed):
 		isWavedashing = false
 		waveVect = Vector3.ZERO
-		#print("test")
 	if isWavedashing:
 		velocity.x = sign(velocity.x)*0.1
 		velocity.z = sign(velocity.z)*0.1
@@ -1264,7 +1297,7 @@ func _physics_process(delta):
 		if (abs(waveVect.x) <= 5) and ((abs(waveVect.z) <= 5)):
 			waveVect = Vector3.ZERO
 			isWavedashing = false
-		#print(waveVect)
+
 	
 	#airdashing
 	if (is_on_floor() or isInState([HURT, HURTLAUNCH, HURTFALLING, HURTRISING, HURTFLOOR])):
@@ -1303,7 +1336,6 @@ func _physics_process(delta):
 #		wallSliding = false
 #	if wallSliding and velocity.y > 0:
 #		velocity.y = 0
-#	print(wallSliding)
 
 	# clears input buffer if near NPCs to prevent attacking when exiting zone
 	if (nearNPCs > 0):
@@ -1420,11 +1452,9 @@ func _on_hurtbox_area_entered(area):
 	# evnironmental stuff
 	if area.is_in_group("oneWayRight") or area.is_in_group("oneWayLeft"):
 		area.get_parent().get_parent().get_node("Camera").disableBarriers(true)
-		#print("wall")
 		return
 	elif area.is_in_group("respawnZones"):
 		safePos = area.translation
-		#print(area.translation)
 		return
 	elif area.is_in_group("boucePads"):
 		if (bouncing == false):
@@ -1507,7 +1537,6 @@ func _on_hurtbox_area_entered(area):
 	var attacker = area.get_parent().get_parent()
 	# checks if player is hitting self
 	if attacker.is_in_group("players") or attacker.is_in_group("playerProjectiles"):
-		#print(str(attacker.playerNum) + " - " + str(playerNum))
 		if !pg.pvp or (attacker.playerNum == playerNum):
 			return
 		else:

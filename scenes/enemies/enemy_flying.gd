@@ -195,6 +195,8 @@ func reduce(value, amount):
 	return value
 
 func _ready():
+	get_node("zeroPoint/hurtbox/CollisionShape").disabled = true #gets re-enabled by timer to prevent killing right after spawning
+	get_node("spawnInvTimer").start(1.0)
 	if (rng.rand.randi() % 2):
 		rotationCCW = true
 	else:
@@ -250,7 +252,6 @@ func initialize(type, loc, vel = Vector3.ZERO, brk = false, infVis = false, infE
 		target = get_node_or_null("/root/" + pg.levelName + "/Player" + str(target))
 
 func _physics_process(delta):
-	
 	# state changes
 	match state:
 		IDLE:
@@ -684,3 +685,6 @@ func _on_aggro_area_exited(area):
 		target = null
 		get_node("aggro/CollisionShape").disabled = true
 
+func _on_spawnInvTimer_timeout():
+	get_node("zeroPoint/hurtbox/CollisionShape").disabled = false
+	#print("hit-able")

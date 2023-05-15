@@ -65,9 +65,9 @@ panorama = ExtResource( 11 )
 [sub_resource type="Environment" id=182]
 background_mode = 1
 background_sky = SubResource( 181 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
-background_sky_rotation = Vector3( 0, -3.14159, 0 )
-background_sky_rotation_degrees = Vector3( 0, -180, 0 )
+background_sky_orientation = Basis( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1 )
+background_sky_rotation = Vector3( 0, 3.14159, 0 )
+background_sky_rotation_degrees = Vector3( 0, 180, 0 )
 background_color = Color( 0.54902, 0.858824, 0.839216, 1 )
 background_energy = 0.4
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -1201,10 +1201,6 @@ region = Rect2( 204, 330, 68, 66 )
 atlas = ExtResource( 8 )
 region = Rect2( 136, 330, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=74]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 330, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 66, 68, 66 )
@@ -1240,6 +1236,10 @@ region = Rect2( 476, 66, 68, 66 )
 [sub_resource type="AtlasTexture" id=89]
 atlas = ExtResource( 8 )
 region = Rect2( 68, 330, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 8 )
@@ -1282,11 +1282,6 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 74 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 165 ), SubResource( 166 ), SubResource( 81 ), SubResource( 82 ) ],
 "loop": false,
 "name": "walk",
@@ -1295,6 +1290,11 @@ animations = [ {
 "frames": [ SubResource( 89 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 74 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
@@ -2622,7 +2622,7 @@ shadow_enabled = true
 editor_only = true
 
 [node name="playerSpawner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.503, 3.82618, 2.07601 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9587, 3.91881, 1.94549 )
 
 [node name="environment" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125.852, 7.62939e-06, 58.606 )
@@ -3732,7 +3732,8 @@ ambushName = "bestFrondsAmbush3"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 942.506, 2.89046, -36.576 )
 
 [node name="goal" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1008.46, 3.78113, -27.1588 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1008.46, 4.86873, -27.1588 )
+gravOn = true
 
 [node name="decorations" type="Spatial" parent="."]
 

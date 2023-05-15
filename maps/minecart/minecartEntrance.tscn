@@ -159,37 +159,49 @@ extents = Vector3( 1.6, 1.8, 2.1 )
 atlas = ExtResource( 8 )
 region = Rect2( 300, 192, 100, 64 )
 
+[sub_resource type="AtlasTexture" id=175]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 64, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=198]
+atlas = ExtResource( 8 )
+region = Rect2( 100, 320, 100, 64 )
+
 [sub_resource type="AtlasTexture" id=192]
 atlas = ExtResource( 8 )
 region = Rect2( 200, 192, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=193]
+[sub_resource type="AtlasTexture" id=163]
 atlas = ExtResource( 8 )
-region = Rect2( 0, 192, 100, 64 )
+region = Rect2( 500, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=199]
+atlas = ExtResource( 8 )
+region = Rect2( 400, 320, 100, 64 )
 
 [sub_resource type="AtlasTexture" id=194]
 atlas = ExtResource( 8 )
 region = Rect2( 500, 192, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=195]
+[sub_resource type="AtlasTexture" id=166]
 atlas = ExtResource( 8 )
-region = Rect2( 100, 192, 100, 64 )
+region = Rect2( 300, 0, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=196]
+[sub_resource type="AtlasTexture" id=200]
 atlas = ExtResource( 8 )
-region = Rect2( 400, 192, 100, 64 )
+region = Rect2( 200, 320, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=161]
+[sub_resource type="AtlasTexture" id=193]
 atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 100, 64 )
+region = Rect2( 0, 192, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=181]
+[sub_resource type="AtlasTexture" id=164]
 atlas = ExtResource( 8 )
-region = Rect2( 500, 64, 100, 64 )
+region = Rect2( 400, 0, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=182]
+[sub_resource type="AtlasTexture" id=201]
 atlas = ExtResource( 8 )
-region = Rect2( 400, 64, 100, 64 )
+region = Rect2( 500, 320, 100, 64 )
 
 [sub_resource type="AtlasTexture" id=179]
 atlas = ExtResource( 8 )
@@ -199,57 +211,49 @@ region = Rect2( 200, 64, 100, 64 )
 atlas = ExtResource( 8 )
 region = Rect2( 100, 64, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=166]
+[sub_resource type="AtlasTexture" id=197]
 atlas = ExtResource( 8 )
-region = Rect2( 300, 0, 100, 64 )
+region = Rect2( 300, 320, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=162]
+[sub_resource type="AtlasTexture" id=202]
 atlas = ExtResource( 8 )
-region = Rect2( 100, 0, 100, 64 )
+region = Rect2( 0, 320, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=178]
+[sub_resource type="AtlasTexture" id=161]
 atlas = ExtResource( 8 )
-region = Rect2( 300, 64, 100, 64 )
+region = Rect2( 0, 0, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=163]
+[sub_resource type="AtlasTexture" id=181]
 atlas = ExtResource( 8 )
-region = Rect2( 500, 0, 100, 64 )
-
-[sub_resource type="AtlasTexture" id=164]
-atlas = ExtResource( 8 )
-region = Rect2( 400, 0, 100, 64 )
-
-[sub_resource type="AtlasTexture" id=175]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 64, 100, 64 )
+region = Rect2( 500, 64, 100, 64 )
 
 [sub_resource type="AtlasTexture" id=165]
 atlas = ExtResource( 8 )
 region = Rect2( 200, 0, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=197]
+[sub_resource type="AtlasTexture" id=196]
 atlas = ExtResource( 8 )
-region = Rect2( 300, 320, 100, 64 )
+region = Rect2( 400, 192, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=198]
+[sub_resource type="AtlasTexture" id=182]
 atlas = ExtResource( 8 )
-region = Rect2( 100, 320, 100, 64 )
+region = Rect2( 400, 64, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=199]
+[sub_resource type="AtlasTexture" id=178]
 atlas = ExtResource( 8 )
-region = Rect2( 400, 320, 100, 64 )
+region = Rect2( 300, 64, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=200]
+[sub_resource type="AtlasTexture" id=162]
 atlas = ExtResource( 8 )
-region = Rect2( 200, 320, 100, 64 )
+region = Rect2( 100, 0, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=201]
+[sub_resource type="AtlasTexture" id=195]
 atlas = ExtResource( 8 )
-region = Rect2( 500, 320, 100, 64 )
+region = Rect2( 100, 192, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=202]
+[sub_resource type="AtlasTexture" id=211]
 atlas = ExtResource( 8 )
-region = Rect2( 0, 320, 100, 64 )
+region = Rect2( 0, 128, 100, 64 )
 
 [sub_resource type="AtlasTexture" id=209]
 atlas = ExtResource( 8 )
@@ -263,37 +267,33 @@ region = Rect2( 400, 128, 100, 64 )
 atlas = ExtResource( 9 )
 region = Rect2( 400, 0, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=187]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 128, 100, 64 )
-
-[sub_resource type="AtlasTexture" id=204]
-atlas = ExtResource( 9 )
-region = Rect2( 300, 0, 100, 64 )
-
 [sub_resource type="AtlasTexture" id=205]
 atlas = ExtResource( 9 )
 region = Rect2( 200, 0, 100, 64 )
 
-[sub_resource type="AtlasTexture" id=206]
-atlas = ExtResource( 9 )
-region = Rect2( 500, 0, 100, 64 )
-
-[sub_resource type="AtlasTexture" id=207]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 100, 64 )
+[sub_resource type="AtlasTexture" id=189]
+atlas = ExtResource( 8 )
+region = Rect2( 300, 128, 100, 64 )
 
 [sub_resource type="AtlasTexture" id=208]
 atlas = ExtResource( 9 )
 region = Rect2( 100, 0, 100, 64 )
 
+[sub_resource type="AtlasTexture" id=207]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=204]
+atlas = ExtResource( 9 )
+region = Rect2( 300, 0, 100, 64 )
+
+[sub_resource type="AtlasTexture" id=206]
+atlas = ExtResource( 9 )
+region = Rect2( 500, 0, 100, 64 )
+
 [sub_resource type="AtlasTexture" id=188]
 atlas = ExtResource( 8 )
 region = Rect2( 100, 128, 100, 64 )
-
-[sub_resource type="AtlasTexture" id=189]
-atlas = ExtResource( 8 )
-region = Rect2( 300, 128, 100, 64 )
 
 [sub_resource type="AtlasTexture" id=190]
 atlas = ExtResource( 8 )
@@ -301,9 +301,24 @@ region = Rect2( 500, 128, 100, 64 )
 
 [sub_resource type="SpriteFrames" id=128]
 animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 191 ) ],
 "loop": true,
 "name": "Marcy_landing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 175 ) ],
+"loop": true,
+"name": "Sprig_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 198 ) ],
+"loop": true,
+"name": "Maggie_rising",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 192 ) ],
@@ -311,9 +326,14 @@ animations = [ {
 "name": "Marcy_falling",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 193 ) ],
+"frames": [ SubResource( 163 ) ],
 "loop": true,
-"name": "Marcy_idle",
+"name": "Anne_dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 199 ) ],
+"loop": true,
+"name": "Maggie_hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 194 ) ],
@@ -321,34 +341,29 @@ animations = [ {
 "name": "Marcy_dead",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 195 ) ],
+"frames": [ SubResource( 166 ) ],
 "loop": true,
-"name": "Marcy_rising",
+"name": "Anne_landing",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 196 ) ],
+"frames": [ SubResource( 200 ) ],
 "loop": true,
-"name": "Marcy_hurt",
+"name": "Maggie_falling",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ SubResource( 193 ) ],
 "loop": true,
-"name": "empty",
+"name": "Marcy_idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 161 ) ],
+"frames": [ SubResource( 164 ) ],
 "loop": true,
-"name": "Anne_idle",
+"name": "Anne_hurt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 181 ) ],
+"frames": [ SubResource( 201 ) ],
 "loop": true,
-"name": "Sprig_dead",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 182 ) ],
-"loop": true,
-"name": "Sprig_hurt",
+"name": "Maggie_dead",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 179 ) ],
@@ -361,34 +376,24 @@ animations = [ {
 "name": "Sprig_rising",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 166 ) ],
+"frames": [ SubResource( 197 ) ],
 "loop": true,
-"name": "Anne_landing",
+"name": "Maggie_landing",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 162 ) ],
+"frames": [ SubResource( 202 ) ],
 "loop": true,
-"name": "Anne_rising",
+"name": "Maggie_idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 178 ) ],
+"frames": [ SubResource( 161 ) ],
 "loop": true,
-"name": "Sprig_landing",
+"name": "Anne_idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 163 ) ],
+"frames": [ SubResource( 181 ) ],
 "loop": true,
-"name": "Anne_dead",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 164 ) ],
-"loop": true,
-"name": "Anne_hurt",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 175 ) ],
-"loop": true,
-"name": "Sprig_idle",
+"name": "Sprig_dead",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 165 ) ],
@@ -396,34 +401,34 @@ animations = [ {
 "name": "Anne_falling",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 197 ) ],
+"frames": [ SubResource( 196 ) ],
 "loop": true,
-"name": "Maggie_landing",
+"name": "Marcy_hurt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 198 ) ],
+"frames": [ SubResource( 182 ) ],
 "loop": true,
-"name": "Maggie_rising",
+"name": "Sprig_hurt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 199 ) ],
+"frames": [ SubResource( 178 ) ],
 "loop": true,
-"name": "Maggie_hurt",
+"name": "Sprig_landing",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 200 ) ],
+"frames": [ SubResource( 162 ) ],
 "loop": true,
-"name": "Maggie_falling",
+"name": "Anne_rising",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 201 ) ],
+"frames": [ SubResource( 195 ) ],
 "loop": true,
-"name": "Maggie_dead",
+"name": "Marcy_rising",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 202 ) ],
+"frames": [ SubResource( 211 ) ],
 "loop": true,
-"name": "Maggie_idle",
+"name": "Sasha_idle",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 209 ) ],
@@ -441,29 +446,14 @@ animations = [ {
 "name": "Darla_hurt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 187 ) ],
-"loop": true,
-"name": "Sasha_idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 204 ) ],
-"loop": true,
-"name": "Darla_landing",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 205 ) ],
 "loop": true,
 "name": "Darla_falling",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 206 ) ],
+"frames": [ SubResource( 189 ) ],
 "loop": true,
-"name": "Darla_dead",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 207 ) ],
-"loop": true,
-"name": "Darla_idle",
+"name": "Sasha_landing",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 208 ) ],
@@ -471,14 +461,24 @@ animations = [ {
 "name": "Darla_rising",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 207 ) ],
+"loop": true,
+"name": "Darla_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 204 ) ],
+"loop": true,
+"name": "Darla_landing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 206 ) ],
+"loop": true,
+"name": "Darla_dead",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 188 ) ],
 "loop": true,
 "name": "Sasha_rising",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 189 ) ],
-"loop": true,
-"name": "Sasha_landing",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 190 ) ],

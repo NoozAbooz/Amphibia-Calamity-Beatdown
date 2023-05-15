@@ -547,17 +547,33 @@ tracks/5/keys = {
 atlas = ExtResource( 3 )
 region = Rect2( 200, 0, 50, 70 )
 
-[sub_resource type="AtlasTexture" id=61]
+[sub_resource type="AtlasTexture" id=62]
 atlas = ExtResource( 3 )
 region = Rect2( 150, 0, 50, 70 )
 
-[sub_resource type="AtlasTexture" id=62]
+[sub_resource type="AtlasTexture" id=61]
 atlas = ExtResource( 3 )
 region = Rect2( 150, 0, 50, 70 )
 
 [sub_resource type="AtlasTexture" id=58]
 atlas = ExtResource( 3 )
 region = Rect2( 250, 70, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=69]
+atlas = ExtResource( 3 )
+region = Rect2( 200, 140, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=70]
+atlas = ExtResource( 3 )
+region = Rect2( 250, 140, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=71]
+atlas = ExtResource( 3 )
+region = Rect2( 50, 0, 50, 70 )
 
 [sub_resource type="AtlasTexture" id=63]
 atlas = ExtResource( 3 )
@@ -579,22 +595,6 @@ region = Rect2( 150, 70, 50, 70 )
 atlas = ExtResource( 3 )
 region = Rect2( 200, 70, 50, 70 )
 
-[sub_resource type="AtlasTexture" id=68]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 50, 70 )
-
-[sub_resource type="AtlasTexture" id=69]
-atlas = ExtResource( 3 )
-region = Rect2( 200, 140, 50, 70 )
-
-[sub_resource type="AtlasTexture" id=70]
-atlas = ExtResource( 3 )
-region = Rect2( 250, 140, 50, 70 )
-
-[sub_resource type="AtlasTexture" id=71]
-atlas = ExtResource( 3 )
-region = Rect2( 50, 0, 50, 70 )
-
 [sub_resource type="SpriteFrames" id=59]
 animations = [ {
 "frames": [ SubResource( 60 ) ],
@@ -602,14 +602,14 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 61 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 62 ) ],
 "loop": false,
 "name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 61 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 58 ) ],
@@ -617,14 +617,14 @@ animations = [ {
 "name": "attack",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ) ],
-"loop": false,
-"name": "attack_prep",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ) ],
 "loop": true,
 "name": "fly",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ) ],
+"loop": false,
+"name": "attack_prep",
 "speed": 5.0
 } ]
 
@@ -746,8 +746,12 @@ cast_to = Vector3( 0, -5, 0 )
 collision_mask = 130
 debug_shape_thickness = 3.0
 
+[node name="spawnInvTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="zeroPoint/hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="zeroPoint/hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="area_entered" from="aggro" to="." method="_on_aggro_area_entered"]
 [connection signal="area_exited" from="aggro" to="." method="_on_aggro_area_exited"]
+[connection signal="timeout" from="spawnInvTimer" to="." method="_on_spawnInvTimer_timeout"]
