@@ -10,9 +10,9 @@ extends Node
 func _ready():
 	pg.hasCounter = true
 	pg.hasSpin = true
-	pg.hasSlide   = true
-	pg.hasAirSpin = true
-	pg.hasDJ      = true
+	pg.hasSlide   = false
+	pg.hasAirSpin = false
+	pg.hasDJ      = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

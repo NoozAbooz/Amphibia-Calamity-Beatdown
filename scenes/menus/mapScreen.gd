@@ -57,10 +57,10 @@ func _ready():
 		get_node("lvl10").disabled = true
 		get_node("lvl10").set_focus_mode(0)
 	# re-disables level 2/3 and playground for demo purposes
-		#get_node("lvl2").disabled = true
-		#get_node("lvl2").set_focus_mode(0)
-		#get_node("play").disabled = true
-		#get_node("play").set_focus_mode(0)
+#		get_node("lvl2").disabled = true
+#		get_node("lvl2").set_focus_mode(0)
+#		get_node("play").disabled = true
+#		get_node("play").set_focus_mode(0)
 #		get_node("lvl3").disabled = true
 #		get_node("lvl3").set_focus_mode(0)
 	# removes arrow if been to wartwood
@@ -233,7 +233,7 @@ func _on_lvl3_focus_entered():
 	$cam/phone/levelName.text = "Trip to the Lake EX"
 	$cam/pockets/levelName.text = "Bonus Challenge"
 	$cam/phone/levelPic.play("bestFrondsHard")
-	
+
 func _on_lvl2_focus_entered():
 	fucusOnButton(get_node("lvl2"))
 	pg.levelName = "mountain"
@@ -244,5 +244,16 @@ func _on_lvl2_focus_entered():
 	$cam/pockets/levelName.text = "The Mountain Pass"
 	$cam/phone/levelPic.play("mountain")
 
+
+# for demo!
+#func _on_lvl2_focus_entered():
+#	fucusOnButton(get_node("lvl2"))
+#	pg.levelName = "bestFrondsHard"
+#	pg.levelNameDisc = "?-1 Bonus Level"
+#	pg.levelMusic = "nbd"
+#	pg.levelNum = 3
+#	$cam/phone/levelName.text = "Trip to the Lake EX"
+#	$cam/pockets/levelName.text = "Bonus Challenge"
+#	$cam/phone/levelPic.play("bestFrondsHard")
 
 

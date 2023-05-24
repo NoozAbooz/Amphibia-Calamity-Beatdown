@@ -306,7 +306,7 @@ func explode():
 		
 func stick():
 	if (get_node_or_null("zeroPoint/hitbox") != null):
-		get_node_or_null("zeroPoint/hitbox").queue_free()
+		hitboxCol.disabled = true
 	#get_node("despawnTimer").start(1.25)
 	active = false
 	velocity.x = 0

@@ -147,7 +147,7 @@ func playDialogue(dialogueName):
 func _process(delta):
 	if ($main.visible == false) and (loading == false):
 		$main.show()
-		get_node("main/buttonExit").grab_focus()
+		get_node("main/buttonDecoy").grab_focus()
 
 func _on_Timer_timeout():
 	tran.loadLevel("res://maps/wartwood.tscn")
@@ -189,3 +189,8 @@ func _on_button_pressed(buttonName):
 	refreshShop()	
 
 
+
+
+func _on_buttonDecoy_focus_entered():
+	curButtonDesc = ""
+	refreshShop()

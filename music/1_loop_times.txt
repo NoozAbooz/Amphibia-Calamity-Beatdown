@@ -5,3 +5,4 @@ wart: 3.430
 shop: 1.87
 roadtrip: 5.133
 mag: 2.438
+shop_maddie: 5.513

@@ -82,7 +82,7 @@ func _ready():
 	refreshShop()
 	
 	# plays music for shop
-	soundManager.playMusic("shop")
+	soundManager.playMusic("shopMaddie")
 	
 	# hides confirmation menu for now
 	get_node("confirm").hide()
@@ -107,7 +107,7 @@ func switchToMain():
 	state = "main"
 	get_node("main").show()
 	get_node("confirm").hide()
-	get_node("main/buttonExit").grab_focus()
+	get_node("main/buttonDecoy").grab_focus()
 	refreshShop()
 	
 func buyItem(item):
@@ -129,7 +129,9 @@ func buyItem(item):
 	
 func refreshShop():
 	# changes description at bottom of screen
-	if get_node("main/buttonExit").has_focus():
+	if get_node("main/buttonDecoy").has_focus():
+		get_node("NinePatchRect/description").text = ""
+	elif get_node("main/buttonExit").has_focus():
 		get_node("NinePatchRect/description").text = "Return to Wartwood?"
 	else:
 		get_node("NinePatchRect/description").text = curItem.desc
@@ -286,3 +288,7 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	tran.loadLevel("res://maps/wartwood.tscn")
+
+
+func _on_buttonDecoy_focus_entered():
+	get_node("NinePatchRect/description").text = " "

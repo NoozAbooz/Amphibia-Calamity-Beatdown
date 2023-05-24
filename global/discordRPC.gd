@@ -5,6 +5,8 @@ var application_id: int = 1063326299860504646
 var timestamp = OS.get_unix_time()
 
 func _ready() -> void:
+	if OS.get_name() != "Windows":
+		return
 	add_child(discord)
 	discord.connect("rpc_ready", self, "_on_discord_ready")
 	discord.establish_connection(application_id)
@@ -25,6 +27,9 @@ func _on_discord_ready(user: Dictionary) -> void:
 	discord.get_module("RichPresence").update_presence(presence)
 	
 func updateLevel(levelName, altDesc = "Currently in:"):
+	if OS.get_name() != "Windows":
+		return
+		
 	var presence := RichPresence.new()
 	presence.details = altDesc
 	presence.state = levelName

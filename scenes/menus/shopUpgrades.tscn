@@ -88,6 +88,20 @@ margin_left = 150.0
 margin_top = 460.0
 margin_right = 470.0
 margin_bottom = 520.0
+focus_neighbour_bottom = NodePath(".")
+theme = ExtResource( 11 )
+text = "Exit Shop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonDecoy" type="Button" parent="main"]
+margin_left = 150.0
+margin_top = 741.0
+margin_right = 470.0
+margin_bottom = 801.0
+focus_neighbour_top = NodePath("../buttonExit")
+focus_neighbour_bottom = NodePath("../options/buttonItem0")
 theme = ExtResource( 11 )
 text = "Exit Shop"
 __meta__ = {
@@ -335,6 +349,7 @@ one_shot = true
 
 [connection signal="focus_entered" from="main/buttonExit" to="." method="_on_buttonExit_focus_entered"]
 [connection signal="pressed" from="main/buttonExit" to="." method="_on_buttonExit_pressed"]
+[connection signal="focus_entered" from="main/buttonDecoy" to="." method="_on_buttonDecoy_focus_entered"]
 [connection signal="focus_entered" from="main/options/buttonItem0" to="." method="_on_buttonItem0_focus_entered"]
 [connection signal="pressed" from="main/options/buttonItem0" to="." method="_on_buttonItem_pressed"]
 [connection signal="focus_entered" from="main/options/buttonItem1" to="." method="_on_buttonItem1_focus_entered"]

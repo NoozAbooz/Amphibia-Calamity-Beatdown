@@ -22,11 +22,11 @@ const techBoost    = 0.15
 
 
 # attack unlocks
-var hasSpin    = false
-var hasSlide   = false
-var hasAirSpin = false
-var hasDJ      = false
-var hasCounter = false
+var hasSpin    = true
+var hasSlide   = true
+var hasAirSpin = true
+var hasDJ      = true
+var hasCounter = true
 
 # numer of players / player inputs
 var availableInputs = ["k0"]

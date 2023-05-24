@@ -279,6 +279,7 @@ __meta__ = {
 }
 
 [node name="mainMenu" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -574,7 +575,6 @@ __meta__ = {
 }
 
 [node name="creditsMenu" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -652,7 +652,7 @@ __meta__ = {
 
 [node name="names" type="VBoxContainer" parent="creditsMenu/namesCredits"]
 margin_right = 974.0
-margin_bottom = 3280.0
+margin_bottom = 3344.0
 rect_min_size = Vector2( 970, 572 )
 custom_constants/separation = 10
 __meta__ = {
@@ -1119,12 +1119,12 @@ valign = 1
 [node name="MusicList" type="HBoxContainer" parent="creditsMenu/namesCredits/names"]
 margin_top = 1752.0
 margin_right = 974.0
-margin_bottom = 1940.0
+margin_bottom = 2004.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="creditsMenu/namesCredits/names/MusicList"]
 margin_right = 485.0
-margin_bottom = 188.0
+margin_bottom = 252.0
 rect_min_size = Vector2( 485, 0 )
 
 [node name="name1" type="Label" parent="creditsMenu/namesCredits/names/MusicList/VBoxContainer"]
@@ -1133,14 +1133,25 @@ margin_bottom = 60.0
 rect_min_size = Vector2( 485, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
-text = "kidartyaam"
+text = "DenWellingston"
+align = 1
+valign = 1
+
+[node name="name4" type="Label" parent="creditsMenu/namesCredits/names/MusicList/VBoxContainer"]
+margin_top = 64.0
+margin_right = 485.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 485, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+text = "kiitzuna"
 align = 1
 valign = 1
 
 [node name="name2" type="Label" parent="creditsMenu/namesCredits/names/MusicList/VBoxContainer"]
-margin_top = 64.0
+margin_top = 128.0
 margin_right = 485.0
-margin_bottom = 124.0
+margin_bottom = 188.0
 rect_min_size = Vector2( 485, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1149,9 +1160,9 @@ align = 1
 valign = 1
 
 [node name="name3" type="Label" parent="creditsMenu/namesCredits/names/MusicList/VBoxContainer"]
-margin_top = 128.0
+margin_top = 192.0
 margin_right = 485.0
-margin_bottom = 188.0
+margin_bottom = 252.0
 rect_min_size = Vector2( 485, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1162,7 +1173,7 @@ valign = 1
 [node name="VBoxContainer2" type="VBoxContainer" parent="creditsMenu/namesCredits/names/MusicList"]
 margin_left = 489.0
 margin_right = 974.0
-margin_bottom = 188.0
+margin_bottom = 252.0
 rect_min_size = Vector2( 485, 0 )
 
 [node name="name1" type="Label" parent="creditsMenu/namesCredits/names/MusicList/VBoxContainer2"]
@@ -1171,14 +1182,25 @@ margin_bottom = 60.0
 rect_min_size = Vector2( 485, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
+text = "kidartyaam"
+align = 1
+valign = 1
+
+[node name="name4" type="Label" parent="creditsMenu/namesCredits/names/MusicList/VBoxContainer2"]
+margin_top = 64.0
+margin_right = 485.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 485, 60 )
+size_flags_vertical = 1
+theme = ExtResource( 2 )
 text = "Myles B. Parker"
 align = 1
 valign = 1
 
 [node name="name2" type="Label" parent="creditsMenu/namesCredits/names/MusicList/VBoxContainer2"]
-margin_top = 64.0
+margin_top = 128.0
 margin_right = 485.0
-margin_bottom = 124.0
+margin_bottom = 188.0
 rect_min_size = Vector2( 485, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1187,9 +1209,9 @@ align = 1
 valign = 1
 
 [node name="name3" type="Label" parent="creditsMenu/namesCredits/names/MusicList/VBoxContainer2"]
-margin_top = 128.0
+margin_top = 192.0
 margin_right = 485.0
-margin_bottom = 188.0
+margin_bottom = 252.0
 rect_min_size = Vector2( 485, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1198,9 +1220,9 @@ align = 1
 valign = 1
 
 [node name="VSpacer5" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 1950.0
+margin_top = 2014.0
 margin_right = 974.0
-margin_bottom = 2010.0
+margin_bottom = 2074.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1209,9 +1231,9 @@ align = 1
 valign = 1
 
 [node name="WRITERS" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 2020.0
+margin_top = 2084.0
 margin_right = 974.0
-margin_bottom = 2080.0
+margin_bottom = 2144.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 5 )
@@ -1221,9 +1243,9 @@ align = 1
 valign = 1
 
 [node name="name5" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 2090.0
+margin_top = 2154.0
 margin_right = 974.0
-margin_bottom = 2170.0
+margin_bottom = 2234.0
 rect_min_size = Vector2( 970, 80 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1232,9 +1254,9 @@ align = 1
 valign = 1
 
 [node name="WriterList" type="HBoxContainer" parent="creditsMenu/namesCredits/names"]
-margin_top = 2180.0
+margin_top = 2244.0
 margin_right = 974.0
-margin_bottom = 2304.0
+margin_bottom = 2368.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="creditsMenu/namesCredits/names/WriterList"]
@@ -1291,9 +1313,9 @@ align = 1
 valign = 1
 
 [node name="VSpacer6" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 2314.0
+margin_top = 2378.0
 margin_right = 974.0
-margin_bottom = 2374.0
+margin_bottom = 2438.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1302,9 +1324,9 @@ align = 1
 valign = 1
 
 [node name="SPECIALS" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 2384.0
+margin_top = 2448.0
 margin_right = 974.0
-margin_bottom = 2444.0
+margin_bottom = 2508.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 5 )
@@ -1314,9 +1336,9 @@ align = 1
 valign = 1
 
 [node name="SpecList" type="HBoxContainer" parent="creditsMenu/namesCredits/names"]
-margin_top = 2454.0
+margin_top = 2518.0
 margin_right = 974.0
-margin_bottom = 2706.0
+margin_bottom = 2770.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="creditsMenu/namesCredits/names/SpecList"]
@@ -1417,9 +1439,9 @@ align = 1
 valign = 1
 
 [node name="VSpacer7" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 2716.0
+margin_top = 2780.0
 margin_right = 974.0
-margin_bottom = 2776.0
+margin_bottom = 2840.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1428,9 +1450,9 @@ align = 1
 valign = 1
 
 [node name="SPECIALS2" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 2786.0
+margin_top = 2850.0
 margin_right = 974.0
-margin_bottom = 2846.0
+margin_bottom = 2910.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 5 )
@@ -1440,9 +1462,9 @@ align = 1
 valign = 1
 
 [node name="SpecList2" type="HBoxContainer" parent="creditsMenu/namesCredits/names"]
-margin_top = 2856.0
+margin_top = 2920.0
 margin_right = 974.0
-margin_bottom = 2916.0
+margin_bottom = 2980.0
 rect_min_size = Vector2( 970, 0 )
 alignment = 1
 
@@ -1478,9 +1500,9 @@ align = 1
 valign = 1
 
 [node name="name6" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 2926.0
+margin_top = 2990.0
 margin_right = 974.0
-margin_bottom = 2986.0
+margin_bottom = 3050.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1489,9 +1511,9 @@ align = 1
 valign = 1
 
 [node name="VSpacer2" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 2996.0
+margin_top = 3060.0
 margin_right = 974.0
-margin_bottom = 3056.0
+margin_bottom = 3120.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1500,9 +1522,9 @@ align = 1
 valign = 1
 
 [node name="VSpacer8" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 3066.0
+margin_top = 3130.0
 margin_right = 974.0
-margin_bottom = 3126.0
+margin_bottom = 3190.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1511,9 +1533,9 @@ align = 1
 valign = 1
 
 [node name="name7" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 3136.0
+margin_top = 3200.0
 margin_right = 974.0
-margin_bottom = 3196.0
+margin_bottom = 3260.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1522,9 +1544,9 @@ align = 1
 valign = 1
 
 [node name="VSpacer9" type="Label" parent="creditsMenu/namesCredits/names"]
-margin_top = 3206.0
+margin_top = 3270.0
 margin_right = 974.0
-margin_bottom = 3266.0
+margin_bottom = 3330.0
 rect_min_size = Vector2( 970, 60 )
 size_flags_vertical = 1
 theme = ExtResource( 2 )
@@ -1533,9 +1555,9 @@ align = 1
 valign = 1
 
 [node name="HSeparator2" type="HSeparator" parent="creditsMenu/namesCredits/names"]
-margin_top = 3276.0
+margin_top = 3340.0
 margin_right = 974.0
-margin_bottom = 3280.0
+margin_bottom = 3344.0
 rect_min_size = Vector2( 970, 0 )
 
 [node name="introAnim" type="AnimationPlayer" parent="."]

@@ -1191,11 +1191,6 @@ flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 476, 66, 68, 66 )
 
-[sub_resource type="AtlasTexture" id=250]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 0, 330, 68, 66 )
-
 [sub_resource type="AtlasTexture" id=129]
 flags = 1
 atlas = ExtResource( 1 )
@@ -1230,11 +1225,6 @@ region = Rect2( 340, 264, 68, 66 )
 flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 408, 264, 68, 66 )
-
-[sub_resource type="AtlasTexture" id=249]
-flags = 1
-atlas = ExtResource( 1 )
-region = Rect2( 68, 330, 68, 66 )
 
 [sub_resource type="AtlasTexture" id=259]
 flags = 1
@@ -1296,6 +1286,16 @@ flags = 1
 atlas = ExtResource( 1 )
 region = Rect2( 340, 198, 68, 66 )
 
+[sub_resource type="AtlasTexture" id=249]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 68, 330, 68, 66 )
+
+[sub_resource type="AtlasTexture" id=250]
+flags = 1
+atlas = ExtResource( 1 )
+region = Rect2( 0, 330, 68, 66 )
+
 [sub_resource type="SpriteFrames" id=136]
 animations = [ {
 "frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ) ],
@@ -1318,19 +1318,14 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 250 ) ],
-"loop": false,
-"name": "hurt",
+"frames": [  ],
+"loop": true,
+"name": "attack_bite",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 129 ), SubResource( 257 ), SubResource( 258 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ) ],
 "loop": true,
 "name": "dodge",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 249 ) ],
-"loop": false,
-"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 259 ), SubResource( 118 ), SubResource( 260 ), SubResource( 261 ), SubResource( 121 ), SubResource( 122 ) ],
@@ -1343,9 +1338,14 @@ animations = [ {
 "name": "attack_left",
 "speed": 5.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "attack_bite",
+"frames": [ SubResource( 249 ) ],
+"loop": false,
+"name": "hurt_air",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 250 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 5.0
 } ]
 
@@ -1411,7 +1411,7 @@ transform = Transform( -4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819,
 offset = Vector2( 0, 32 )
 pixel_size = 0.07
 frames = SubResource( 136 )
-animation = "hurt_floor"
+animation = "idle"
 
 [node name="hitbox" type="Area" parent="zeroPoint"]
 collision_layer = 32
