@@ -38,12 +38,24 @@ func _process(delta):
 		# sets color
 		glowColor = Color.from_hsv(glowHue, 0.5, 0.75, glowAlpha)
 		$glow.get_active_material(0).albedo_color = glowColor
+		# updates spawn and cam (in case falls onto player)
+		cam.ambushTarget = translation + camOffset
+		cam.ambushSpawnPoint = translation + Vector3(0, 2, 0)
 	if gravOn:
+		visible = true
 		# Gravity
+		velocity.x = 0
+		velocity.z = 0
 		velocity.y -= force_grav * delta
-		velocity = move_and_slide(velocity, Vector3.UP, true)
-		
-	
+		if (velocity.y <= -60):
+			velocity.y = -60
+		if is_on_floor():
+			move_and_collide(velocity)
+		else:
+			velocity = move_and_slide(velocity, Vector3.UP, true)
+	else:
+		visible = false
+
 
 func startGlowEffect():
 	glowActivated = true

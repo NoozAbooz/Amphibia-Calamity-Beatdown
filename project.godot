@@ -697,6 +697,7 @@ cart_jump={
 3d_physics/layer_14="Projectiles"
 3d_physics/layer_15="Enemy Only Barrier"
 3d_physics/layer_16="Minecart"
+3d_physics/layer_17="Mob Killers"
 
 [locale]
 

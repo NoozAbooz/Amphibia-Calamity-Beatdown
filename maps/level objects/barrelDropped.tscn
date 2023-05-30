@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://maps/level objects/barrelDropped.gd" type="Script" id=1]
+[ext_resource path="res://art/models/Barrel/Barrel_Texture_04.png" type="Texture" id=2]
+[ext_resource path="res://art/models/Barrel/barrel_closed.obj" type="ArrayMesh" id=3]
+
+[sub_resource type="SphereShape" id=5]
+radius = 1.52192
+
+[sub_resource type="CylinderShape" id=3]
+radius = 1.09821
+height = 2.3
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 2 )
+
+[node name="barrelDropped" type="KinematicBody"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0 )
+shape = SubResource( 5 )
+
+[node name="zeroPoint" type="Spatial" parent="."]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+
+[node name="hitbox" type="Area" parent="zeroPoint"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+collision_layer = 32
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape" type="CollisionShape" parent="zeroPoint/hitbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0 )
+shape = SubResource( 3 )
+
+[node name="barrel" type="MeshInstance" parent="zeroPoint"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -1, -2.5654 )
+mesh = ExtResource( 3 )
+material/0 = SubResource( 4 )

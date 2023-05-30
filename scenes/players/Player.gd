@@ -1555,7 +1555,7 @@ func _on_hurtbox_area_entered(area):
 		return
 	invincible = true
 	
-	var attackerLoc = attacker.translation
+	var attackerLoc = attacker.global_transform.origin
 	if area.is_in_group("bosses"):
 		attackerLoc += attacker.get_node("boss").translation
 	# makes visual effect

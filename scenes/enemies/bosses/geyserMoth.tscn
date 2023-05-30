@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://maps/level objects/geyser.gd" type="Script" id=1]
+[ext_resource path="res://scenes/enemies/bosses/geyserMoth.gd" type="Script" id=1]
 
 [sub_resource type="ConvexPolygonShape" id=269]
 points = PoolVector3Array( 1.5, 0, 1.5, 1.5, 0, -1.5, -1.5, 0, 1.5, -1.5, 0, -1.5, 0, 0.75, 0 )
@@ -91,7 +91,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id=198]
 resource_name = "steam"
-length = 4.0
+length = 5.00001
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("steam/partTop:emitting")
@@ -100,7 +100,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3.2 ),
+"times": PoolRealArray( 0, 4.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -112,7 +112,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 1.2, 3, 3.2, 3.83333, 3.9 ),
+"times": PoolRealArray( 0, 1, 1.2, 4, 4.2, 4.83333, 4.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 1, 0 ), Vector3( 0, 1, 0 ), Vector3( 0, 6, 0 ), Vector3( 0, 6, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
@@ -124,7 +124,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1, 3, 3.2 ),
+"times": PoolRealArray( 0, 1, 4, 4.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, true, false ]
@@ -136,7 +136,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1, 3, 3.2 ),
+"times": PoolRealArray( 0, 1, 4, 4.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, false, true ]
@@ -148,7 +148,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 1, 1.2, 3, 3.2 ),
+"times": PoolRealArray( 0, 1, 1.2, 4, 4.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -4, 0 ), Vector3( 0, -4, 0 ), Vector3( 0, 3, 0 ), Vector3( 0, 3, 0 ), Vector3( 0, -4, 0 ) ]
@@ -160,166 +160,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 3, 3.2, 3.83333, 3.9 ),
+"times": PoolRealArray( 0, 4, 4.2, 4.83333, 4.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -1, 0 ), Vector3( 0, -1, 0 ), Vector3( 0, -7, 0 ), Vector3( 0, -7, 0 ), Vector3( 0, -1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=199]
-resource_name = "steamConst"
-length = 0.166667
-loop = true
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/path = NodePath("steam/partTop:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("steam/partTop:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 6, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("steam/partRise:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("hitboxes/hitbox/hitboxCollision:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("hitboxes/hitbox/hitboxCollision:translation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 3, 0 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("steam/partRise:translation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, -1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=200]
-resource_name = "warn"
-length = 10.0
-loop = true
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/path = NodePath("steam/partTop:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("steam/partTop:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 1, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("steam/partRise:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("hitboxes/hitbox/hitboxCollision:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("hitboxes/hitbox/hitboxCollision:translation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, -4, 0 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("steam/partRise:translation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, -1, 0 ) ]
 }
 
 [sub_resource type="SpatialMaterial" id=270]
@@ -327,13 +171,18 @@ flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 0.882353, 0.968627, 0.941176, 0.921569 )
 
-[sub_resource type="SphereMesh" id=195]
+[sub_resource type="SphereMesh" id=271]
 material = SubResource( 270 )
 radial_segments = 6
 rings = 3
 
+[sub_resource type="SpatialMaterial" id=272]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.882353, 0.968627, 0.941176, 0.803922 )
+
 [sub_resource type="SphereMesh" id=196]
-material = SubResource( 270 )
+material = SubResource( 272 )
 height = 5.0
 radial_segments = 6
 rings = 3
@@ -370,16 +219,14 @@ material/0 = null
 autoplay = "idle"
 anims/idle = SubResource( 194 )
 anims/steam = SubResource( 198 )
-anims/steamConst = SubResource( 199 )
-anims/warn = SubResource( 200 )
 
 [node name="steam" type="Spatial" parent="."]
 
 [node name="partTop" type="CPUParticles" parent="steam"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 amount = 20
 lifetime = 0.1
-mesh = SubResource( 195 )
+mesh = SubResource( 271 )
 emission_shape = 5
 emission_ring_radius = 2.0
 emission_ring_inner_radius = 0.0
@@ -394,6 +241,7 @@ scale_amount = 0.5
 
 [node name="partRise" type="CPUParticles" parent="steam"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+emitting = false
 amount = 10
 lifetime = 0.2
 mesh = SubResource( 196 )
@@ -416,22 +264,18 @@ material/0 = SubResource( 5 )
 
 [node name="hitboxes" type="Spatial" parent="."]
 
-[node name="hitbox" type="Area" parent="hitboxes"]
+[node name="hitbox" type="Area" parent="hitboxes" groups=["geyser"]]
 collision_layer = 40
 collision_mask = 0
 monitoring = false
 
 [node name="hitboxCollision" type="CollisionShape" parent="hitboxes/hitbox"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0 )
 shape = SubResource( 197 )
-
-[node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="camera_entered" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_camera_entered"]
-[connection signal="camera_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_camera_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -583,6 +583,10 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	# note: only applies nor non-looping animations
 
 func _on_hurtbox_area_entered(area):
+	# wasp despawners
+	if area.is_in_group("mobKiller"):
+		queue_free()
+		return
 	# one way barriers for ambushes
 	if area.is_in_group("oneWayRight"):
 		onLeftWall = true

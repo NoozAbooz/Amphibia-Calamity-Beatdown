@@ -547,33 +547,17 @@ tracks/5/keys = {
 atlas = ExtResource( 3 )
 region = Rect2( 200, 0, 50, 70 )
 
-[sub_resource type="AtlasTexture" id=62]
+[sub_resource type="AtlasTexture" id=61]
 atlas = ExtResource( 3 )
 region = Rect2( 150, 0, 50, 70 )
 
-[sub_resource type="AtlasTexture" id=61]
+[sub_resource type="AtlasTexture" id=62]
 atlas = ExtResource( 3 )
 region = Rect2( 150, 0, 50, 70 )
 
 [sub_resource type="AtlasTexture" id=58]
 atlas = ExtResource( 3 )
 region = Rect2( 250, 70, 50, 70 )
-
-[sub_resource type="AtlasTexture" id=68]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 50, 70 )
-
-[sub_resource type="AtlasTexture" id=69]
-atlas = ExtResource( 3 )
-region = Rect2( 200, 140, 50, 70 )
-
-[sub_resource type="AtlasTexture" id=70]
-atlas = ExtResource( 3 )
-region = Rect2( 250, 140, 50, 70 )
-
-[sub_resource type="AtlasTexture" id=71]
-atlas = ExtResource( 3 )
-region = Rect2( 50, 0, 50, 70 )
 
 [sub_resource type="AtlasTexture" id=63]
 atlas = ExtResource( 3 )
@@ -595,6 +579,22 @@ region = Rect2( 150, 70, 50, 70 )
 atlas = ExtResource( 3 )
 region = Rect2( 200, 70, 50, 70 )
 
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=69]
+atlas = ExtResource( 3 )
+region = Rect2( 200, 140, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=70]
+atlas = ExtResource( 3 )
+region = Rect2( 250, 140, 50, 70 )
+
+[sub_resource type="AtlasTexture" id=71]
+atlas = ExtResource( 3 )
+region = Rect2( 50, 0, 50, 70 )
+
 [sub_resource type="SpriteFrames" id=59]
 animations = [ {
 "frames": [ SubResource( 60 ) ],
@@ -602,14 +602,14 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 62 ) ],
-"loop": false,
-"name": "hurt_air",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 61 ) ],
 "loop": false,
 "name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 62 ) ],
+"loop": false,
+"name": "hurt_air",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 58 ) ],
@@ -617,14 +617,14 @@ animations = [ {
 "name": "attack",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ) ],
-"loop": true,
-"name": "fly",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ) ],
 "loop": false,
 "name": "attack_prep",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ) ],
+"loop": true,
+"name": "fly",
 "speed": 5.0
 } ]
 
@@ -696,7 +696,7 @@ shape = SubResource( 15 )
 [node name="hurtbox" type="Area" parent="zeroPoint"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, 0 )
 collision_layer = 0
-collision_mask = 4108
+collision_mask = 69644
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="zeroPoint/hurtbox"]

@@ -1315,9 +1315,9 @@ region = Rect2( 160, 0, 160, 94 )
 atlas = ExtResource( 3 )
 region = Rect2( 320, 470, 160, 94 )
 
-[sub_resource type="AtlasTexture" id=139]
+[sub_resource type="AtlasTexture" id=146]
 atlas = ExtResource( 3 )
-region = Rect2( 160, 470, 160, 94 )
+region = Rect2( 0, 470, 160, 94 )
 
 [sub_resource type="AtlasTexture" id=140]
 atlas = ExtResource( 3 )
@@ -1343,9 +1343,9 @@ region = Rect2( 640, 94, 160, 94 )
 atlas = ExtResource( 3 )
 region = Rect2( 800, 94, 160, 94 )
 
-[sub_resource type="AtlasTexture" id=146]
+[sub_resource type="AtlasTexture" id=139]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 470, 160, 94 )
+region = Rect2( 160, 470, 160, 94 )
 
 [sub_resource type="AtlasTexture" id=150]
 atlas = ExtResource( 3 )
@@ -1370,18 +1370,6 @@ region = Rect2( 640, 188, 160, 94 )
 [sub_resource type="AtlasTexture" id=155]
 atlas = ExtResource( 3 )
 region = Rect2( 800, 188, 160, 94 )
-
-[sub_resource type="AtlasTexture" id=147]
-atlas = ExtResource( 3 )
-region = Rect2( 480, 470, 160, 94 )
-
-[sub_resource type="AtlasTexture" id=148]
-atlas = ExtResource( 3 )
-region = Rect2( 640, 470, 160, 94 )
-
-[sub_resource type="AtlasTexture" id=149]
-atlas = ExtResource( 3 )
-region = Rect2( 800, 470, 160, 94 )
 
 [sub_resource type="AtlasTexture" id=156]
 atlas = ExtResource( 3 )
@@ -1419,6 +1407,18 @@ region = Rect2( 160, 376, 160, 94 )
 atlas = ExtResource( 3 )
 region = Rect2( 320, 376, 160, 94 )
 
+[sub_resource type="AtlasTexture" id=147]
+atlas = ExtResource( 3 )
+region = Rect2( 480, 470, 160, 94 )
+
+[sub_resource type="AtlasTexture" id=148]
+atlas = ExtResource( 3 )
+region = Rect2( 640, 470, 160, 94 )
+
+[sub_resource type="AtlasTexture" id=149]
+atlas = ExtResource( 3 )
+region = Rect2( 800, 470, 160, 94 )
+
 [sub_resource type="SpriteFrames" id=136]
 animations = [ {
 "frames": [ SubResource( 137 ) ],
@@ -1436,9 +1436,9 @@ animations = [ {
 "name": "hurt_floor",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 139 ) ],
+"frames": [ SubResource( 146 ) ],
 "loop": false,
-"name": "hurt_air",
+"name": "hurt",
 "speed": 0.0
 }, {
 "frames": [ SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ) ],
@@ -1446,9 +1446,9 @@ animations = [ {
 "name": "walk",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 146 ) ],
+"frames": [ SubResource( 139 ) ],
 "loop": false,
-"name": "hurt",
+"name": "hurt_air",
 "speed": 0.0
 }, {
 "frames": [ SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ) ],
@@ -1456,14 +1456,14 @@ animations = [ {
 "name": "attack_punch",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 147 ), SubResource( 148 ), SubResource( 149 ) ],
-"loop": false,
-"name": "dead",
-"speed": 0.0
-}, {
 "frames": [ SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ) ],
 "loop": true,
 "name": "attack_spin",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 147 ), SubResource( 148 ), SubResource( 149 ) ],
+"loop": false,
+"name": "dead",
 "speed": 0.0
 } ]
 
@@ -1598,6 +1598,7 @@ animation = "dead"
 offset = Vector2( 0, 95 )
 pixel_size = 0.05
 frames = SubResource( 172 )
+frame = 1
 playing = true
 
 [node name="hitbox" type="Area" parent="zeroPoint"]

@@ -1,8 +1,8 @@
 extends Area
 
 export var visibleMesh = false
-export var lockZ = false
-export var unlockZ = false
+export var lockY = false
+export var unlockY = false
 
 func _ready():
 	if (visibleMesh == false):
@@ -11,9 +11,9 @@ func _ready():
 
 func _on_cameraWall_area_entered(area):		
 	var cam = area.get_parent()
-	if lockZ:
+	if lockY:
 		cam.lockedHeight = true
-	elif unlockZ:
+	elif unlockY:
 		cam.lockedHeight = false
 	elif (self.global_transform.origin.x >= cam.global_transform.origin.x):
 		cam.onRightWall = true
@@ -22,7 +22,7 @@ func _on_cameraWall_area_entered(area):
 
 func _on_cameraWall_area_exited(area):
 	var cam = area.get_parent()
-	if lockZ or unlockZ:
+	if lockY or unlockY:
 		pass
 	cam.onLeftWall = false
 	cam.onRightWall = false
